@@ -1,120 +1,117 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Huffle’s Master Command Reference</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #FDF6F0;
-      color: #1C1C1C;
-      padding: 40px;
-      line-height: 1.6;
-    }
-    h1 {
-      color: #EEBA35;
-      font-size: 2.5em;
-      border-bottom: 2px solid #444;
-      padding-bottom: 10px;
-    }
-    h2 {
-      color: #1C1C1C;
-      background-color: #FFD25F;
-      padding: 10px;
-      border-radius: 6px;
-      margin-top: 40px;
-    }
-    h3 {
-      color: #444;
-      margin-top: 20px;
-    }
-    code {
-      background-color: #eee;
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-family: monospace;
-    }
-    .section {
-      margin-bottom: 60px;
-      border-left: 6px solid #EEBA35;
-      padding-left: 20px;
-    }
-    .category {
-      margin-top: 20px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-      background-color: #FFFBEA;
-    }
-    th, td {
-      border: 1px solid #1C1C1C;
-      padding: 10px;
-      text-align: left;
-    }
-    th {
-      background-color: #FFD25F;
-      color: #1C1C1C;
-    }
-    td code {
-      background-color: #f0f0f0;
-    }
-    footer {
-      margin-top: 60px;
-      font-size: 0.9em;
-      color: #444;
-      text-align: center;
-    }
-  </style>
-</head>
-<body>
-  <h1>🐾 Huffle’s Master Command Reference</h1>
-  <p>Every usable command across every system we touch. Comfort-coded, scan-ready, and built for recall.</p>
-
-  <!-- Example Section: Linux -->
-  <div class="section">
-    <h2>🐧 Linux</h2>
-    <div class="category">
-      <h3>📁 File & Directory</h3>
-      <table>
-        <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-        <tr><td><code>ls</code></td><td>List files</td><td>Use <code>ls -la</code> for hidden files</td></tr>
-        <tr><td><code>mkdir folder</code></td><td>Create folder</td><td>Creates in current directory</td></tr>
-        <tr><td><code>rm -rf folder</code></td><td>Delete folder</td><td>Use with caution</td></tr>
-      </table>
-    </div>
+<!-- 🐺 Linux -->
+<div class="section">
+  <h2 style="color:#1E3A8A; background-color:#AAB2BD;">🐺 Linux</h2>
+  <div class="category">
+    <h3>📁 File & Directory</h3>
+    <table>
+      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
+      <tr><td><code>ls -la</code></td><td>List all files</td><td>Includes hidden files</td></tr>
+      <tr><td><code>mkdir folder</code></td><td>Create directory</td><td>Creates in current path</td></tr>
+      <tr><td><code>rm -rf folder</code></td><td>Delete directory</td><td>Recursive and forceful</td></tr>
+    </table>
   </div>
-
-  <!-- Mobile & MDM Section -->
-  <div class="section">
-    <h2>📱 Mobile & MDM Commands</h2>
-    <div class="category">
-      <h3>🍏 iOS MDM</h3>
-      <table>
-        <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-        <tr><td><code>InstallProfile</code></td><td>Push config profile</td><td>Wi-Fi, VPN, restrictions</td></tr>
-        <tr><td><code>EraseDevice</code></td><td>Wipe device remotely</td><td>Factory reset</td></tr>
-      </table>
-    </div>
-    <div class="category">
-      <h3>🤖 Android MDM</h3>
-      <table>
-        <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-        <tr><td><code>adb devices</code></td><td>List connected devices</td><td>Shows device ID</td></tr>
-        <tr><td><code>adb install app.apk</code></td><td>Install APK</td><td>Requires USB debugging</td></tr>
-      </table>
-    </div>
+  <div class="category">
+    <h3>🌐 Networking</h3>
+    <table>
+      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
+      <tr><td><code>ip a</code></td><td>Show IP addresses</td><td>Replaces <code>ifconfig</code></td></tr>
+      <tr><td><code>ping google.com</code></td><td>Test connectivity</td><td>Use <code>-c 4</code> for 4 pings</td></tr>
+      <tr><td><code>netstat -tuln</code></td><td>List open ports</td><td>TCP/UDP listening</td></tr>
+    </table>
   </div>
+</div>
 
-  <!-- Placeholder for more OS tables -->
-  <div class="section">
-    <h2>🧠 More OS Tables Coming Soon</h2>
-    <p>ChromeOS, BSD, Solaris, AIX, Raspberry Pi, Cisco IOS, JunOS, QNX, VMware ESXi, and more will be added here.</p>
+<!-- 🖥️ Windows CMD -->
+<div class="section">
+  <h2 style="color:#1E3A8A; background-color:#AAB2BD;">🖥️ Windows CMD</h2>
+  <div class="category">
+    <h3>📁 File & Directory</h3>
+    <table>
+      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
+      <tr><td><code>dir</code></td><td>List files</td><td>Use <code>/a</code> for all files</td></tr>
+      <tr><td><code>mkdir folder</code></td><td>Create folder</td><td>Creates in current directory</td></tr>
+      <tr><td><code>del file.txt</code></td><td>Delete file</td><td>Use <code>/f</code> to force</td></tr>
+    </table>
   </div>
+  <div class="category">
+    <h3>🌐 Networking</h3>
+    <table>
+      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
+      <tr><td><code>ipconfig</code></td><td>Show IP config</td><td>Use <code>/all</code> for full details</td></tr>
+      <tr><td><code>ping google.com</code></td><td>Test connection</td><td>Use <code>-n 4</code> for 4 pings</td></tr>
+      <tr><td><code>netstat -an</code></td><td>List ports</td><td>Shows active connections</td></tr>
+    </table>
+  </div>
+</div>
 
-  <footer>
-    Built by Huffle’s IT Services LLC — Veteran-coded, comfort-driven, and scan-ready for every overlay.
-  </footer>
-</body>
-</html>
+<!-- 🔧 PowerShell -->
+<div class="section">
+  <h2 style="color:#1E3A8A; background-color:#AAB2BD;">🔧 PowerShell</h2>
+  <div class="category">
+    <h3>🧠 System & Services</h3>
+    <table>
+      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
+      <tr><td><code>Get-Service</code></td><td>List services</td><td>Use <code>| Where-Object</code> to filter</td></tr>
+      <tr><td><code>Restart-Service spooler</code></td><td>Restart service</td><td>Useful for printers</td></tr>
+      <tr><td><code>Get-Process</code></td><td>List processes</td><td>Use <code>| Sort-Object CPU</code></td></tr>
+    </table>
+  </div>
+  <div class="category">
+    <h3>📁 File & Output</h3>
+    <table>
+      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
+      <tr><td><code>Get-ChildItem</code></td><td>List files</td><td>Use <code>-Recurse</code> for subfolders</td></tr>
+      <tr><td><code>Remove-Item file.txt</code></td><td>Delete file</td><td>Use <code>-Force</code> to override</td></tr>
+      <tr><td><code>Out-File output.txt</code></td><td>Save output</td><td>Redirects command results</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- 🍎 macOS Terminal -->
+<div class="section">
+  <h2 style="color:#1E3A8A; background-color:#AAB2BD;">🍎 macOS Terminal</h2>
+  <div class="category">
+    <h3>📁 File & System</h3>
+    <table>
+      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
+      <tr><td><code>ls -G</code></td><td>List files with color</td><td>macOS-specific flag</td></tr>
+      <tr><td><code>open .</code></td><td>Open current folder</td><td>Launches Finder</td></tr>
+      <tr><td><code>defaults write</code></td><td>Change system setting</td><td>Used for UI tweaks</td></tr>
+    </table>
+  </div>
+  <div class="category">
+    <h3>🌐 Networking</h3>
+    <table>
+      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
+      <tr><td><code>networksetup -listallhardwareports</code></td><td>List interfaces</td><td>Shows Ethernet/Wi-Fi</td></tr>
+      <tr><td><code>ping -c 4 google.com</code></td><td>Test connection</td><td>macOS uses <code>-c</code></td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- 🍏 iOS MDM -->
+<div class="section">
+  <h2 style="color:#1E3A8A; background-color:#AAB2BD;">🍏 iOS MDM</h2>
+  <div class="category">
+    <h3>📱 Device Management</h3>
+    <table>
+      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
+      <tr><td><code>InstallProfile</code></td><td>Push config profile</td><td>Wi-Fi, VPN, restrictions</td></tr>
+      <tr><td><code>EraseDevice</code></td><td>Wipe device remotely</td><td>Factory reset</td></tr>
+      <tr><td><code>DeviceLock</code></td><td>Lock device</td><td>Displays custom message</td></tr>
+      <tr><td><code>ClearPasscode</code></td><td>Remove passcode</td><td>Supervised only</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- 🤖 Android MDM -->
+<div class="section">
+  <h2 style="color:#1E3A8A; background-color:#AAB2BD;">🤖 Android MDM</h2>
+  <div class="category">
+    <h3>🔧 ADB Commands</h3>
+    <table>
+      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
+      <tr><td><code>adb devices</code></td><td>List devices</td><td>Shows device ID</td></tr>
+      <tr><td><code>adb install app.apk</code></td><td>Install APK</td><td>Requires USB debugging</td></tr>
+      <tr><td><code>adb shell pm uninstall</code></td><td>Remove app</td><td>Use package name</td></tr>
+      <
