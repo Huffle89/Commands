@@ -2,165 +2,45 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>🍎 macOS CLI Reference</title>
+  <title>🍎 macOS Terminal Overlay</title>
   <style>
     body {
       background-color: #0A0A0A;
       font-family: 'Segoe UI', sans-serif;
       color: #1E3A8A;
-      padding: 20px;
-    }
-    .logo-container {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      background-color: #1A1A1A;
-      padding: 8px;
-      border-radius: 8px;
-      border: 2px solid #1E3A8A;
-      z-index: 1000;
-    }
-    .logo {
-      height: 48px;
-      width: auto;
-    }
-    h1 {
-      color: #1E3A8A;
+      padding: 40px;
       text-align: center;
-      margin-bottom: 10px;
     }
-    .compatibility {
-      background-color: #1A1A1A;
-      border: 2px solid #1E3A8A;
-      border-radius: 8px;
-      padding: 15px;
-      margin-bottom: 40px;
-      font-size: 1em;
-    }
-    .compatibility strong {
+    table, th, td {
       color: #FFFFFF;
-    }
-    .section {
-      margin-bottom: 50px;
-      border: 2px solid #1E3A8A;
-      border-radius: 8px;
-      padding: 20px;
-      background-color: #1A1A1A;
-    }
-    h2 {
-      background-color: #1E3A8A;
-      color: #FFFFFF;
-      padding: 10px;
-      border-radius: 6px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-    }
-    th, td {
-      border: 1px solid #1E3A8A;
-      padding: 10px;
-      text-align: left;
-    }
-    th {
-      background-color: #1E3A8A;
-      color: #FFFFFF;
-    }
-    code {
-      background-color: #2C2C2C;
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-family: Consolas, monospace;
-      color: #FFFFFF;
-    }
-    .back-button {
-      text-align: center;
-      margin-top: 40px;
-    }
-    .back-button a {
-      background-color: #1E3A8A;
-      color: #FFFFFF;
-      padding: 12px 24px;
-      font-size: 1.1em;
-      border-radius: 8px;
-      text-decoration: none;
-      display: inline-block;
-      transition: background-color 0.3s ease;
-    }
-    .back-button a:hover {
-      background-color: #2F4EB2;
-    }
-    footer {
-      margin-top: 60px;
-      padding: 20px;
-      text-align: center;
-      font-size: 0.9em;
-      color: #888;
-    }
-    footer a {
-      color: #1E3A8A;
-      text-decoration: none;
-    }
-    footer a:hover {
-      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <div class="logo-container">
-    <img src="Logo.png" alt="Huffle’s IT Services Logo" class="logo">
-  </div>
+  <h1>🍎 macOS Terminal Overlay</h1>
 
-  <h1>🍎 macOS CLI Command Reference</h1>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A; border-collapse: collapse;">
+    <tr>
+      <th>Command</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>ls</td>
+      <td>List directory contents</td>
+    </tr>
+    <tr>
+      <td>cd</td>
+      <td>Change directory</td>
+    </tr>
+    <tr>
+      <td>brew install package</td>
+      <td>Install software via Homebrew</td>
+    </tr>
+    <tr>
+      <td>open .</td>
+      <td>Open current folder in Finder</td>
+    </tr>
+  </table>
 
-  <div class="compatibility">
-    <p><strong>Works on:</strong> macOS Ventura, Monterey, Big Sur</p>
-    <p><strong>Required Tools:</strong> Terminal (bash or zsh)</p>
-  </div>
-
-  <div class="section">
-    <h2>🔧 File & System</h2>
-    <table>
-      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>ls -la</code></td><td>List files</td><td>Long format, all files</td></tr>
-      <tr><td><code>cd /path</code></td><td>Change directory</td><td>Navigate folders</td></tr>
-      <tr><td><code>mkdir new</code></td><td>Create folder</td><td>Make directory</td></tr>
-      <tr><td><code>rm -rf folder</code></td><td>Delete folder</td><td>Recursive, force</td></tr>
-      <tr><td><code>touch file.txt</code></td><td>Create file</td><td>Empty file</td></tr>
-    </table>
-
-    <h2>🧠 System & Maintenance</h2>
-    <table>
-      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>sudo periodic daily</code></td><td>Run daily scripts</td><td>Maintenance tasks</td></tr>
-      <tr><td><code>diskutil list</code></td><td>List disks</td><td>Identify volumes</td></tr>
-      <tr><td><code>top</code></td><td>Live processes</td><td>Resource monitor</td></tr>
-      <tr><td><code>ps aux</code></td><td>List processes</td><td>All users</td></tr>
-      <tr><td><code>kill PID</code></td><td>Terminate process</td><td>Use with <code>ps</code></td></tr>
-    </table>
-
-    <h2>📦 Network & Security</h2>
-    <table>
-      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>ifconfig</code></td><td>IP info</td><td>All interfaces</td></tr>
-      <tr><td><code>ping 8.8.8.8</code></td><td>Ping test</td><td>Check connectivity</td></tr>
-      <tr><td><code>sudo dscacheutil -flushcache</code></td><td>Flush DNS</td><td>Clear cache</td></tr>
-      <tr><td><code>sudo spctl --status</code></td><td>Gatekeeper status</td><td>App security</td></tr>
-      <tr><td><code>csrutil status</code></td><td>SIP status</td><td>System Integrity Protection</td></tr>
-    </table>
-  </div>
-
-  <div class="back-button">
-    <a href="Huffles-IT-Services-Code-Reference.html">🔙 Back to Code Reference</a>
-  </div>
-
-  <footer>
-    <hr style="border-color: #1E3A8A; margin-bottom: 20px;">
-    <p>© 2025 Huffle’s IT Services LLC. All rights reserved.</p>
-    <p>This command reference and all associated content—including overlays, styling, and the Huffle’s IT Services logo—are protected intellectual property. Unauthorized reproduction or redistribution is prohibited.</p>
-    <p>Sources: Apple Support, macOS Terminal documentation, and community cheat sheets.</p>
-    <p style="margin-top: 20px;">Veteran-owned. Porch-coded. A+ and Security+ certified. Every command is a conversation. Every workflow is a welcome.</p>
-  </footer>
 </body>
 </html>
