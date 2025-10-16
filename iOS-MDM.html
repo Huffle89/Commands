@@ -2,165 +2,45 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>📱 iOS MDM CLI Reference</title>
+  <title>📱 iOS MDM Overlay</title>
   <style>
     body {
       background-color: #0A0A0A;
       font-family: 'Segoe UI', sans-serif;
       color: #1E3A8A;
-      padding: 20px;
-    }
-    .logo-container {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      background-color: #1A1A1A;
-      padding: 8px;
-      border-radius: 8px;
-      border: 2px solid #1E3A8A;
-      z-index: 1000;
-    }
-    .logo {
-      height: 48px;
-      width: auto;
-    }
-    h1 {
-      color: #1E3A8A;
+      padding: 40px;
       text-align: center;
-      margin-bottom: 10px;
     }
-    .compatibility {
-      background-color: #1A1A1A;
-      border: 2px solid #1E3A8A;
-      border-radius: 8px;
-      padding: 15px;
-      margin-bottom: 40px;
-      font-size: 1em;
-    }
-    .compatibility strong {
+    table, th, td {
       color: #FFFFFF;
-    }
-    .section {
-      margin-bottom: 50px;
-      border: 2px solid #1E3A8A;
-      border-radius: 8px;
-      padding: 20px;
-      background-color: #1A1A1A;
-    }
-    h2 {
-      background-color: #1E3A8A;
-      color: #FFFFFF;
-      padding: 10px;
-      border-radius: 6px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-    }
-    th, td {
-      border: 1px solid #1E3A8A;
-      padding: 10px;
-      text-align: left;
-    }
-    th {
-      background-color: #1E3A8A;
-      color: #FFFFFF;
-    }
-    code {
-      background-color: #2C2C2C;
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-family: Consolas, monospace;
-      color: #FFFFFF;
-    }
-    .back-button {
-      text-align: center;
-      margin-top: 40px;
-    }
-    .back-button a {
-      background-color: #1E3A8A;
-      color: #FFFFFF;
-      padding: 12px 24px;
-      font-size: 1.1em;
-      border-radius: 8px;
-      text-decoration: none;
-      display: inline-block;
-      transition: background-color 0.3s ease;
-    }
-    .back-button a:hover {
-      background-color: #2F4EB2;
-    }
-    footer {
-      margin-top: 60px;
-      padding: 20px;
-      text-align: center;
-      font-size: 0.9em;
-      color: #888;
-    }
-    footer a {
-      color: #1E3A8A;
-      text-decoration: none;
-    }
-    footer a:hover {
-      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <div class="logo-container">
-    <img src="Logo.png" alt="Huffle’s IT Services Logo" class="logo">
-  </div>
+  <h1>📱 iOS MDM Overlay</h1>
 
-  <h1>📱 iOS MDM CLI Command Reference</h1>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A; border-collapse: collapse;">
+    <tr>
+      <th>Action</th>
+      <th>Command / Setting</th>
+    </tr>
+    <tr>
+      <td>Enroll Device</td>
+      <td>Install MDM profile via Apple Configurator or DEP</td>
+    </tr>
+    <tr>
+      <td>Remove MDM</td>
+      <td>Erase device or remove profile (if allowed)</td>
+    </tr>
+    <tr>
+      <td>Push App</td>
+      <td>Use MDM console to deploy app remotely</td>
+    </tr>
+    <tr>
+      <td>Restrict Settings</td>
+      <td>Apply configuration profile with restrictions</td>
+    </tr>
+  </table>
 
-  <div class="compatibility">
-    <p><strong>Works on:</strong> iOS devices enrolled in MDM</p>
-    <p><strong>Required Tools:</strong> Apple Configurator, MDM server access</p>
-  </div>
-
-  <div class="section">
-    <h2>🔧 Device Enrollment & Setup</h2>
-    <table>
-      <tr><th>Command / Action</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>profiles -P</code></td><td>List profiles</td><td>Shows installed MDM profiles</td></tr>
-      <tr><td><code>profiles -R -p UUID</code></td><td>Remove profile</td><td>Use profile UUID</td></tr>
-      <tr><td><code>profiles -I -F /path/to.mobileconfig</code></td><td>Install profile</td><td>From file</td></tr>
-      <tr><td>Apple Configurator 2</td><td>Enroll device</td><td>Supervised mode</td></tr>
-      <tr><td>DEP enrollment</td><td>Automated setup</td><td>Requires Apple Business Manager</td></tr>
-    </table>
-
-    <h2>🧠 Restrictions & Commands</h2>
-    <table>
-      <tr><th>Command / Payload</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>Restrictions</code></td><td>Limit features</td><td>Camera, App Store, etc.</td></tr>
-      <tr><td><code>DeviceLock</code></td><td>Lock device</td><td>Immediate action</td></tr>
-      <tr><td><code>EraseDevice</code></td><td>Wipe device</td><td>Factory reset</td></tr>
-      <tr><td><code>InstallApplication</code></td><td>Push app</td><td>Requires App Store ID</td></tr>
-      <tr><td><code>ClearPasscode</code></td><td>Remove passcode</td><td>Supervised only</td></tr>
-    </table>
-
-    <h2>📦 Monitoring & Reporting</h2>
-    <table>
-      <tr><th>Command / Query</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>DeviceInformation</code></td><td>Query device</td><td>Returns hardware/software info</td></tr>
-      <tr><td><code>SecurityInfo</code></td><td>Query security</td><td>Passcode, encryption status</td></tr>
-      <tr><td><code>InstalledApplicationList</code></td><td>List apps</td><td>Returns bundle IDs</td></tr>
-      <tr><td><code>ProfileList</code></td><td>List profiles</td><td>Returns installed profiles</td></tr>
-      <tr><td><code>CertificateList</code></td><td>List certificates</td><td>Returns trusted certs</td></tr>
-    </table>
-  </div>
-
-  <div class="back-button">
-    <a href="Huffles-IT-Services-Code-Reference.html">🔙 Back to Code Reference</a>
-  </div>
-
-  <footer>
-    <hr style="border-color: #1E3A8A; margin-bottom: 20px;">
-    <p>© 2025 Huffle’s IT Services LLC. All rights reserved.</p>
-    <p>This command reference and all associated content—including overlays, styling, and the Huffle’s IT Services logo—are protected intellectual property. Unauthorized reproduction or redistribution is prohibited.</p>
-    <p>Sources: Apple MDM documentation, Apple Configurator guides, and community MDM payload references.</p>
-    <p style="margin-top: 20px;">Veteran-owned. Porch-coded. A+ and Security+ certified. Every command is a conversation. Every workflow is a welcome.</p>
-  </footer>
 </body>
 </html>
