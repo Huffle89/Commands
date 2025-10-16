@@ -1,1 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🖥️ Windows CMD Commands</title>
+  <style>
+    body {
+      background-color: #0A0A0A;
+      font-family: 'Segoe UI', sans-serif;
+      color: #1E3A8A;
+      padding: 20px;
+    }
+    h1 {
+      color: #1E3A8A;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .section {
+      margin-bottom: 50px;
+      border: 2px solid #1E3A8A;
+      border-radius: 8px;
+      padding: 20px;
+      background-color: #1A1A1A;
+    }
+    h2 {
+      background-color: #1E3A8A;
+      color: #FFFFFF;
+      padding: 10px;
+      border-radius: 6px;
+    }
+    h3 {
+      color: #1E3A8A;
+      margin-top: 30px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      border: 1px solid #1E3A8A;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #1E3A8A;
+      color: #FFFFFF;
+    }
+    code {
+      background-color: #2C2C2C;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: Consolas, monospace;
+      color: #FFFFFF;
+    }
+    .back-button {
+      text-align: center;
+      margin-top: 40px;
+    }
+    .back-button a {
+      background-color: #1E3A8A;
+      color: #FFFFFF;
+      padding: 12px 24px;
+      font-size: 1.1em;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+    .back-button a:hover {
+      background-color: #2F4EB2;
+    }
+  </style>
+</head>
+<body>
+  <h1>🖥️ Windows CMD Command Reference</h1>
 
+  <div class="section">
+    <h2>📁 File & Directory</h2>
+    <table>
+      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
+      <tr><td><code>dir</code></td><td>List files</td><td>Use <code>/a</code> to show hidden files</td></tr>
+      <tr><td><code>mkdir folder</code></td><td>Create folder</td><td>Creates in current directory</td></tr>
+      <tr><td><code>del file.txt</code></td><td>Delete file</td><td>Use <code>/f</code> to force</td></tr>
+      <tr><td><code>copy file1 file2</code></td><td>Copy file</td><td>Use <code>/y</code> to suppress prompts</td></tr>
+      <tr><td><code>move file folder\</code></td><td>Move file</td><td>Also used to rename</td></tr>
+      <tr><td><code>attrib +h file.txt</code></td><td>Hide file</td><td>Use <code>-h</code> to unhide</td></tr>
+    </table>
+
+    <h2>🧠 System & Diagnostics</h2>
+    <table>
+      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
+      <tr><td><code>systeminfo</code></td><td>System details</td><td>OS, memory, uptime</td></tr>
+      <tr><td><code>tasklist</code></td><td>Running processes</td><td>Use <code>/v</code> for verbose</td></tr>
+      <tr><td><code>taskkill /pid 1234</code></td><td>Kill process</td><td>Use <code>/f</code> to force</td></tr>
+      <tr><td><code>ver</code></td><td>Windows version</td><td>Quick OS check</td></tr>
+      <tr><td><code>echo %USERNAME%</code></td><td>Current user</td><td>Environment variable</td></tr>
+      <tr><td><code>set</code></td><td>List environment variables</td><td>Use <code>set VAR=value</code> to define</td></tr>
+    </table>
+
+    <h2>🌐 Networking</h2>
+    <table>
+      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
+      <tr><td><code>ipconfig</code></td><td>Show IP config</td><td>Use <code>/all</code> for full details</td></tr>
+      <tr><td><code>ping google.com</code></td><td>Test connection</td><td>Use <code>-n 4</code> for 4 pings</td></tr>
+      <tr><td><code>netstat -an</code></td><td>List ports</td><td>Shows active connections</td></tr>
+      <tr><td><code>tracert google.com</code></td><td>Trace route</td><td>Shows network hops</td></tr>
+      <tr><td><code>nslookup google.com</code></td><td>DNS lookup</td><td>Resolve domain to IP</td></tr>
+      <tr><td><code>arp -a</code></td><td>ARP cache</td><td>Shows MAC/IP mappings</td></tr>
+    </table>
+  </div>
+
+  <div class="back-button">
+    <a href="Index.html">🔙 Back to Table of Contents</a>
+  </div>
+</body>
+</html>
