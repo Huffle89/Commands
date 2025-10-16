@@ -28,10 +28,6 @@
       padding: 10px;
       border-radius: 6px;
     }
-    h3 {
-      color: #1E3A8A;
-      margin-top: 30px;
-    }
     table {
       width: 100%;
       border-collapse: collapse;
@@ -70,6 +66,20 @@
     .back-button a:hover {
       background-color: #2F4EB2;
     }
+    footer {
+      margin-top: 60px;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9em;
+      color: #888;
+    }
+    footer a {
+      color: #1E3A8A;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -79,40 +89,47 @@
     <h2>📁 File & Directory</h2>
     <table>
       <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>ls -la</code></td><td>List all files</td><td>Includes hidden files</td></tr>
-      <tr><td><code>mkdir folder</code></td><td>Create directory</td><td>Creates in current path</td></tr>
-      <tr><td><code>rm -rf folder</code></td><td>Delete directory</td><td>Recursive and forceful</td></tr>
-      <tr><td><code>touch file.txt</code></td><td>Create empty file</td><td>Useful for testing</td></tr>
+      <tr><td><code>ls</code></td><td>List files</td><td>Use <code>-l</code> for details</td></tr>
+      <tr><td><code>cd folder</code></td><td>Change directory</td><td>Use <code>cd ..</code> to go up</td></tr>
+      <tr><td><code>mkdir folder</code></td><td>Create folder</td><td>Use <code>-p</code> for nested</td></tr>
+      <tr><td><code>rm file</code></td><td>Delete file</td><td>Use <code>-r</code> for folders</td></tr>
       <tr><td><code>cp file1 file2</code></td><td>Copy file</td><td>Use <code>-r</code> for folders</td></tr>
-      <tr><td><code>mv file folder/</code></td><td>Move file</td><td>Also used to rename</td></tr>
+      <tr><td><code>mv file folder/</code></td><td>Move/Rename</td><td>Works for files and folders</td></tr>
     </table>
 
-    <h2>🧠 System & Permissions</h2>
+    <h2>🔍 Search & Permissions</h2>
     <table>
       <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>sudo command</code></td><td>Run as superuser</td><td>Requires password</td></tr>
-      <tr><td><code>chmod +x script.sh</code></td><td>Make executable</td><td>Use <code>755</code> for scripts</td></tr>
-      <tr><td><code>chown user:group file</code></td><td>Change ownership</td><td>Use <code>-R</code> for folders</td></tr>
+      <tr><td><code>grep "text" file</code></td><td>Search text</td><td>Use <code>-i</code> for case-insensitive</td></tr>
+      <tr><td><code>find . -name file</code></td><td>Find file</td><td>Recursive search</td></tr>
+      <tr><td><code>chmod +x file</code></td><td>Make executable</td><td>Use <code>755</code> for scripts</td></tr>
+      <tr><td><code>chown user file</code></td><td>Change owner</td><td>Use <code>:group</code> for group</td></tr>
+    </table>
+
+    <h2>🧠 System & Package</h2>
+    <table>
+      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
+      <tr><td><code>top</code></td><td>Live process monitor</td><td>Use <code>q</code> to quit</td></tr>
+      <tr><td><code>ps aux</code></td><td>List processes</td><td>Use <code>grep</code> to filter</td></tr>
+      <tr><td><code>kill -9 PID</code></td><td>Kill process</td><td>Use <code>ps</code> to find PID</td></tr>
       <tr><td><code>df -h</code></td><td>Disk usage</td><td>Human-readable format</td></tr>
-      <tr><td><code>top</code></td><td>Live process monitor</td><td>Use <code>htop</code> for better UI</td></tr>
-      <tr><td><code>uname -a</code></td><td>System info</td><td>Kernel and architecture</td></tr>
-      <tr><td><code>uptime</code></td><td>System uptime</td><td>Load averages included</td></tr>
-    </table>
-
-    <h2>🌐 Networking</h2>
-    <table>
-      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>ip a</code></td><td>Show IP addresses</td><td>Replaces <code>ifconfig</code></td></tr>
-      <tr><td><code>ping google.com</code></td><td>Test connectivity</td><td>Use <code>-c 4</code> for 4 pings</td></tr>
-      <tr><td><code>netstat -tuln</code></td><td>List open ports</td><td>TCP/UDP listening</td></tr>
-      <tr><td><code>curl ifconfig.me</code></td><td>Get public IP</td><td>Requires internet</td></tr>
-      <tr><td><code>traceroute google.com</code></td><td>Trace route</td><td>Use <code>mtr</code> for live view</td></tr>
-      <tr><td><code>ss -tuln</code></td><td>Socket stats</td><td>Modern netstat alternative</td></tr>
+      <tr><td><code>free -m</code></td><td>Memory usage</td><td>In megabytes</td></tr>
+      <tr><td><code>sudo apt update</code></td><td>Update packages</td><td>Debian-based systems</td></tr>
     </table>
   </div>
 
   <div class="back-button">
     <a href="Index.html">🔙 Back to Table of Contents</a>
   </div>
+
+  <footer>
+    <hr style="border-color: #1E3A8A; margin-bottom: 20px;">
+    <p>© 2025 Huffle’s IT Services LLC. All rights reserved.</p>
+    <p>This command reference and all associated content—including overlays, styling, and the Huffle’s IT Services logo—are protected intellectual property. Unauthorized reproduction or redistribution is prohibited.</p>
+    <p>Sources: 
+      <a href="https://typevar.dev/articles/tldr-pages/tldr" target="_blank">tldr-pages</a>
+    </p>
+    <p style="margin-top: 20px;">Veteran-owned. Porch-coded. A+ and Security+ certified. Every command is a conversation. Every workflow is a welcome.</p>
+  </footer>
 </body>
 </html>
