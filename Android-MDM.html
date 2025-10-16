@@ -2,165 +2,45 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>🤖 Android MDM CLI Reference</title>
+  <title>🤖 Android MDM Overlay</title>
   <style>
     body {
       background-color: #0A0A0A;
       font-family: 'Segoe UI', sans-serif;
       color: #1E3A8A;
-      padding: 20px;
-    }
-    .logo-container {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      background-color: #1A1A1A;
-      padding: 8px;
-      border-radius: 8px;
-      border: 2px solid #1E3A8A;
-      z-index: 1000;
-    }
-    .logo {
-      height: 48px;
-      width: auto;
-    }
-    h1 {
-      color: #1E3A8A;
+      padding: 40px;
       text-align: center;
-      margin-bottom: 10px;
     }
-    .compatibility {
-      background-color: #1A1A1A;
-      border: 2px solid #1E3A8A;
-      border-radius: 8px;
-      padding: 15px;
-      margin-bottom: 40px;
-      font-size: 1em;
-    }
-    .compatibility strong {
+    table, th, td {
       color: #FFFFFF;
-    }
-    .section {
-      margin-bottom: 50px;
-      border: 2px solid #1E3A8A;
-      border-radius: 8px;
-      padding: 20px;
-      background-color: #1A1A1A;
-    }
-    h2 {
-      background-color: #1E3A8A;
-      color: #FFFFFF;
-      padding: 10px;
-      border-radius: 6px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-    }
-    th, td {
-      border: 1px solid #1E3A8A;
-      padding: 10px;
-      text-align: left;
-    }
-    th {
-      background-color: #1E3A8A;
-      color: #FFFFFF;
-    }
-    code {
-      background-color: #2C2C2C;
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-family: Consolas, monospace;
-      color: #FFFFFF;
-    }
-    .back-button {
-      text-align: center;
-      margin-top: 40px;
-    }
-    .back-button a {
-      background-color: #1E3A8A;
-      color: #FFFFFF;
-      padding: 12px 24px;
-      font-size: 1.1em;
-      border-radius: 8px;
-      text-decoration: none;
-      display: inline-block;
-      transition: background-color 0.3s ease;
-    }
-    .back-button a:hover {
-      background-color: #2F4EB2;
-    }
-    footer {
-      margin-top: 60px;
-      padding: 20px;
-      text-align: center;
-      font-size: 0.9em;
-      color: #888;
-    }
-    footer a {
-      color: #1E3A8A;
-      text-decoration: none;
-    }
-    footer a:hover {
-      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <div class="logo-container">
-    <img src="Logo.png" alt="Huffle’s IT Services Logo" class="logo">
-  </div>
+  <h1>🤖 Android MDM Overlay</h1>
 
-  <h1>🤖 Android MDM CLI Command Reference</h1>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A; border-collapse: collapse;">
+    <tr>
+      <th>Action</th>
+      <th>Command / Setting</th>
+    </tr>
+    <tr>
+      <td>Enroll Device</td>
+      <td>Use QR code or NFC provisioning with Android Enterprise</td>
+    </tr>
+    <tr>
+      <td>Remove MDM</td>
+      <td>Factory reset or remove device from MDM console</td>
+    </tr>
+    <tr>
+      <td>Push App</td>
+      <td>Deploy via managed Google Play store</td>
+    </tr>
+    <tr>
+      <td>Restrict Settings</td>
+      <td>Apply device policy controller (DPC) rules</td>
+    </tr>
+  </table>
 
-  <div class="compatibility">
-    <p><strong>Works on:</strong> Android Enterprise devices</p>
-    <p><strong>Required Tools:</strong> ADB, MDM console access</p>
-  </div>
-
-  <div class="section">
-    <h2>🔧 Device Setup & Enrollment</h2>
-    <table>
-      <tr><th>Command / Action</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>adb devices</code></td><td>List connected devices</td><td>Verify ADB connection</td></tr>
-      <tr><td><code>adb shell</code></td><td>Open shell</td><td>Direct CLI access</td></tr>
-      <tr><td><code>adb install app.apk</code></td><td>Install app</td><td>Push APK to device</td></tr>
-      <tr><td><code>adb push file /sdcard/</code></td><td>Transfer file</td><td>To internal storage</td></tr>
-      <tr><td>Zero-touch enrollment</td><td>Automated setup</td><td>Requires reseller config</td></tr>
-    </table>
-
-    <h2>🧠 Policy & Control</h2>
-    <table>
-      <tr><th>Command / Payload</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>lock</code></td><td>Lock device</td><td>Immediate action</td></tr>
-      <tr><td><code>wipe</code></td><td>Factory reset</td><td>Erase all data</td></tr>
-      <tr><td><code>installApp</code></td><td>Push app</td><td>Managed Play Store</td></tr>
-      <tr><td><code>setPolicy</code></td><td>Apply restrictions</td><td>Camera, USB, etc.</td></tr>
-      <tr><td><code>clearPasscode</code></td><td>Remove lock</td><td>Admin override</td></tr>
-    </table>
-
-    <h2>📦 Monitoring & Reporting</h2>
-    <table>
-      <tr><th>Command / Query</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>getDeviceInfo</code></td><td>Query device</td><td>Returns hardware/software info</td></tr>
-      <tr><td><code>getAppList</code></td><td>List apps</td><td>Installed packages</td></tr>
-      <tr><td><code>getSecurityStatus</code></td><td>Security info</td><td>Encryption, lock status</td></tr>
-      <tr><td><code>getNetworkInfo</code></td><td>Network status</td><td>Wi-Fi, cellular</td></tr>
-      <tr><td><code>getComplianceStatus</code></td><td>Policy compliance</td><td>MDM rules</td></tr>
-    </table>
-  </div>
-
-  <div class="back-button">
-    <a href="Huffles-IT-Services-Code-Reference.html">🔙 Back to Code Reference</a>
-  </div>
-
-  <footer>
-    <hr style="border-color: #1E3A8A; margin-bottom: 20px;">
-    <p>© 2025 Huffle’s IT Services LLC. All rights reserved.</p>
-    <p>This command reference and all associated content—including overlays, styling, and the Huffle’s IT Services logo—are protected intellectual property. Unauthorized reproduction or redistribution is prohibited.</p>
-    <p>Sources: Android Enterprise documentation, ADB guides, and community MDM payload references.</p>
-    <p style="margin-top: 20px;">Veteran-owned. Porch-coded. A+ and Security+ certified. Every command is a conversation. Every workflow is a welcome.</p>
-  </footer>
 </body>
 </html>
