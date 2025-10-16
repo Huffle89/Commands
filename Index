@@ -45,12 +45,12 @@
 <body>
   <h1>🐾 Huffle's Command Reference</h1>
   <div class="button-container">
-    <a href="linux.html" class="os-button">🐺 Linux</a>
-    <a href="windows-cmd.html" class="os-button">🖥️ Windows CMD</a>
-    <a href="powershell.html" class="os-button">🔧 PowerShell</a>
-    <a href="macos.html" class="os-button">🍎 macOS Terminal</a>
-    <a href="ios-mdm.html" class="os-button">🍏 iOS MDM</a>
-    <a href="android-mdm.html" class="os-button">🤖 Android MDM</a>
+    <a href="Linux.html" class="os-button">🐺 Linux</a>
+    <a href="Windows-Cmd.html" class="os-button">🖥️ Windows CMD</a>
+    <a href="PowerShell.html" class="os-button">🔧 PowerShell</a>
+    <a href="MacOs.html" class="os-button">🍎 macOS Terminal</a>
+    <a href="iOS-MDM.html" class="os-button">🍏 iOS MDM</a>
+    <a href="Android-MDM.html" class="os-button">🤖 Android MDM</a>
   </div>
 </body>
 </html>
