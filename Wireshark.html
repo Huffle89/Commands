@@ -2,13 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>📡 Wireshark Filters & Commands</title>
+  <title>📡 Wireshark CLI Reference</title>
   <style>
     body {
       background-color: #0A0A0A;
       font-family: 'Segoe UI', sans-serif;
       color: #1E3A8A;
       padding: 20px;
+    }
+    .logo-container {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background-color: #1A1A1A;
+      padding: 8px;
+      border-radius: 8px;
+      border: 2px solid #1E3A8A;
+      z-index: 1000;
+    }
+    .logo {
+      height: 48px;
+      width: auto;
     }
     h1 {
       color: #1E3A8A;
@@ -94,46 +108,51 @@
   </style>
 </head>
 <body>
-  <h1>📡 Wireshark Filter Reference</h1>
+  <div class="logo-container">
+    <img src="assets/Logo.png" alt="Huffle’s IT Services Logo" class="logo">
+  </div>
+
+  <h1>📡 Wireshark CLI Command Reference</h1>
 
   <div class="compatibility">
-    <p><strong>Works on:</strong> 🐧 Linux, 🖥️ Windows, 🍎 macOS</p>
-    <p><strong>Required Tools:</strong> Wireshark GUI, optional <code>tshark</code> CLI</p>
+    <p><strong>Works on:</strong> Linux, macOS, Windows</p>
+    <p><strong>Required Tools:</strong> Wireshark CLI (tshark); optional GUI</p>
   </div>
 
   <div class="section">
-    <h2>🔍 Capture Filters (Before Recording)</h2>
-    <table>
-      <tr><th>Filter</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>host 192.168.1.1</code></td><td>Capture traffic to/from host</td><td>Use IP address</td></tr>
-      <tr><td><code>port 443</code></td><td>Capture HTTPS traffic</td><td>Use <code>tcp port</code> for TCP only</td></tr>
-      <tr><td><code>tcp</code></td><td>Capture TCP only</td><td>Use <code>udp</code> for UDP</td></tr>
-      <tr><td><code>net 192.168.1.0/24</code></td><td>Capture subnet traffic</td><td>CIDR notation</td></tr>
-      <tr><td><code>not arp</code></td><td>Exclude ARP traffic</td><td>Use <code>and</code>, <code>or</code> to combine</td></tr>
-    </table>
-
-    <h2>🧠 Display Filters (After Capture)</h2>
-    <table>
-      <tr><th>Filter</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>ip.addr == 192.168.1.1</code></td><td>Show traffic to/from IP</td><td>Use <code>!=</code> to exclude</td></tr>
-      <tr><td><code>http</code></td><td>Show HTTP packets</td><td>Use <code>tcp.port == 80</code> for specifics</td></tr>
-      <tr><td><code>tcp.flags.syn == 1</code></td><td>Show SYN packets</td><td>Useful for scans</td></tr>
-      <tr><td><code>dns.qry.name == "example.com"</code></td><td>Show DNS queries</td><td>Use quotes for domain</td></tr>
-      <tr><td><code>frame contains "password"</code></td><td>Search payload</td><td>Case-sensitive</td></tr>
-    </table>
-
-    <h2>⚙️ CLI with tshark</h2>
+    <h2>🔍 Capture & Filters</h2>
     <table>
       <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>tshark -i eth0</code></td><td>Start capture</td><td>Use correct interface</td></tr>
-      <tr><td><code>tshark -r file.pcap</code></td><td>Read capture file</td><td>Analyze offline</td></tr>
-      <tr><td><code>tshark -Y "http"</code></td><td>Apply display filter</td><td>Same syntax as GUI</td></tr>
-      <tr><td><code>tshark -T fields -e ip.src -e ip.dst</code></td><td>Extract fields</td><td>Use <code>-E</code> for formatting</td></tr>
+      <tr><td><code>tshark -i eth0</code></td><td>Capture interface</td><td>Replace eth0 with your NIC</td></tr>
+      <tr><td><code>tshark -f "port 80"</code></td><td>Capture filter</td><td>Before capture starts</td></tr>
+      <tr><td><code>tshark -Y "http"</code></td><td>Display filter</td><td>After capture starts</td></tr>
+      <tr><td><code>tshark -i eth0 -w file.pcap</code></td><td>Write to file</td><td>Save capture</td></tr>
+      <tr><td><code>tshark -r file.pcap</code></td><td>Read file</td><td>Analyze saved capture</td></tr>
+    </table>
+
+    <h2>🧠 Protocol Analysis</h2>
+    <table>
+      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
+      <tr><td><code>tshark -z io,stat,0,10</code></td><td>IO stats</td><td>10-second intervals</td></tr>
+      <tr><td><code>tshark -z conv,tcp</code></td><td>TCP conversations</td><td>Connection summary</td></tr>
+      <tr><td><code>tshark -z endpoints,ip</code></td><td>IP endpoints</td><td>Host activity</td></tr>
+      <tr><td><code>tshark -z expert</code></td><td>Expert info</td><td>Warnings & notes</td></tr>
+      <tr><td><code>tshark -z http,tree</code></td><td>HTTP breakdown</td><td>Detailed view</td></tr>
+    </table>
+
+    <h2>📦 Output & Export</h2>
+    <table>
+      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
+      <tr><td><code>tshark -T fields -e ip.src -e ip.dst</code></td><td>Field output</td><td>Custom columns</td></tr>
+      <tr><td><code>tshark -E separator=,</code></td><td>CSV export</td><td>Comma-separated</td></tr>
+      <tr><td><code>tshark -G fields</code></td><td>List fields</td><td>Available options</td></tr>
+      <tr><td><code>tshark -V</code></td><td>Verbose output</td><td>Full packet details</td></tr>
+      <tr><td><code>tshark -q</code></td><td>Quiet mode</td><td>Suppress headers</td></tr>
     </table>
   </div>
 
   <div class="back-button">
-    <a href="Index.html">🔙 Back to Table of Contents</a>
+    <a href="Huffles-IT-Services-Code-Reference.html">🔙 Back to Code Reference</a>
   </div>
 
   <footer>
