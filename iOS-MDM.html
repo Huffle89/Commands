@@ -66,39 +66,68 @@
     .back-button a:hover {
       background-color: #2F4EB2;
     }
+    footer {
+      margin-top: 60px;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9em;
+      color: #888;
+    }
+    footer a {
+      color: #1E3A8A;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
   <h1>🍏 iOS MDM Command Reference</h1>
 
   <div class="section">
-    <h2>📱 Device Management Commands</h2>
+    <h2>📱 Device Management</h2>
     <table>
       <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>InstallProfile</code></td><td>Push config profile</td><td>Wi-Fi, VPN, restrictions</td></tr>
-      <tr><td><code>EraseDevice</code></td><td>Wipe device remotely</td><td>Factory reset</td></tr>
-      <tr><td><code>DeviceLock</code></td><td>Lock device</td><td>Displays custom message</td></tr>
-      <tr><td><code>ClearPasscode</code></td><td>Remove passcode</td><td>Supervised only</td></tr>
-      <tr><td><code>SetWallpaper</code></td><td>Change wallpaper</td><td>Supervised only</td></tr>
-      <tr><td><code>ScheduleOSUpdate</code></td><td>Push OS update</td><td>Requires supervision</td></tr>
-      <tr><td><code>EnableLostMode</code></td><td>Activate Lost Mode</td><td>Shows contact info</td></tr>
-      <tr><td><code>PlayLostModeSound</code></td><td>Trigger alert sound</td><td>Helps locate device</td></tr>
+      <tr><td><code>InstallProfile</code></td><td>Install configuration profile</td><td>Used for Wi-Fi, VPN, etc.</td></tr>
+      <tr><td><code>RemoveProfile</code></td><td>Remove profile</td><td>Requires profile identifier</td></tr>
+      <tr><td><code>EraseDevice</code></td><td>Factory reset</td><td>Wipes all data</td></tr>
+      <tr><td><code>EnableLostMode</code></td><td>Activate Lost Mode</td><td>Locks device and displays message</td></tr>
+      <tr><td><code>DisableLostMode</code></td><td>Deactivate Lost Mode</td><td>Restores normal access</td></tr>
+      <tr><td><code>PlaySound</code></td><td>Ping device</td><td>Plays alert sound remotely</td></tr>
     </table>
 
-    <h2>🔐 Security & Restrictions</h2>
+    <h2>🔐 Restrictions & Security</h2>
     <table>
       <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>ApplyRestrictions</code></td><td>Limit features</td><td>Camera, App Store, etc.</td></tr>
+      <tr><td><code>ApplyRestrictions</code></td><td>Set usage limits</td><td>Camera, App Store, etc.</td></tr>
+      <tr><td><code>ClearPasscode</code></td><td>Remove device passcode</td><td>Requires supervision</td></tr>
+      <tr><td><code>SetWallpaper</code></td><td>Change wallpaper</td><td>Lock/home screen options</td></tr>
       <tr><td><code>SetDeviceName</code></td><td>Rename device</td><td>Useful for inventory</td></tr>
-      <tr><td><code>QueryDeviceInfo</code></td><td>Get device details</td><td>Model, OS, battery</td></tr>
-      <tr><td><code>QueryInstalledApps</code></td><td>List apps</td><td>Audit for compliance</td></tr>
-      <tr><td><code>RemoveApp</code></td><td>Uninstall app</td><td>Use bundle ID</td></tr>
-      <tr><td><code>InstallApp</code></td><td>Push app</td><td>Use App Store or enterprise</td></tr>
+      <tr><td><code>SetTimeZone</code></td><td>Update time zone</td><td>Requires valid identifier</td></tr>
+    </table>
+
+    <h2>📦 App & Content</h2>
+    <table>
+      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
+      <tr><td><code>InstallApplication</code></td><td>Push app to device</td><td>Requires App Store ID or manifest</td></tr>
+      <tr><td><code>RemoveApplication</code></td><td>Uninstall app</td><td>Use bundle identifier</td></tr>
+      <tr><td><code>ScheduleOSUpdate</code></td><td>Push iOS update</td><td>Requires supervision</td></tr>
+      <tr><td><code>SendMessage</code></td><td>Display message</td><td>Custom text on screen</td></tr>
+      <tr><td><code>SetAppConfiguration</code></td><td>Configure app settings</td><td>For managed apps only</td></tr>
     </table>
   </div>
 
   <div class="back-button">
     <a href="Index.html">🔙 Back to Table of Contents</a>
   </div>
+
+  <footer>
+    <hr style="border-color: #1E3A8A; margin-bottom: 20px;">
+    <p>© 2025 Huffle’s IT Services LLC. All rights reserved.</p>
+    <p>This command reference and all associated content—including overlays, styling, and the Huffle’s IT Services logo—are protected intellectual property. Unauthorized reproduction or redistribution is prohibited.</p>
+    <p>Sources: Apple MDM documentation, Jamf, Kandji, and other vendor guides.</p>
+    <p style="margin-top: 20px;">Veteran-owned. Porch-coded. A+ and Security+ certified. Every command is a conversation. Every workflow is a welcome.</p>
+  </footer>
 </body>
 </html>
