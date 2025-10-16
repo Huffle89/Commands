@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🐙 Git & GitHub Commands</title>
+  <style>
+    body {
+      background-color: #0A0A0A;
+      font-family: 'Segoe UI', sans-serif;
+      color: #1E3A8A;
+      padding: 20px;
+    }
+    h1 {
+      color: #1E3A8A;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .section {
+      margin-bottom: 50px;
+      border: 2px solid #1E3A8A;
+      border-radius: 8px;
+      padding: 20px;
+      background-color: #1A1A1A;
+    }
+    h2 {
+      background-color: #1E3A8A;
+      color: #FFFFFF;
+      padding: 10px;
+      border-radius: 6px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      border: 1px solid #1E3A8A;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #1E3A8A;
+      color: #FFFFFF;
+    }
+    code {
+      background-color: #2C2C2C;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: Consolas, monospace;
+      color: #FFFFFF;
+    }
+    .back-button {
+      text-align: center;
+      margin-top: 40px;
+    }
+    .back-button a {
+      background-color: #1E3A8A;
+      color: #FFFFFF;
+      padding: 12px 24px;
+      font-size: 1.1em;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+    .back-button a:hover {
+      background-color: #2F4EB2;
+    }
+    footer {
+      margin-top: 60px;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9em;
+      color: #888;
+    }
+    footer a {
+      color: #1E3A8A;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>🐙 Git & GitHub Command Reference</h1>
+
+  <div class="section">
+    <h2>📁 Git Basics</h2>
+    <table>
+      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
+      <tr><td><code>git init</code></td><td>Initialize repo</td><td>Creates .git folder</td></tr>
+      <tr><td><code>git status</code></td><td>Check repo state</td><td>Shows staged/unstaged changes</td></tr>
+      <tr><td><code>git add file</code></td><td>Stage file</td><td>Use <code>.</code> to stage all</td></tr>
+      <tr><td><code>git commit -m "msg"</code></td><td>Save snapshot</td><td>Describes changes</td></tr>
+      <tr><td><code>git log</code></td><td>View history</td><td>Use <code>--oneline</code> for compact view</td></tr>
+    </table>
+
+    <h2>🔀 Branching & Merging</h2>
+    <table>
+      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
+      <tr><td><code>git branch</code></td><td>List branches</td><td>Use <code>*</code> to show current</td></tr>
+      <tr><td><code>git checkout -b new</code></td><td>Create & switch</td><td>New branch from current</td></tr>
+      <tr><td><code>git merge branch</code></td><td>Merge branch</td><td>Into current branch</td></tr>
+      <tr><td><code>git rebase branch</code></td><td>Reapply commits</td><td>Linear history</td></tr>
+      <tr><td><code>git stash</code></td><td>Save work</td><td>Temporarily stores changes</td></tr>
+    </table>
+
+    <h2>☁️ GitHub Integration</h2>
+    <table>
+      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
+      <tr><td><code>git remote add origin URL</code></td><td>Link repo</td><td>Connect to GitHub</td></tr>
+      <tr><td><code>git push -u origin main</code></td><td>Push code</td><td>First-time push</td></tr>
+      <tr><td><code>git pull origin main</code></td><td>Fetch & merge</td><td>Updates local repo</td></tr>
+      <tr><td><code>gh repo clone user/repo</code></td><td>Clone via CLI</td><td>Requires GitHub CLI</td></tr>
+      <tr><td><code>gh issue list</code></td><td>View issues</td><td>GitHub CLI command</td></tr>
+    </table>
+  </div>
+
+  <div class="back-button">
+    <a href="Index.html">🔙 Back to Table of Contents</a>
+  </div>
+
+  <footer>
+    <hr style="border-color: #1E3A8A; margin-bottom: 20px;">
+    <p>© 2025 Huffle’s IT Services LLC. All rights reserved.</p>
+    <p>This command reference and all associated content—including overlays, styling, and the Huffle’s IT Services logo—are protected intellectual property. Unauthorized reproduction or redistribution is prohibited.</p>
+    <p>Sources: Git documentation, GitHub CLI reference, and community cheat sheets.</p>
+    <p style="margin-top: 20px;">Veteran-owned. Porch-coded. A+ and Security+ certified. Every command is a conversation. Every workflow is a welcome.</p>
+  </footer>
+</body>
+</html>
