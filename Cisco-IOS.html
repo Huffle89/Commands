@@ -2,13 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>🌐 Cisco IOS Commands</title>
+  <title>🌐 Cisco IOS CLI Reference</title>
   <style>
     body {
       background-color: #0A0A0A;
       font-family: 'Segoe UI', sans-serif;
       color: #1E3A8A;
       padding: 20px;
+    }
+    .logo-container {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background-color: #1A1A1A;
+      padding: 8px;
+      border-radius: 8px;
+      border: 2px solid #1E3A8A;
+      z-index: 1000;
+    }
+    .logo {
+      height: 48px;
+      width: auto;
     }
     h1 {
       color: #1E3A8A;
@@ -94,46 +108,51 @@
   </style>
 </head>
 <body>
-  <h1>🌐 Cisco IOS Command Reference</h1>
+  <div class="logo-container">
+    <img src="assets/Logo.png" alt="Huffle’s IT Services Logo" class="logo">
+  </div>
+
+  <h1>🌐 Cisco IOS CLI Command Reference</h1>
 
   <div class="compatibility">
-    <p><strong>Works on:</strong> Cisco routers and switches running IOS</p>
-    <p><strong>Required Access:</strong> Console or SSH access to device; user must be in privileged EXEC mode (<code>enable</code>)</p>
+    <p><strong>Works on:</strong> Cisco routers and switches</p>
+    <p><strong>Required Tools:</strong> Console access or SSH; IOS firmware</p>
   </div>
 
   <div class="section">
-    <h2>🔧 Interface & VLAN Configuration</h2>
+    <h2>🔧 Interface & IP Setup</h2>
     <table>
       <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>interface GigabitEthernet0/1</code></td><td>Enter interface config</td><td>Use correct port ID</td></tr>
-      <tr><td><code>ip address 192.168.1.1 255.255.255.0</code></td><td>Assign IP</td><td>Inside interface config</td></tr>
-      <tr><td><code>no shutdown</code></td><td>Enable interface</td><td>Required to activate</td></tr>
-      <tr><td><code>vlan 10</code></td><td>Create VLAN</td><td>Use <code>name</code> to label</td></tr>
-      <tr><td><code>interface vlan 10</code></td><td>Configure VLAN interface</td><td>Assign IP for routing</td></tr>
+      <tr><td><code>enable</code></td><td>Enter privileged mode</td><td>Requires password</td></tr>
+      <tr><td><code>configure terminal</code></td><td>Global config mode</td><td>Start configuration</td></tr>
+      <tr><td><code>interface Gig0/1</code></td><td>Select interface</td><td>Adjust per device</td></tr>
+      <tr><td><code>ip address 192.168.1.1 255.255.255.0</code></td><td>Assign IP</td><td>Static IP setup</td></tr>
+      <tr><td><code>no shutdown</code></td><td>Enable interface</td><td>Bring up link</td></tr>
     </table>
 
-    <h2>🧠 Routing & ACLs</h2>
+    <h2>🧠 Routing & VLANs</h2>
     <table>
       <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>ip route 0.0.0.0 0.0.0.0 192.168.1.254</code></td><td>Default route</td><td>Points to gateway</td></tr>
-      <tr><td><code>router ospf 1</code></td><td>Start OSPF</td><td>Use <code>network</code> to define area</td></tr>
-      <tr><td><code>access-list 100 permit ip any any</code></td><td>Create ACL</td><td>Use <code>deny</code> to block</td></tr>
-      <tr><td><code>interface GigabitEthernet0/1</code><br><code>ip access-group 100 in</code></td><td>Apply ACL</td><td>Inbound traffic filter</td></tr>
+      <tr><td><code>ip route 0.0.0.0 0.0.0.0 192.168.1.254</code></td><td>Default route</td><td>Gateway setup</td></tr>
+      <tr><td><code>router ospf 1</code></td><td>Start OSPF</td><td>Routing protocol</td></tr>
+      <tr><td><code>network 192.168.1.0 0.0.0.255 area 0</code></td><td>OSPF network</td><td>Define area</td></tr>
+      <tr><td><code>vlan 10</code></td><td>Create VLAN</td><td>Virtual LAN</td></tr>
+      <tr><td><code>name VLAN10</code></td><td>Name VLAN</td><td>Optional label</td></tr>
     </table>
 
-    <h2>📦 System & Diagnostics</h2>
+    <h2>📦 Security & Access</h2>
     <table>
       <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>show ip interface brief</code></td><td>Interface summary</td><td>Status and IPs</td></tr>
-      <tr><td><code>show running-config</code></td><td>Current config</td><td>Live settings</td></tr>
-      <tr><td><code>show version</code></td><td>Device info</td><td>Model, uptime, IOS version</td></tr>
-      <tr><td><code>copy running-config startup-config</code></td><td>Save config</td><td>Preserves on reboot</td></tr>
-      <tr><td><code>reload</code></td><td>Reboot device</td><td>Confirm before executing</td></tr>
+      <tr><td><code>line vty 0 4</code></td><td>Configure SSH/Telnet</td><td>Remote access</td></tr>
+      <tr><td><code>login local</code></td><td>Use local creds</td><td>Username/password</td></tr>
+      <tr><td><code>transport input ssh</code></td><td>Enable SSH</td><td>Secure access</td></tr>
+      <tr><td><code>service password-encryption</code></td><td>Encrypt passwords</td><td>Basic protection</td></tr>
+      <tr><td><code>enable secret MyPass</code></td><td>Set enable password</td><td>Encrypted</td></tr>
     </table>
   </div>
 
   <div class="back-button">
-    <a href="Index.html">🔙 Back to Table of Contents</a>
+    <a href="Huffles-IT-Services-Code-Reference.html">🔙 Back to Code Reference</a>
   </div>
 
   <footer>
