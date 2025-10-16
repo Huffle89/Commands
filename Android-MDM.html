@@ -1,1 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🤖 Android MDM Commands</title>
+  <style>
+    body {
+      background-color: #0A0A0A;
+      font-family: 'Segoe UI', sans-serif;
+      color: #1E3A8A;
+      padding: 20px;
+    }
+    h1 {
+      color: #1E3A8A;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .section {
+      margin-bottom: 50px;
+      border: 2px solid #1E3A8A;
+      border-radius: 8px;
+      padding: 20px;
+      background-color: #1A1A1A;
+    }
+    h2 {
+      background-color: #1E3A8A;
+      color: #FFFFFF;
+      padding: 10px;
+      border-radius: 6px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      border: 1px solid #1E3A8A;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #1E3A8A;
+      color: #FFFFFF;
+    }
+    code {
+      background-color: #2C2C2C;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: Consolas, monospace;
+      color: #FFFFFF;
+    }
+    .back-button {
+      text-align: center;
+      margin-top: 40px;
+    }
+    .back-button a {
+      background-color: #1E3A8A;
+      color: #FFFFFF;
+      padding: 12px 24px;
+      font-size: 1.1em;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+    .back-button a:hover {
+      background-color: #2F4EB2;
+    }
+  </style>
+</head>
+<body>
+  <h1>🤖 Android MDM Command Reference</h1>
 
+  <div class="section">
+    <h2>🔧 ADB Commands</h2>
+    <table>
+      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
+      <tr><td><code>adb devices</code></td><td>List connected devices</td><td>Shows device ID</td></tr>
+      <tr><td><code>adb install app.apk</code></td><td>Install APK</td><td>Requires USB debugging</td></tr>
+      <tr><td><code>adb uninstall com.package.name</code></td><td>Remove app</td><td>Use full package name</td></tr>
+      <tr><td><code>adb shell</code></td><td>Open device shell</td><td>Run commands directly</td></tr>
+      <tr><td><code>adb logcat</code></td><td>View logs</td><td>Useful for debugging</td></tr>
+      <tr><td><code>adb reboot</code></td><td>Restart device</td><td>Requires root or permission</td></tr>
+      <tr><td><code>adb push file /sdcard/</code></td><td>Send file to device</td><td>Use full path</td></tr>
+      <tr><td><code>adb pull /sdcard/file</code></td><td>Retrieve file</td><td>From device to PC</td></tr>
+    </table>
+
+    <h2>📱 Device Management</h2>
+    <table>
+      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
+      <tr><td><code>adb shell dpm set-device-owner</code></td><td>Set device owner</td><td>Used for MDM setup</td></tr>
+      <tr><td><code>adb shell pm list packages</code></td><td>List installed apps</td><td>Use <code>-3</code> for user apps</td></tr>
+      <tr><td><code>adb shell am start</code></td><td>Launch app/activity</td><td>Requires package and activity name</td></tr>
+      <tr><td><code>adb shell settings list global</code></td><td>View global settings</td><td>Useful for auditing</td></tr>
+      <tr><td><code>adb shell screencap /sdcard/screen.png</code></td><td>Take screenshot</td><td>Use <code>adb pull</code> to retrieve</td></tr>
+      <tr><td><code>adb shell input keyevent 26</code></td><td>Toggle power</td><td>Simulates power button</td></tr>
+    </table>
+  </div>
+
+  <div class="back-button">
+    <a href="Index.html">🔙 Back to Table of Contents</a>
+  </div>
+</body>
+</html>
