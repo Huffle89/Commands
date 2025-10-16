@@ -2,13 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>🕵️ Nmap Commands</title>
+  <title>🕵️ Nmap CLI Reference</title>
   <style>
     body {
       background-color: #0A0A0A;
       font-family: 'Segoe UI', sans-serif;
       color: #1E3A8A;
       padding: 20px;
+    }
+    .logo-container {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background-color: #1A1A1A;
+      padding: 8px;
+      border-radius: 8px;
+      border: 2px solid #1E3A8A;
+      z-index: 1000;
+    }
+    .logo {
+      height: 48px;
+      width: auto;
     }
     h1 {
       color: #1E3A8A;
@@ -94,47 +108,51 @@
   </style>
 </head>
 <body>
-  <h1>🕵️ Nmap Command Reference</h1>
+  <div class="logo-container">
+    <img src="assets/Logo.png" alt="Huffle’s IT Services Logo" class="logo">
+  </div>
+
+  <h1>🕵️ Nmap CLI Command Reference</h1>
 
   <div class="compatibility">
-    <p><strong>Works on:</strong> 🐧 Linux, 🖥️ Windows (via WSL or Nmap for Windows), 🍎 macOS</p>
-    <p><strong>Required Tools:</strong> Nmap CLI (<code>nmap</code>), optional Zenmap GUI</p>
+    <p><strong>Works on:</strong> Linux, macOS, Windows (with Nmap installed)</p>
+    <p><strong>Required Tools:</strong> Nmap CLI; optional Zenmap GUI</p>
   </div>
 
   <div class="section">
-    <h2>🔍 Basic Scanning</h2>
+    <h2>🔍 Basic Scans</h2>
     <table>
       <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>nmap target</code></td><td>Default scan</td><td>TCP connect scan</td></tr>
-      <tr><td><code>nmap -sS target</code></td><td>SYN scan</td><td>Stealthy, requires root</td></tr>
+      <tr><td><code>nmap target</code></td><td>Default scan</td><td>TCP SYN scan</td></tr>
+      <tr><td><code>nmap -sS target</code></td><td>SYN scan</td><td>Stealthy</td></tr>
       <tr><td><code>nmap -sT target</code></td><td>TCP connect</td><td>Less stealthy</td></tr>
-      <tr><td><code>nmap -sU target</code></td><td>UDP scan</td><td>Slower, no handshake</td></tr>
-      <tr><td><code>nmap -p 80 target</code></td><td>Scan specific port</td><td>Use <code>-p-</code> for all ports</td></tr>
+      <tr><td><code>nmap -Pn target</code></td><td>No ping</td><td>Skip host discovery</td></tr>
+      <tr><td><code>nmap -p 80 target</code></td><td>Port scan</td><td>Single port</td></tr>
     </table>
 
-    <h2>🧠 Discovery & Enumeration</h2>
+    <h2>🧠 Advanced Scans</h2>
     <table>
       <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>nmap -sn 192.168.1.0/24</code></td><td>Ping sweep</td><td>Find live hosts</td></tr>
+      <tr><td><code>nmap -A target</code></td><td>Aggressive scan</td><td>OS, version, script, traceroute</td></tr>
       <tr><td><code>nmap -O target</code></td><td>OS detection</td><td>Requires root</td></tr>
-      <tr><td><code>nmap -sV target</code></td><td>Service version</td><td>Detects software</td></tr>
-      <tr><td><code>nmap -A target</code></td><td>Aggressive scan</td><td>OS + version + script</td></tr>
-      <tr><td><code>nmap -v target</code></td><td>Verbose output</td><td>More scan details</td></tr>
+      <tr><td><code>nmap -sV target</code></td><td>Service version</td><td>Banner grabbing</td></tr>
+      <tr><td><code>nmap -T4 target</code></td><td>Timing template</td><td>Faster scan</td></tr>
+      <tr><td><code>nmap -F target</code></td><td>Fast scan</td><td>Top 100 ports</td></tr>
     </table>
 
-    <h2>🛡️ Stealth & Timing</h2>
+    <h2>📦 Output & Scripting</h2>
     <table>
       <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>nmap -T4 target</code></td><td>Faster scan</td><td>Use <code>T0–T5</code> for timing</td></tr>
-      <tr><td><code>nmap --randomize-hosts</code></td><td>Evade detection</td><td>Shuffles scan order</td></tr>
-      <tr><td><code>nmap --data-length 50</code></td><td>Obfuscate packets</td><td>Pads payload</td></tr>
-      <tr><td><code>nmap -D decoy1,decoy2</code></td><td>Decoy scan</td><td>Hides source IP</td></tr>
-      <tr><td><code>nmap -f target</code></td><td>Fragment packets</td><td>Breaks into small chunks</td></tr>
+      <tr><td><code>nmap -oN output.txt target</code></td><td>Normal output</td><td>Readable text</td></tr>
+      <tr><td><code>nmap -oX output.xml target</code></td><td>XML output</td><td>For parsing</td></tr>
+      <tr><td><code>nmap --script vuln target</code></td><td>Vuln scan</td><td>Uses NSE scripts</td></tr>
+      <tr><td><code>nmap --script-help default</code></td><td>Script help</td><td>List default scripts</td></tr>
+      <tr><td><code>nmap -iL targets.txt</code></td><td>Scan list</td><td>From file</td></tr>
     </table>
   </div>
 
   <div class="back-button">
-    <a href="Index.html">🔙 Back to Table of Contents</a>
+    <a href="Huffles-IT-Services-Code-Reference.html">🔙 Back to Code Reference</a>
   </div>
 
   <footer>
