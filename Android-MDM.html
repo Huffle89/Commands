@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>🤖 Android MDM Commands</title>
+  <title>🤖 Android MDM CLI Reference</title>
   <style>
     body {
       background-color: #0A0A0A;
@@ -10,10 +10,35 @@
       color: #1E3A8A;
       padding: 20px;
     }
+    .logo-container {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background-color: #1A1A1A;
+      padding: 8px;
+      border-radius: 8px;
+      border: 2px solid #1E3A8A;
+      z-index: 1000;
+    }
+    .logo {
+      height: 48px;
+      width: auto;
+    }
     h1 {
       color: #1E3A8A;
       text-align: center;
+      margin-bottom: 10px;
+    }
+    .compatibility {
+      background-color: #1A1A1A;
+      border: 2px solid #1E3A8A;
+      border-radius: 8px;
+      padding: 15px;
       margin-bottom: 40px;
+      font-size: 1em;
+    }
+    .compatibility strong {
+      color: #FFFFFF;
     }
     .section {
       margin-bottom: 50px;
@@ -83,49 +108,58 @@
   </style>
 </head>
 <body>
-  <h1>🤖 Android MDM Command Reference</h1>
+  <div class="logo-container">
+    <img src="assets/Logo.png" alt="Huffle’s IT Services Logo" class="logo">
+  </div>
+
+  <h1>🤖 Android MDM CLI Command Reference</h1>
+
+  <div class="compatibility">
+    <p><strong>Works on:</strong> Android Enterprise devices</p>
+    <p><strong>Required Tools:</strong> ADB, MDM console access</p>
+  </div>
 
   <div class="section">
-    <h2>📱 Device Setup & Control</h2>
+    <h2>🔧 Device Setup & Enrollment</h2>
     <table>
-      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>adb devices</code></td><td>List connected devices</td><td>Use <code>adb kill-server</code> to reset</td></tr>
-      <tr><td><code>adb install app.apk</code></td><td>Install app</td><td>Requires USB debugging</td></tr>
-      <tr><td><code>adb uninstall com.app.name</code></td><td>Remove app</td><td>Use package name</td></tr>
-      <tr><td><code>adb reboot</code></td><td>Restart device</td><td>Immediate reboot</td></tr>
-      <tr><td><code>adb shell</code></td><td>Open shell</td><td>Run commands directly</td></tr>
-      <tr><td><code>adb logcat</code></td><td>View logs</td><td>Useful for debugging</td></tr>
+      <tr><th>Command / Action</th><th>Description</th><th>Notes</th></tr>
+      <tr><td><code>adb devices</code></td><td>List connected devices</td><td>Verify ADB connection</td></tr>
+      <tr><td><code>adb shell</code></td><td>Open shell</td><td>Direct CLI access</td></tr>
+      <tr><td><code>adb install app.apk</code></td><td>Install app</td><td>Push APK to device</td></tr>
+      <tr><td><code>adb push file /sdcard/</code></td><td>Transfer file</td><td>To internal storage</td></tr>
+      <tr><td>Zero-touch enrollment</td><td>Automated setup</td><td>Requires reseller config</td></tr>
     </table>
 
-    <h2>🔐 Device Policy Manager</h2>
+    <h2>🧠 Policy & Control</h2>
     <table>
-      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>dpm set-device-owner</code></td><td>Set device owner</td><td>Used for MDM enrollment</td></tr>
-      <tr><td><code>dpm remove-active-admin</code></td><td>Remove admin</td><td>Requires admin package name</td></tr>
-      <tr><td><code>dpm set-profile-owner</code></td><td>Set work profile</td><td>For BYOD scenarios</td></tr>
-      <tr><td><code>dpm clear</code></td><td>Reset DPM state</td><td>Clears all policies</td></tr>
+      <tr><th>Command / Payload</th><th>Description</th><th>Notes</th></tr>
+      <tr><td><code>lock</code></td><td>Lock device</td><td>Immediate action</td></tr>
+      <tr><td><code>wipe</code></td><td>Factory reset</td><td>Erase all data</td></tr>
+      <tr><td><code>installApp</code></td><td>Push app</td><td>Managed Play Store</td></tr>
+      <tr><td><code>setPolicy</code></td><td>Apply restrictions</td><td>Camera, USB, etc.</td></tr>
+      <tr><td><code>clearPasscode</code></td><td>Remove lock</td><td>Admin override</td></tr>
     </table>
 
-    <h2>📦 App & Screen Control</h2>
+    <h2>📦 Monitoring & Reporting</h2>
     <table>
-      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>adb shell am start</code></td><td>Launch app</td><td>Use package/activity name</td></tr>
-      <tr><td><code>adb shell am force-stop</code></td><td>Stop app</td><td>Forcefully closes app</td></tr>
-      <tr><td><code>adb shell pm list packages</code></td><td>List installed apps</td><td>Use <code>-3</code> for user apps</td></tr>
-      <tr><td><code>adb shell screencap /sdcard/screen.png</code></td><td>Take screenshot</td><td>Pull with <code>adb pull</code></td></tr>
-      <tr><td><code>adb shell input keyevent 26</code></td><td>Toggle power</td><td>Simulates power button</td></tr>
+      <tr><th>Command / Query</th><th>Description</th><th>Notes</th></tr>
+      <tr><td><code>getDeviceInfo</code></td><td>Query device</td><td>Returns hardware/software info</td></tr>
+      <tr><td><code>getAppList</code></td><td>List apps</td><td>Installed packages</td></tr>
+      <tr><td><code>getSecurityStatus</code></td><td>Security info</td><td>Encryption, lock status</td></tr>
+      <tr><td><code>getNetworkInfo</code></td><td>Network status</td><td>Wi-Fi, cellular</td></tr>
+      <tr><td><code>getComplianceStatus</code></td><td>Policy compliance</td><td>MDM rules</td></tr>
     </table>
   </div>
 
   <div class="back-button">
-    <a href="Index.html">🔙 Back to Table of Contents</a>
+    <a href="Huffles-IT-Services-Code-Reference.html">🔙 Back to Code Reference</a>
   </div>
 
   <footer>
     <hr style="border-color: #1E3A8A; margin-bottom: 20px;">
     <p>© 2025 Huffle’s IT Services LLC. All rights reserved.</p>
     <p>This command reference and all associated content—including overlays, styling, and the Huffle’s IT Services logo—are protected intellectual property. Unauthorized reproduction or redistribution is prohibited.</p>
-    <p>Sources: Android developer documentation, OEM MDM guides, and ADB command references.</p>
+    <p>Sources: Android Enterprise documentation, ADB guides, and community MDM payload references.</p>
     <p style="margin-top: 20px;">Veteran-owned. Porch-coded. A+ and Security+ certified. Every command is a conversation. Every workflow is a welcome.</p>
   </footer>
 </body>
