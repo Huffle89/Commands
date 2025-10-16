@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>🍏 iOS MDM Commands</title>
+  <title>📱 iOS MDM CLI Reference</title>
   <style>
     body {
       background-color: #0A0A0A;
@@ -10,10 +10,35 @@
       color: #1E3A8A;
       padding: 20px;
     }
+    .logo-container {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background-color: #1A1A1A;
+      padding: 8px;
+      border-radius: 8px;
+      border: 2px solid #1E3A8A;
+      z-index: 1000;
+    }
+    .logo {
+      height: 48px;
+      width: auto;
+    }
     h1 {
       color: #1E3A8A;
       text-align: center;
+      margin-bottom: 10px;
+    }
+    .compatibility {
+      background-color: #1A1A1A;
+      border: 2px solid #1E3A8A;
+      border-radius: 8px;
+      padding: 15px;
       margin-bottom: 40px;
+      font-size: 1em;
+    }
+    .compatibility strong {
+      color: #FFFFFF;
     }
     .section {
       margin-bottom: 50px;
@@ -83,50 +108,58 @@
   </style>
 </head>
 <body>
-  <h1>🍏 iOS MDM Command Reference</h1>
+  <div class="logo-container">
+    <img src="assets/Logo.png" alt="Huffle’s IT Services Logo" class="logo">
+  </div>
+
+  <h1>📱 iOS MDM CLI Command Reference</h1>
+
+  <div class="compatibility">
+    <p><strong>Works on:</strong> iOS devices enrolled in MDM</p>
+    <p><strong>Required Tools:</strong> Apple Configurator, MDM server access</p>
+  </div>
 
   <div class="section">
-    <h2>📱 Device Management</h2>
+    <h2>🔧 Device Enrollment & Setup</h2>
     <table>
-      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>InstallProfile</code></td><td>Install configuration profile</td><td>Used for Wi-Fi, VPN, etc.</td></tr>
-      <tr><td><code>RemoveProfile</code></td><td>Remove profile</td><td>Requires profile identifier</td></tr>
-      <tr><td><code>EraseDevice</code></td><td>Factory reset</td><td>Wipes all data</td></tr>
-      <tr><td><code>EnableLostMode</code></td><td>Activate Lost Mode</td><td>Locks device and displays message</td></tr>
-      <tr><td><code>DisableLostMode</code></td><td>Deactivate Lost Mode</td><td>Restores normal access</td></tr>
-      <tr><td><code>PlaySound</code></td><td>Ping device</td><td>Plays alert sound remotely</td></tr>
+      <tr><th>Command / Action</th><th>Description</th><th>Notes</th></tr>
+      <tr><td><code>profiles -P</code></td><td>List profiles</td><td>Shows installed MDM profiles</td></tr>
+      <tr><td><code>profiles -R -p UUID</code></td><td>Remove profile</td><td>Use profile UUID</td></tr>
+      <tr><td><code>profiles -I -F /path/to.mobileconfig</code></td><td>Install profile</td><td>From file</td></tr>
+      <tr><td>Apple Configurator 2</td><td>Enroll device</td><td>Supervised mode</td></tr>
+      <tr><td>DEP enrollment</td><td>Automated setup</td><td>Requires Apple Business Manager</td></tr>
     </table>
 
-    <h2>🔐 Restrictions & Security</h2>
+    <h2>🧠 Restrictions & Commands</h2>
     <table>
-      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>ApplyRestrictions</code></td><td>Set usage limits</td><td>Camera, App Store, etc.</td></tr>
-      <tr><td><code>ClearPasscode</code></td><td>Remove device passcode</td><td>Requires supervision</td></tr>
-      <tr><td><code>SetWallpaper</code></td><td>Change wallpaper</td><td>Lock/home screen options</td></tr>
-      <tr><td><code>SetDeviceName</code></td><td>Rename device</td><td>Useful for inventory</td></tr>
-      <tr><td><code>SetTimeZone</code></td><td>Update time zone</td><td>Requires valid identifier</td></tr>
+      <tr><th>Command / Payload</th><th>Description</th><th>Notes</th></tr>
+      <tr><td><code>Restrictions</code></td><td>Limit features</td><td>Camera, App Store, etc.</td></tr>
+      <tr><td><code>DeviceLock</code></td><td>Lock device</td><td>Immediate action</td></tr>
+      <tr><td><code>EraseDevice</code></td><td>Wipe device</td><td>Factory reset</td></tr>
+      <tr><td><code>InstallApplication</code></td><td>Push app</td><td>Requires App Store ID</td></tr>
+      <tr><td><code>ClearPasscode</code></td><td>Remove passcode</td><td>Supervised only</td></tr>
     </table>
 
-    <h2>📦 App & Content</h2>
+    <h2>📦 Monitoring & Reporting</h2>
     <table>
-      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>InstallApplication</code></td><td>Push app to device</td><td>Requires App Store ID or manifest</td></tr>
-      <tr><td><code>RemoveApplication</code></td><td>Uninstall app</td><td>Use bundle identifier</td></tr>
-      <tr><td><code>ScheduleOSUpdate</code></td><td>Push iOS update</td><td>Requires supervision</td></tr>
-      <tr><td><code>SendMessage</code></td><td>Display message</td><td>Custom text on screen</td></tr>
-      <tr><td><code>SetAppConfiguration</code></td><td>Configure app settings</td><td>For managed apps only</td></tr>
+      <tr><th>Command / Query</th><th>Description</th><th>Notes</th></tr>
+      <tr><td><code>DeviceInformation</code></td><td>Query device</td><td>Returns hardware/software info</td></tr>
+      <tr><td><code>SecurityInfo</code></td><td>Query security</td><td>Passcode, encryption status</td></tr>
+      <tr><td><code>InstalledApplicationList</code></td><td>List apps</td><td>Returns bundle IDs</td></tr>
+      <tr><td><code>ProfileList</code></td><td>List profiles</td><td>Returns installed profiles</td></tr>
+      <tr><td><code>CertificateList</code></td><td>List certificates</td><td>Returns trusted certs</td></tr>
     </table>
   </div>
 
   <div class="back-button">
-    <a href="Index.html">🔙 Back to Table of Contents</a>
+    <a href="Huffles-IT-Services-Code-Reference.html">🔙 Back to Code Reference</a>
   </div>
 
   <footer>
     <hr style="border-color: #1E3A8A; margin-bottom: 20px;">
     <p>© 2025 Huffle’s IT Services LLC. All rights reserved.</p>
     <p>This command reference and all associated content—including overlays, styling, and the Huffle’s IT Services logo—are protected intellectual property. Unauthorized reproduction or redistribution is prohibited.</p>
-    <p>Sources: Apple MDM documentation, Jamf, Kandji, and other vendor guides.</p>
+    <p>Sources: Apple MDM documentation, Apple Configurator guides, and community MDM payload references.</p>
     <p style="margin-top: 20px;">Veteran-owned. Porch-coded. A+ and Security+ certified. Every command is a conversation. Every workflow is a welcome.</p>
   </footer>
 </body>
