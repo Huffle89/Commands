@@ -28,10 +28,6 @@
       padding: 10px;
       border-radius: 6px;
     }
-    h3 {
-      color: #1E3A8A;
-      margin-top: 30px;
-    }
     table {
       width: 100%;
       border-collapse: collapse;
@@ -70,6 +66,20 @@
     .back-button a:hover {
       background-color: #2F4EB2;
     }
+    footer {
+      margin-top: 60px;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9em;
+      color: #888;
+    }
+    footer a {
+      color: #1E3A8A;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -79,39 +89,47 @@
     <h2>📁 File & Directory</h2>
     <table>
       <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>dir</code></td><td>List files</td><td>Use <code>/a</code> to show hidden files</td></tr>
+      <tr><td><code>dir</code></td><td>List files</td><td>Use <code>/s</code> for subfolders</td></tr>
+      <tr><td><code>cd folder</code></td><td>Change directory</td><td>Use <code>cd ..</code> to go up</td></tr>
       <tr><td><code>mkdir folder</code></td><td>Create folder</td><td>Creates in current directory</td></tr>
       <tr><td><code>del file.txt</code></td><td>Delete file</td><td>Use <code>/f</code> to force</td></tr>
       <tr><td><code>copy file1 file2</code></td><td>Copy file</td><td>Use <code>/y</code> to suppress prompts</td></tr>
       <tr><td><code>move file folder\</code></td><td>Move file</td><td>Also used to rename</td></tr>
-      <tr><td><code>attrib +h file.txt</code></td><td>Hide file</td><td>Use <code>-h</code> to unhide</td></tr>
     </table>
 
-    <h2>🧠 System & Diagnostics</h2>
+    <h2>🧠 System & Process</h2>
     <table>
       <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
+      <tr><td><code>tasklist</code></td><td>List processes</td><td>Use <code>/fi</code> to filter</td></tr>
+      <tr><td><code>taskkill /PID 1234</code></td><td>Kill process</td><td>Use <code>/F</code> to force</td></tr>
       <tr><td><code>systeminfo</code></td><td>System details</td><td>OS, memory, uptime</td></tr>
-      <tr><td><code>tasklist</code></td><td>Running processes</td><td>Use <code>/v</code> for verbose</td></tr>
-      <tr><td><code>taskkill /pid 1234</code></td><td>Kill process</td><td>Use <code>/f</code> to force</td></tr>
-      <tr><td><code>ver</code></td><td>Windows version</td><td>Quick OS check</td></tr>
-      <tr><td><code>echo %USERNAME%</code></td><td>Current user</td><td>Environment variable</td></tr>
-      <tr><td><code>set</code></td><td>List environment variables</td><td>Use <code>set VAR=value</code> to define</td></tr>
+      <tr><td><code>shutdown /r /t 0</code></td><td>Reboot system</td><td>Immediate restart</td></tr>
+      <tr><td><code>set</code></td><td>View/set environment vars</td><td>Use <code>set VAR=value</code></td></tr>
     </table>
 
     <h2>🌐 Networking</h2>
     <table>
       <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>ipconfig</code></td><td>Show IP config</td><td>Use <code>/all</code> for full details</td></tr>
-      <tr><td><code>ping google.com</code></td><td>Test connection</td><td>Use <code>-n 4</code> for 4 pings</td></tr>
-      <tr><td><code>netstat -an</code></td><td>List ports</td><td>Shows active connections</td></tr>
+      <tr><td><code>ipconfig</code></td><td>IP configuration</td><td>Use <code>/all</code> for full details</td></tr>
+      <tr><td><code>ping google.com</code></td><td>Test connection</td><td>Use <code>-n</code> to set count</td></tr>
       <tr><td><code>tracert google.com</code></td><td>Trace route</td><td>Shows network hops</td></tr>
-      <tr><td><code>nslookup google.com</code></td><td>DNS lookup</td><td>Resolve domain to IP</td></tr>
-      <tr><td><code>arp -a</code></td><td>ARP cache</td><td>Shows MAC/IP mappings</td></tr>
+      <tr><td><code>netstat -an</code></td><td>List ports</td><td>Shows active connections</td></tr>
+      <tr><td><code>nslookup google.com</code></td><td>DNS lookup</td><td>Resolve domain name</td></tr>
     </table>
   </div>
 
   <div class="back-button">
     <a href="Index.html">🔙 Back to Table of Contents</a>
   </div>
+
+  <footer>
+    <hr style="border-color: #1E3A8A; margin-bottom: 20px;">
+    <p>© 2025 Huffle’s IT Services LLC. All rights reserved.</p>
+    <p>This command reference and all associated content—including overlays, styling, and the Huffle’s IT Services logo—are protected intellectual property. Unauthorized reproduction or redistribution is prohibited.</p>
+    <p>Sources: 
+      <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/windows-commands" target="_blank">Microsoft Learn</a>
+    </p>
+    <p style="margin-top: 20px;">Veteran-owned. Porch-coded. A+ and Security+ certified. Every command is a conversation. Every workflow is a welcome.</p>
+  </footer>
 </body>
 </html>
