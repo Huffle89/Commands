@@ -2,75 +2,66 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>🏡 Huffle’s IT Services Code Reference</title>
+  <title>📚 Huffle’s IT Services Command Reference</title>
   <style>
     body {
       background-color: #0A0A0A;
       font-family: 'Segoe UI', sans-serif;
       color: #1E3A8A;
-      padding: 20px;
-    }
-    .logo-container {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      background-color: #1A1A1A;
-      padding: 8px;
-      border-radius: 8px;
-      border: 2px solid #1E3A8A;
-      z-index: 1000;
+      padding: 40px;
+      text-align: center;
     }
     .logo {
-      height: 48px;
+      height: 80px;
       width: auto;
+      margin-bottom: 20px;
     }
     h1 {
       color: #1E3A8A;
-      text-align: center;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
     }
-    .intro {
+    .toc {
       background-color: #1A1A1A;
       border: 2px solid #1E3A8A;
       border-radius: 8px;
       padding: 20px;
-      margin-bottom: 40px;
-      font-size: 1em;
+      margin: 0 auto 40px auto;
+      max-width: 700px;
       color: #FFFFFF;
+      text-align: left;
     }
-    .section {
-      margin-bottom: 50px;
-      border: 2px solid #1E3A8A;
-      border-radius: 8px;
-      padding: 20px;
-      background-color: #1A1A1A;
+    .toc a {
+      color: #FFFFFF;
+      text-decoration: none;
+      display: block;
+      margin: 10px 0;
+      padding: 8px;
+      border-left: 4px solid #1E3A8A;
+      transition: background-color 0.3s ease;
     }
-    h2 {
+    .toc a:hover {
+      background-color: #2F4EB2;
+    }
+    .return-button {
+      margin-top: 40px;
+    }
+    .return-button a {
       background-color: #1E3A8A;
       color: #FFFFFF;
-      padding: 10px;
-      border-radius: 6px;
-    }
-    ul {
-      list-style: none;
-      padding-left: 0;
-    }
-    li {
-      margin: 10px 0;
-    }
-    a {
-      color: #1E3A8A;
+      padding: 14px 28px;
+      font-size: 1.1em;
+      border-radius: 8px;
       text-decoration: none;
-      font-weight: bold;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+      border: 2px solid #1E3A8A;
     }
-    a:hover {
-      text-decoration: underline;
-      color: #2F4EB2;
+    .return-button a:hover {
+      background-color: #2F4EB2;
     }
     footer {
       margin-top: 60px;
       padding: 20px;
-      text-align: center;
       font-size: 0.9em;
       color: #888;
     }
@@ -84,35 +75,28 @@
   </style>
 </head>
 <body>
-  <div class="logo-container">
-    <img src="Logo.png" alt="Huffle’s IT Services Logo" class="logo">
+  <img src="Logo.png" alt="Huffle’s IT Services Logo" class="logo">
+
+  <h1>Command Reference Overlays</h1>
+
+  <div class="toc">
+    <a href="Linux.html">🐧 Linux CLI Overlay</a>
+    <a href="Windows-Cmd.html">🪟 Windows CMD Overlay</a>
+    <a href="PowerShell.html">⚡ PowerShell Overlay</a>
+    <a href="MacOS.html">🍎 macOS Terminal Overlay</a>
+    <a href="iOS-MDM.html">📱 iOS MDM Overlay</a>
+    <a href="Android-MDM.html">🤖 Android MDM Overlay</a>
+    <a href="Cleanup.html">🧹 Cleanup & Maintenance Overlay</a>
   </div>
 
-  <h1>🏡 Huffle’s IT Services Code Reference</h1>
-
-  <div class="intro">
-    <p>Welcome to your porch-coded CLI reference hub. Every overlay is built for clarity, comfort, and repeatability—whether you're troubleshooting, teaching, or building workflows that feel like home.</p>
-    <p>Veteran-owned. A+ and Security+ certified. Every command is a conversation. Every workflow is a welcome.</p>
-  </div>
-
-  <div class="section">
-    <h2>📚 Overlay Table of Contents</h2>
-    <ul>
-      <li><a href="Linux.html">🐧 Linux CLI Reference</a></li>
-      <li><a href="Windows-Cmd.html">🪟 Windows CMD CLI Reference</a></li>
-      <li><a href="PowerShell.html">⚡ PowerShell CLI Reference</a></li>
-      <li><a href="MacOS.html">🍎 macOS CLI Reference</a></li>
-      <li><a href="iOS-MDM.html">📱 iOS MDM CLI Reference</a></li>
-      <li><a href="Android-MDM.html">🤖 Android MDM CLI Reference</a></li>
-      <li><a href="Cleanup.html">🧼 System Cleanup CLI Reference</a></li>
-    </ul>
+  <div class="return-button">
+    <a href="index.html">🏡 Return to Porch</a>
   </div>
 
   <footer>
     <hr style="border-color: #1E3A8A; margin-bottom: 20px;">
     <p>© 2025 Huffle’s IT Services LLC. All rights reserved.</p>
-    <p>This reference site and all associated overlays—including styling, structure, and logo—are protected intellectual property. Unauthorized reproduction or redistribution is prohibited.</p>
-    <p style="margin-top: 20px;">Built with porch wisdom and southern grit. Scan-ready. Comfort-coded. Always improving.</p>
+    <p>Veteran-owned. Porch-coded. Built for comfort, clarity, and inclusion.</p>
   </footer>
 </body>
 </html>
