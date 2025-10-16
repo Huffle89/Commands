@@ -2,13 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>🐙 Git & GitHub Commands</title>
+  <title>🐙 Git & GitHub CLI Reference</title>
   <style>
     body {
       background-color: #0A0A0A;
       font-family: 'Segoe UI', sans-serif;
       color: #1E3A8A;
       padding: 20px;
+    }
+    .logo-container {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background-color: #1A1A1A;
+      padding: 8px;
+      border-radius: 8px;
+      border: 2px solid #1E3A8A;
+      z-index: 1000;
+    }
+    .logo {
+      height: 48px;
+      width: auto;
     }
     h1 {
       color: #1E3A8A;
@@ -94,47 +108,51 @@
   </style>
 </head>
 <body>
-  <h1>🐙 Git & GitHub Command Reference</h1>
+  <div class="logo-container">
+    <img src="assets/Logo.png" alt="Huffle’s IT Services Logo" class="logo">
+  </div>
+
+  <h1>🐙 Git & GitHub CLI Command Reference</h1>
 
   <div class="compatibility">
-    <p><strong>Works on:</strong> 🐧 Linux, 🖥️ Windows, 🍎 macOS</p>
-    <p><strong>Required Tools:</strong> Git CLI (<code>git</code>), GitHub CLI (<code>gh</code>), GitHub account</p>
+    <p><strong>Works on:</strong> Linux, macOS, Windows (Git Bash or WSL)</p>
+    <p><strong>Required Tools:</strong> Git installed; GitHub CLI optional</p>
   </div>
 
   <div class="section">
-    <h2>📁 Git Basics</h2>
+    <h2>🔧 Git Basics</h2>
     <table>
       <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
       <tr><td><code>git init</code></td><td>Initialize repo</td><td>Creates .git folder</td></tr>
-      <tr><td><code>git status</code></td><td>Check repo state</td><td>Shows staged/unstaged changes</td></tr>
-      <tr><td><code>git add file</code></td><td>Stage file</td><td>Use <code>.</code> to stage all</td></tr>
-      <tr><td><code>git commit -m "msg"</code></td><td>Save snapshot</td><td>Describes changes</td></tr>
+      <tr><td><code>git status</code></td><td>Check status</td><td>Untracked, staged, modified</td></tr>
+      <tr><td><code>git add .</code></td><td>Stage all changes</td><td>Use <code>git add filename</code> for specific files</td></tr>
+      <tr><td><code>git commit -m "msg"</code></td><td>Commit changes</td><td>Use clear messages</td></tr>
       <tr><td><code>git log</code></td><td>View history</td><td>Use <code>--oneline</code> for compact view</td></tr>
     </table>
 
-    <h2>🔀 Branching & Merging</h2>
+    <h2>🌐 Remote & GitHub</h2>
     <table>
       <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>git branch</code></td><td>List branches</td><td>Use <code>*</code> to show current</td></tr>
-      <tr><td><code>git checkout -b new</code></td><td>Create & switch</td><td>New branch from current</td></tr>
-      <tr><td><code>git merge branch</code></td><td>Merge branch</td><td>Into current branch</td></tr>
-      <tr><td><code>git rebase branch</code></td><td>Reapply commits</td><td>Linear history</td></tr>
-      <tr><td><code>git stash</code></td><td>Save work</td><td>Temporarily stores changes</td></tr>
+      <tr><td><code>git remote add origin URL</code></td><td>Link remote</td><td>GitHub or other repo</td></tr>
+      <tr><td><code>git push -u origin main</code></td><td>Push to remote</td><td>First-time push</td></tr>
+      <tr><td><code>git pull</code></td><td>Fetch & merge</td><td>Updates local repo</td></tr>
+      <tr><td><code>gh auth login</code></td><td>GitHub CLI login</td><td>Optional tool</td></tr>
+      <tr><td><code>gh repo clone owner/name</code></td><td>Clone via GitHub CLI</td><td>Alternative to <code>git clone</code></td></tr>
     </table>
 
-    <h2>☁️ GitHub Integration</h2>
+    <h2>🧠 Branching & Merging</h2>
     <table>
       <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>git remote add origin URL</code></td><td>Link repo</td><td>Connect to GitHub</td></tr>
-      <tr><td><code>git push -u origin main</code></td><td>Push code</td><td>First-time push</td></tr>
-      <tr><td><code>git pull origin main</code></td><td>Fetch & merge</td><td>Updates local repo</td></tr>
-      <tr><td><code>gh repo clone user/repo</code></td><td>Clone via CLI</td><td>Requires GitHub CLI</td></tr>
-      <tr><td><code>gh issue list</code></td><td>View issues</td><td>GitHub CLI command</td></tr>
+      <tr><td><code>git branch</code></td><td>List branches</td><td>Use <code>-a</code> for all</td></tr>
+      <tr><td><code>git checkout -b new</code></td><td>Create & switch</td><td>New feature branch</td></tr>
+      <tr><td><code>git merge branch</code></td><td>Merge branch</td><td>Into current branch</td></tr>
+      <tr><td><code>git stash</code></td><td>Save work</td><td>Temporary hold</td></tr>
+      <tr><td><code>git rebase branch</code></td><td>Rebase changes</td><td>Advanced merging</td></tr>
     </table>
   </div>
 
   <div class="back-button">
-    <a href="Index.html">🔙 Back to Table of Contents</a>
+    <a href="Huffles-IT-Services-Code-Reference.html">🔙 Back to Code Reference</a>
   </div>
 
   <footer>
