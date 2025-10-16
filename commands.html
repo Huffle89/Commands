@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Universal Command Reference</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fdf6f0;
+      color: #333;
+      padding: 40px;
+      line-height: 1.6;
+    }
+    h1, h2, h3 {
+      color: #a65c2e;
+    }
+    code {
+      background-color: #eee;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+    .section {
+      margin-bottom: 40px;
+    }
+    .category {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Universal Command Reference</h1>
+  <p>This guide organizes essential commands by operating system, then by category. Each command includes syntax and a plain-English description.</p>
+
+  <!-- Windows -->
+  <div class="section">
+    <h2>🪟 Windows (CMD & PowerShell)</h2>
+
+    <div class="category">
+      <h3>📁 File & Directory</h3>
+      <p><code>dir</code> – List files (CMD)</p>
+      <p><code>Get-ChildItem</code> – List files (PowerShell)</p>
+      <p><code>mkdir folder</code> – Create folder</p>
+      <p><code>del file.txt</code> – Delete file (CMD)</p>
+      <p><code>Remove-Item file.txt</code> – Delete file (PowerShell)</p>
+    </div>
+
+    <div class="category">
+      <h3>🌐 Networking</h3>
+      <p><code>ipconfig</code> – Show IP configuration</p>
+      <p><code>ping google.com</code> – Test connectivity</p>
+      <p><code>Test-Connection google.com</code> – Ping (PowerShell)</p>
+    </div>
+
+    <div class="category">
+      <h3>🔐 Security</h3>
+      <p><code>net user</code> – Manage users (CMD)</p>
+      <p><code>Get-LocalUser</code> – Manage users (PowerShell)</p>
+      <p><code>icacls file.txt</code> – View/edit file permissions</p>
+    </div>
+  </div>
+
+  <!-- Linux -->
+  <div class="section">
+    <h2>🐧 Linux (Bash)</h2>
+
+    <div class="category">
+      <h3>📁 File & Directory</h3>
+      <p><code>ls</code> – List files</p>
+      <p><code>mkdir folder</code> – Create folder</p>
+      <p><code>rm -rf folder</code> – Delete folder</p>
+    </div>
+
+    <div class="category">
+      <h3>🌐 Networking</h3>
+      <p><code>ip a</code> – Show IP addresses</p>
+      <p><code>ping google.com</code> – Test connectivity</p>
+      <p><code>traceroute google.com</code> – Trace route to host</p>
+    </div>
+
+    <div class="category">
+      <h3>🔐 Security</h3>
+      <p><code>chmod 755 file</code> – Set file permissions</p>
+      <p><code>chown user:group file</code> – Change file ownership</p>
+    </div>
+  </div>
+
+  <!-- macOS -->
+  <div class="section">
+    <h2>🍎 macOS (Zsh/Bash)</h2>
+
+    <div class="category">
+      <h3>📁 File & Directory</h3>
+      <p><code>open .</code> – Open current folder in Finder</p>
+      <p><code>touch file.txt</code> – Create file</p>
+    </div>
+
+    <div class="category">
+      <h3>🌐 Networking</h3>
+      <p><code>networksetup -getinfo Wi-Fi</code> – Show Wi-Fi info</p>
+      <p><code>ping google.com</code> – Test connectivity</p>
+    </div>
+
+    <div class="category">
+      <h3>🔐 Security</h3>
+      <p><code>sudo spctl --status</code> – Check Gatekeeper status</p>
+      <p><code>sudo fdesetup status</code> – Check FileVault status</p>
+    </div>
+  </div>
+
+  <!-- Windows Server -->
+  <div class="section">
+    <h2>🧑‍💻 Windows Server</h2>
+
+    <div class="category">
+      <h3>🧰 Server Management</h3>
+      <p><code>Get-WindowsFeature</code> – List server roles</p>
+      <p><code>Install-WindowsFeature Web-Server</code> – Install IIS</p>
+      <p><code>sconfig</code> – Launch server config menu</p>
+    </div>
+
+    <div class="category">
+      <h3>🔐 Security</h3>
+      <p><code>Set-ExecutionPolicy RemoteSigned</code> – Allow script execution</p>
+      <p><code>New-LocalUser</code> – Create user</p>
+    </div>
+  </div>
+
+  <p>More sections coming soon: Unix (BSD, Solaris), scripting examples, and QR-coded overlays.</p>
+</body>
+</html>
