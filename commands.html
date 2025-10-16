@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Universal Command Reference</title>
+  <title>Master Command Reference</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -12,7 +12,7 @@
       line-height: 1.6;
     }
     h1, h2, h3 {
-      color: #a65c2e;
+      color: #EEBA35;
     }
     code {
       background-color: #eee;
@@ -26,106 +26,90 @@
     .category {
       margin-top: 20px;
     }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #FFD25F;
+    }
   </style>
 </head>
 <body>
-  <h1>Universal Command Reference</h1>
-  <p>This guide organizes essential commands by operating system, then by category. Each command includes syntax and a plain-English description.</p>
+  <h1>Universal Master Command Reference</h1>
+  <p>Organized by OS and system category. Each table includes syntax, description, and notes.</p>
 
-  <!-- Windows -->
+  <!-- Example Section: Linux -->
   <div class="section">
-    <h2>🪟 Windows (CMD & PowerShell)</h2>
-
+    <h2>🐧 Linux</h2>
     <div class="category">
       <h3>📁 File & Directory</h3>
-      <p><code>dir</code> – List files (CMD)</p>
-      <p><code>Get-ChildItem</code> – List files (PowerShell)</p>
-      <p><code>mkdir folder</code> – Create folder</p>
-      <p><code>del file.txt</code> – Delete file (CMD)</p>
-      <p><code>Remove-Item file.txt</code> – Delete file (PowerShell)</p>
+      <table>
+        <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
+        <tr><td><code>ls</code></td><td>List files</td><td>Use <code>ls -la</code> for all files</td></tr>
+        <tr><td><code>mkdir folder</code></td><td>Create folder</td><td>Creates in current directory</td></tr>
+        <tr><td><code>rm -rf folder</code></td><td>Delete folder</td><td>Use with caution</td></tr>
+      </table>
     </div>
+    <!-- Add more categories here -->
+  </div>
 
+  <!-- Example Section: Windows -->
+  <div class="section">
+    <h2>🪟 Windows CMD & PowerShell</h2>
     <div class="category">
       <h3>🌐 Networking</h3>
-      <p><code>ipconfig</code> – Show IP configuration</p>
-      <p><code>ping google.com</code> – Test connectivity</p>
-      <p><code>Test-Connection google.com</code> – Ping (PowerShell)</p>
+      <table>
+        <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
+        <tr><td><code>ipconfig</code></td><td>Show IP configuration</td><td>Use <code>/all</code> for full details</td></tr>
+        <tr><td><code>ping google.com</code></td><td>Test connectivity</td><td>Use <code>-n 4</code> for 4 pings</td></tr>
+      </table>
     </div>
-
-    <div class="category">
-      <h3>🔐 Security</h3>
-      <p><code>net user</code> – Manage users (CMD)</p>
-      <p><code>Get-LocalUser</code> – Manage users (PowerShell)</p>
-      <p><code>icacls file.txt</code> – View/edit file permissions</p>
-    </div>
+    <!-- Add more categories here -->
   </div>
 
-  <!-- Linux -->
+  <!-- Mobile & MDM Section -->
   <div class="section">
-    <h2>🐧 Linux (Bash)</h2>
+    <h2>📱 Mobile & MDM Commands</h2>
 
     <div class="category">
-      <h3>📁 File & Directory</h3>
-      <p><code>ls</code> – List files</p>
-      <p><code>mkdir folder</code> – Create folder</p>
-      <p><code>rm -rf folder</code> – Delete folder</p>
+      <h3>🍏 iOS MDM Commands</h3>
+      <table>
+        <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
+        <tr><td><code>InstallProfile</code></td><td>Push config profile</td><td>Wi-Fi, VPN, restrictions</td></tr>
+        <tr><td><code>EraseDevice</code></td><td>Wipe device remotely</td><td>Factory reset</td></tr>
+      </table>
     </div>
 
     <div class="category">
-      <h3>🌐 Networking</h3>
-      <p><code>ip a</code> – Show IP addresses</p>
-      <p><code>ping google.com</code> – Test connectivity</p>
-      <p><code>traceroute google.com</code> – Trace route to host</p>
+      <h3>🤖 Android MDM Commands</h3>
+      <table>
+        <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
+        <tr><td><code>adb devices</code></td><td>List connected devices</td><td>Shows device ID</td></tr>
+        <tr><td><code>adb install app.apk</code></td><td>Install APK</td><td>Requires USB debugging</td></tr>
+      </table>
     </div>
 
     <div class="category">
-      <h3>🔐 Security</h3>
-      <p><code>chmod 755 file</code> – Set file permissions</p>
-      <p><code>chown user:group file</code> – Change file ownership</p>
+      <h3>🌐 Cross-Platform MDM Tools</h3>
+      <table>
+        <tr><th>Tool</th><th>Platform</th><th>Function</th></tr>
+        <tr><td>Cisco Meraki</td><td>iOS, Android, Windows</td><td>GUI + API for full lifecycle</td></tr>
+        <tr><td>Microsoft Intune</td><td>All major platforms</td><td>Enterprise-grade MDM</td></tr>
+      </table>
     </div>
   </div>
 
-  <!-- macOS -->
+  <!-- Placeholder for additional OS sections -->
   <div class="section">
-    <h2>🍎 macOS (Zsh/Bash)</h2>
-
-    <div class="category">
-      <h3>📁 File & Directory</h3>
-      <p><code>open .</code> – Open current folder in Finder</p>
-      <p><code>touch file.txt</code> – Create file</p>
-    </div>
-
-    <div class="category">
-      <h3>🌐 Networking</h3>
-      <p><code>networksetup -getinfo Wi-Fi</code> – Show Wi-Fi info</p>
-      <p><code>ping google.com</code> – Test connectivity</p>
-    </div>
-
-    <div class="category">
-      <h3>🔐 Security</h3>
-      <p><code>sudo spctl --status</code> – Check Gatekeeper status</p>
-      <p><code>sudo fdesetup status</code> – Check FileVault status</p>
-    </div>
+    <h2>🧠 More OS Tables Coming Soon</h2>
+    <p>ChromeOS, FreeBSD, Solaris, AIX, Raspberry Pi, Cisco IOS, JunOS, QNX, VMware ESXi, and more will be added here.</p>
   </div>
-
-  <!-- Windows Server -->
-  <div class="section">
-    <h2>🧑‍💻 Windows Server</h2>
-
-    <div class="category">
-      <h3>🧰 Server Management</h3>
-      <p><code>Get-WindowsFeature</code> – List server roles</p>
-      <p><code>Install-WindowsFeature Web-Server</code> – Install IIS</p>
-      <p><code>sconfig</code> – Launch server config menu</p>
-    </div>
-
-    <div class="category">
-      <h3>🔐 Security</h3>
-      <p><code>Set-ExecutionPolicy RemoteSigned</code> – Allow script execution</p>
-      <p><code>New-LocalUser</code> – Create user</p>
-    </div>
-  </div>
-
-  <p>More sections coming soon: Unix (BSD, Solaris), scripting examples, and QR-coded overlays.</p>
 </body>
-</html> 
+</html>
