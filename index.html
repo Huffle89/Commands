@@ -46,6 +46,29 @@
     .button-container a:hover {
       background-color: #2F4EB2;
     }
+    .qr-section {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 50px;
+      flex-wrap: wrap;
+    }
+    .qr-box {
+      text-align: center;
+    }
+    .qr-box img {
+      height: 160px;
+      width: 160px;
+      border: 2px solid #1E3A8A;
+      border-radius: 8px;
+      background-color: #FFFFFF;
+      padding: 8px;
+    }
+    .qr-box p {
+      color: #FFFFFF;
+      margin-top: 10px;
+      font-size: 0.95em;
+    }
     footer {
       margin-top: 60px;
       padding: 20px;
@@ -73,6 +96,17 @@
 
   <div class="button-container">
     <a href="Huffles-IT-Services-Code-Reference.html">📚 Enter Command Reference</a>
+  </div>
+
+  <div class="qr-section">
+    <div class="qr-box">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://huffle89.github.io/Commands/" alt="QR Code to GitHub site">
+      <p>Scan for GitHub CLI Reference</p>
+    </div>
+    <div class="qr-box">
+      <img src="Canva-QR.png" alt="QR Code to Canva site">
+      <p>Scan for Canva Site</p>
+    </div>
   </div>
 
   <footer>
