@@ -2,13 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>🧼 System Cleanup Commands</title>
+  <title>🧼 System Cleanup CLI Reference</title>
   <style>
     body {
       background-color: #0A0A0A;
       font-family: 'Segoe UI', sans-serif;
       color: #1E3A8A;
       padding: 20px;
+    }
+    .logo-container {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background-color: #1A1A1A;
+      padding: 8px;
+      border-radius: 8px;
+      border: 2px solid #1E3A8A;
+      z-index: 1000;
+    }
+    .logo {
+      height: 48px;
+      width: auto;
     }
     h1 {
       color: #1E3A8A;
@@ -94,47 +108,51 @@
   </style>
 </head>
 <body>
-  <h1>🧼 System Cleanup Command Reference</h1>
+  <div class="logo-container">
+    <img src="assets/Logo.png" alt="Huffle’s IT Services Logo" class="logo">
+  </div>
+
+  <h1>🧼 System Cleanup CLI Command Reference</h1>
 
   <div class="compatibility">
-    <p><strong>Works on:</strong> 🐧 Linux (Ubuntu/Debian), 🖥️ Windows, 🍎 macOS</p>
-    <p><strong>Required Tools:</strong> Native CLI tools, PowerShell, Terminal, or third-party utilities</p>
+    <p><strong>Works on:</strong> Windows, macOS, Linux</p>
+    <p><strong>Required Tools:</strong> Built-in CLI tools; optional third-party utilities</p>
   </div>
 
   <div class="section">
-    <h2>🖥️ Windows Cleanup</h2>
-    <table>
-      <tr><th>Command/Tool</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>cleanmgr</code></td><td>Disk Cleanup GUI</td><td>Run as admin for full options</td></tr>
-      <tr><td><code>Storage Sense</code></td><td>Auto cleanup</td><td>Settings → System → Storage</td></tr>
-      <tr><td><code>del /s /q %temp%\*</code></td><td>Clear temp files</td><td>Use with caution</td></tr>
-      <tr><td><code>DISM /Online /Cleanup-Image /StartComponentCleanup</code></td><td>Remove old updates</td><td>Frees WinSxS space</td></tr>
-      <tr><td><code>Get-ChildItem -Path $env:TEMP -Recurse | Remove-Item -Force</code></td><td>PowerShell temp cleanup</td><td>Safer scripting</td></tr>
-    </table>
-
-    <h2>🐧 Linux Cleanup (Ubuntu/Debian)</h2>
+    <h2>🪟 Windows Cleanup</h2>
     <table>
       <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>sudo apt autoremove</code></td><td>Remove unused packages</td><td>Safe cleanup</td></tr>
-      <tr><td><code>sudo apt clean</code></td><td>Clear package cache</td><td>Frees /var/cache/apt</td></tr>
-      <tr><td><code>journalctl --vacuum-time=7d</code></td><td>Trim logs</td><td>Keep 7 days of logs</td></tr>
-      <tr><td><code>du -sh *</code></td><td>Check folder sizes</td><td>Run in large directories</td></tr>
-      <tr><td><code>bleachbit</code></td><td>GUI cleaner</td><td>Optional install</td></tr>
+      <tr><td><code>cleanmgr</code></td><td>Disk Cleanup GUI</td><td>Legacy tool</td></tr>
+      <tr><td><code>del /s /q %temp%\*</code></td><td>Delete temp files</td><td>Silent, recursive</td></tr>
+      <tr><td><code>rd /s /q %temp%</code></td><td>Remove temp folder</td><td>Recreated on reboot</td></tr>
+      <tr><td><code>DISM /Online /Cleanup-Image /RestoreHealth</code></td><td>Repair image</td><td>System file cleanup</td></tr>
+      <tr><td><code>sfc /scannow</code></td><td>System File Checker</td><td>Fix corrupt files</td></tr>
     </table>
 
     <h2>🍎 macOS Cleanup</h2>
     <table>
-      <tr><th>Command/Tool</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>sudo periodic daily weekly monthly</code></td><td>Run maintenance scripts</td><td>Built-in cleanup</td></tr>
-      <tr><td><code>rm -rf ~/Library/Caches/*</code></td><td>Clear user cache</td><td>Use with caution</td></tr>
-      <tr><td><code>brew cleanup</code></td><td>Clean Homebrew packages</td><td>Frees disk space</td></tr>
-      <tr><td><code>du -sh *</code></td><td>Check folder sizes</td><td>Same as Linux</td></tr>
-      <tr><td><code>OnyX</code></td><td>GUI cleanup tool</td><td>Free from Titanium Software</td></tr>
+      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
+      <tr><td><code>sudo periodic daily weekly monthly</code></td><td>Run maintenance scripts</td><td>Manual trigger</td></tr>
+      <tr><td><code>rm -rf ~/Library/Caches/*</code></td><td>Clear user cache</td><td>Safe for most apps</td></tr>
+      <tr><td><code>sudo purge</code></td><td>Free inactive memory</td><td>May require dev tools</td></tr>
+      <tr><td><code>brew cleanup</code></td><td>Clean Homebrew</td><td>Remove old versions</td></tr>
+      <tr><td><code>du -sh *</code></td><td>Check folder sizes</td><td>Disk usage summary</td></tr>
+    </table>
+
+    <h2>🐧 Linux Cleanup</h2>
+    <table>
+      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
+      <tr><td><code>sudo apt autoremove</code></td><td>Remove unused packages</td><td>Debian/Ubuntu</td></tr>
+      <tr><td><code>sudo apt clean</code></td><td>Clear package cache</td><td>Free space</td></tr>
+      <tr><td><code>journalctl --vacuum-time=7d</code></td><td>Limit logs</td><td>Keep 7 days</td></tr>
+      <tr><td><code>du -sh *</code></td><td>Folder sizes</td><td>Disk usage summary</td></tr>
+      <tr><td><code>find /tmp -type f -delete</code></td><td>Clear temp files</td><td>Use with caution</td></tr>
     </table>
   </div>
 
   <div class="back-button">
-    <a href="Index.html">🔙 Back to Table of Contents</a>
+    <a href="Huffles-IT-Services-Code-Reference.html">🔙 Back to Code Reference</a>
   </div>
 
   <footer>
