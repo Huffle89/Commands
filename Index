@@ -1,1 +1,56 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Command Reference TOC</title>
+  <style>
+    body {
+      background-color: #0A0A0A;
+      font-family: 'Segoe UI', sans-serif;
+      color: #1E3A8A;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 40px;
+      color: #1E3A8A;
+    }
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .os-button {
+      background-color: #1E3A8A;
+      color: #FFFFFF;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      border-radius: 10px;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+      display: block;
+    }
+    .os-button:hover {
+      background-color: #2F4EB2;
+    }
+  </style>
+</head>
+<body>
+  <h1>🐾 Huffle's Command Reference</h1>
+  <div class="button-container">
+    <a href="linux.html" class="os-button">🐺 Linux</a>
+    <a href="windows-cmd.html" class="os-button">🖥️ Windows CMD</a>
+    <a href="powershell.html" class="os-button">🔧 PowerShell</a>
+    <a href="macos.html" class="os-button">🍎 macOS Terminal</a>
+    <a href="ios-mdm.html" class="os-button">🍏 iOS MDM</a>
+    <a href="android-mdm.html" class="os-button">🤖 Android MDM</a>
+  </div>
+</body>
+</html>
