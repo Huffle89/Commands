@@ -66,33 +66,53 @@
     .back-button a:hover {
       background-color: #2F4EB2;
     }
+    footer {
+      margin-top: 60px;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9em;
+      color: #888;
+    }
+    footer a {
+      color: #1E3A8A;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
   <h1>🤖 Android MDM Command Reference</h1>
 
   <div class="section">
-    <h2>🔧 ADB Commands</h2>
+    <h2>📱 Device Setup & Control</h2>
     <table>
       <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>adb devices</code></td><td>List connected devices</td><td>Shows device ID</td></tr>
-      <tr><td><code>adb install app.apk</code></td><td>Install APK</td><td>Requires USB debugging</td></tr>
-      <tr><td><code>adb uninstall com.package.name</code></td><td>Remove app</td><td>Use full package name</td></tr>
-      <tr><td><code>adb shell</code></td><td>Open device shell</td><td>Run commands directly</td></tr>
+      <tr><td><code>adb devices</code></td><td>List connected devices</td><td>Use <code>adb kill-server</code> to reset</td></tr>
+      <tr><td><code>adb install app.apk</code></td><td>Install app</td><td>Requires USB debugging</td></tr>
+      <tr><td><code>adb uninstall com.app.name</code></td><td>Remove app</td><td>Use package name</td></tr>
+      <tr><td><code>adb reboot</code></td><td>Restart device</td><td>Immediate reboot</td></tr>
+      <tr><td><code>adb shell</code></td><td>Open shell</td><td>Run commands directly</td></tr>
       <tr><td><code>adb logcat</code></td><td>View logs</td><td>Useful for debugging</td></tr>
-      <tr><td><code>adb reboot</code></td><td>Restart device</td><td>Requires root or permission</td></tr>
-      <tr><td><code>adb push file /sdcard/</code></td><td>Send file to device</td><td>Use full path</td></tr>
-      <tr><td><code>adb pull /sdcard/file</code></td><td>Retrieve file</td><td>From device to PC</td></tr>
     </table>
 
-    <h2>📱 Device Management</h2>
+    <h2>🔐 Device Policy Manager</h2>
     <table>
       <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>adb shell dpm set-device-owner</code></td><td>Set device owner</td><td>Used for MDM setup</td></tr>
+      <tr><td><code>dpm set-device-owner</code></td><td>Set device owner</td><td>Used for MDM enrollment</td></tr>
+      <tr><td><code>dpm remove-active-admin</code></td><td>Remove admin</td><td>Requires admin package name</td></tr>
+      <tr><td><code>dpm set-profile-owner</code></td><td>Set work profile</td><td>For BYOD scenarios</td></tr>
+      <tr><td><code>dpm clear</code></td><td>Reset DPM state</td><td>Clears all policies</td></tr>
+    </table>
+
+    <h2>📦 App & Screen Control</h2>
+    <table>
+      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
+      <tr><td><code>adb shell am start</code></td><td>Launch app</td><td>Use package/activity name</td></tr>
+      <tr><td><code>adb shell am force-stop</code></td><td>Stop app</td><td>Forcefully closes app</td></tr>
       <tr><td><code>adb shell pm list packages</code></td><td>List installed apps</td><td>Use <code>-3</code> for user apps</td></tr>
-      <tr><td><code>adb shell am start</code></td><td>Launch app/activity</td><td>Requires package and activity name</td></tr>
-      <tr><td><code>adb shell settings list global</code></td><td>View global settings</td><td>Useful for auditing</td></tr>
-      <tr><td><code>adb shell screencap /sdcard/screen.png</code></td><td>Take screenshot</td><td>Use <code>adb pull</code> to retrieve</td></tr>
+      <tr><td><code>adb shell screencap /sdcard/screen.png</code></td><td>Take screenshot</td><td>Pull with <code>adb pull</code></td></tr>
       <tr><td><code>adb shell input keyevent 26</code></td><td>Toggle power</td><td>Simulates power button</td></tr>
     </table>
   </div>
@@ -100,5 +120,13 @@
   <div class="back-button">
     <a href="Index.html">🔙 Back to Table of Contents</a>
   </div>
+
+  <footer>
+    <hr style="border-color: #1E3A8A; margin-bottom: 20px;">
+    <p>© 2025 Huffle’s IT Services LLC. All rights reserved.</p>
+    <p>This command reference and all associated content—including overlays, styling, and the Huffle’s IT Services logo—are protected intellectual property. Unauthorized reproduction or redistribution is prohibited.</p>
+    <p>Sources: Android developer documentation, OEM MDM guides, and ADB command references.</p>
+    <p style="margin-top: 20px;">Veteran-owned. Porch-coded. A+ and Security+ certified. Every command is a conversation. Every workflow is a welcome.</p>
+  </footer>
 </body>
 </html>
