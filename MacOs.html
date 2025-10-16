@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🍎 macOS Terminal Commands</title>
+  <style>
+    body {
+      background-color: #0A0A0A;
+      font-family: 'Segoe UI', sans-serif;
+      color: #1E3A8A;
+      padding: 20px;
+    }
+    h1 {
+      color: #1E3A8A;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .section {
+      margin-bottom: 50px;
+      border: 2px solid #1E3A8A;
+      border-radius: 8px;
+      padding: 20px;
+      background-color: #1A1A1A;
+    }
+    h2 {
+      background-color: #1E3A8A;
+      color: #FFFFFF;
+      padding: 10px;
+      border-radius: 6px;
+    }
+    h3 {
+      color: #1E3A8A;
+      margin-top: 30px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      border: 1px solid #1E3A8A;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #1E3A8A;
+      color: #FFFFFF;
+    }
+    code {
+      background-color: #2C2C2C;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: Consolas, monospace;
+      color: #FFFFFF;
+    }
+    .back-button {
+      text-align: center;
+      margin-top: 40px;
+    }
+    .back-button a {
+      background-color: #1E3A8A;
+      color: #FFFFFF;
+      padding: 12px 24px;
+      font-size: 1.1em;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+    .back-button a:hover {
+      background-color: #2F4EB2;
+    }
+  </style>
+</head>
+<body>
+  <h1>🍎 macOS Terminal Command Reference</h1>
+
+  <div class="section">
+    <h2>📁 File & System</h2>
+    <table>
+      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
+      <tr><td><code>ls -G</code></td><td>List files with color</td><td>macOS-specific flag</td></tr>
+      <tr><td><code>mkdir folder</code></td><td>Create folder</td><td>Creates in current directory</td></tr>
+      <tr><td><code>rm -rf folder</code></td><td>Delete folder</td><td>Recursive and forceful</td></tr>
+      <tr><td><code>open .</code></td><td>Open current folder</td><td>Launches Finder</td></tr>
+      <tr><td><code>defaults write</code></td><td>Change system setting</td><td>Used for UI tweaks</td></tr>
+      <tr><td><code>diskutil list</code></td><td>List disks</td><td>Useful for mounting/unmounting</td></tr>
+      <tr><td><code>sw_vers</code></td><td>macOS version</td><td>OS name and build</td></tr>
+    </table>
+
+    <h2>🧠 System & Diagnostics</h2>
+    <table>
+      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
+      <tr><td><code>top</code></td><td>Live process monitor</td><td>Use <code>q</code> to quit</td></tr>
+      <tr><td><code>ps aux</code></td><td>List all processes</td><td>Use <code>grep</code> to filter</td></tr>
+      <tr><td><code>kill -9 PID</code></td><td>Kill process</td><td>Use <code>ps</code> to find PID</td></tr>
+      <tr><td><code>uptime</code></td><td>System uptime</td><td>Includes load averages</td></tr>
+      <tr><td><code>whoami</code></td><td>Current user</td><td>Useful for scripts</td></tr>
+      <tr><td><code>sudo shutdown -r now</code></td><td>Reboot system</td><td>Requires admin rights</td></tr>
+    </table>
+
+    <h2>🌐 Networking</h2>
+    <table>
+      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
+      <tr><td><code>networksetup -listallhardwareports</code></td><td>List interfaces</td><td>Shows Ethernet/Wi-Fi</td></tr>
+      <tr><td><code>ping -c 4 google.com</code></td><td>Test connection</td><td>macOS uses <code>-c</code></td></tr>
+      <tr><td><code>traceroute google.com</code></td><td>Trace route</td><td>Shows network hops</td></tr>
+      <tr><td><code>ifconfig</code></td><td>IP and interface info</td><td>Legacy but still useful</td></tr>
+      <tr><td><code>curl ifconfig.me</code></td><td>Public IP</td><td>Requires internet</td></tr>
+      <tr><td><code>scutil --dns</code></td><td>DNS config</td><td>Shows resolver details</td></tr>
+    </table>
+  </div>
+
+  <div class="back-button">
+    <a href="Index.html">🔙 Back to Table of Contents</a>
+  </div>
+</body>
+</html>
