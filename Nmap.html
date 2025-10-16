@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🕵️ Nmap Commands</title>
+  <style>
+    body {
+      background-color: #0A0A0A;
+      font-family: 'Segoe UI', sans-serif;
+      color: #1E3A8A;
+      padding: 20px;
+    }
+    h1 {
+      color: #1E3A8A;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .compatibility {
+      background-color: #1A1A1A;
+      border: 2px solid #1E3A8A;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 40px;
+      font-size: 1em;
+    }
+    .compatibility strong {
+      color: #FFFFFF;
+    }
+    .section {
+      margin-bottom: 50px;
+      border: 2px solid #1E3A8A;
+      border-radius: 8px;
+      padding: 20px;
+      background-color: #1A1A1A;
+    }
+    h2 {
+      background-color: #1E3A8A;
+      color: #FFFFFF;
+      padding: 10px;
+      border-radius: 6px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      border: 1px solid #1E3A8A;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #1E3A8A;
+      color: #FFFFFF;
+    }
+    code {
+      background-color: #2C2C2C;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: Consolas, monospace;
+      color: #FFFFFF;
+    }
+    .back-button {
+      text-align: center;
+      margin-top: 40px;
+    }
+    .back-button a {
+      background-color: #1E3A8A;
+      color: #FFFFFF;
+      padding: 12px 24px;
+      font-size: 1.1em;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+    .back-button a:hover {
+      background-color: #2F4EB2;
+    }
+    footer {
+      margin-top: 60px;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9em;
+      color: #888;
+    }
+    footer a {
+      color: #1E3A8A;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>🕵️ Nmap Command Reference</h1>
+
+  <div class="compatibility">
+    <p><strong>Works on:</strong> 🐧 Linux, 🖥️ Windows (via WSL or Nmap for Windows), 🍎 macOS</p>
+    <p><strong>Required Tools:</strong> Nmap CLI (<code>nmap</code>), optional Zenmap GUI</p>
+  </div>
+
+  <div class="section">
+    <h2>🔍 Basic Scanning</h2>
+    <table>
+      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
+      <tr><td><code>nmap target</code></td><td>Default scan</td><td>TCP connect scan</td></tr>
+      <tr><td><code>nmap -sS target</code></td><td>SYN scan</td><td>Stealthy, requires root</td></tr>
+      <tr><td><code>nmap -sT target</code></td><td>TCP connect</td><td>Less stealthy</td></tr>
+      <tr><td><code>nmap -sU target</code></td><td>UDP scan</td><td>Slower, no handshake</td></tr>
+      <tr><td><code>nmap -p 80 target</code></td><td>Scan specific port</td><td>Use <code>-p-</code> for all ports</td></tr>
+    </table>
+
+    <h2>🧠 Discovery & Enumeration</h2>
+    <table>
+      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
+      <tr><td><code>nmap -sn 192.168.1.0/24</code></td><td>Ping sweep</td><td>Find live hosts</td></tr>
+      <tr><td><code>nmap -O target</code></td><td>OS detection</td><td>Requires root</td></tr>
+      <tr><td><code>nmap -sV target</code></td><td>Service version</td><td>Detects software</td></tr>
+      <tr><td><code>nmap -A target</code></td><td>Aggressive scan</td><td>OS + version + script</td></tr>
+      <tr><td><code>nmap -v target</code></td><td>Verbose output</td><td>More scan details</td></tr>
+    </table>
+
+    <h2>🛡️ Stealth & Timing</h2>
+    <table>
+      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
+      <tr><td><code>nmap -T4 target</code></td><td>Faster scan</td><td>Use <code>T0–T5</code> for timing</td></tr>
+      <tr><td><code>nmap --randomize-hosts</code></td><td>Evade detection</td><td>Shuffles scan order</td></tr>
+      <tr><td><code>nmap --data-length 50</code></td><td>Obfuscate packets</td><td>Pads payload</td></tr>
+      <tr><td><code>nmap -D decoy1,decoy2</code></td><td>Decoy scan</td><td>Hides source IP</td></tr>
+      <tr><td><code>nmap -f target</code></td><td>Fragment packets</td><td>Breaks into small chunks</td></tr>
+    </table>
+  </div>
+
+  <div class="back-button">
+    <a href="Index.html">🔙 Back to Table of Contents</a>
+  </div>
+
+  <footer>
+    <hr style="border-color: #1E3A8A; margin-bottom: 20px;">
+    <p>© 2025 Huffle’s IT Services LLC. All rights reserved.</p>
+    <p>This command reference and all associated content—including overlays, styling, and the Huffle’s IT Services logo—are protected intellectual property. Unauthorized reproduction or redistribution is prohibited.</p>
+    <p>Sources: Nmap documentation, SecTools.org, and community cheat sheets.</p>
+    <p style="margin-top: 20px;">Veteran-owned. Porch-coded. A+ and Security+ certified. Every command is a conversation. Every workflow is a welcome.</p>
+  </footer>
+</body>
+</html>
