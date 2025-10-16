@@ -2,165 +2,45 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>⚡ PowerShell CLI Reference</title>
+  <title>⚡ PowerShell Overlay</title>
   <style>
     body {
       background-color: #0A0A0A;
       font-family: 'Segoe UI', sans-serif;
       color: #1E3A8A;
-      padding: 20px;
-    }
-    .logo-container {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      background-color: #1A1A1A;
-      padding: 8px;
-      border-radius: 8px;
-      border: 2px solid #1E3A8A;
-      z-index: 1000;
-    }
-    .logo {
-      height: 48px;
-      width: auto;
-    }
-    h1 {
-      color: #1E3A8A;
+      padding: 40px;
       text-align: center;
-      margin-bottom: 10px;
     }
-    .compatibility {
-      background-color: #1A1A1A;
-      border: 2px solid #1E3A8A;
-      border-radius: 8px;
-      padding: 15px;
-      margin-bottom: 40px;
-      font-size: 1em;
-    }
-    .compatibility strong {
+    table, th, td {
       color: #FFFFFF;
-    }
-    .section {
-      margin-bottom: 50px;
-      border: 2px solid #1E3A8A;
-      border-radius: 8px;
-      padding: 20px;
-      background-color: #1A1A1A;
-    }
-    h2 {
-      background-color: #1E3A8A;
-      color: #FFFFFF;
-      padding: 10px;
-      border-radius: 6px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-    }
-    th, td {
-      border: 1px solid #1E3A8A;
-      padding: 10px;
-      text-align: left;
-    }
-    th {
-      background-color: #1E3A8A;
-      color: #FFFFFF;
-    }
-    code {
-      background-color: #2C2C2C;
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-family: Consolas, monospace;
-      color: #FFFFFF;
-    }
-    .back-button {
-      text-align: center;
-      margin-top: 40px;
-    }
-    .back-button a {
-      background-color: #1E3A8A;
-      color: #FFFFFF;
-      padding: 12px 24px;
-      font-size: 1.1em;
-      border-radius: 8px;
-      text-decoration: none;
-      display: inline-block;
-      transition: background-color 0.3s ease;
-    }
-    .back-button a:hover {
-      background-color: #2F4EB2;
-    }
-    footer {
-      margin-top: 60px;
-      padding: 20px;
-      text-align: center;
-      font-size: 0.9em;
-      color: #888;
-    }
-    footer a {
-      color: #1E3A8A;
-      text-decoration: none;
-    }
-    footer a:hover {
-      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <div class="logo-container">
-    <img src="Logo.png" alt="Huffle’s IT Services Logo" class="logo">
-  </div>
+  <h1>⚡ PowerShell Overlay</h1>
 
-  <h1>⚡ PowerShell CLI Command Reference</h1>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A; border-collapse: collapse;">
+    <tr>
+      <th>Command</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>Get-Process</td>
+      <td>List running processes</td>
+    </tr>
+    <tr>
+      <td>Set-ExecutionPolicy RemoteSigned</td>
+      <td>Allow local scripts to run</td>
+    </tr>
+    <tr>
+      <td>Get-Help</td>
+      <td>Display help for a cmdlet</td>
+    </tr>
+    <tr>
+      <td>Get-ChildItem</td>
+      <td>List files and folders (like `ls`)</td>
+    </tr>
+  </table>
 
-  <div class="compatibility">
-    <p><strong>Works on:</strong> Windows PowerShell, PowerShell Core</p>
-    <p><strong>Required Tools:</strong> PowerShell terminal</p>
-  </div>
-
-  <div class="section">
-    <h2>🔧 File & System</h2>
-    <table>
-      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>Get-ChildItem</code></td><td>List files</td><td>Like <code>ls</code></td></tr>
-      <tr><td><code>Set-Location</code></td><td>Change directory</td><td>Like <code>cd</code></td></tr>
-      <tr><td><code>New-Item -Type File</code></td><td>Create file</td><td>Specify path</td></tr>
-      <tr><td><code>Remove-Item</code></td><td>Delete file/folder</td><td>Use <code>-Recurse</code> for folders</td></tr>
-      <tr><td><code>Copy-Item</code></td><td>Copy file/folder</td><td>Use <code>-Recurse</code> for folders</td></tr>
-    </table>
-
-    <h2>🧠 System & Services</h2>
-    <table>
-      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>Get-Process</code></td><td>List processes</td><td>Like <code>tasklist</code></td></tr>
-      <tr><td><code>Stop-Process -Name notepad</code></td><td>Kill process</td><td>Use <code>-Force</code> if needed</td></tr>
-      <tr><td><code>Get-Service</code></td><td>List services</td><td>Status info</td></tr>
-      <tr><td><code>Restart-Service</code></td><td>Restart service</td><td>Use <code>-Name</code></td></tr>
-      <tr><td><code>Get-EventLog -LogName System</code></td><td>View logs</td><td>System events</td></tr>
-    </table>
-
-    <h2>📦 Network & Security</h2>
-    <table>
-      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>Test-Connection</code></td><td>Ping test</td><td>Like <code>ping</code></td></tr>
-      <tr><td><code>Get-NetIPAddress</code></td><td>IP info</td><td>All adapters</td></tr>
-      <tr><td><code>Get-NetFirewallProfile</code></td><td>Firewall status</td><td>Domain, public, private</td></tr>
-      <tr><td><code>Enable-NetFirewallRule</code></td><td>Enable rule</td><td>Use <code>-DisplayName</code></td></tr>
-      <tr><td><code>Get-Credential</code></td><td>Prompt for creds</td><td>Secure input</td></tr>
-    </table>
-  </div>
-
-  <div class="back-button">
-    <a href="Huffles-IT-Services-Code-Reference.html">🔙 Back to Code Reference</a>
-  </div>
-
-  <footer>
-    <hr style="border-color: #1E3A8A; margin-bottom: 20px;">
-    <p>© 2025 Huffle’s IT Services LLC. All rights reserved.</p>
-    <p>This command reference and all associated content—including overlays, styling, and the Huffle’s IT Services logo—are protected intellectual property. Unauthorized reproduction or redistribution is prohibited.</p>
-    <p>Sources: Microsoft Docs, PowerShell Gallery, and community cheat sheets.</p>
-    <p style="margin-top: 20px;">Veteran-owned. Porch-coded. A+ and Security+ certified. Every command is a conversation. Every workflow is a welcome.</p>
-  </footer>
 </body>
 </html>
