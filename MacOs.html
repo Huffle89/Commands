@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>🍎 macOS Terminal Commands</title>
+  <title>🍎 macOS CLI Reference</title>
   <style>
     body {
       background-color: #0A0A0A;
@@ -10,10 +10,35 @@
       color: #1E3A8A;
       padding: 20px;
     }
+    .logo-container {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background-color: #1A1A1A;
+      padding: 8px;
+      border-radius: 8px;
+      border: 2px solid #1E3A8A;
+      z-index: 1000;
+    }
+    .logo {
+      height: 48px;
+      width: auto;
+    }
     h1 {
       color: #1E3A8A;
       text-align: center;
+      margin-bottom: 10px;
+    }
+    .compatibility {
+      background-color: #1A1A1A;
+      border: 2px solid #1E3A8A;
+      border-radius: 8px;
+      padding: 15px;
       margin-bottom: 40px;
+      font-size: 1em;
+    }
+    .compatibility strong {
+      color: #FFFFFF;
     }
     .section {
       margin-bottom: 50px;
@@ -83,55 +108,58 @@
   </style>
 </head>
 <body>
-  <h1>🍎 macOS Terminal Command Reference</h1>
+  <div class="logo-container">
+    <img src="assets/Logo.png" alt="Huffle’s IT Services Logo" class="logo">
+  </div>
+
+  <h1>🍎 macOS CLI Command Reference</h1>
+
+  <div class="compatibility">
+    <p><strong>Works on:</strong> macOS Ventura, Monterey, Big Sur</p>
+    <p><strong>Required Tools:</strong> Terminal (bash or zsh)</p>
+  </div>
 
   <div class="section">
-    <h2>📁 File & System</h2>
+    <h2>🔧 File & System</h2>
     <table>
       <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>ls -G</code></td><td>List files with color</td><td>macOS-specific flag</td></tr>
-      <tr><td><code>mkdir folder</code></td><td>Create folder</td><td>Creates in current directory</td></tr>
-      <tr><td><code>rm -rf folder</code></td><td>Delete folder</td><td>Recursive and forceful</td></tr>
-      <tr><td><code>open .</code></td><td>Open current folder</td><td>Launches Finder</td></tr>
-      <tr><td><code>defaults write</code></td><td>Change system setting</td><td>Used for UI tweaks</td></tr>
-      <tr><td><code>diskutil list</code></td><td>List disks</td><td>Useful for mounting/unmounting</td></tr>
-      <tr><td><code>sw_vers</code></td><td>macOS version</td><td>OS name and build</td></tr>
+      <tr><td><code>ls -la</code></td><td>List files</td><td>Long format, all files</td></tr>
+      <tr><td><code>cd /path</code></td><td>Change directory</td><td>Navigate folders</td></tr>
+      <tr><td><code>mkdir new</code></td><td>Create folder</td><td>Make directory</td></tr>
+      <tr><td><code>rm -rf folder</code></td><td>Delete folder</td><td>Recursive, force</td></tr>
+      <tr><td><code>touch file.txt</code></td><td>Create file</td><td>Empty file</td></tr>
     </table>
 
-    <h2>🧠 System & Diagnostics</h2>
+    <h2>🧠 System & Maintenance</h2>
     <table>
       <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>top</code></td><td>Live process monitor</td><td>Use <code>q</code> to quit</td></tr>
-      <tr><td><code>ps aux</code></td><td>List all processes</td><td>Use <code>grep</code> to filter</td></tr>
-      <tr><td><code>kill -9 PID</code></td><td>Kill process</td><td>Use <code>ps</code> to find PID</td></tr>
-      <tr><td><code>uptime</code></td><td>System uptime</td><td>Includes load averages</td></tr>
-      <tr><td><code>whoami</code></td><td>Current user</td><td>Useful for scripts</td></tr>
-      <tr><td><code>sudo shutdown -r now</code></td><td>Reboot system</td><td>Requires admin rights</td></tr>
+      <tr><td><code>sudo periodic daily</code></td><td>Run daily scripts</td><td>Maintenance tasks</td></tr>
+      <tr><td><code>diskutil list</code></td><td>List disks</td><td>Identify volumes</td></tr>
+      <tr><td><code>top</code></td><td>Live processes</td><td>Resource monitor</td></tr>
+      <tr><td><code>ps aux</code></td><td>List processes</td><td>All users</td></tr>
+      <tr><td><code>kill PID</code></td><td>Terminate process</td><td>Use with <code>ps</code></td></tr>
     </table>
 
-    <h2>🌐 Networking</h2>
+    <h2>📦 Network & Security</h2>
     <table>
       <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>networksetup -listallhardwareports</code></td><td>List interfaces</td><td>Shows Ethernet/Wi-Fi</td></tr>
-      <tr><td><code>ping -c 4 google.com</code></td><td>Test connection</td><td>macOS uses <code>-c</code></td></tr>
-      <tr><td><code>traceroute google.com</code></td><td>Trace route</td><td>Shows network hops</td></tr>
-      <tr><td><code>ifconfig</code></td><td>IP and interface info</td><td>Legacy but still useful</td></tr>
-      <tr><td><code>curl ifconfig.me</code></td><td>Public IP</td><td>Requires internet</td></tr>
-      <tr><td><code>scutil --dns</code></td><td>DNS config</td><td>Shows resolver details</td></tr>
+      <tr><td><code>ifconfig</code></td><td>IP info</td><td>All interfaces</td></tr>
+      <tr><td><code>ping 8.8.8.8</code></td><td>Ping test</td><td>Check connectivity</td></tr>
+      <tr><td><code>sudo dscacheutil -flushcache</code></td><td>Flush DNS</td><td>Clear cache</td></tr>
+      <tr><td><code>sudo spctl --status</code></td><td>Gatekeeper status</td><td>App security</td></tr>
+      <tr><td><code>csrutil status</code></td><td>SIP status</td><td>System Integrity Protection</td></tr>
     </table>
   </div>
 
   <div class="back-button">
-    <a href="Index.html">🔙 Back to Table of Contents</a>
+    <a href="Huffles-IT-Services-Code-Reference.html">🔙 Back to Code Reference</a>
   </div>
 
   <footer>
     <hr style="border-color: #1E3A8A; margin-bottom: 20px;">
     <p>© 2025 Huffle’s IT Services LLC. All rights reserved.</p>
     <p>This command reference and all associated content—including overlays, styling, and the Huffle’s IT Services logo—are protected intellectual property. Unauthorized reproduction or redistribution is prohibited.</p>
-    <p>Sources: 
-      <a href="https://typevar.dev/articles/tldr-pages/tldr" target="_blank">tldr-pages</a>
-    </p>
+    <p>Sources: Apple Support, macOS Terminal documentation, and community cheat sheets.</p>
     <p style="margin-top: 20px;">Veteran-owned. Porch-coded. A+ and Security+ certified. Every command is a conversation. Every workflow is a welcome.</p>
   </footer>
 </body>
