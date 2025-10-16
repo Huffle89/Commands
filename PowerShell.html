@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🔧 PowerShell Commands</title>
+  <style>
+    body {
+      background-color: #0A0A0A;
+      font-family: 'Segoe UI', sans-serif;
+      color: #1E3A8A;
+      padding: 20px;
+    }
+    h1 {
+      color: #1E3A8A;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .section {
+      margin-bottom: 50px;
+      border: 2px solid #1E3A8A;
+      border-radius: 8px;
+      padding: 20px;
+      background-color: #1A1A1A;
+    }
+    h2 {
+      background-color: #1E3A8A;
+      color: #FFFFFF;
+      padding: 10px;
+      border-radius: 6px;
+    }
+    h3 {
+      color: #1E3A8A;
+      margin-top: 30px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      border: 1px solid #1E3A8A;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #1E3A8A;
+      color: #FFFFFF;
+    }
+    code {
+      background-color: #2C2C2C;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: Consolas, monospace;
+      color: #FFFFFF;
+    }
+    .back-button {
+      text-align: center;
+      margin-top: 40px;
+    }
+    .back-button a {
+      background-color: #1E3A8A;
+      color: #FFFFFF;
+      padding: 12px 24px;
+      font-size: 1.1em;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+    .back-button a:hover {
+      background-color: #2F4EB2;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔧 PowerShell Command Reference</h1>
+
+  <div class="section">
+    <h2>📁 File & Output</h2>
+    <table>
+      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
+      <tr><td><code>Get-ChildItem</code></td><td>List files</td><td>Use <code>-Recurse</code> for subfolders</td></tr>
+      <tr><td><code>Remove-Item file.txt</code></td><td>Delete file</td><td>Use <code>-Force</code> to override</td></tr>
+      <tr><td><code>Copy-Item file1 file2</code></td><td>Copy file</td><td>Use <code>-Recurse</code> for folders</td></tr>
+      <tr><td><code>Move-Item file folder\</code></td><td>Move file</td><td>Also used to rename</td></tr>
+      <tr><td><code>Out-File output.txt</code></td><td>Save output</td><td>Redirects command results</td></tr>
+      <tr><td><code>Get-Content file.txt</code></td><td>Read file</td><td>Use <code>-Tail</code> for last lines</td></tr>
+    </table>
+
+    <h2>🧠 System & Services</h2>
+    <table>
+      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
+      <tr><td><code>Get-Service</code></td><td>List services</td><td>Use <code>| Where-Object</code> to filter</td></tr>
+      <tr><td><code>Restart-Service spooler</code></td><td>Restart service</td><td>Useful for printers</td></tr>
+      <tr><td><code>Get-Process</code></td><td>List processes</td><td>Use <code>| Sort-Object CPU</code></td></tr>
+      <tr><td><code>Stop-Process -Id 1234</code></td><td>Kill process</td><td>Use <code>-Force</code> if needed</td></tr>
+      <tr><td><code>Get-EventLog -LogName System</code></td><td>View logs</td><td>Use <code>-Newest</code> to limit</td></tr>
+      <tr><td><code>Get-WmiObject Win32_OperatingSystem</code></td><td>System info</td><td>OS, uptime, memory</td></tr>
+    </table>
+
+    <h2>🌐 Networking</h2>
+    <table>
+      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
+      <tr><td><code>Test-Connection google.com</code></td><td>Ping</td><td>Use <code>-Count</code> to limit</td></tr>
+      <tr><td><code>Get-NetIPAddress</code></td><td>IP config</td><td>Replaces <code>ipconfig</code></td></tr>
+      <tr><td><code>Get-NetTCPConnection</code></td><td>List ports</td><td>Active TCP sessions</td></tr>
+      <tr><td><code>Resolve-DnsName google.com</code></td><td>DNS lookup</td><td>Replaces <code>nslookup</code></td></tr>
+      <tr><td><code>Get-NetAdapter</code></td><td>Network interfaces</td><td>Use <code>-Physical</code> to filter</td></tr>
+      <tr><td><code>Get-NetRoute</code></td><td>Routing table</td><td>Shows default gateway</td></tr>
+    </table>
+  </div>
+
+  <div class="back-button">
+    <a href="Index.html">🔙 Back to Table of Contents</a>
+  </div>
+</body>
+</html>
