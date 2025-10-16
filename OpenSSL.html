@@ -2,13 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>🔐 OpenSSL Commands</title>
+  <title>🔐 OpenSSL CLI Reference</title>
   <style>
     body {
       background-color: #0A0A0A;
       font-family: 'Segoe UI', sans-serif;
       color: #1E3A8A;
       padding: 20px;
+    }
+    .logo-container {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background-color: #1A1A1A;
+      padding: 8px;
+      border-radius: 8px;
+      border: 2px solid #1E3A8A;
+      z-index: 1000;
+    }
+    .logo {
+      height: 48px;
+      width: auto;
     }
     h1 {
       color: #1E3A8A;
@@ -94,51 +108,54 @@
   </style>
 </head>
 <body>
-  <h1>🔐 OpenSSL Command Reference</h1>
+  <div class="logo-container">
+    <img src="assets/Logo.png" alt="Huffle’s IT Services Logo" class="logo">
+  </div>
+
+  <h1>🔐 OpenSSL CLI Command Reference</h1>
 
   <div class="compatibility">
-    <p><strong>Works on:</strong> 🐧 Linux, 🖥️ Windows (via Git Bash or WSL), 🍎 macOS</p>
-    <p><strong>Required Tools:</strong> OpenSSL CLI (<code>openssl</code>), installed via system package manager</p>
+    <p><strong>Works on:</strong> Linux, macOS, Windows (with OpenSSL installed)</p>
+    <p><strong>Required Tools:</strong> OpenSSL CLI</p>
   </div>
 
   <div class="section">
-    <h2>🔑 Key & Certificate Management</h2>
+    <h2>🔑 Key Generation</h2>
     <table>
       <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>openssl genrsa -out key.pem 2048</code></td><td>Generate RSA key</td><td>Use <code>4096</code> for stronger key</td></tr>
-      <tr><td><code>openssl req -new -key key.pem -out csr.pem</code></td><td>Create CSR</td><td>Prompts for subject info</td></tr>
-      <tr><td><code>openssl x509 -req -in csr.pem -signkey key.pem -out cert.pem</code></td><td>Self-sign cert</td><td>Valid for local use</td></tr>
-      <tr><td><code>openssl pkcs12 -export -out bundle.p12 -inkey key.pem -in cert.pem</code></td><td>Create PFX bundle</td><td>Used for Windows/iOS</td></tr>
+      <tr><td><code>openssl genrsa -out key.pem 2048</code></td><td>Generate RSA key</td><td>2048-bit private key</td></tr>
+      <tr><td><code>openssl ecparam -genkey -name secp384r1 -out key.pem</code></td><td>Generate EC key</td><td>Elliptic curve</td></tr>
+      <tr><td><code>openssl rsa -in key.pem -pubout -out pubkey.pem</code></td><td>Extract public key</td><td>From private key</td></tr>
     </table>
 
-    <h2>🔐 Encryption & Decryption</h2>
+    <h2>📜 Certificate Management</h2>
     <table>
       <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>openssl enc -aes256 -in file.txt -out file.enc</code></td><td>Encrypt file</td><td>Prompts for password</td></tr>
-      <tr><td><code>openssl enc -d -aes256 -in file.enc -out file.txt</code></td><td>Decrypt file</td><td>Must match password</td></tr>
-      <tr><td><code>openssl rand -hex 16</code></td><td>Generate random key</td><td>Use for symmetric encryption</td></tr>
-      <tr><td><code>openssl passwd -1</code></td><td>Generate hashed password</td><td>Use <code>-salt</code> for extra security</td></tr>
+      <tr><td><code>openssl req -new -key key.pem -out req.csr</code></td><td>Create CSR</td><td>Certificate Signing Request</td></tr>
+      <tr><td><code>openssl x509 -req -in req.csr -signkey key.pem -out cert.pem</code></td><td>Self-sign cert</td><td>Valid for testing</td></tr>
+      <tr><td><code>openssl x509 -in cert.pem -text -noout</code></td><td>View cert</td><td>Readable format</td></tr>
+      <tr><td><code>openssl verify -CAfile ca.pem cert.pem</code></td><td>Verify cert</td><td>Against CA</td></tr>
     </table>
 
-    <h2>📦 Certificate Inspection</h2>
+    <h2>🔐 Encryption & Hashing</h2>
     <table>
       <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>openssl x509 -in cert.pem -text -noout</code></td><td>View cert details</td><td>Includes subject, issuer, expiry</td></tr>
-      <tr><td><code>openssl verify -CAfile ca.pem cert.pem</code></td><td>Verify cert</td><td>Checks against CA</td></tr>
-      <tr><td><code>openssl s_client -connect site.com:443</code></td><td>Test SSL/TLS</td><td>Shows handshake and cert chain</td></tr>
-      <tr><td><code>openssl crl2pkcs7 -nocrl -certfile cert.pem -out bundle.p7b</code></td><td>Create PKCS#7</td><td>Used for Windows import</td></tr>
+      <tr><td><code>openssl enc -aes-256-cbc -salt -in file.txt -out file.enc</code></td><td>Encrypt file</td><td>Symmetric AES</td></tr>
+      <tr><td><code>openssl enc -d -aes-256-cbc -in file.enc -out file.txt</code></td><td>Decrypt file</td><td>Requires password</td></tr>
+      <tr><td><code>openssl dgst -sha256 file.txt</code></td><td>SHA-256 hash</td><td>File integrity</td></tr>
+      <tr><td><code>openssl rand -hex 16</code></td><td>Random hex</td><td>Generate key/token</td></tr>
     </table>
   </div>
 
   <div class="back-button">
-    <a href="Index.html">🔙 Back to Table of Contents</a>
+    <a href="Huffles-IT-Services-Code-Reference.html">🔙 Back to Code Reference</a>
   </div>
 
   <footer>
     <hr style="border-color: #1E3A8A; margin-bottom: 20px;">
     <p>© 2025 Huffle’s IT Services LLC. All rights reserved.</p>
     <p>This command reference and all associated content—including overlays, styling, and the Huffle’s IT Services logo—are protected intellectual property. Unauthorized reproduction or redistribution is prohibited.</p>
-    <p>Sources: OpenSSL documentation, SSL Labs, and community cheat sheets.</p>
+    <p>Sources: OpenSSL documentation, SSL Labs, and community encryption guides.</p>
     <p style="margin-top: 20px;">Veteran-owned. Porch-coded. A+ and Security+ certified. Every command is a conversation. Every workflow is a welcome.</p>
   </footer>
 </body>
