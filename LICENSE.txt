@@ -1,1 +1,7 @@
+Copyright © 2025 Huffle’s IT Services LLC
 
+All rights reserved. This command reference and all associated content are the intellectual property of Huffle’s IT Services LLC. No part of this repository may be copied, reproduced, distributed, modified, or used in any form without express written permission from the owner.
+
+Unauthorized use, reproduction, or redistribution of this material is strictly prohibited and may result in legal action.
+
+This repository is provided for educational and operational use by authorized users only.
