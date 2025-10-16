@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Phase 1 Command Reference</title>
+  <title>🐺 Linux Commands</title>
   <style>
     body {
-      background-color: #F5F5F5;
+      background-color: #0A0A0A;
       font-family: 'Segoe UI', sans-serif;
-      color: #2C2C2C;
+      color: #1E3A8A;
       padding: 20px;
     }
     h1 {
@@ -17,14 +17,14 @@
     }
     .section {
       margin-bottom: 50px;
-      border: 2px solid #AAB2BD;
+      border: 2px solid #1E3A8A;
       border-radius: 8px;
       padding: 20px;
-      background-color: #FFFFFF;
+      background-color: #1A1A1A;
     }
     h2 {
-      background-color: #AAB2BD;
-      color: #1E3A8A;
+      background-color: #1E3A8A;
+      color: #FFFFFF;
       padding: 10px;
       border-radius: 6px;
     }
@@ -38,29 +38,45 @@
       margin-top: 10px;
     }
     th, td {
-      border: 1px solid #AAB2BD;
+      border: 1px solid #1E3A8A;
       padding: 10px;
       text-align: left;
     }
     th {
-      background-color: #D6C4A0;
-      color: #2C2C2C;
+      background-color: #1E3A8A;
+      color: #FFFFFF;
     }
     code {
-      background-color: #F0F0F0;
+      background-color: #2C2C2C;
       padding: 2px 6px;
       border-radius: 4px;
       font-family: Consolas, monospace;
+      color: #FFFFFF;
+    }
+    .back-button {
+      text-align: center;
+      margin-top: 40px;
+    }
+    .back-button a {
+      background-color: #1E3A8A;
+      color: #FFFFFF;
+      padding: 12px 24px;
+      font-size: 1.1em;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+    .back-button a:hover {
+      background-color: #2F4EB2;
     }
   </style>
 </head>
 <body>
-  <h1>🐾 Huffle's Phase 1 Command Reference</h1>
+  <h1>🐺 Linux Command Reference</h1>
 
-  <!-- 🐺 Linux -->
   <div class="section">
-    <h2>🐺 Linux</h2>
-    <h3>📁 File & Directory</h3>
+    <h2>📁 File & Directory</h2>
     <table>
       <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
       <tr><td><code>ls -la</code></td><td>List all files</td><td>Includes hidden files</td></tr>
@@ -71,7 +87,7 @@
       <tr><td><code>mv file folder/</code></td><td>Move file</td><td>Also used to rename</td></tr>
     </table>
 
-    <h3>🧠 System & Permissions</h3>
+    <h2>🧠 System & Permissions</h2>
     <table>
       <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
       <tr><td><code>sudo command</code></td><td>Run as superuser</td><td>Requires password</td></tr>
@@ -83,7 +99,7 @@
       <tr><td><code>uptime</code></td><td>System uptime</td><td>Load averages included</td></tr>
     </table>
 
-    <h3>🌐 Networking</h3>
+    <h2>🌐 Networking</h2>
     <table>
       <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
       <tr><td><code>ip a</code></td><td>Show IP addresses</td><td>Replaces <code>ifconfig</code></td></tr>
@@ -95,177 +111,8 @@
     </table>
   </div>
 
-  <!-- 🖥️ Windows CMD -->
-<div class="section">
-  <h2>🖥️ Windows CMD</h2>
-
-  <h3>📁 File & Directory</h3>
-  <table>
-    <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-    <tr><td><code>dir</code></td><td>List files</td><td>Use <code>/a</code> to show hidden files</td></tr>
-    <tr><td><code>mkdir folder</code></td><td>Create folder</td><td>Creates in current directory</td></tr>
-    <tr><td><code>del file.txt</code></td><td>Delete file</td><td>Use <code>/f</code> to force</td></tr>
-    <tr><td><code>copy file1 file2</code></td><td>Copy file</td><td>Use <code>/y</code> to suppress prompts</td></tr>
-    <tr><td><code>move file folder\</code></td><td>Move file</td><td>Also used to rename</td></tr>
-    <tr><td><code>attrib +h file.txt</code></td><td>Hide file</td><td>Use <code>-h</code> to unhide</td></tr>
-  </table>
-
-  <h3>🧠 System & Diagnostics</h3>
-  <table>
-    <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-    <tr><td><code>systeminfo</code></td><td>System details</td><td>OS, memory, uptime</td></tr>
-    <tr><td><code>tasklist</code></td><td>Running processes</td><td>Use <code>/v</code> for verbose</td></tr>
-    <tr><td><code>taskkill /pid 1234</code></td><td>Kill process</td><td>Use <code>/f</code> to force</td></tr>
-    <tr><td><code>ver</code></td><td>Windows version</td><td>Quick OS check</td></tr>
-    <tr><td><code>echo %USERNAME%</code></td><td>Current user</td><td>Environment variable</td></tr>
-    <tr><td><code>set</code></td><td>List environment variables</td><td>Use <code>set VAR=value</code> to define</td></tr>
-  </table>
-
-  <h3>🌐 Networking</h3>
-  <table>
-    <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-    <tr><td><code>ipconfig</code></td><td>Show IP config</td><td>Use <code>/all</code> for full details</td></tr>
-    <tr><td><code>ping google.com</code></td><td>Test connection</td><td>Use <code>-n 4</code> for 4 pings</td></tr>
-    <tr><td><code>netstat -an</code></td><td>List ports</td><td>Shows active connections</td></tr>
-    <tr><td><code>tracert google.com</code></td><td>Trace route</td><td>Shows network hops</td></tr>
-    <tr><td><code>nslookup google.com</code></td><td>DNS lookup</td><td>Resolve domain to IP</td></tr>
-    <tr><td><code>arp -a</code></td><td>ARP cache</td><td>Shows MAC/IP mappings</td></tr>
-  </table>
-</div>
-
-  <!-- 🔧 PowerShell -->
-<div class="section">
-  <h2>🔧 PowerShell</h2>
-
-  <h3>📁 File & Output</h3>
-  <table>
-    <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-    <tr><td><code>Get-ChildItem</code></td><td>List files</td><td>Use <code>-Recurse</code> for subfolders</td></tr>
-    <tr><td><code>Remove-Item file.txt</code></td><td>Delete file</td><td>Use <code>-Force</code> to override</td></tr>
-    <tr><td><code>Copy-Item file1 file2</code></td><td>Copy file</td><td>Use <code>-Recurse</code> for folders</td></tr>
-    <tr><td><code>Move-Item file folder\</code></td><td>Move file</td><td>Also used to rename</td></tr>
-    <tr><td><code>Out-File output.txt</code></td><td>Save output</td><td>Redirects command results</td></tr>
-    <tr><td><code>Get-Content file.txt</code></td><td>Read file</td><td>Use <code>-Tail</code> for last lines</td></tr>
-  </table>
-
-  <h3>🧠 System & Services</h3>
-  <table>
-    <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-    <tr><td><code>Get-Service</code></td><td>List services</td><td>Use <code>| Where-Object</code> to filter</td></tr>
-    <tr><td><code>Restart-Service spooler</code></td><td>Restart service</td><td>Useful for printers</td></tr>
-    <tr><td><code>Get-Process</code></td><td>List processes</td><td>Use <code>| Sort-Object CPU</code></td></tr>
-    <tr><td><code>Stop-Process -Id 1234</code></td><td>Kill process</td><td>Use <code>-Force</code> if needed</td></tr>
-    <tr><td><code>Get-EventLog -LogName System</code></td><td>View logs</td><td>Use <code>-Newest</code> to limit</td></tr>
-    <tr><td><code>Get-WmiObject Win32_OperatingSystem</code></td><td>System info</td><td>OS, uptime, memory</td></tr>
-  </table>
-
-  <h3>🌐 Networking</h3>
-  <table>
-    <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-    <tr><td><code>Test-Connection google.com</code></td><td>Ping</td><td>Use <code>-Count</code> to limit</td></tr>
-    <tr><td><code>Get-NetIPAddress</code></td><td>IP config</td><td>Replaces <code>ipconfig</code></td></tr>
-    <tr><td><code>Get-NetTCPConnection</code></td><td>List ports</td><td>Active TCP sessions</td></tr>
-    <tr><td><code>Resolve-DnsName google.com</code></td><td>DNS lookup</td><td>Replaces <code>nslookup</code></td></tr>
-    <tr><td><code>Get-NetAdapter</code></td><td>Network interfaces</td><td>Use <code>-Physical</code> to filter</td></tr>
-    <tr><td><code>Get-NetRoute</code></td><td>Routing table</td><td>Shows default gateway</td></tr>
-  </table>
-</div>
-
-  <!-- 🍎 macOS Terminal -->
-<div class="section">
-  <h2>🍎 macOS Terminal</h2>
-
-  <h3>📁 File & System</h3>
-  <table>
-    <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-    <tr><td><code>ls -G</code></td><td>List files with color</td><td>macOS-specific flag</td></tr>
-    <tr><td><code>mkdir folder</code></td><td>Create folder</td><td>Creates in current directory</td></tr>
-    <tr><td><code>rm -rf folder</code></td><td>Delete folder</td><td>Recursive and forceful</td></tr>
-    <tr><td><code>open .</code></td><td>Open current folder</td><td>Launches Finder</td></tr>
-    <tr><td><code>defaults write</code></td><td>Change system setting</td><td>Used for UI tweaks</td></tr>
-    <tr><td><code>diskutil list</code></td><td>List disks</td><td>Useful for mounting/unmounting</td></tr>
-    <tr><td><code>sw_vers</code></td><td>macOS version</td><td>OS name and build</td></tr>
-  </table>
-
-  <h3>🧠 System & Diagnostics</h3>
-  <table>
-    <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-    <tr><td><code>top</code></td><td>Live process monitor</td><td>Use <code>q</code> to quit</td></tr>
-    <tr><td><code>ps aux</code></td><td>List all processes</td><td>Use <code>grep</code> to filter</td></tr>
-    <tr><td><code>kill -9 PID</code></td><td>Kill process</td><td>Use <code>ps</code> to find PID</td></tr>
-    <tr><td><code>uptime</code></td><td>System uptime</td><td>Includes load averages</td></tr>
-    <tr><td><code>whoami</code></td><td>Current user</td><td>Useful for scripts</td></tr>
-    <tr><td><code>sudo shutdown -r now</code></td><td>Reboot system</td><td>Requires admin rights</td></tr>
-  </table>
-
-  <h3>🌐 Networking</h3>
-  <table>
-    <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-    <tr><td><code>networksetup -listallhardwareports</code></td><td>List interfaces</td><td>Shows Ethernet/Wi-Fi</td></tr>
-    <tr><td><code>ping -c 4 google.com</code></td><td>Test connection</td><td>macOS uses <code>-c</code></td></tr>
-    <tr><td><code>traceroute google.com</code></td><td>Trace route</td><td>Shows network hops</td></tr>
-    <tr><td><code>ifconfig</code></td><td>IP and interface info</td><td>Legacy but still useful</td></tr>
-    <tr><td><code>curl ifconfig.me</code></td><td>Public IP</td><td>Requires internet</td></tr>
-    <tr><td><code>scutil --dns</code></td><td>DNS config</td><td>Shows resolver details</td></tr>
-  </table>
-</div>
-
-<!-- 🍏 iOS MDM -->
-<div class="section">
-  <h2>🍏 iOS MDM</h2>
-
-  <h3>📱 Device Management Commands</h3>
-  <table>
-    <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-    <tr><td><code>InstallProfile</code></td><td>Push config profile</td><td>Wi-Fi, VPN, restrictions</td></tr>
-    <tr><td><code>EraseDevice</code></td><td>Wipe device remotely</td><td>Factory reset</td></tr>
-    <tr><td><code>DeviceLock</code></td><td>Lock device</td><td>Displays custom message</td></tr>
-    <tr><td><code>ClearPasscode</code></td><td>Remove passcode</td><td>Supervised only</td></tr>
-    <tr><td><code>SetWallpaper</code></td><td>Change wallpaper</td><td>Supervised only</td></tr>
-    <tr><td><code>ScheduleOSUpdate</code></td><td>Push OS update</td><td>Requires supervision</td></tr>
-    <tr><td><code>EnableLostMode</code></td><td>Activate Lost Mode</td><td>Shows contact info</td></tr>
-    <tr><td><code>PlayLostModeSound</code></td><td>Trigger alert sound</td><td>Helps locate device</td></tr>
-  </table>
-
-  <h3>🔐 Security & Restrictions</h3>
-  <table>
-    <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-    <tr><td><code>ApplyRestrictions</code></td><td>Limit features</td><td>Camera, App Store, etc.</td></tr>
-    <tr><td><code>SetDeviceName</code></td><td>Rename device</td><td>Useful for inventory</td></tr>
-    <tr><td><code>QueryDeviceInfo</code></td><td>Get device details</td><td>Model, OS, battery</td></tr>
-    <tr><td><code>QueryInstalledApps</code></td><td>List apps</td><td>Audit for compliance</td></tr>
-    <tr><td><code>RemoveApp</code></td><td>Uninstall app</td><td>Use bundle ID</td></tr>
-    <tr><td><code>InstallApp</code></td><td>Push app</td><td>Use App Store or enterprise</td></tr>
-  </table>
-</div>
-
-<!-- 🤖 Android MDM -->
-<div class="section">
-  <h2>🤖 Android MDM</h2>
-
-  <h3>🔧 ADB Commands</h3>
-  <table>
-    <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-    <tr><td><code>adb devices</code></td><td>List connected devices</td><td>Shows device ID</td></tr>
-    <tr><td><code>adb install app.apk</code></td><td>Install APK</td><td>Requires USB debugging</td></tr>
-    <tr><td><code>adb uninstall com.package.name</code></td><td>Remove app</td><td>Use full package name</td></tr>
-    <tr><td><code>adb shell</code></td><td>Open device shell</td><td>Run commands directly</td></tr>
-    <tr><td><code>adb logcat</code></td><td>View logs</td><td>Useful for debugging</td></tr>
-    <tr><td><code>adb reboot</code></td><td>Restart device</td><td>Requires root or permission</td></tr>
-    <tr><td><code>adb push file /sdcard/</code></td><td>Send file to device</td><td>Use full path</td></tr>
-    <tr><td><code>adb pull /sdcard/file</code></td><td>Retrieve file</td><td>From device to PC</td></tr>
-  </table>
-
-  <h3>📱 Device Management</h3>
-  <table>
-    <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-    <tr><td><code>adb shell dpm set-device-owner</code></td><td>Set device owner</td><td>Used for MDM setup</td></tr>
-    <tr><td><code>adb shell pm list packages</code></td><td>List installed apps</td><td>Use <code>-3</code> for user apps</td></tr>
-    <tr><td><code>adb shell am start</code></td><td>Launch app/activity</td><td>Requires package and activity name</td></tr>
-    <tr><td><code>adb shell settings list global</code></td><td>View global settings</td><td>Useful for auditing</td></tr>
-    <tr><td><code>adb shell screencap /sdcard/screen.png</code></td><td>Take screenshot</td><td>Use <code>adb pull</code> to retrieve</td></tr>
-    <tr><td><code>adb shell input keyevent 26</code></td><td>Toggle power</td><td>Simulates power button</td></tr>
-  </table>
-</div>
-
-  
+  <div class="back-button">
+    <a href="Index.html">🔙 Back to Table of Contents</a>
+  </div>
+</body>
+</html>
