@@ -2,86 +2,174 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>🍎 macOS Overlay</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>macOS — Huffles IT Services</title>
   <style>
     body {
       background-color: #0A0A0A;
+      color: #FFFFFF;
       font-family: 'Segoe UI', sans-serif;
-      color: #1E3A8A;
-      padding: 40px;
+      padding: 40px 20px;
       text-align: center;
     }
-    table, th, td {
+
+    h1, h2 {
+      color: #0F52BA;
+      margin-bottom: 20px;
+    }
+
+    .table-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto 60px;
+    }
+
+    table {
+      flex: 1 1 300px;
+      max-width: 400px;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      border: 1px solid #0F52BA;
+      padding: 12px;
+      text-align: left;
+      background-color: #111111;
+    }
+
+    th {
+      background-color: #0F52BA;
       color: #FFFFFF;
+    }
+
+    @media screen and (max-width: 600px) {
+      .table-group {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      table thead {
+        display: none;
+      }
+
+      table, table tbody, table tr, table td {
+        display: block;
+        width: 100%;
+      }
+
+      table tr {
+        margin-bottom: 20px;
+        border: 1px solid #0F52BA;
+        background-color: #111111;
+        padding: 10px;
+      }
+
+      table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+      }
+
+      table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: 45%;
+        padding-left: 10px;
+        font-weight: bold;
+        text-align: left;
+        color: #0F52BA;
+      }
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 0.9em;
+      color: #FFFFFF;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background-color: #0F52BA;
+      color: #FFFFFF;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    .back-button:hover {
+      background-color: #FFFFFF;
+      color: #0F52BA;
     }
   </style>
 </head>
 <body>
-  <h1>🍎 macOS Overlay</h1>
+  <h1>macOS</h1>
+  <h2>Terminal Command Reference</h2>
 
-  <h2>📁 Navigation & File Management</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>pwd</td><td>Print working directory</td></tr>
-    <tr><td>ls -la</td><td>List all files with details</td></tr>
-    <tr><td>cd /path/to/dir</td><td>Change directory</td></tr>
-    <tr><td>mkdir new_folder</td><td>Create new directory</td></tr>
-    <tr><td>rm -rf folder</td><td>Delete folder and contents</td></tr>
-    <tr><td>touch file.txt</td><td>Create empty file</td></tr>
-    <tr><td>cp file1 file2</td><td>Copy file</td></tr>
-    <tr><td>mv old new</td><td>Rename or move file</td></tr>
-    <tr><td>find / -name "file.txt"</td><td>Search for file</td></tr>
-  </table>
+  <div class="table-group">
+    <table>
+      <thead><tr><th>Navigation</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Command">pwd</td><td data-label="Description">Print working directory</td></tr>
+        <tr><td data-label="Command">ls</td><td data-label="Description">List directory contents</td></tr>
+        <tr><td data-label="Command">cd</td><td data-label="Description">Change directory</td></tr>
+        <tr><td data-label="Command">open .</td><td data-label="Description">Open current folder in Finder</td></tr>
+      </tbody>
+    </table>
 
-  <h2>🌐 Networking</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>ifconfig</td><td>Show network interfaces</td></tr>
-    <tr><td>ping 8.8.8.8</td><td>Test connectivity</td></tr>
-    <tr><td>traceroute google.com</td><td>Trace route to host</td></tr>
-    <tr><td>netstat -an</td><td>Show active connections</td></tr>
-    <tr><td>curl ifconfig.me</td><td>Get public IP</td></tr>
-    <tr><td>scp file user@host:/path</td><td>Secure copy file</td></tr>
-  </table>
+    <table>
+      <thead><tr><th>File Operations</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Command">touch</td><td data-label="Description">Create empty file</td></tr>
+        <tr><td data-label="Command">cp</td><td data-label="Description">Copy files</td></tr>
+        <tr><td data-label="Command">mv</td><td data-label="Description">Move or rename files</td></tr>
+        <tr><td data-label="Command">rm</td><td data-label="Description">Remove files</td></tr>
+      </tbody>
+    </table>
 
-  <h2>🔐 Permissions & Security</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>chmod 755 file</td><td>Set file permissions</td></tr>
-    <tr><td>chown user:group file</td><td>Change file ownership</td></tr>
-    <tr><td>sudo command</td><td>Run command as root</td></tr>
-    <tr><td>security list-keychains</td><td>List keychains</td></tr>
-    <tr><td>security find-certificate -a</td><td>List certificates</td></tr>
-    <tr><td>sudo spctl --status</td><td>Check Gatekeeper status</td></tr>
-    <tr><td>sudo spctl --master-disable</td><td>Disable Gatekeeper</td></tr>
-  </table>
+    <table>
+      <thead><tr><th>Permissions</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Command">chmod</td><td data-label="Description">Change file permissions</td></tr>
+        <tr><td data-label="Command">chown</td><td data-label="Description">Change file ownership</td></tr>
+        <tr><td data-label="Command">sudo</td><td data-label="Description">Run as superuser</td></tr>
+        <tr><td data-label="Command">ls -la</td><td data-label="Description">List all with permissions</td></tr>
+      </tbody>
+    </table>
 
-  <h2>⚙️ System & Package Management</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>top</td><td>View running processes</td></tr>
-    <tr><td>df -h</td><td>Disk usage</td></tr>
-    <tr><td>free</td><td>Memory usage (via Homebrew)</td></tr>
-    <tr><td>uname -a</td><td>System info</td></tr>
-    <tr><td>uptime</td><td>System uptime</td></tr>
-    <tr><td>ps aux</td><td>List all processes</td></tr>
-    <tr><td>kill PID</td><td>Terminate process</td></tr>
-    <tr><td>brew install package</td><td>Install package via Homebrew</td></tr>
-    <tr><td>brew update</td><td>Update Homebrew</td></tr>
-    <tr><td>brew upgrade</td><td>Upgrade installed packages</td></tr>
-  </table>
+    <table>
+      <thead><tr><th>System Info</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Command">uname -a</td><td data-label="Description">System details</td></tr>
+        <tr><td data-label="Command">top</td><td data-label="Description">Live process monitor</td></tr>
+        <tr><td data-label="Command">df -h</td><td data-label="Description">Disk usage</td></tr>
+        <tr><td data-label="Command">ps aux</td><td data-label="Description">List all processes</td></tr>
+      </tbody>
+    </table>
 
-  <h2>🧪 Diagnostics & Recovery</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>diskutil list</td><td>List disks and partitions</td></tr>
-    <tr><td>diskutil verifyVolume /</td><td>Verify disk health</td></tr>
-    <tr><td>diskutil repairVolume /</td><td>Repair disk</td></tr>
-    <tr><td>sudo periodic daily weekly monthly</td><td>Run maintenance scripts</td></tr>
-    <tr><td>log show --predicate 'eventMessage contains "error"' --info</td><td>View error logs</td></tr>
-    <tr><td>reboot</td><td>Restart system</td></tr>
-    <tr><td>shutdown -h now</td><td>Shutdown system</td></tr>
-  </table>
+    <table>
+      <thead><tr><th>macOS Specific</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Command">defaults</td><td data-label="Description">Modify system preferences</td></tr>
+        <tr><td data-label="Command">killall Finder</td><td data-label="Description">Restart Finder</td></tr>
+        <tr><td data-label="Command">say</td><td data-label="Description">Make Mac speak text</td></tr>
+        <tr><td data-label="Command">pbcopy</td><td data-label="Description">Copy to clipboard</td></tr>
+      </tbody>
+    </table>
+  </div>
 
+  <footer>
+    <p>&copy; 2025 Huffles IT Services LLC — All rights reserved.</p>
+    <p>
+      <a class="back-button" href="Huffles-IT-Services-Code-Reference.html">🖥️ Back to Porch</a>
+    </p>
+  </footer>
 </body>
 </html>
