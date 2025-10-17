@@ -19,64 +19,51 @@
 <body>
   <h1>⚡ PowerShell Overlay</h1>
 
-  <h2>📁 Navigation & File Operations</h2>
+  <h2>📁 Navigation & File Management</h2>
   <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
     <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>Get-ChildItem</td><td>List files and folders (like `ls`)</td></tr>
-    <tr><td>Set-Location</td><td>Change directory (like `cd`)</td></tr>
-    <tr><td>Copy-Item</td><td>Copy a file or folder</td></tr>
-    <tr><td>Remove-Item</td><td>Delete a file or folder</td></tr>
-    <tr><td>Rename-Item</td><td>Rename a file or folder</td></tr>
+    <tr><td>Get-Location</td><td>Show current directory</td></tr>
+    <tr><td>Set-Location C:\Path</td><td>Change directory</td></tr>
+    <tr><td>Get-ChildItem</td><td>List files and folders</td></tr>
+    <tr><td>New-Item -ItemType File -Name file.txt</td><td>Create new file</td></tr>
+    <tr><td>Remove-Item file.txt</td><td>Delete file</td></tr>
+    <tr><td>Copy-Item file1.txt file2.txt</td><td>Copy file</td></tr>
+    <tr><td>Move-Item file.txt C:\NewFolder</td><td>Move file</td></tr>
+    <tr><td>Rename-Item old.txt new.txt</td><td>Rename file</td></tr>
   </table>
 
-  <h2>🔍 System Info & Diagnostics</h2>
+  <h2>🌐 Networking</h2>
   <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
     <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>Get-ComputerInfo</td><td>Display system details</td></tr>
-    <tr><td>Get-WmiObject Win32_OperatingSystem</td><td>Show OS info</td></tr>
-    <tr><td>Get-Help</td><td>Get help for a command</td></tr>
-    <tr><td>Get-Command</td><td>List available cmdlets</td></tr>
+    <tr><td>Test-Connection google.com</td><td>Ping host</td></tr>
+    <tr><td>Resolve-DnsName microsoft.com</td><td>DNS lookup</td></tr>
+    <tr><td>Get-NetIPAddress</td><td>Show IP configuration</td></tr>
+    <tr><td>Get-NetAdapter</td><td>List network adapters</td></tr>
+    <tr><td>Get-NetTCPConnection</td><td>Show active TCP connections</td></tr>
+    <tr><td>Get-NetFirewallRule</td><td>List firewall rules</td></tr>
   </table>
 
-  <h2>📊 Process & Service Management</h2>
+  <h2>🔐 Security & System</h2>
   <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
     <tr><th>Command</th><th>Description</th></tr>
     <tr><td>Get-Process</td><td>List running processes</td></tr>
-    <tr><td>Stop-Process -Name "notepad"</td><td>Stop a process by name</td></tr>
-    <tr><td>Get-Service</td><td>List services and their status</td></tr>
-    <tr><td>Start-Service</td><td>Start a service</td></tr>
-    <tr><td>Stop-Service</td><td>Stop a service</td></tr>
-    <tr><td>Restart-Service</td><td>Restart a service</td></tr>
+    <tr><td>Stop-Process -Name notepad</td><td>Kill process by name</td></tr>
+    <tr><td>Get-Service</td><td>List services</td></tr>
+    <tr><td>Restart-Service spooler</td><td>Restart service</td></tr>
+    <tr><td>Get-EventLog -LogName System -Newest 10</td><td>View recent system logs</td></tr>
+    <tr><td>Get-LocalUser</td><td>List local users</td></tr>
+    <tr><td>Set-LocalUser -Name "User" -Password (ConvertTo-SecureString "NewPass" -AsPlainText -Force)</td><td>Change user password</td></tr>
   </table>
 
-  <h2>🌐 Network & Connectivity</h2>
+  <h2>🧰 Maintenance & Recovery</h2>
   <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
     <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>Test-Connection hostname</td><td>Ping a host</td></tr>
-    <tr><td>Get-NetIPAddress</td><td>Show IP configuration</td></tr>
-    <tr><td>Get-NetAdapter</td><td>List network adapters</td></tr>
-  </table>
-
-  <h2>🛠️ Maintenance & Repair</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>sfc /scannow</td><td>Scan and repair system files</td></tr>
-    <tr><td>DISM /Online /Cleanup-Image /RestoreHealth</td><td>Repair Windows image</td></tr>
-    <tr><td>Clear-Host</td><td>Clear the PowerShell screen</td></tr>
-  </table>
-
-  <h2>🔐 Security & Execution Policy</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>Set-ExecutionPolicy RemoteSigned</td><td>Allow local scripts to run</td></tr>
-    <tr><td>Get-ExecutionPolicy</td><td>Check current script policy</td></tr>
-  </table>
-
-  <h2>⚡ Power & Restart</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>Restart-Computer</td><td>Restart the computer</td></tr>
-    <tr><td>Stop-Computer</td><td>Shutdown the computer</td></tr>
+    <tr><td>Repair-WindowsImage -Online -RestoreHealth</td><td>Repair Windows image</td></tr>
+    <tr><td>sfc /scannow</td><td>Scan and fix system files</td></tr>
+    <tr><td>Clear-RecycleBin</td><td>Empty recycle bin</td></tr>
+    <tr><td>Get-ComputerInfo</td><td>Show system info</td></tr>
+    <tr><td>Restart-Computer</td><td>Reboot system</td></tr>
+    <tr><td>Stop-Computer</td><td>Shutdown system</td></tr>
   </table>
 
 </body>
