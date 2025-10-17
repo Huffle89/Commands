@@ -18,18 +18,13 @@
       margin-bottom: 20px;
     }
 
-    .table-group {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      max-width: 1200px;
-      margin: 0 auto 60px;
+    .section {
+      margin-bottom: 60px;
     }
 
     table {
-      flex: 1 1 300px;
-      max-width: 400px;
+      margin: 0 auto;
+      max-width: 1000px;
       border-collapse: collapse;
       width: 100%;
     }
@@ -39,6 +34,7 @@
       padding: 12px;
       text-align: left;
       background-color: #111111;
+      vertical-align: top;
     }
 
     th {
@@ -46,44 +42,9 @@
       color: #FFFFFF;
     }
 
-    @media screen and (max-width: 600px) {
-      .table-group {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      table thead {
-        display: none;
-      }
-
-      table, table tbody, table tr, table td {
-        display: block;
-        width: 100%;
-      }
-
-      table tr {
-        margin-bottom: 20px;
-        border: 1px solid #0F52BA;
-        background-color: #111111;
-        padding: 10px;
-      }
-
-      table td {
-        text-align: right;
-        padding-left: 50%;
-        position: relative;
-      }
-
-      table td::before {
-        content: attr(data-label);
-        position: absolute;
-        left: 10px;
-        width: 45%;
-        padding-left: 10px;
-        font-weight: bold;
-        text-align: left;
-        color: #0F52BA;
-      }
+    td:first-child {
+      width: 250px;
+      white-space: nowrap;
     }
 
     footer {
@@ -111,46 +72,45 @@
 </head>
 <body>
   <h1>Android MDM</h1>
-  <h2>Device Management Reference</h2>
+  <h2>Mobile Device Management Workflows</h2>
 
-  <div class="table-group">
+  <div class="section">
+    <h2>📦 Enrollment & Setup</h2>
     <table>
-      <thead><tr><th>ADB Basics</th><th>Description</th></tr></thead>
+      <thead><tr><th>Action</th><th>Method</th><th>Purpose</th></tr></thead>
       <tbody>
-        <tr><td data-label="Command">adb devices</td><td data-label="Description">List connected devices</td></tr>
-        <tr><td data-label="Command">adb reboot</td><td data-label="Description">Reboot device</td></tr>
-        <tr><td data-label="Command">adb shell</td><td data-label="Description">Open device shell</td></tr>
-        <tr><td data-label="Command">adb install</td><td data-label="Description">Install APK</td></tr>
+        <tr><td>Enroll via QR code</td><td>GUI</td><td>Scan QR to auto-configure device with MDM profile</td></tr>
+        <tr><td>Enroll via afw#setup</td><td>CLI/GUI</td><td>Trigger Android Enterprise setup during provisioning</td></tr>
+        <tr><td>Zero-touch enrollment</td><td>GUI</td><td>Preconfigure devices via reseller portal</td></tr>
+        <tr><td>Manual profile install</td><td>GUI</td><td>Install MDM profile via downloaded config</td></tr>
       </tbody>
     </table>
+  </div>
 
+  <div class="section">
+    <h2>🔐 Policy & App Control</h2>
     <table>
-      <thead><tr><th>Provisioning</th><th>Description</th></tr></thead>
+      <thead><tr><th>Action</th><th>Method</th><th>Purpose</th></tr></thead>
       <tbody>
-        <tr><td data-label="Command">adb push</td><td data-label="Description">Send file to device</td></tr>
-        <tr><td data-label="Command">adb pull</td><td data-label="Description">Retrieve file from device</td></tr>
-        <tr><td data-label="Command">adb sideload</td><td data-label="Description">Install update package</td></tr>
-        <tr><td data-label="Command">adb shell pm grant</td><td data-label="Description">Grant app permission</td></tr>
+        <tr><td>Set device restrictions</td><td>GUI</td><td>Control camera, screen capture, USB, etc.</td></tr>
+        <tr><td>Push managed apps</td><td>GUI</td><td>Deploy apps silently to enrolled devices</td></tr>
+        <tr><td>Block app installs</td><td>GUI</td><td>Prevent installation of unauthorized apps</td></tr>
+        <tr><td>Configure kiosk mode</td><td>GUI</td><td>Lock device to single app or set of apps</td></tr>
+        <tr><td>Set Wi-Fi & VPN profiles</td><td>GUI</td><td>Preconfigure network settings remotely</td></tr>
       </tbody>
     </table>
+  </div>
 
+  <div class="section">
+    <h2>🧭 Remote Actions</h2>
     <table>
-      <thead><tr><th>App Control</th><th>Description</th></tr></thead>
+      <thead><tr><th>Action</th><th>Method</th><th>Purpose</th></tr></thead>
       <tbody>
-        <tr><td data-label="Command">adb shell pm list packages</td><td data-label="Description">List installed packages</td></tr>
-        <tr><td data-label="Command">adb shell pm uninstall</td><td data-label="Description">Uninstall app</td></tr>
-        <tr><td data-label="Command">adb shell am start</td><td data-label="Description">Launch app activity</td></tr>
-        <tr><td data-label="Command">adb shell am force-stop</td><td data-label="Description">Force stop app</td></tr>
-      </tbody>
-    </table>
-
-    <table>
-      <thead><tr><th>Security & Debug</th><th>Description</th></tr></thead>
-      <tbody>
-        <tr><td data-label="Command">adb logcat</td><td data-label="Description">View device logs</td></tr>
-        <tr><td data-label="Command">adb shell screencap</td><td data-label="Description">Take screenshot</td></tr>
-        <tr><td data-label="Command">adb shell dumpsys</td><td data-label="Description">System diagnostics</td></tr>
-        <tr><td data-label="Command">adb shell settings</td><td data-label="Description">Modify system settings</td></tr>
+        <tr><td>Remote wipe</td><td>GUI</td><td>Erase all data from lost or stolen device</td></tr>
+        <tr><td>Lock device</td><td>GUI</td><td>Prevent access until unlocked by admin</td></tr>
+        <tr><td>Send message</td><td>GUI</td><td>Display alert or instructions on device</td></tr>
+        <tr><td>Locate device</td><td>GUI</td><td>Track device location if enabled</td></tr>
+        <tr><td>Reboot device</td><td>GUI</td><td>Force restart for troubleshooting</td></tr>
       </tbody>
     </table>
   </div>
