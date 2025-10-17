@@ -18,18 +18,13 @@
       margin-bottom: 20px;
     }
 
-    .table-group {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      max-width: 1200px;
-      margin: 0 auto 60px;
+    .section {
+      margin-bottom: 60px;
     }
 
     table {
-      flex: 1 1 300px;
-      max-width: 400px;
+      margin: 0 auto;
+      max-width: 1000px;
       border-collapse: collapse;
       width: 100%;
     }
@@ -39,6 +34,7 @@
       padding: 12px;
       text-align: left;
       background-color: #111111;
+      vertical-align: top;
     }
 
     th {
@@ -46,44 +42,9 @@
       color: #FFFFFF;
     }
 
-    @media screen and (max-width: 600px) {
-      .table-group {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      table thead {
-        display: none;
-      }
-
-      table, table tbody, table tr, table td {
-        display: block;
-        width: 100%;
-      }
-
-      table tr {
-        margin-bottom: 20px;
-        border: 1px solid #0F52BA;
-        background-color: #111111;
-        padding: 10px;
-      }
-
-      table td {
-        text-align: right;
-        padding-left: 50%;
-        position: relative;
-      }
-
-      table td::before {
-        content: attr(data-label);
-        position: absolute;
-        left: 10px;
-        width: 45%;
-        padding-left: 10px;
-        font-weight: bold;
-        text-align: left;
-        color: #0F52BA;
-      }
+    td:first-child {
+      width: 250px;
+      white-space: nowrap;
     }
 
     footer {
@@ -111,46 +72,46 @@
 </head>
 <body>
   <h1>Cleanup</h1>
-  <h2>System Maintenance Reference</h2>
+  <h2>System Cleanup Tools and Commands</h2>
 
-  <div class="table-group">
+  <div class="section">
+    <h2>🖥️ Windows Cleanup</h2>
     <table>
-      <thead><tr><th>Windows</th><th>Description</th></tr></thead>
+      <thead><tr><th>Tool/Command</th><th>Type</th><th>Purpose</th></tr></thead>
       <tbody>
-        <tr><td data-label="Command">cleanmgr</td><td data-label="Description">Launch Disk Cleanup</td></tr>
-        <tr><td data-label="Command">%temp%</td><td data-label="Description">Open temp folder</td></tr>
-        <tr><td data-label="Command">wsreset</td><td data-label="Description">Reset Windows Store cache</td></tr>
-        <tr><td data-label="Command">sfc /scannow</td><td data-label="Description">Scan system files</td></tr>
+        <tr><td>Disk Cleanup</td><td>GUI</td><td>Removes temp files, system cache, and old updates</td></tr>
+        <tr><td>Storage Sense</td><td>GUI</td><td>Automates cleanup of temp files and recycle bin</td></tr>
+        <tr><td>CCleaner</td><td>GUI</td><td>Cleans browser cache, registry, and startup items</td></tr>
+        <tr><td>PowerShell: `Clear-RecycleBin -Force`</td><td>CLI</td><td>Empties recycle bin across all drives</td></tr>
+        <tr><td>CMD: `cleanmgr /sagerun:1`</td><td>CLI</td><td>Runs advanced Disk Cleanup presets</td></tr>
       </tbody>
     </table>
+  </div>
 
+  <div class="section">
+    <h2>🍎 macOS Cleanup</h2>
     <table>
-      <thead><tr><th>Linux</th><th>Description</th></tr></thead>
+      <thead><tr><th>Tool/Command</th><th>Type</th><th>Purpose</th></tr></thead>
       <tbody>
-        <tr><td data-label="Command">sudo apt autoremove</td><td data-label="Description">Remove unused packages</td></tr>
-        <tr><td data-label="Command">sudo apt clean</td><td data-label="Description">Clear package cache</td></tr>
-        <tr><td data-label="Command">journalctl --vacuum-time=7d</td><td data-label="Description">Trim system logs</td></tr>
-        <tr><td data-label="Command">bleachbit</td><td data-label="Description">GUI cleanup tool</td></tr>
+        <tr><td>Finder > Go to Folder: `~/Library/Caches`</td><td>GUI</td><td>Manually clear user-level app caches</td></tr>
+        <tr><td>Disk Utility</td><td>GUI</td><td>Run First Aid to check and repair disk errors</td></tr>
+        <tr><td>Terminal: `sudo purge`</td><td>CLI</td><td>Clears inactive memory (older macOS)</td></tr>
+        <tr><td>Terminal: `rm -rf ~/Library/Caches/*`</td><td>CLI</td><td>Deletes all user cache files</td></tr>
+        <tr><td>AppCleaner</td><td>GUI</td><td>Removes apps and related leftover files</td></tr>
       </tbody>
     </table>
+  </div>
 
+  <div class="section">
+    <h2>🐧 Linux Cleanup</h2>
     <table>
-      <thead><tr><th>macOS</th><th>Description</th></tr></thead>
+      <thead><tr><th>Tool/Command</th><th>Type</th><th>Purpose</th></tr></thead>
       <tbody>
-        <tr><td data-label="Command">rm -rf ~/Library/Caches</td><td data-label="Description">Clear user cache</td></tr>
-        <tr><td data-label="Command">purge</td><td data-label="Description">Free inactive memory</td></tr>
-        <tr><td data-label="Command">diskutil verifyVolume</td><td data-label="Description">Check disk health</td></tr>
-        <tr><td data-label="Command">OnyX</td><td data-label="Description">GUI cleanup utility</td></tr>
-      </tbody>
-    </table>
-
-    <table>
-      <thead><tr><th>Cross-Platform Tools</th><th>Description</th></tr></thead>
-      <tbody>
-        <tr><td data-label="Command">CCleaner</td><td data-label="Description">Multi-OS cleanup tool</td></tr>
-        <tr><td data-label="Command">Glary Utilities</td><td data-label="Description">Windows optimization suite</td></tr>
-        <tr><td data-label="Command">Stacer</td><td data-label="Description">Linux system optimizer</td></tr>
-        <tr><td data-label="Command">CleanMyMac</td><td data-label="Description">macOS cleanup suite</td></tr>
+        <tr><td>BleachBit</td><td>GUI</td><td>Cleans cache, logs, and temp files across apps</td></tr>
+        <tr><td>Terminal: `sudo apt autoremove`</td><td>CLI</td><td>Removes unused packages and dependencies</td></tr>
+        <tr><td>Terminal: `sudo apt clean`</td><td>CLI</td><td>Clears local package cache</td></tr>
+        <tr><td>Terminal: `journalctl --vacuum-time=7d`</td><td>CLI</td><td>Deletes system logs older than 7 days</td></tr>
+        <tr><td>Terminal: `du -sh *`</td><td>CLI</td><td>Shows folder sizes for manual cleanup</td></tr>
       </tbody>
     </table>
   </div>
