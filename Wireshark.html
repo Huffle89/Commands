@@ -2,83 +2,174 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>🧪 Wireshark Overlay</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wireshark — Huffles IT Services</title>
   <style>
     body {
       background-color: #0A0A0A;
+      color: #FFFFFF;
       font-family: 'Segoe UI', sans-serif;
-      color: #1E3A8A;
-      padding: 40px;
+      padding: 40px 20px;
       text-align: center;
     }
-    table, th, td {
+
+    h1, h2 {
+      color: #0F52BA;
+      margin-bottom: 20px;
+    }
+
+    .table-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto 60px;
+    }
+
+    table {
+      flex: 1 1 300px;
+      max-width: 400px;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      border: 1px solid #0F52BA;
+      padding: 12px;
+      text-align: left;
+      background-color: #111111;
+    }
+
+    th {
+      background-color: #0F52BA;
       color: #FFFFFF;
+    }
+
+    @media screen and (max-width: 600px) {
+      .table-group {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      table thead {
+        display: none;
+      }
+
+      table, table tbody, table tr, table td {
+        display: block;
+        width: 100%;
+      }
+
+      table tr {
+        margin-bottom: 20px;
+        border: 1px solid #0F52BA;
+        background-color: #111111;
+        padding: 10px;
+      }
+
+      table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+      }
+
+      table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: 45%;
+        padding-left: 10px;
+        font-weight: bold;
+        text-align: left;
+        color: #0F52BA;
+      }
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 0.9em;
+      color: #FFFFFF;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background-color: #0F52BA;
+      color: #FFFFFF;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    .back-button:hover {
+      background-color: #FFFFFF;
+      color: #0F52BA;
     }
   </style>
 </head>
 <body>
-  <h1>🧪 Wireshark Overlay</h1>
+  <h1>Wireshark</h1>
+  <h2>Packet Analysis Reference</h2>
 
-  <h2>🎯 Capture Filters</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Filter</th><th>Description</th></tr>
-    <tr><td>host 192.168.1.1</td><td>Capture traffic to/from IP</td></tr>
-    <tr><td>net 192.168.1.0/24</td><td>Capture traffic for subnet</td></tr>
-    <tr><td>port 443</td><td>Capture HTTPS traffic</td></tr>
-    <tr><td>tcp</td><td>Capture TCP traffic only</td></tr>
-    <tr><td>udp</td><td>Capture UDP traffic only</td></tr>
-    <tr><td>icmp</td><td>Capture ping traffic</td></tr>
-    <tr><td>tcp port 80</td><td>Capture HTTP traffic</td></tr>
-    <tr><td>src host 10.0.0.5</td><td>Capture traffic from source IP</td></tr>
-    <tr><td>dst port 53</td><td>Capture DNS queries</td></tr>
-  </table>
+  <div class="table-group">
+    <table>
+      <thead><tr><th>Capture</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Command">Start Capture</td><td data-label="Description">Begin packet sniffing</td></tr>
+        <tr><td data-label="Command">Capture Filter</td><td data-label="Description">Limit packets by protocol/IP</td></tr>
+        <tr><td data-label="Command">Interface List</td><td data-label="Description">Choose network interface</td></tr>
+        <tr><td data-label="Command">Save .pcap</td><td data-label="Description">Export capture file</td></tr>
+      </tbody>
+    </table>
 
-  <h2>🔍 Display Filters</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Filter</th><th>Description</th></tr>
-    <tr><td>ip.addr == 192.168.1.1</td><td>Show packets to/from IP</td></tr>
-    <tr><td>tcp.port == 443</td><td>Show HTTPS packets</td></tr>
-    <tr><td>http.request</td><td>Show HTTP requests</td></tr>
-    <tr><td>dns</td><td>Show DNS traffic</td></tr>
-    <tr><td>icmp</td><td>Show ping traffic</td></tr>
-    <tr><td>tcp.flags.syn == 1</td><td>Show SYN packets</td></tr>
-    <tr><td>tcp.flags.fin == 1</td><td>Show FIN packets</td></tr>
-    <tr><td>tcp.analysis.retransmission</td><td>Show retransmissions</td></tr>
-    <tr><td>frame contains "password"</td><td>Search for keyword in packets</td></tr>
-  </table>
+    <table>
+      <thead><tr><th>Display Filters</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Command">ip.addr == 192.168.1.1</td><td data-label="Description">Filter by IP address</td></tr>
+        <tr><td data-label="Command">tcp.port == 443</td><td data-label="Description">Filter by TCP port</td></tr>
+        <tr><td data-label="Command">http</td><td data-label="Description">Show HTTP traffic</td></tr>
+        <tr><td data-label="Command">dns</td><td data-label="Description">Show DNS queries</td></tr>
+      </tbody>
+    </table>
 
-  <h2>📡 Protocol Filters</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Filter</th><th>Description</th></tr>
-    <tr><td>http</td><td>Show HTTP traffic</td></tr>
-    <tr><td>ftp</td><td>Show FTP traffic</td></tr>
-    <tr><td>smtp</td><td>Show email traffic</td></tr>
-    <tr><td>tls</td><td>Show encrypted traffic</td></tr>
-    <tr><td>dhcp</td><td>Show DHCP traffic</td></tr>
-    <tr><td>arp</td><td>Show ARP traffic</td></tr>
-    <tr><td>ntp</td><td>Show time sync traffic</td></tr>
-  </table>
+    <table>
+      <thead><tr><th>Analysis</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Command">Follow TCP Stream</td><td data-label="Description">View full conversation</td></tr>
+        <tr><td data-label="Command">Statistics → Protocol Hierarchy</td><td data-label="Description">Break down traffic types</td></tr>
+        <tr><td data-label="Command">Expert Info</td><td data-label="Description">Highlight anomalies</td></tr>
+        <tr><td data-label="Command">IO Graphs</td><td data-label="Description">Visualize traffic over time</td></tr>
+      </tbody>
+    </table>
 
-  <h2>⚙️ Logical Operators</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Syntax</th><th>Description</th></tr>
-    <tr><td>and</td><td>Combine filters (both must match)</td></tr>
-    <tr><td>or</td><td>Either filter can match</td></tr>
-    <tr><td>not</td><td>Exclude matching packets</td></tr>
-    <tr><td>()</td><td>Group filters</td></tr>
-  </table>
+    <table>
+      <thead><tr><th>Protocols</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Command">ARP</td><td data-label="Description">Address Resolution Protocol</td></tr>
+        <tr><td data-label="Command">ICMP</td><td data-label="Description">Ping and echo requests</td></tr>
+        <tr><td data-label="Command">TLS</td><td data-label="Description">Encrypted traffic</td></tr>
+        <tr><td data-label="Command">DHCP</td><td data-label="Description">IP assignment traffic</td></tr>
+      </tbody>
+    </table>
 
-  <h2>⌨️ Shortcuts</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Shortcut</th><th>Action</th></tr>
-    <tr><td>Ctrl + E</td><td>Apply display filter</td></tr>
-    <tr><td>Ctrl + K</td><td>Clear display filter</td></tr>
-    <tr><td>Ctrl + Shift + P</td><td>Open preferences</td></tr>
-    <tr><td>Ctrl + H</td><td>Hide/show packet details</td></tr>
-    <tr><td>Ctrl + N</td><td>Start new capture</td></tr>
-    <tr><td>Ctrl + S</td><td>Save capture</td></tr>
-    <tr><td>Ctrl + F</td><td>Find in packet list</td></tr>
-  </table>
+    <table>
+      <thead><tr><th>Export & Tools</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Command">Export Packet Bytes</td><td data-label="Description">Save raw data</td></tr>
+        <tr><td data-label="Command">Export Objects → HTTP</td><td data-label="Description">Extract files from traffic</td></tr>
+        <tr><td data-label="Command">Color Rules</td><td data-label="Description">Highlight traffic types</td></tr>
+        <tr><td data-label="Command">Command Line: tshark</td><td data-label="Description">CLI version of Wireshark</td></tr>
+      </tbody>
+    </table>
+  </div>
 
+  <footer>
+    <p>&copy; 2025 Huffles IT Services LLC — All rights reserved.</p>
+    <p>
+      <a class="back-button" href="Huffles-IT-Services-Code-Reference.html">🖥️ Back to Porch</a>
+    </p>
+  </footer>
 </body>
 </html>
