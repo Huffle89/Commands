@@ -2,36 +2,174 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>📡 Nmap Overlay</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nmap — Huffles IT Services</title>
   <style>
     body {
       background-color: #0A0A0A;
+      color: #FFFFFF;
       font-family: 'Segoe UI', sans-serif;
-      color: #1E3A8A;
-      padding: 40px;
+      padding: 40px 20px;
       text-align: center;
     }
-    table, th, td {
+
+    h1, h2 {
+      color: #0F52BA;
+      margin-bottom: 20px;
+    }
+
+    .table-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto 60px;
+    }
+
+    table {
+      flex: 1 1 300px;
+      max-width: 400px;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      border: 1px solid #0F52BA;
+      padding: 12px;
+      text-align: left;
+      background-color: #111111;
+    }
+
+    th {
+      background-color: #0F52BA;
       color: #FFFFFF;
+    }
+
+    @media screen and (max-width: 600px) {
+      .table-group {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      table thead {
+        display: none;
+      }
+
+      table, table tbody, table tr, table td {
+        display: block;
+        width: 100%;
+      }
+
+      table tr {
+        margin-bottom: 20px;
+        border: 1px solid #0F52BA;
+        background-color: #111111;
+        padding: 10px;
+      }
+
+      table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+      }
+
+      table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: 45%;
+        padding-left: 10px;
+        font-weight: bold;
+        text-align: left;
+        color: #0F52BA;
+      }
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 0.9em;
+      color: #FFFFFF;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background-color: #0F52BA;
+      color: #FFFFFF;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    .back-button:hover {
+      background-color: #FFFFFF;
+      color: #0F52BA;
     }
   </style>
 </head>
 <body>
-  <h1>📡 Nmap Overlay</h1>
+  <h1>Nmap</h1>
+  <h2>Network Scanning Reference</h2>
 
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>nmap target</td><td>Basic scan of target IP or domain</td></tr>
-    <tr><td>nmap -sS target</td><td>Stealth SYN scan</td></tr>
-    <tr><td>nmap -O target</td><td>Detect operating system</td></tr>
-    <tr><td>nmap -sV target</td><td>Detect service versions</td></tr>
-    <tr><td>nmap -A target</td><td>Aggressive scan (OS + services + scripts)</td></tr>
-    <tr><td>nmap -p 1-65535 target</td><td>Scan all ports</td></tr>
-    <tr><td>nmap -Pn target</td><td>Skip host discovery (treat host as online)</td></tr>
-    <tr><td>nmap -T4 target</td><td>Speed up scan (use timing template)</td></tr>
-    <tr><td>nmap -iL targets.txt</td><td>Scan list of targets from file</td></tr>
-    <tr><td>nmap -oN output.txt target</td><td>Save results to file</td></tr>
-  </table>
+  <div class="table-group">
+    <table>
+      <thead><tr><th>Basic Scans</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Command">nmap 192.168.1.1</td><td data-label="Description">Scan single host</td></tr>
+        <tr><td data-label="Command">nmap 192.168.1.0/24</td><td data-label="Description">Scan subnet</td></tr>
+        <tr><td data-label="Command">nmap -v</td><td data-label="Description">Verbose output</td></tr>
+        <tr><td data-label="Command">nmap -sn</td><td data-label="Description">Ping scan (host discovery)</td></tr>
+      </tbody>
+    </table>
 
+    <table>
+      <thead><tr><th>Port Scanning</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Command">nmap -p 80</td><td data-label="Description">Scan specific port</td></tr>
+        <tr><td data-label="Command">nmap -p-</td><td data-label="Description">Scan all ports</td></tr>
+        <tr><td data-label="Command">nmap -F</td><td data-label="Description">Fast scan (top 100 ports)</td></tr>
+        <tr><td data-label="Command">nmap -Pn</td><td data-label="Description">Skip host discovery</td></tr>
+      </tbody>
+    </table>
+
+    <table>
+      <thead><tr><th>Service & OS Detection</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Command">nmap -sV</td><td data-label="Description">Detect service versions</td></tr>
+        <tr><td data-label="Command">nmap -O</td><td data-label="Description">Detect operating system</td></tr>
+        <tr><td data-label="Command">nmap -A</td><td data-label="Description">Aggressive scan (OS + services)</td></tr>
+        <tr><td data-label="Command">nmap --osscan-guess</td><td data-label="Description">Guess OS if uncertain</td></tr>
+      </tbody>
+    </table>
+
+    <table>
+      <thead><tr><th>Scripting</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Command">nmap --script vuln</td><td data-label="Description">Run vulnerability scripts</td></tr>
+        <tr><td data-label="Command">nmap --script default</td><td data-label="Description">Run default scripts</td></tr>
+        <tr><td data-label="Command">nmap --script http-enum</td><td data-label="Description">Enumerate web services</td></tr>
+        <tr><td data-label="Command">nmap --script smb-os-discovery</td><td data-label="Description">Discover SMB OS info</td></tr>
+      </tbody>
+    </table>
+
+    <table>
+      <thead><tr><th>Output & Logging</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Command">nmap -oN scan.txt</td><td data-label="Description">Normal output to file</td></tr>
+        <tr><td data-label="Command">nmap -oX scan.xml</td><td data-label="Description">XML output</td></tr>
+        <tr><td data-label="Command">nmap -oG scan.gnmap</td><td data-label="Description">Grepable output</td></tr>
+        <tr><td data-label="Command">nmap -vv</td><td data-label="Description">Extra verbose output</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Huffles IT Services LLC — All rights reserved.</p>
+    <p>
+      <a class="back-button" href="Huffles-IT-Services-Code-Reference.html">🖥️ Back to Porch</a>
+    </p>
+  </footer>
 </body>
 </html>
