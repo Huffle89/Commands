@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>🍎 macOS Terminal Overlay</title>
+  <title>🍎 macOS Overlay</title>
   <style>
     body {
       background-color: #0A0A0A;
@@ -17,86 +17,70 @@
   </style>
 </head>
 <body>
-  <h1>🍎 macOS Terminal Overlay</h1>
+  <h1>🍎 macOS Overlay</h1>
 
-  <h2>📁 Navigation & File Operations</h2>
+  <h2>📁 Navigation & File Management</h2>
   <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
     <tr><th>Command</th><th>Description</th></tr>
+    <tr><td>pwd</td><td>Print working directory</td></tr>
     <tr><td>ls -la</td><td>List all files with details</td></tr>
-    <tr><td>cd /path/to/dir</td><td>Change to specified directory</td></tr>
-    <tr><td>pwd</td><td>Print current working directory</td></tr>
-    <tr><td>open .</td><td>Open current folder in Finder</td></tr>
-    <tr><td>cp file1 file2</td><td>Copy a file</td></tr>
-    <tr><td>mv file1 file2</td><td>Move or rename a file</td></tr>
-    <tr><td>rm file</td><td>Delete a file</td></tr>
+    <tr><td>cd /path/to/dir</td><td>Change directory</td></tr>
+    <tr><td>mkdir new_folder</td><td>Create new directory</td></tr>
+    <tr><td>rm -rf folder</td><td>Delete folder and contents</td></tr>
+    <tr><td>touch file.txt</td><td>Create empty file</td></tr>
+    <tr><td>cp file1 file2</td><td>Copy file</td></tr>
+    <tr><td>mv old new</td><td>Rename or move file</td></tr>
+    <tr><td>find / -name "file.txt"</td><td>Search for file</td></tr>
   </table>
 
-  <h2>📦 Package Management (Homebrew)</h2>
+  <h2>🌐 Networking</h2>
   <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
     <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>brew install package</td><td>Install software via Homebrew</td></tr>
-    <tr><td>brew update</td><td>Update Homebrew itself</td></tr>
+    <tr><td>ifconfig</td><td>Show network interfaces</td></tr>
+    <tr><td>ping 8.8.8.8</td><td>Test connectivity</td></tr>
+    <tr><td>traceroute google.com</td><td>Trace route to host</td></tr>
+    <tr><td>netstat -an</td><td>Show active connections</td></tr>
+    <tr><td>curl ifconfig.me</td><td>Get public IP</td></tr>
+    <tr><td>scp file user@host:/path</td><td>Secure copy file</td></tr>
+  </table>
+
+  <h2>🔐 Permissions & Security</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Command</th><th>Description</th></tr>
+    <tr><td>chmod 755 file</td><td>Set file permissions</td></tr>
+    <tr><td>chown user:group file</td><td>Change file ownership</td></tr>
+    <tr><td>sudo command</td><td>Run command as root</td></tr>
+    <tr><td>security list-keychains</td><td>List keychains</td></tr>
+    <tr><td>security find-certificate -a</td><td>List certificates</td></tr>
+    <tr><td>sudo spctl --status</td><td>Check Gatekeeper status</td></tr>
+    <tr><td>sudo spctl --master-disable</td><td>Disable Gatekeeper</td></tr>
+  </table>
+
+  <h2>⚙️ System & Package Management</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Command</th><th>Description</th></tr>
+    <tr><td>top</td><td>View running processes</td></tr>
+    <tr><td>df -h</td><td>Disk usage</td></tr>
+    <tr><td>free</td><td>Memory usage (via Homebrew)</td></tr>
+    <tr><td>uname -a</td><td>System info</td></tr>
+    <tr><td>uptime</td><td>System uptime</td></tr>
+    <tr><td>ps aux</td><td>List all processes</td></tr>
+    <tr><td>kill PID</td><td>Terminate process</td></tr>
+    <tr><td>brew install package</td><td>Install package via Homebrew</td></tr>
+    <tr><td>brew update</td><td>Update Homebrew</td></tr>
     <tr><td>brew upgrade</td><td>Upgrade installed packages</td></tr>
-    <tr><td>brew uninstall package</td><td>Remove a package</td></tr>
   </table>
 
-  <h2>📊 System Monitoring & Processes</h2>
+  <h2>🧪 Diagnostics & Recovery</h2>
   <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
     <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>top</td><td>Display real-time system processes</td></tr>
-    <tr><td>ps aux | grep process</td><td>Search for a running process</td></tr>
-    <tr><td>kill -9 PID</td><td>Force kill a process</td></tr>
-    <tr><td>uptime</td><td>Show how long the system has been running</td></tr>
-  </table>
-
-  <h2>🌐 Network & Connectivity</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>ping hostname</td><td>Test network connectivity</td></tr>
-    <tr><td>ifconfig</td><td>Display network interface info</td></tr>
-    <tr><td>netstat -an</td><td>Show active network connections</td></tr>
-    <tr><td>curl http://example.com</td><td>Fetch a webpage or API response</td></tr>
-  </table>
-
-  <h2>💾 Disk & Storage</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>df -h</td><td>Show disk usage in human-readable format</td></tr>
-    <tr><td>du -sh *</td><td>Show size of each item in current directory</td></tr>
-    <tr><td>diskutil list</td><td>List all disks and partitions</td></tr>
-    <tr><td>diskutil info /dev/diskX</td><td>Show info about a specific disk</td></tr>
-  </table>
-
-  <h2>🗜️ Archiving & Compression</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>tar -czvf archive.tar.gz folder/</td><td>Create a compressed archive</td></tr>
-    <tr><td>unzip file.zip</td><td>Extract a zip archive</td></tr>
-    <tr><td>gzip file</td><td>Compress a file</td></tr>
-  </table>
-
-  <h2>👥 User & Permissions</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>whoami</td><td>Show current user</td></tr>
-    <tr><td>groups</td><td>Show user’s group memberships</td></tr>
-    <tr><td>chmod +x script.sh</td><td>Make script executable</td></tr>
-    <tr><td>sudo command</td><td>Run command with admin privileges</td></tr>
-  </table>
-
-  <h2>🧾 Logs & Diagnostics</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>log show --predicate 'eventMessage contains "error"'</td><td>Search system logs for errors</td></tr>
-    <tr><td>tail -f /var/log/system.log</td><td>Live view of system log</td></tr>
-    <tr><td>sudo dmesg</td><td>View kernel messages</td></tr>
-  </table>
-
-  <h2>⚡ Power & Restart</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>sudo shutdown -r now</td><td>Restart the system immediately</td></tr>
-    <tr><td>sudo shutdown -h now</td><td>Shutdown the system immediately</td></tr>
+    <tr><td>diskutil list</td><td>List disks and partitions</td></tr>
+    <tr><td>diskutil verifyVolume /</td><td>Verify disk health</td></tr>
+    <tr><td>diskutil repairVolume /</td><td>Repair disk</td></tr>
+    <tr><td>sudo periodic daily weekly monthly</td><td>Run maintenance scripts</td></tr>
+    <tr><td>log show --predicate 'eventMessage contains "error"' --info</td><td>View error logs</td></tr>
+    <tr><td>reboot</td><td>Restart system</td></tr>
+    <tr><td>shutdown -h now</td><td>Shutdown system</td></tr>
   </table>
 
 </body>
