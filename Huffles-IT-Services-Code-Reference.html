@@ -2,82 +2,164 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>📚 Overlay Table of Contents</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📚 Overlay Command Reference</title>
   <style>
     body {
+      margin: 0;
       background-color: #0A0A0A;
       font-family: 'Segoe UI', sans-serif;
-      color: #1E3A8A;
-      text-align: center;
-      padding: 40px;
+      color: #FFFFFF;
+      padding: 40px 20px;
     }
-    img.logo {
-      width: 140px;
+
+    h1, h2 {
+      color: #0F52BA;
+      text-align: center;
       margin-bottom: 20px;
     }
-    table, th, td {
+
+    .section {
+      max-width: 1000px;
+      margin: 0 auto 60px;
+    }
+
+    table.command-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 30px;
+    }
+
+    table.command-table th,
+    table.command-table td {
+      border: 1px solid #0F52BA;
+      padding: 12px;
+      text-align: left;
+      font-size: 1em;
+    }
+
+    table.command-table th {
+      background-color: #0F52BA;
       color: #FFFFFF;
     }
-    a {
-      color: #FFD700;
-      text-decoration: none;
+
+    table.command-table td {
+      background-color: #111111;
     }
-    .porch-button {
-      margin-top: 40px;
-      display: inline-block;
-      padding: 12px 24px;
-      background-color: #1E3A8A;
-      color: #FFFFFF;
-      font-weight: bold;
-      border: none;
-      border-radius: 8px;
-      text-decoration: none;
+
+    @media screen and (max-width: 600px) {
+      table.command-table thead {
+        display: none;
+      }
+
+      table.command-table, table.command-table tbody, table.command-table tr, table.command-table td {
+        display: block;
+        width: 100%;
+      }
+
+      table.command-table tr {
+        margin-bottom: 20px;
+        border: 1px solid #0F52BA;
+        background-color: #111111;
+        padding: 10px;
+      }
+
+      table.command-table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+      }
+
+      table.command-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: 45%;
+        padding-left: 10px;
+        font-weight: bold;
+        text-align: left;
+        color: #0F52BA;
+      }
     }
-    .porch-button:hover {
-      background-color: #374FC7;
-    }
+
     footer {
+      text-align: center;
       margin-top: 60px;
       font-size: 0.9em;
       color: #FFFFFF;
     }
-    .footer-links a {
-      color: #FFD700;
-      margin: 0 10px;
-      text-decoration: none;
-    }
   </style>
 </head>
 <body>
-  <img src="Logo.png" alt="Huffle's IT Services logo" class="logo">
-  <h1>📚 Overlay Table of Contents</h1>
+  <h1>Huffle's IT Services — Overlay Command Reference</h1>
 
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><td><a href="Linux.html">🐧 Linux</a></td></tr>
-    <tr><td><a href="Windows-Cmd.html">🖥️ Windows CMD</a></td></tr>
-    <tr><td><a href="PowerShell.html">⚡ PowerShell</a></td></tr>
-    <tr><td><a href="MacOS.html">🍎 macOS</a></td></tr>
-    <tr><td><a href="Git-GitHub.html">🐙 Git & GitHub</a></td></tr>
-    <tr><td><a href="OpenSSL.html">🔐 OpenSSL</a></td></tr>
-    <tr><td><a href="Recovery.html">🛠️ Recovery</a></td></tr>
-    <tr><td><a href="Cleanup.html">🧹 Cleanup</a></td></tr>
-    <tr><td><a href="Wireshark.html">🧪 Wireshark</a></td></tr>
-    <tr><td><a href="Ubiquiti.html">📡 Ubiquiti</a></td></tr>
-    <tr><td><a href="iOS-MDM.html">📱 iOS MDM</a></td></tr>
-    <tr><td><a href="Android-MDM.html">🤖 Android MDM</a></td></tr>
-    <tr><td><a href="Nmap.html">📡 Nmap</a></td></tr>
-    <tr><td><a href="BurpSuite.html">🕷️ Burp Suite</a></td></tr>
-    <tr><td><a href="Metasploit.html">💣 Metasploit</a></td></tr>
-  </table>
+  <div class="section">
+    <h2>Windows Commands</h2>
+    <table class="command-table">
+      <thead>
+        <tr><th>Command</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Command">ipconfig</td>
+          <td data-label="Description">Displays IP configuration</td>
+        </tr>
+        <tr>
+          <td data-label="Command">ping</td>
+          <td data-label="Description">Tests network connectivity</td>
+        </tr>
+        <tr>
+          <td data-label="Command">netstat</td>
+          <td data-label="Description">Shows active connections</td>
+        </tr>
+      </tbody>
+    </table>
 
-  <a href="index.html" class="porch-button">🏡 Return to Porch</a>
+    <h2>Linux Commands</h2>
+    <table class="command-table">
+      <thead>
+        <tr><th>Command</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Command">ls</td>
+          <td data-label="Description">Lists directory contents</td>
+        </tr>
+        <tr>
+          <td data-label="Command">grep</td>
+          <td data-label="Description">Searches text using patterns</td>
+        </tr>
+        <tr>
+          <td data-label="Command">chmod</td>
+          <td data-label="Description">Changes file permissions</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>PowerShell Commands</h2>
+    <table class="command-table">
+      <thead>
+        <tr><th>Command</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Command">Get-Process</td>
+          <td data-label="Description">Lists running processes</td>
+        </tr>
+        <tr>
+          <td data-label="Command">Set-ExecutionPolicy</td>
+          <td data-label="Description">Changes script execution rules</td>
+        </tr>
+        <tr>
+          <td data-label="Command">Get-Help</td>
+          <td data-label="Description">Displays help for commands</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
   <footer>
     <p>&copy; 2025 Huffle's IT Services LLC — All rights reserved.</p>
-    <div class="footer-links">
-      <a href="README.txt">📄 README.txt</a>
-      <a href="LICENSE.txt">📜 LICENSE.txt</a>
-    </div>
   </footer>
 </body>
 </html>
