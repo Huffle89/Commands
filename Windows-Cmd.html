@@ -19,59 +19,53 @@
 <body>
   <h1>🖥️ Windows CMD Overlay</h1>
 
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A; border-collapse: collapse;">
-    <tr>
-      <th>Command</th>
-      <th>Description</th>
-    </tr>
-    <tr>
-      <td>dir</td>
-      <td>List files and folders in current directory</td>
-    </tr>
-    <tr>
-      <td>cd foldername</td>
-      <td>Change to specified folder</td>
-    </tr>
-    <tr>
-      <td>cls</td>
-      <td>Clear the screen</td>
-    </tr>
-    <tr>
-      <td>ipconfig</td>
-      <td>Display IP configuration</td>
-    </tr>
-    <tr>
-      <td>ping hostname</td>
-      <td>Test network connectivity</td>
-    </tr>
-    <tr>
-      <td>netstat -an</td>
-      <td>Show active network connections</td>
-    </tr>
-    <tr>
-      <td>tasklist</td>
-      <td>List running processes</td>
-    </tr>
-    <tr>
-      <td>taskkill /PID #### /F</td>
-      <td>Force kill a process by PID</td>
-    </tr>
-    <tr>
-      <td>systeminfo</td>
-      <td>Display system details</td>
-    </tr>
-    <tr>
-      <td>chkdsk C: /f</td>
-      <td>Scan and fix disk errors</td>
-    </tr>
-    <tr>
-      <td>sfc /scannow</td>
-      <td>Scan and repair system files</td>
-    </tr>
-    <tr>
-      <td>shutdown /r /t 0</td>
-      <td>Restart computer immediately</td>
-    </tr>
+  <h2>📁 Navigation & File Operations</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Command</th><th>Description</th></tr>
+    <tr><td>dir</td><td>List files and folders in current directory</td></tr>
+    <tr><td>cd foldername</td><td>Change to specified folder</td></tr>
+    <tr><td>cls</td><td>Clear the screen</td></tr>
+    <tr><td>copy file1 file2</td><td>Copy a file</td></tr>
+    <tr><td>del filename</td><td>Delete a file</td></tr>
+  </table>
+
+  <h2>🌐 Network & Connectivity</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Command</th><th>Description</th></tr>
+    <tr><td>ipconfig</td><td>Display IP configuration</td></tr>
+    <tr><td>ping hostname</td><td>Test network connectivity</td></tr>
+    <tr><td>netstat -an</td><td>Show active network connections</td></tr>
+    <tr><td>tracert hostname</td><td>Trace route to a host</td></tr>
+  </table>
+
+  <h2>🧠 System Info & Diagnostics</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Command</th><th>Description</th></tr>
+    <tr><td>systeminfo</td><td>Display system details</td></tr>
+    <tr><td>ver</td><td>Show Windows version</td></tr>
+    <tr><td>echo %USERNAME%</td><td>Show current user</td></tr>
+  </table>
+
+  <h2>📊 Process & Task Management</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Command</th><th>Description</th></tr>
+    <tr><td>tasklist</td><td>List running processes</td></tr>
+    <tr><td>taskkill /PID #### /F</td><td>Force kill a process by PID</td></tr>
+  </table>
+
+  <h2>🛠️ Maintenance & Repair</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Command</th><th>Description</th></tr>
+    <tr><td>chkdsk C: /f</td><td>Scan and fix disk errors</td></tr>
+    <tr><td>sfc /scannow</td><td>Scan and repair system files</td></tr>
+    <tr><td>DISM /Online /Cleanup-Image /RestoreHealth</td><td>Repair Windows image</td></tr>
+  </table>
+
+  <h2>⚡ Power & Restart</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Command</th><th>Description</th></tr>
+    <tr><td>shutdown /r /t 0</td><td>Restart computer immediately</td></tr>
+    <tr><td>shutdown /s /t 60</td><td>Shutdown in 60 seconds</td></tr>
   </table>
 
 </body>
