@@ -19,33 +19,63 @@
 <body>
   <h1>🤖 Android MDM Overlay</h1>
 
-  <h2>📦 Enrollment & Provisioning</h2>
+  <h2>📦 Device Info & Inventory</h2>
   <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Action</th><th>Description</th></tr>
-    <tr><td>Enroll Device</td><td>Use QR code, NFC, or afw#setup for Android Enterprise enrollment</td></tr>
-    <tr><td>Provision Work Profile</td><td>Enable BYOD mode with separate work container</td></tr>
+    <tr><th>Key</th><th>Description</th></tr>
+    <tr><td>deviceName</td><td>Device name</td></tr>
+    <tr><td>manufacturer</td><td>Device manufacturer</td></tr>
+    <tr><td>model</td><td>Device model</td></tr>
+    <tr><td>osVersion</td><td>Android OS version</td></tr>
+    <tr><td>serialNumber</td><td>Device serial number</td></tr>
+    <tr><td>imei</td><td>IMEI number</td></tr>
+    <tr><td>meid</td><td>MEID number</td></tr>
+    <tr><td>androidId</td><td>Android ID</td></tr>
   </table>
 
-  <h2>📱 App & Profile Management</h2>
+  <h2>🔐 Restrictions & Policies</h2>
   <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Action</th><th>Description</th></tr>
-    <tr><td>Push App</td><td>Deploy apps via managed Google Play store</td></tr>
-    <tr><td>Install Certificate</td><td>Push trusted root certificate via MDM</td></tr>
-    <tr><td>Custom JSON Payloads</td><td>Define advanced settings using OEMConfig or custom schema</td></tr>
+    <tr><th>Key</th><th>Description</th></tr>
+    <tr><td>disableCamera</td><td>Disable camera access</td></tr>
+    <tr><td>disableScreenCapture</td><td>Prevent screenshots</td></tr>
+    <tr><td>disableBluetooth</td><td>Disable Bluetooth</td></tr>
+    <tr><td>disableWifi</td><td>Disable Wi-Fi</td></tr>
+    <tr><td>disableUsbFileTransfer</td><td>Block USB file transfer</td></tr>
+    <tr><td>disableFactoryReset</td><td>Prevent factory reset</td></tr>
+    <tr><td>disableSafeBoot</td><td>Block safe mode boot</td></tr>
+    <tr><td>disableStatusBar</td><td>Prevent status bar access</td></tr>
   </table>
 
-  <h2>🔒 Restrictions & Controls</h2>
+  <h2>🌐 Network & Connectivity</h2>
   <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Action</th><th>Description</th></tr>
-    <tr><td>Apply Restrictions</td><td>Use DPC policies to restrict settings (e.g., camera, screen capture)</td></tr>
-    <tr><td>Lock Device</td><td>Send remote lock command via MDM</td></tr>
+    <tr><th>Key</th><th>Description</th></tr>
+    <tr><td>wifiConfigurations</td><td>Preconfigured Wi-Fi networks</td></tr>
+    <tr><td>vpnSettings</td><td>Configure VPN access</td></tr>
+    <tr><td>apnSettings</td><td>Set APN for cellular data</td></tr>
+    <tr><td>proxySettings</td><td>Configure proxy server</td></tr>
+    <tr><td>networkLoggingEnabled</td><td>Enable network logging</td></tr>
   </table>
 
-  <h2>🧹 Removal & Wipe</h2>
+  <h2>📲 App & Profile Management</h2>
   <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Action</th><th>Description</th></tr>
-    <tr><td>Remove MDM</td><td>Factory reset or remove device from MDM console</td></tr>
-    <tr><td>Wipe Device</td><td>Send remote wipe command (work profile or full device)</td></tr>
+    <tr><th>Key</th><th>Description</th></tr>
+    <tr><td>installPackage</td><td>Install app silently</td></tr>
+    <tr><td>uninstallPackage</td><td>Remove app silently</td></tr>
+    <tr><td>blockUninstall</td><td>Prevent app removal</td></tr>
+    <tr><td>setDefaultLauncher</td><td>Set custom launcher</td></tr>
+    <tr><td>appRestrictions</td><td>Restrict app behavior</td></tr>
+    <tr><td>managedConfigurations</td><td>Push app config settings</td></tr>
+  </table>
+
+  <h2>🧪 Diagnostics & Commands</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Command</th><th>Description</th></tr>
+    <tr><td>lockNow</td><td>Immediately lock device</td></tr>
+    <tr><td>wipeData</td><td>Factory reset device</td></tr>
+    <tr><td>reboot</td><td>Reboot device</td></tr>
+    <tr><td>enableLostMode</td><td>Activate lost mode</td></tr>
+    <tr><td>disableLostMode</td><td>Deactivate lost mode</td></tr>
+    <tr><td>getLogs</td><td>Retrieve device logs</td></tr>
+    <tr><td>getSecurityLogs</td><td>Retrieve security logs</td></tr>
   </table>
 
 </body>
