@@ -72,18 +72,18 @@
 </head>
 <body>
   <h1>Recovery</h1>
-  <h2>OS Recovery Tools and Boot Options</h2>
+  <h2>Boot Options & Data Rescue Workflows</h2>
 
   <div class="section">
     <h2>🖥️ Windows Recovery</h2>
     <table>
-      <thead><tr><th>Tool/Command</th><th>Type</th><th>Purpose</th></tr></thead>
+      <thead><tr><th>Tool/Option</th><th>Type</th><th>Purpose</th></tr></thead>
       <tbody>
-        <tr><td>System Restore</td><td>GUI</td><td>Rolls back system to a previous restore point</td></tr>
-        <tr><td>Reset This PC</td><td>GUI</td><td>Reinstalls Windows with or without keeping files</td></tr>
-        <tr><td>Advanced Startup (Shift + Restart)</td><td>Boot Option</td><td>Access recovery environment, safe mode, and command prompt</td></tr>
-        <tr><td>PowerShell: `sfc /scannow`</td><td>CLI</td><td>Scans and repairs corrupted system files</td></tr>
-        <tr><td>CMD: `chkdsk /f`</td><td>CLI</td><td>Checks and fixes disk errors</td></tr>
+        <tr><td>Advanced Startup (Shift+Restart)</td><td>Boot Option</td><td>Access recovery tools and safe mode</td></tr>
+        <tr><td>System Restore</td><td>GUI</td><td>Roll back to previous restore point</td></tr>
+        <tr><td>Startup Repair</td><td>GUI</td><td>Fix boot issues automatically</td></tr>
+        <tr><td>CMD: `sfc /scannow`</td><td>CLI</td><td>Scan and repair system files</td></tr>
+        <tr><td>CMD: `chkdsk /f /r`</td><td>CLI</td><td>Check and fix disk errors</td></tr>
       </tbody>
     </table>
   </div>
@@ -91,12 +91,13 @@
   <div class="section">
     <h2>🍎 macOS Recovery</h2>
     <table>
-      <thead><tr><th>Tool/Command</th><th>Type</th><th>Purpose</th></tr></thead>
+      <thead><tr><th>Tool/Option</th><th>Type</th><th>Purpose</th></tr></thead>
       <tbody>
-        <tr><td>macOS Recovery (Command + R)</td><td>Boot Option</td><td>Access Disk Utility, reinstall macOS, restore from Time Machine</td></tr>
-        <tr><td>Disk Utility</td><td>GUI</td><td>Run First Aid to check and repair disk errors</td></tr>
-        <tr><td>Terminal: `diskutil verifyVolume /`</td><td>CLI</td><td>Verifies disk integrity</td></tr>
-        <tr><td>Terminal: `tmutil listbackups`</td><td>CLI</td><td>Lists available Time Machine backups</td></tr>
+        <tr><td>Recovery Mode (⌘+R)</td><td>Boot Option</td><td>Access reinstall, restore, and disk tools</td></tr>
+        <tr><td>Disk Utility > First Aid</td><td>GUI</td><td>Check and repair disk errors</td></tr>
+        <tr><td>Time Machine</td><td>GUI</td><td>Restore from backup</td></tr>
+        <tr><td>Terminal: `sudo fsck -fy`</td><td>CLI</td><td>Force file system check and repair</td></tr>
+        <tr><td>Safe Mode</td><td>Boot Option</td><td>Loads minimal drivers and runs diagnostics</td></tr>
       </tbody>
     </table>
   </div>
@@ -104,13 +105,13 @@
   <div class="section">
     <h2>🐧 Linux Recovery</h2>
     <table>
-      <thead><tr><th>Tool/Command</th><th>Type</th><th>Purpose</th></tr></thead>
+      <thead><tr><th>Tool/Option</th><th>Type</th><th>Purpose</th></tr></thead>
       <tbody>
-        <tr><td>GRUB Recovery Mode</td><td>Boot Option</td><td>Access root shell for repair and recovery</td></tr>
-        <tr><td>Timeshift</td><td>GUI</td><td>Creates and restores system snapshots</td></tr>
-        <tr><td>Terminal: `fsck /dev/sdX`</td><td>CLI</td><td>Checks and repairs filesystem errors</td></tr>
-        <tr><td>Terminal: `mount -o remount,rw /`</td><td>CLI</td><td>Remounts root filesystem as writable</td></tr>
-        <tr><td>Terminal: `journalctl -xb`</td><td>CLI</td><td>View boot logs for troubleshooting</td></tr>
+        <tr><td>GRUB Recovery</td><td>Boot Option</td><td>Access recovery kernel or rescue shell</td></tr>
+        <tr><td>Live USB</td><td>Boot Option</td><td>Boot into live environment for rescue</td></tr>
+        <tr><td>Terminal: `fsck /dev/sdX`</td><td>CLI</td><td>Check and repair file system</td></tr>
+        <tr><td>Terminal: `mount -o remount,rw /`</td><td>CLI</td><td>Remount root partition as writable</td></tr>
+        <tr><td>TestDisk</td><td>CLI</td><td>Recover lost partitions and files</td></tr>
       </tbody>
     </table>
   </div>
