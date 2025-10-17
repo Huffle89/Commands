@@ -2,83 +2,164 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>📱 iOS MDM Overlay</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iOS MDM — Huffles IT Services</title>
   <style>
     body {
       background-color: #0A0A0A;
+      color: #FFFFFF;
       font-family: 'Segoe UI', sans-serif;
-      color: #1E3A8A;
-      padding: 40px;
+      padding: 40px 20px;
       text-align: center;
     }
-    table, th, td {
+
+    h1, h2 {
+      color: #0F52BA;
+      margin-bottom: 20px;
+    }
+
+    .table-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto 60px;
+    }
+
+    table {
+      flex: 1 1 300px;
+      max-width: 400px;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      border: 1px solid #0F52BA;
+      padding: 12px;
+      text-align: left;
+      background-color: #111111;
+    }
+
+    th {
+      background-color: #0F52BA;
       color: #FFFFFF;
+    }
+
+    @media screen and (max-width: 600px) {
+      .table-group {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      table thead {
+        display: none;
+      }
+
+      table, table tbody, table tr, table td {
+        display: block;
+        width: 100%;
+      }
+
+      table tr {
+        margin-bottom: 20px;
+        border: 1px solid #0F52BA;
+        background-color: #111111;
+        padding: 10px;
+      }
+
+      table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+      }
+
+      table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: 45%;
+        padding-left: 10px;
+        font-weight: bold;
+        text-align: left;
+        color: #0F52BA;
+      }
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 0.9em;
+      color: #FFFFFF;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background-color: #0F52BA;
+      color: #FFFFFF;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    .back-button:hover {
+      background-color: #FFFFFF;
+      color: #0F52BA;
     }
   </style>
 </head>
 <body>
-  <h1>📱 iOS MDM Overlay</h1>
+  <h1>iOS MDM</h1>
+  <h2>Device Management Reference</h2>
 
-  <h2>📦 Device Info & Inventory</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Payload Key</th><th>Description</th></tr>
-    <tr><td>DeviceName</td><td>Name of the device</td></tr>
-    <tr><td>Model</td><td>Device model identifier</td></tr>
-    <tr><td>OSVersion</td><td>Current iOS version</td></tr>
-    <tr><td>BatteryLevel</td><td>Battery percentage</td></tr>
-    <tr><td>UDID</td><td>Unique device identifier</td></tr>
-    <tr><td>SerialNumber</td><td>Device serial number</td></tr>
-    <tr><td>IMEI</td><td>Cellular device IMEI</td></tr>
-  </table>
+  <div class="table-group">
+    <table>
+      <thead><tr><th>Configurator</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Command">Prepare Device</td><td data-label="Description">Enroll device in MDM</td></tr>
+        <tr><td data-label="Command">Supervise</td><td data-label="Description">Enable supervised mode</td></tr>
+        <tr><td data-label="Command">Erase Device</td><td data-label="Description">Factory reset via Configurator</td></tr>
+        <tr><td data-label="Command">Add Blueprint</td><td data-label="Description">Apply configuration profile</td></tr>
+      </tbody>
+    </table>
 
-  <h2>🔐 Restrictions & Supervision</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Payload Key</th><th>Description</th></tr>
-    <tr><td>allowAppInstallation</td><td>Allow installing apps</td></tr>
-    <tr><td>allowCamera</td><td>Allow camera usage</td></tr>
-    <tr><td>allowScreenShot</td><td>Allow screenshots</td></tr>
-    <tr><td>allowSafari</td><td>Allow Safari browser</td></tr>
-    <tr><td>allowCloudBackup</td><td>Allow iCloud backup</td></tr>
-    <tr><td>allowBluetoothModification</td><td>Allow Bluetooth changes</td></tr>
-    <tr><td>isSupervised</td><td>Device is supervised</td></tr>
-    <tr><td>isManaged</td><td>Device is MDM-managed</td></tr>
-  </table>
+    <table>
+      <thead><tr><th>Remote Commands</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Command">Lock Device</td><td data-label="Description">Remotely lock iPhone/iPad</td></tr>
+        <tr><td data-label="Command">Clear Passcode</td><td data-label="Description">Remove device passcode</td></tr>
+        <tr><td data-label="Command">Install App</td><td data-label="Description">Push app to device</td></tr>
+        <tr><td data-label="Command">Send Message</td><td data-label="Description">Display message on screen</td></tr>
+      </tbody>
+    </table>
 
-  <h2>🌐 Network & Connectivity</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Payload Key</th><th>Description</th></tr>
-    <tr><td>WiFiMAC</td><td>Wi-Fi MAC address</td></tr>
-    <tr><td>BluetoothMAC</td><td>Bluetooth MAC address</td></tr>
-    <tr><td>CellularTechnology</td><td>Cellular connection type</td></tr>
-    <tr><td>CarrierSettingsVersion</td><td>Carrier settings version</td></tr>
-    <tr><td>DataRoamingEnabled</td><td>Allow data roaming</td></tr>
-    <tr><td>HotspotEnabled</td><td>Allow personal hotspot</td></tr>
-  </table>
+    <table>
+      <thead><tr><th>Security</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Command">Enable Lost Mode</td><td data-label="Description">Track and lock lost device</td></tr>
+        <tr><td data-label="Command">Wipe Device</td><td data-label="Description">Erase all data remotely</td></tr>
+        <tr><td data-label="Command">Disable Camera</td><td data-label="Description">Restrict camera access</td></tr>
+        <tr><td data-label="Command">Restrict Settings</td><td data-label="Description">Limit user configuration</td></tr>
+      </tbody>
+    </table>
 
-  <h2>📲 App & Profile Management</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Payload Key</th><th>Description</th></tr>
-    <tr><td>InstalledApplicationList</td><td>List of installed apps</td></tr>
-    <tr><td>ManagedApps</td><td>Apps installed via MDM</td></tr>
-    <tr><td>ConfigurationProfiles</td><td>Installed profiles</td></tr>
-    <tr><td>ProfileList</td><td>All configuration profiles</td></tr>
-    <tr><td>RemoveProfile</td><td>Command to remove profile</td></tr>
-    <tr><td>InstallApplication</td><td>Push app to device</td></tr>
-    <tr><td>RemoveApplication</td><td>Remove app from device</td></tr>
-  </table>
+    <table>
+      <thead><tr><th>Enrollment</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Command">DEP Enrollment</td><td data-label="Description">Automated device enrollment</td></tr>
+        <tr><td data-label="Command">Manual Profile</td><td data-label="Description">Install MDM profile manually</td></tr>
+        <tr><td data-label="Command">Apple School Manager</td><td data-label="Description">Education-based MDM setup</td></tr>
+        <tr><td data-label="Command">Apple Business Manager</td><td data-label="Description">Enterprise MDM setup</td></tr>
+      </tbody>
+    </table>
+  </div>
 
-  <h2>🧪 Diagnostics & Commands</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>DeviceLock</td><td>Lock device remotely</td></tr>
-    <tr><td>EraseDevice</td><td>Wipe device remotely</td></tr>
-    <tr><td>ClearPasscode</td><td>Remove device passcode</td></tr>
-    <tr><td>RestartDevice</td><td>Reboot device</td></tr>
-    <tr><td>ShutdownDevice</td><td>Power off device</td></tr>
-    <tr><td>PlayLostModeSound</td><td>Trigger lost mode alert</td></tr>
-    <tr><td>EnableLostMode</td><td>Activate lost mode</td></tr>
-    <tr><td>DisableLostMode</td><td>Deactivate lost mode</td></tr>
-  </table>
-
+  <footer>
+    <p>&copy; 2025 Huffles IT Services LLC — All rights reserved.</p>
+    <p>
+      <a class="back-button" href="Huffles-IT-Services-Code-Reference.html">🖥️ Back to Porch</a>
+    </p>
+  </footer>
 </body>
 </html>
