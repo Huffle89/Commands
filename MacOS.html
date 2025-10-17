@@ -19,59 +19,84 @@
 <body>
   <h1>🍎 macOS Terminal Overlay</h1>
 
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A; border-collapse: collapse;">
-    <tr>
-      <th>Command</th>
-      <th>Description</th>
-    </tr>
-    <tr>
-      <td>ls -la</td>
-      <td>List all files with details</td>
-    </tr>
-    <tr>
-      <td>cd /path/to/dir</td>
-      <td>Change to specified directory</td>
-    </tr>
-    <tr>
-      <td>pwd</td>
-      <td>Print current working directory</td>
-    </tr>
-    <tr>
-      <td>open .</td>
-      <td>Open current folder in Finder</td>
-    </tr>
-    <tr>
-      <td>brew install package</td>
-      <td>Install software via Homebrew</td>
-    </tr>
-    <tr>
-      <td>top</td>
-      <td>Display real-time system processes</td>
-    </tr>
-    <tr>
-      <td>ps aux | grep process</td>
-      <td>Search for a running process</td>
-    </tr>
-    <tr>
-      <td>df -h</td>
-      <td>Show disk usage in human-readable format</td>
-    </tr>
-    <tr>
-      <td>du -sh *</td>
-      <td>Show size of each item in current directory</td>
-    </tr>
-    <tr>
-      <td>chmod +x script.sh</td>
-      <td>Make script executable</td>
-    </tr>
-    <tr>
-      <td>nano filename</td>
-      <td>Open file in terminal text editor</td>
-    </tr>
-    <tr>
-      <td>sudo shutdown -r now</td>
-      <td>Restart the system immediately</td>
-    </tr>
+  <h2>📁 Navigation & File Operations</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Command</th><th>Description</th></tr>
+    <tr><td>ls -la</td><td>List all files with details</td></tr>
+    <tr><td>cd /path/to/dir</td><td>Change to specified directory</td></tr>
+    <tr><td>pwd</td><td>Print current working directory</td></tr>
+    <tr><td>open .</td><td>Open current folder in Finder</td></tr>
+    <tr><td>cp file1 file2</td><td>Copy a file</td></tr>
+    <tr><td>mv file1 file2</td><td>Move or rename a file</td></tr>
+    <tr><td>rm file</td><td>Delete a file</td></tr>
+  </table>
+
+  <h2>📦 Package Management (Homebrew)</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Command</th><th>Description</th></tr>
+    <tr><td>brew install package</td><td>Install software via Homebrew</td></tr>
+    <tr><td>brew update</td><td>Update Homebrew itself</td></tr>
+    <tr><td>brew upgrade</td><td>Upgrade installed packages</td></tr>
+    <tr><td>brew uninstall package</td><td>Remove a package</td></tr>
+  </table>
+
+  <h2>📊 System Monitoring & Processes</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Command</th><th>Description</th></tr>
+    <tr><td>top</td><td>Display real-time system processes</td></tr>
+    <tr><td>ps aux | grep process</td><td>Search for a running process</td></tr>
+    <tr><td>kill -9 PID</td><td>Force kill a process</td></tr>
+    <tr><td>uptime</td><td>Show how long the system has been running</td></tr>
+  </table>
+
+  <h2>🌐 Network & Connectivity</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Command</th><th>Description</th></tr>
+    <tr><td>ping hostname</td><td>Test network connectivity</td></tr>
+    <tr><td>ifconfig</td><td>Display network interface info</td></tr>
+    <tr><td>netstat -an</td><td>Show active network connections</td></tr>
+    <tr><td>curl http://example.com</td><td>Fetch a webpage or API response</td></tr>
+  </table>
+
+  <h2>💾 Disk & Storage</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Command</th><th>Description</th></tr>
+    <tr><td>df -h</td><td>Show disk usage in human-readable format</td></tr>
+    <tr><td>du -sh *</td><td>Show size of each item in current directory</td></tr>
+    <tr><td>diskutil list</td><td>List all disks and partitions</td></tr>
+    <tr><td>diskutil info /dev/diskX</td><td>Show info about a specific disk</td></tr>
+  </table>
+
+  <h2>🗜️ Archiving & Compression</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Command</th><th>Description</th></tr>
+    <tr><td>tar -czvf archive.tar.gz folder/</td><td>Create a compressed archive</td></tr>
+    <tr><td>unzip file.zip</td><td>Extract a zip archive</td></tr>
+    <tr><td>gzip file</td><td>Compress a file</td></tr>
+  </table>
+
+  <h2>👥 User & Permissions</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Command</th><th>Description</th></tr>
+    <tr><td>whoami</td><td>Show current user</td></tr>
+    <tr><td>groups</td><td>Show user’s group memberships</td></tr>
+    <tr><td>chmod +x script.sh</td><td>Make script executable</td></tr>
+    <tr><td>sudo command</td><td>Run command with admin privileges</td></tr>
+  </table>
+
+  <h2>🧾 Logs & Diagnostics</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Command</th><th>Description</th></tr>
+    <tr><td>log show --predicate 'eventMessage contains "error"'</td><td>Search system logs for errors</td></tr>
+    <tr><td>tail -f /var/log/system.log</td><td>Live view of system log</td></tr>
+    <tr><td>sudo dmesg</td><td>View kernel messages</td></tr>
+  </table>
+
+  <h2>⚡ Power & Restart</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Command</th><th>Description</th></tr>
+    <tr><td>sudo shutdown -r now</td><td>Restart the system immediately</td></tr>
+    <tr><td>sudo shutdown -h now</td><td>Shutdown the system immediately</td></tr>
   </table>
 
 </body>
