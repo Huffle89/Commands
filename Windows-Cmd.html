@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>🖥️ Windows CMD Overlay</title>
+  <title>🪟 Windows CMD Overlay</title>
   <style>
     body {
       background-color: #0A0A0A;
@@ -17,55 +17,56 @@
   </style>
 </head>
 <body>
-  <h1>🖥️ Windows CMD Overlay</h1>
+  <h1>🪟 Windows CMD Overlay</h1>
 
-  <h2>📁 Navigation & File Operations</h2>
+  <h2>📁 Navigation & File Management</h2>
   <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
     <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>dir</td><td>List files and folders in current directory</td></tr>
-    <tr><td>cd foldername</td><td>Change to specified folder</td></tr>
-    <tr><td>cls</td><td>Clear the screen</td></tr>
-    <tr><td>copy file1 file2</td><td>Copy a file</td></tr>
-    <tr><td>del filename</td><td>Delete a file</td></tr>
+    <tr><td>dir</td><td>List directory contents</td></tr>
+    <tr><td>cd folder</td><td>Change directory</td></tr>
+    <tr><td>md folder</td><td>Create new directory</td></tr>
+    <tr><td>del file.txt</td><td>Delete file</td></tr>
+    <tr><td>copy file1.txt file2.txt</td><td>Copy file</td></tr>
+    <tr><td>move file.txt folder\</td><td>Move file</td></tr>
+    <tr><td>ren old.txt new.txt</td><td>Rename file</td></tr>
+    <tr><td>attrib +h file.txt</td><td>Hide file</td></tr>
   </table>
 
-  <h2>🌐 Network & Connectivity</h2>
+  <h2>🌐 Networking</h2>
   <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
     <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>ipconfig</td><td>Display IP configuration</td></tr>
-    <tr><td>ping hostname</td><td>Test network connectivity</td></tr>
-    <tr><td>netstat -an</td><td>Show active network connections</td></tr>
-    <tr><td>tracert hostname</td><td>Trace route to a host</td></tr>
+    <tr><td>ipconfig</td><td>Show IP configuration</td></tr>
+    <tr><td>ipconfig /all</td><td>Detailed IP info</td></tr>
+    <tr><td>ipconfig /flushdns</td><td>Clear DNS cache</td></tr>
+    <tr><td>ping google.com</td><td>Test connectivity</td></tr>
+    <tr><td>tracert google.com</td><td>Trace route to host</td></tr>
+    <tr><td>netstat -an</td><td>Show active connections</td></tr>
+    <tr><td>nslookup domain.com</td><td>DNS lookup</td></tr>
   </table>
 
-  <h2>🧠 System Info & Diagnostics</h2>
+  <h2>🔐 Security & System</h2>
   <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
     <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>systeminfo</td><td>Display system details</td></tr>
-    <tr><td>ver</td><td>Show Windows version</td></tr>
-    <tr><td>echo %USERNAME%</td><td>Show current user</td></tr>
-  </table>
-
-  <h2>📊 Process & Task Management</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Command</th><th>Description</th></tr>
+    <tr><td>whoami</td><td>Show current user</td></tr>
+    <tr><td>net user</td><td>List user accounts</td></tr>
+    <tr><td>net user username *</td><td>Change user password</td></tr>
     <tr><td>tasklist</td><td>List running processes</td></tr>
-    <tr><td>taskkill /PID #### /F</td><td>Force kill a process by PID</td></tr>
+    <tr><td>taskkill /PID 1234 /F</td><td>Force kill process</td></tr>
+    <tr><td>systeminfo</td><td>Show system details</td></tr>
+    <tr><td>shutdown /r /t 0</td><td>Restart system</td></tr>
+    <tr><td>shutdown /s /t 0</td><td>Shutdown system</td></tr>
   </table>
 
-  <h2>🛠️ Maintenance & Repair</h2>
+  <h2>🧰 Maintenance & Recovery</h2>
   <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
     <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>chkdsk C: /f</td><td>Scan and fix disk errors</td></tr>
     <tr><td>sfc /scannow</td><td>Scan and repair system files</td></tr>
+    <tr><td>chkdsk C: /f /r</td><td>Check disk for errors</td></tr>
     <tr><td>DISM /Online /Cleanup-Image /RestoreHealth</td><td>Repair Windows image</td></tr>
-  </table>
-
-  <h2>⚡ Power & Restart</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>shutdown /r /t 0</td><td>Restart computer immediately</td></tr>
-    <tr><td>shutdown /s /t 60</td><td>Shutdown in 60 seconds</td></tr>
+    <tr><td>rstrui.exe</td><td>Launch System Restore</td></tr>
+    <tr><td>cleanmgr</td><td>Open Disk Cleanup</td></tr>
+    <tr><td>eventvwr</td><td>Open Event Viewer</td></tr>
+    <tr><td>msconfig</td><td>System Configuration tool</td></tr>
   </table>
 
 </body>
