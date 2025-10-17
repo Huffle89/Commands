@@ -20,14 +20,23 @@
     }
 
     .section {
-      max-width: 1000px;
-      margin: 0 auto 60px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .table-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-bottom: 60px;
     }
 
     table.command-table {
-      width: 100%;
+      flex: 1 1 300px;
+      max-width: 400px;
       border-collapse: collapse;
-      margin-bottom: 30px;
+      width: 100%;
     }
 
     table.command-table th,
@@ -48,6 +57,11 @@
     }
 
     @media screen and (max-width: 600px) {
+      .table-group {
+        flex-direction: column;
+        align-items: center;
+      }
+
       table.command-table thead {
         display: none;
       }
@@ -94,68 +108,31 @@
   <h1>Huffle's IT Services — Overlay Command Reference</h1>
 
   <div class="section">
-    <h2>Windows Commands</h2>
-    <table class="command-table">
-      <thead>
-        <tr><th>Command</th><th>Description</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td data-label="Command">ipconfig</td>
-          <td data-label="Description">Displays IP configuration</td>
-        </tr>
-        <tr>
-          <td data-label="Command">ping</td>
-          <td data-label="Description">Tests network connectivity</td>
-        </tr>
-        <tr>
-          <td data-label="Command">netstat</td>
-          <td data-label="Description">Shows active connections</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="table-group">
+      <table class="command-table">
+        <thead><tr><th>Windows</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td data-label="Command">ipconfig</td><td data-label="Description">Displays IP configuration</td></tr>
+          <tr><td data-label="Command">ping</td><td data-label="Description">Tests network connectivity</td></tr>
+        </tbody>
+      </table>
 
-    <h2>Linux Commands</h2>
-    <table class="command-table">
-      <thead>
-        <tr><th>Command</th><th>Description</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td data-label="Command">ls</td>
-          <td data-label="Description">Lists directory contents</td>
-        </tr>
-        <tr>
-          <td data-label="Command">grep</td>
-          <td data-label="Description">Searches text using patterns</td>
-        </tr>
-        <tr>
-          <td data-label="Command">chmod</td>
-          <td data-label="Description">Changes file permissions</td>
-        </tr>
-      </tbody>
-    </table>
+      <table class="command-table">
+        <thead><tr><th>Linux</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td data-label="Command">ls</td><td data-label="Description">Lists directory contents</td></tr>
+          <tr><td data-label="Command">grep</td><td data-label="Description">Searches text using patterns</td></tr>
+        </tbody>
+      </table>
 
-    <h2>PowerShell Commands</h2>
-    <table class="command-table">
-      <thead>
-        <tr><th>Command</th><th>Description</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td data-label="Command">Get-Process</td>
-          <td data-label="Description">Lists running processes</td>
-        </tr>
-        <tr>
-          <td data-label="Command">Set-ExecutionPolicy</td>
-          <td data-label="Description">Changes script execution rules</td>
-        </tr>
-        <tr>
-          <td data-label="Command">Get-Help</td>
-          <td data-label="Description">Displays help for commands</td>
-        </tr>
-      </tbody>
-    </table>
+      <table class="command-table">
+        <thead><tr><th>PowerShell</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td data-label="Command">Get-Process</td><td data-label="Description">Lists running processes</td></tr>
+          <tr><td data-label="Command">Set-ExecutionPolicy</td><td data-label="Description">Changes script execution rules</td></tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 
   <footer>
