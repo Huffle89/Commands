@@ -2,165 +2,70 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>🌐 Cisco IOS CLI Reference</title>
+  <title>🧠 Cisco IOS Overlay</title>
   <style>
     body {
       background-color: #0A0A0A;
       font-family: 'Segoe UI', sans-serif;
       color: #1E3A8A;
-      padding: 20px;
-    }
-    .logo-container {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      background-color: #1A1A1A;
-      padding: 8px;
-      border-radius: 8px;
-      border: 2px solid #1E3A8A;
-      z-index: 1000;
-    }
-    .logo {
-      height: 48px;
-      width: auto;
-    }
-    h1 {
-      color: #1E3A8A;
+      padding: 40px;
       text-align: center;
-      margin-bottom: 10px;
     }
-    .compatibility {
-      background-color: #1A1A1A;
-      border: 2px solid #1E3A8A;
-      border-radius: 8px;
-      padding: 15px;
-      margin-bottom: 40px;
-      font-size: 1em;
-    }
-    .compatibility strong {
+    table, th, td {
       color: #FFFFFF;
-    }
-    .section {
-      margin-bottom: 50px;
-      border: 2px solid #1E3A8A;
-      border-radius: 8px;
-      padding: 20px;
-      background-color: #1A1A1A;
-    }
-    h2 {
-      background-color: #1E3A8A;
-      color: #FFFFFF;
-      padding: 10px;
-      border-radius: 6px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-    }
-    th, td {
-      border: 1px solid #1E3A8A;
-      padding: 10px;
-      text-align: left;
-    }
-    th {
-      background-color: #1E3A8A;
-      color: #FFFFFF;
-    }
-    code {
-      background-color: #2C2C2C;
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-family: Consolas, monospace;
-      color: #FFFFFF;
-    }
-    .back-button {
-      text-align: center;
-      margin-top: 40px;
-    }
-    .back-button a {
-      background-color: #1E3A8A;
-      color: #FFFFFF;
-      padding: 12px 24px;
-      font-size: 1.1em;
-      border-radius: 8px;
-      text-decoration: none;
-      display: inline-block;
-      transition: background-color 0.3s ease;
-    }
-    .back-button a:hover {
-      background-color: #2F4EB2;
-    }
-    footer {
-      margin-top: 60px;
-      padding: 20px;
-      text-align: center;
-      font-size: 0.9em;
-      color: #888;
-    }
-    footer a {
-      color: #1E3A8A;
-      text-decoration: none;
-    }
-    footer a:hover {
-      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <div class="logo-container">
-    <img src="Logo.png" alt="Huffle’s IT Services Logo" class="logo">
-  </div>
+  <h1>🧠 Cisco IOS Overlay</h1>
 
-  <h1>🌐 Cisco IOS CLI Command Reference</h1>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Command</th><th>Description</th></tr>
+    <tr><td>enable</td><td>Enter privileged exec mode</td></tr>
+    <tr><td>disable</td><td>Exit privileged exec mode</td></tr>
+    <tr><td>configure terminal</td><td>Enter global configuration mode</td></tr>
+    <tr><td>hostname NAME</td><td>Set device hostname</td></tr>
+    <tr><td>interface GigabitEthernet0/1</td><td>Enter interface configuration</td></tr>
+    <tr><td>ip address 192.168.1.1 255.255.255.0</td><td>Assign IP address to interface</td></tr>
+    <tr><td>no shutdown</td><td>Enable interface</td></tr>
+    <tr><td>shutdown</td><td>Disable interface</td></tr>
+    <tr><td>exit</td><td>Exit current mode</td></tr>
+    <tr><td>show running-config</td><td>Display current configuration</td></tr>
+    <tr><td>show startup-config</td><td>Display saved configuration</td></tr>
+    <tr><td>copy running-config startup-config</td><td>Save current config to startup</td></tr>
+    <tr><td>show ip interface brief</td><td>Show interface status and IPs</td></tr>
+    <tr><td>show interfaces</td><td>Detailed interface statistics</td></tr>
+    <tr><td>show version</td><td>Display IOS version and hardware info</td></tr>
+    <tr><td>show vlan brief</td><td>List VLANs and port assignments</td></tr>
+    <tr><td>vlan 10</td><td>Create VLAN 10</td></tr>
+    <tr><td>name VLAN10</td><td>Name the VLAN</td></tr>
+    <tr><td>interface vlan 10</td><td>Configure VLAN interface</td></tr>
+    <tr><td>ip default-gateway 192.168.1.254</td><td>Set default gateway</td></tr>
+    <tr><td>show mac address-table</td><td>View MAC address table</td></tr>
+    <tr><td>show arp</td><td>Display ARP table</td></tr>
+    <tr><td>show cdp neighbors</td><td>View directly connected Cisco devices</td></tr>
+    <tr><td>cdp enable</td><td>Enable CDP on interface</td></tr>
+    <tr><td>cdp run</td><td>Enable CDP globally</td></tr>
+    <tr><td>show logging</td><td>View system logs</td></tr>
+    <tr><td>logging buffered 4096</td><td>Enable local logging</td></tr>
+    <tr><td>service timestamps log datetime msec</td><td>Add timestamps to logs</td></tr>
+    <tr><td>reload</td><td>Reboot the device</td></tr>
+    <tr><td>write memory</td><td>Save configuration</td></tr>
+    <tr><td>show ip route</td><td>Display routing table</td></tr>
+    <tr><td>ip route 0.0.0.0 0.0.0.0 192.168.1.254</td><td>Configure default route</td></tr>
+    <tr><td>show protocols</td><td>Display active protocols</td></tr>
+    <tr><td>show controllers</td><td>Display hardware controller status</td></tr>
+    <tr><td>show flash</td><td>View flash memory contents</td></tr>
+    <tr><td>delete flash:filename</td><td>Delete file from flash</td></tr>
+    <tr><td>dir flash:</td><td>List files in flash memory</td></tr>
+    <tr><td>boot system flash filename</td><td>Set boot image</td></tr>
+    <tr><td>show ip dhcp binding</td><td>View DHCP bindings</td></tr>
+    <tr><td>ip dhcp excluded-address 192.168.1.1 192.168.1.10</td><td>Exclude IPs from DHCP pool</td></tr>
+    <tr><td>ip dhcp pool NAME</td><td>Create DHCP pool</td></tr>
+    <tr><td>network 192.168.1.0 255.255.255.0</td><td>Define DHCP pool network</td></tr>
+    <tr><td>default-router 192.168.1.1</td><td>Set default gateway for DHCP clients</td></tr>
+    <tr><td>dns-server 8.8.8.8</td><td>Set DNS server for DHCP clients</td></tr>
+  </table>
 
-  <div class="compatibility">
-    <p><strong>Works on:</strong> Cisco routers and switches</p>
-    <p><strong>Required Tools:</strong> Console access or SSH; IOS firmware</p>
-  </div>
-
-  <div class="section">
-    <h2>🔧 Interface & IP Setup</h2>
-    <table>
-      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>enable</code></td><td>Enter privileged mode</td><td>Requires password</td></tr>
-      <tr><td><code>configure terminal</code></td><td>Global config mode</td><td>Start configuration</td></tr>
-      <tr><td><code>interface Gig0/1</code></td><td>Select interface</td><td>Adjust per device</td></tr>
-      <tr><td><code>ip address 192.168.1.1 255.255.255.0</code></td><td>Assign IP</td><td>Static IP setup</td></tr>
-      <tr><td><code>no shutdown</code></td><td>Enable interface</td><td>Bring up link</td></tr>
-    </table>
-
-    <h2>🧠 Routing & VLANs</h2>
-    <table>
-      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>ip route 0.0.0.0 0.0.0.0 192.168.1.254</code></td><td>Default route</td><td>Gateway setup</td></tr>
-      <tr><td><code>router ospf 1</code></td><td>Start OSPF</td><td>Routing protocol</td></tr>
-      <tr><td><code>network 192.168.1.0 0.0.0.255 area 0</code></td><td>OSPF network</td><td>Define area</td></tr>
-      <tr><td><code>vlan 10</code></td><td>Create VLAN</td><td>Virtual LAN</td></tr>
-      <tr><td><code>name VLAN10</code></td><td>Name VLAN</td><td>Optional label</td></tr>
-    </table>
-
-    <h2>📦 Security & Access</h2>
-    <table>
-      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>line vty 0 4</code></td><td>Configure SSH/Telnet</td><td>Remote access</td></tr>
-      <tr><td><code>login local</code></td><td>Use local creds</td><td>Username/password</td></tr>
-      <tr><td><code>transport input ssh</code></td><td>Enable SSH</td><td>Secure access</td></tr>
-      <tr><td><code>service password-encryption</code></td><td>Encrypt passwords</td><td>Basic protection</td></tr>
-      <tr><td><code>enable secret MyPass</code></td><td>Set enable password</td><td>Encrypted</td></tr>
-    </table>
-  </div>
-
-  <div class="back-button">
-    <a href="Huffles-IT-Services-Code-Reference.html">🔙 Back to Code Reference</a>
-  </div>
-
-  <footer>
-    <hr style="border-color: #1E3A8A; margin-bottom: 20px;">
-    <p>© 2025 Huffle’s IT Services LLC. All rights reserved.</p>
-    <p>This command reference and all associated content—including overlays, styling, and the Huffle’s IT Services logo—are protected intellectual property. Unauthorized reproduction or redistribution is prohibited.</p>
-    <p>Sources: Cisco IOS documentation, CCNA/CCNP study guides, and community cheat sheets.</p>
-    <p style="margin-top: 20px;">Veteran-owned. Porch-coded. A+ and Security+ certified. Every command is a conversation. Every workflow is a welcome.</p>
-  </footer>
 </body>
 </html>
