@@ -2,165 +2,73 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>🧭 Ubiquiti UniFi CLI Reference</title>
+  <title>📡 Ubiquiti Overlay</title>
   <style>
     body {
       background-color: #0A0A0A;
       font-family: 'Segoe UI', sans-serif;
       color: #1E3A8A;
-      padding: 20px;
-    }
-    .logo-container {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      background-color: #1A1A1A;
-      padding: 8px;
-      border-radius: 8px;
-      border: 2px solid #1E3A8A;
-      z-index: 1000;
-    }
-    .logo {
-      height: 48px;
-      width: auto;
-    }
-    h1 {
-      color: #1E3A8A;
+      padding: 40px;
       text-align: center;
-      margin-bottom: 10px;
     }
-    .compatibility {
-      background-color: #1A1A1A;
-      border: 2px solid #1E3A8A;
-      border-radius: 8px;
-      padding: 15px;
-      margin-bottom: 40px;
-      font-size: 1em;
-    }
-    .compatibility strong {
+    table, th, td {
       color: #FFFFFF;
-    }
-    .section {
-      margin-bottom: 50px;
-      border: 2px solid #1E3A8A;
-      border-radius: 8px;
-      padding: 20px;
-      background-color: #1A1A1A;
-    }
-    h2 {
-      background-color: #1E3A8A;
-      color: #FFFFFF;
-      padding: 10px;
-      border-radius: 6px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-    }
-    th, td {
-      border: 1px solid #1E3A8A;
-      padding: 10px;
-      text-align: left;
-    }
-    th {
-      background-color: #1E3A8A;
-      color: #FFFFFF;
-    }
-    code {
-      background-color: #2C2C2C;
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-family: Consolas, monospace;
-      color: #FFFFFF;
-    }
-    .back-button {
-      text-align: center;
-      margin-top: 40px;
-    }
-    .back-button a {
-      background-color: #1E3A8A;
-      color: #FFFFFF;
-      padding: 12px 24px;
-      font-size: 1.1em;
-      border-radius: 8px;
-      text-decoration: none;
-      display: inline-block;
-      transition: background-color 0.3s ease;
-    }
-    .back-button a:hover {
-      background-color: #2F4EB2;
-    }
-    footer {
-      margin-top: 60px;
-      padding: 20px;
-      text-align: center;
-      font-size: 0.9em;
-      color: #888;
-    }
-    footer a {
-      color: #1E3A8A;
-      text-decoration: none;
-    }
-    footer a:hover {
-      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <div class="logo-container">
-    <img src="Logo.png" alt="Huffle’s IT Services Logo" class="logo">
-  </div>
+  <h1>📡 Ubiquiti Overlay</h1>
 
-  <h1>🧭 Ubiquiti UniFi CLI Command Reference</h1>
+  <h2>🔐 SSH Commands</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Command</th><th>Description</th></tr>
+    <tr><td>ssh ubnt@192.168.1.20</td><td>SSH into Ubiquiti device</td></tr>
+    <tr><td>info</td><td>Show device info</td></tr>
+    <tr><td>reboot</td><td>Reboot device</td></tr>
+    <tr><td>set-inform http://controller:8080/inform</td><td>Manually set inform URL</td></tr>
+    <tr><td>upgrade http://firmware.url</td><td>Manually upgrade firmware</td></tr>
+    <tr><td>syswrapper.sh restore-default</td><td>Factory reset via SSH</td></tr>
+  </table>
 
-  <div class="compatibility">
-    <p><strong>Works on:</strong> UniFi devices with SSH access</p>
-    <p><strong>Required Tools:</strong> SSH client; UniFi controller optional</p>
-  </div>
+  <h2>🧠 UniFi OS & Controller Tools</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Tool</th><th>Description</th></tr>
+    <tr><td>UniFi Network</td><td>Manage networks, devices, and clients</td></tr>
+    <tr><td>UniFi Protect</td><td>Manage cameras and recordings</td></tr>
+    <tr><td>UniFi Access</td><td>Manage door access and credentials</td></tr>
+    <tr><td>UniFi Talk</td><td>Manage VoIP phones and extensions</td></tr>
+    <tr><td>UniFi Identity</td><td>SSO, MFA, and user management</td></tr>
+  </table>
 
-  <div class="section">
-    <h2>🔧 Device Access & Info</h2>
-    <table>
-      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>ssh ubnt@192.168.1.20</code></td><td>Login to device</td><td>Default user: ubnt</td></tr>
-      <tr><td><code>info</code></td><td>Device info</td><td>Model, firmware, uptime</td></tr>
-      <tr><td><code>uptime</code></td><td>System uptime</td><td>Basic health check</td></tr>
-      <tr><td><code>df -h</code></td><td>Disk usage</td><td>Human-readable format</td></tr>
-      <tr><td><code>top</code></td><td>Live resource monitor</td><td>CPU, memory</td></tr>
-    </table>
+  <h2>📦 Adoption & Provisioning</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Command</th><th>Description</th></tr>
+    <tr><td>set-inform</td><td>Point device to controller</td></tr>
+    <tr><td>adopt via controller UI</td><td>Adopt device from UniFi dashboard</td></tr>
+    <tr><td>forget device</td><td>Remove device from controller</td></tr>
+    <tr><td>reset device</td><td>Factory reset before re-adoption</td></tr>
+  </table>
 
-    <h2>🧠 Network & Controller</h2>
-    <table>
-      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>ip a</code></td><td>IP address info</td><td>Interfaces and IPs</td></tr>
-      <tr><td><code>ping 192.168.1.1</code></td><td>Ping gateway</td><td>Connectivity test</td></tr>
-      <tr><td><code>traceroute 8.8.8.8</code></td><td>Route trace</td><td>Path to destination</td></tr>
-      <tr><td><code>set-inform http://controller:8080/inform</code></td><td>Set controller</td><td>Adopt device</td></tr>
-      <tr><td><code>syswrapper.sh restore-default</code></td><td>Factory reset</td><td>Wipe config</td></tr>
-    </table>
+  <h2>🌐 Networking & VLANs</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Setting</th><th>Description</th></tr>
+    <tr><td>LAN IP</td><td>Assign static IP to device</td></tr>
+    <tr><td>VLAN ID</td><td>Tag traffic with VLAN</td></tr>
+    <tr><td>DHCP Relay</td><td>Forward DHCP requests</td></tr>
+    <tr><td>Firewall Rules</td><td>Control traffic between networks</td></tr>
+    <tr><td>Port Profiles</td><td>Apply VLANs and settings to switch ports</td></tr>
+  </table>
 
-    <h2>📦 Backup & Updates</h2>
-    <table>
-      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>cfgmtd -f /tmp/system.cfg -w</code></td><td>Write config</td><td>Apply changes</td></tr>
-      <tr><td><code>cat /tmp/system.cfg</code></td><td>View config</td><td>Current settings</td></tr>
-      <tr><td><code>fwupdate.real -m</code></td><td>Check firmware</td><td>Model info</td></tr>
-      <tr><td><code>fwupdate.real -c</code></td><td>Check for updates</td><td>Online check</td></tr>
-      <tr><td><code>fwupdate.real -d</code></td><td>Download update</td><td>Latest firmware</td></tr>
-    </table>
-  </div>
+  <h2>📜 Logs & Diagnostics</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Command</th><th>Description</th></tr>
+    <tr><td>tail -f /var/log/messages</td><td>Live system logs</td></tr>
+    <tr><td>cat /var/log/messages</td><td>View full system log</td></tr>
+    <tr><td>ping 8.8.8.8</td><td>Test connectivity</td></tr>
+    <tr><td>traceroute google.com</td><td>Trace network path</td></tr>
+    <tr><td>df -h</td><td>Check disk usage</td></tr>
+    <tr><td>top</td><td>View system resource usage</td></tr>
+  </table>
 
-  <div class="back-button">
-    <a href="Huffles-IT-Services-Code-Reference.html">🔙 Back to Code Reference</a>
-  </div>
-
-  <footer>
-    <hr style="border-color: #1E3A8A; margin-bottom: 20px;">
-    <p>© 2025 Huffle’s IT Services LLC. All rights reserved.</p>
-    <p>This command reference and all associated content—including overlays, styling, and the Huffle’s IT Services logo—are protected intellectual property. Unauthorized reproduction or redistribution is prohibited.</p>
-    <p>Sources: Ubiquiti documentation, UniFi forums, and community CLI guides.</p>
-    <p style="margin-top: 20px;">Veteran-owned. Porch-coded. A+ and Security+ certified. Every command is a conversation. Every workflow is a welcome.</p>
-  </footer>
 </body>
 </html>
