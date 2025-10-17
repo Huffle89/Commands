@@ -2,70 +2,174 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>🧠 Cisco IOS Overlay</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cisco IOS — Huffles IT Services</title>
   <style>
     body {
       background-color: #0A0A0A;
+      color: #FFFFFF;
       font-family: 'Segoe UI', sans-serif;
-      color: #1E3A8A;
-      padding: 40px;
+      padding: 40px 20px;
       text-align: center;
     }
-    table, th, td {
+
+    h1, h2 {
+      color: #0F52BA;
+      margin-bottom: 20px;
+    }
+
+    .table-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto 60px;
+    }
+
+    table {
+      flex: 1 1 300px;
+      max-width: 400px;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      border: 1px solid #0F52BA;
+      padding: 12px;
+      text-align: left;
+      background-color: #111111;
+    }
+
+    th {
+      background-color: #0F52BA;
       color: #FFFFFF;
+    }
+
+    @media screen and (max-width: 600px) {
+      .table-group {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      table thead {
+        display: none;
+      }
+
+      table, table tbody, table tr, table td {
+        display: block;
+        width: 100%;
+      }
+
+      table tr {
+        margin-bottom: 20px;
+        border: 1px solid #0F52BA;
+        background-color: #111111;
+        padding: 10px;
+      }
+
+      table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+      }
+
+      table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: 45%;
+        padding-left: 10px;
+        font-weight: bold;
+        text-align: left;
+        color: #0F52BA;
+      }
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 0.9em;
+      color: #FFFFFF;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background-color: #0F52BA;
+      color: #FFFFFF;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    .back-button:hover {
+      background-color: #FFFFFF;
+      color: #0F52BA;
     }
   </style>
 </head>
 <body>
-  <h1>🧠 Cisco IOS Overlay</h1>
+  <h1>Cisco IOS</h1>
+  <h2>Router & Switch CLI Reference</h2>
 
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>enable</td><td>Enter privileged exec mode</td></tr>
-    <tr><td>disable</td><td>Exit privileged exec mode</td></tr>
-    <tr><td>configure terminal</td><td>Enter global configuration mode</td></tr>
-    <tr><td>hostname NAME</td><td>Set device hostname</td></tr>
-    <tr><td>interface GigabitEthernet0/1</td><td>Enter interface configuration</td></tr>
-    <tr><td>ip address 192.168.1.1 255.255.255.0</td><td>Assign IP address to interface</td></tr>
-    <tr><td>no shutdown</td><td>Enable interface</td></tr>
-    <tr><td>shutdown</td><td>Disable interface</td></tr>
-    <tr><td>exit</td><td>Exit current mode</td></tr>
-    <tr><td>show running-config</td><td>Display current configuration</td></tr>
-    <tr><td>show startup-config</td><td>Display saved configuration</td></tr>
-    <tr><td>copy running-config startup-config</td><td>Save current config to startup</td></tr>
-    <tr><td>show ip interface brief</td><td>Show interface status and IPs</td></tr>
-    <tr><td>show interfaces</td><td>Detailed interface statistics</td></tr>
-    <tr><td>show version</td><td>Display IOS version and hardware info</td></tr>
-    <tr><td>show vlan brief</td><td>List VLANs and port assignments</td></tr>
-    <tr><td>vlan 10</td><td>Create VLAN 10</td></tr>
-    <tr><td>name VLAN10</td><td>Name the VLAN</td></tr>
-    <tr><td>interface vlan 10</td><td>Configure VLAN interface</td></tr>
-    <tr><td>ip default-gateway 192.168.1.254</td><td>Set default gateway</td></tr>
-    <tr><td>show mac address-table</td><td>View MAC address table</td></tr>
-    <tr><td>show arp</td><td>Display ARP table</td></tr>
-    <tr><td>show cdp neighbors</td><td>View directly connected Cisco devices</td></tr>
-    <tr><td>cdp enable</td><td>Enable CDP on interface</td></tr>
-    <tr><td>cdp run</td><td>Enable CDP globally</td></tr>
-    <tr><td>show logging</td><td>View system logs</td></tr>
-    <tr><td>logging buffered 4096</td><td>Enable local logging</td></tr>
-    <tr><td>service timestamps log datetime msec</td><td>Add timestamps to logs</td></tr>
-    <tr><td>reload</td><td>Reboot the device</td></tr>
-    <tr><td>write memory</td><td>Save configuration</td></tr>
-    <tr><td>show ip route</td><td>Display routing table</td></tr>
-    <tr><td>ip route 0.0.0.0 0.0.0.0 192.168.1.254</td><td>Configure default route</td></tr>
-    <tr><td>show protocols</td><td>Display active protocols</td></tr>
-    <tr><td>show controllers</td><td>Display hardware controller status</td></tr>
-    <tr><td>show flash</td><td>View flash memory contents</td></tr>
-    <tr><td>delete flash:filename</td><td>Delete file from flash</td></tr>
-    <tr><td>dir flash:</td><td>List files in flash memory</td></tr>
-    <tr><td>boot system flash filename</td><td>Set boot image</td></tr>
-    <tr><td>show ip dhcp binding</td><td>View DHCP bindings</td></tr>
-    <tr><td>ip dhcp excluded-address 192.168.1.1 192.168.1.10</td><td>Exclude IPs from DHCP pool</td></tr>
-    <tr><td>ip dhcp pool NAME</td><td>Create DHCP pool</td></tr>
-    <tr><td>network 192.168.1.0 255.255.255.0</td><td>Define DHCP pool network</td></tr>
-    <tr><td>default-router 192.168.1.1</td><td>Set default gateway for DHCP clients</td></tr>
-    <tr><td>dns-server 8.8.8.8</td><td>Set DNS server for DHCP clients</td></tr>
-  </table>
+  <div class="table-group">
+    <table>
+      <thead><tr><th>Basics</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Command">enable</td><td data-label="Description">Enter privileged mode</td></tr>
+        <tr><td data-label="Command">configure terminal</td><td data-label="Description">Enter global config mode</td></tr>
+        <tr><td data-label="Command">hostname</td><td data-label="Description">Set device name</td></tr>
+        <tr><td data-label="Command">exit</td><td data-label="Description">Leave current mode</td></tr>
+      </tbody>
+    </table>
 
+    <table>
+      <thead><tr><th>Interface</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Command">interface Gig0/1</td><td data-label="Description">Select interface</td></tr>
+        <tr><td data-label="Command">ip address</td><td data-label="Description">Assign IP to interface</td></tr>
+        <tr><td data-label="Command">no shutdown</td><td data-label="Description">Enable interface</td></tr>
+        <tr><td data-label="Command">description</td><td data-label="Description">Label interface</td></tr>
+      </tbody>
+    </table>
+
+    <table>
+      <thead><tr><th>Routing</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Command">ip route</td><td data-label="Description">Static route</td></tr>
+        <tr><td data-label="Command">router ospf</td><td data-label="Description">Start OSPF process</td></tr>
+        <tr><td data-label="Command">network</td><td data-label="Description">Define OSPF network</td></tr>
+        <tr><td data-label="Command">show ip route</td><td data-label="Description">View routing table</td></tr>
+      </tbody>
+    </table>
+
+    <table>
+      <thead><tr><th>VLAN & Switching</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Command">vlan 10</td><td data-label="Description">Create VLAN</td></tr>
+        <tr><td data-label="Command">name VLAN10</td><td data-label="Description">Label VLAN</td></tr>
+        <tr><td data-label="Command">switchport mode access</td><td data-label="Description">Set port to access mode</td></tr>
+        <tr><td data-label="Command">switchport access vlan 10</td><td data-label="Description">Assign VLAN to port</td></tr>
+      </tbody>
+    </table>
+
+    <table>
+      <thead><tr><th>Diagnostics</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Command">show running-config</td><td data-label="Description">View active config</td></tr>
+        <tr><td data-label="Command">show interfaces</td><td data-label="Description">Interface status</td></tr>
+        <tr><td data-label="Command">show version</td><td data-label="Description">Device info</td></tr>
+        <tr><td data-label="Command">ping</td><td data-label="Description">Test connectivity</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Huffles IT Services LLC — All rights reserved.</p>
+    <p>
+      <a class="back-button" href="Huffles-IT-Services-Code-Reference.html">🖥️ Back to Porch</a>
+    </p>
+  </footer>
 </body>
 </html>
