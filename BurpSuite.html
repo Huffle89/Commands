@@ -18,18 +18,13 @@
       margin-bottom: 20px;
     }
 
-    .table-group {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      max-width: 1200px;
-      margin: 0 auto 60px;
+    .section {
+      margin-bottom: 60px;
     }
 
     table {
-      flex: 1 1 300px;
-      max-width: 400px;
+      margin: 0 auto;
+      max-width: 1000px;
       border-collapse: collapse;
       width: 100%;
     }
@@ -39,6 +34,7 @@
       padding: 12px;
       text-align: left;
       background-color: #111111;
+      vertical-align: top;
     }
 
     th {
@@ -46,44 +42,9 @@
       color: #FFFFFF;
     }
 
-    @media screen and (max-width: 600px) {
-      .table-group {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      table thead {
-        display: none;
-      }
-
-      table, table tbody, table tr, table td {
-        display: block;
-        width: 100%;
-      }
-
-      table tr {
-        margin-bottom: 20px;
-        border: 1px solid #0F52BA;
-        background-color: #111111;
-        padding: 10px;
-      }
-
-      table td {
-        text-align: right;
-        padding-left: 50%;
-        position: relative;
-      }
-
-      table td::before {
-        content: attr(data-label);
-        position: absolute;
-        left: 10px;
-        width: 45%;
-        padding-left: 10px;
-        font-weight: bold;
-        text-align: left;
-        color: #0F52BA;
-      }
+    td:first-child {
+      width: 250px;
+      white-space: nowrap;
     }
 
     footer {
@@ -111,46 +72,56 @@
 </head>
 <body>
   <h1>Burp Suite</h1>
-  <h2>Web Security Testing Reference</h2>
+  <h2>Web App Testing Workflows</h2>
 
-  <div class="table-group">
+  <div class="section">
+    <h2>🛠️ Setup & Configuration</h2>
     <table>
-      <thead><tr><th>Startup</th><th>Description</th></tr></thead>
+      <thead><tr><th>Step</th><th>Edition</th><th>Purpose</th></tr></thead>
       <tbody>
-        <tr><td data-label="Command">Proxy Setup</td><td data-label="Description">Configure browser to route traffic</td></tr>
-        <tr><td data-label="Command">CA Certificate</td><td data-label="Description">Install Burp’s certificate</td></tr>
-        <tr><td data-label="Command">Target Scope</td><td data-label="Description">Define domains to test</td></tr>
-        <tr><td data-label="Command">Live Capture</td><td data-label="Description">Enable intercept and logging</td></tr>
+        <tr><td>Install Burp Suite</td><td>Community & Pro</td><td>Download from PortSwigger and install</td></tr>
+        <tr><td>Configure browser proxy (127.0.0.1:8080)</td><td>Community & Pro</td><td>Route traffic through Burp for interception</td></tr>
+        <tr><td>Install Burp CA certificate</td><td>Community & Pro</td><td>Enable HTTPS interception</td></tr>
+        <tr><td>Set target scope</td><td>Pro</td><td>Define domains and paths for scanning</td></tr>
       </tbody>
     </table>
+  </div>
 
+  <div class="section">
+    <h2>🔍 Scanning & Discovery</h2>
     <table>
-      <thead><tr><th>Proxy Tools</th><th>Description</th></tr></thead>
+      <thead><tr><th>Tool</th><th>Edition</th><th>Purpose</th></tr></thead>
       <tbody>
-        <tr><td data-label="Command">Intercept</td><td data-label="Description">Pause and modify requests</td></tr>
-        <tr><td data-label="Command">HTTP History</td><td data-label="Description">Review all traffic</td></tr>
-        <tr><td data-label="Command">Repeater</td><td data-label="Description">Manually resend requests</td></tr>
-        <tr><td data-label="Command">Sequencer</td><td data-label="Description">Analyze randomness</td></tr>
+        <tr><td>Target > Site Map</td><td>Community & Pro</td><td>View discovered endpoints and parameters</td></tr>
+        <tr><td>Scanner</td><td>Pro</td><td>Automated vulnerability scanning</td></tr>
+        <tr><td>Search</td><td>Community & Pro</td><td>Find keywords, parameters, or error strings</td></tr>
+        <tr><td>Logger++ Extension</td><td>Community & Pro</td><td>Enhanced request/response logging</td></tr>
       </tbody>
     </table>
+  </div>
 
+  <div class="section">
+    <h2>🧲 Intercept & Modify</h2>
     <table>
-      <thead><tr><th>Scanning</th><th>Description</th></tr></thead>
+      <thead><tr><th>Tool</th><th>Edition</th><th>Purpose</th></tr></thead>
       <tbody>
-        <tr><td data-label="Command">Active Scan</td><td data-label="Description">Automated vulnerability scan</td></tr>
-        <tr><td data-label="Command">Passive Scan</td><td data-label="Description">Background analysis</td></tr>
-        <tr><td data-label="Command">Issue Definitions</td><td data-label="Description">Review known vulnerabilities</td></tr>
-        <tr><td data-label="Command">Scan Queue</td><td data-label="Description">Manage scan tasks</td></tr>
+        <tr><td>Proxy > Intercept</td><td>Community & Pro</td><td>Pause and modify live HTTP/S requests</td></tr>
+        <tr><td>Proxy > HTTP History</td><td>Community & Pro</td><td>Review all captured traffic</td></tr>
+        <tr><td>Match & Replace</td><td>Community & Pro</td><td>Auto-modify requests based on rules</td></tr>
+        <tr><td>Burp Extensions (e.g. Autorize)</td><td>Pro</td><td>Test authorization bypass and token logic</td></tr>
       </tbody>
     </table>
+  </div>
 
+  <div class="section">
+    <h2>🔁 Repeater & Manual Testing</h2>
     <table>
-      <thead><tr><th>Extensions</th><th>Description</th></tr></thead>
+      <thead><tr><th>Tool</th><th>Edition</th><th>Purpose</th></tr></thead>
       <tbody>
-        <tr><td data-label="Command">BApp Store</td><td data-label="Description">Install Burp extensions</td></tr>
-        <tr><td data-label="Command">Logger++</td><td data-label="Description">Advanced traffic logging</td></tr>
-        <tr><td data-label="Command">Autorize</td><td data-label="Description">Test authorization bypass</td></tr>
-        <tr><td data-label="Command">JS Beautifier</td><td data-label="Description">Format JavaScript responses</td></tr>
+        <tr><td>Repeater</td><td>Community & Pro</td><td>Send and modify requests manually</td></tr>
+        <tr><td>Intruder</td><td>Pro</td><td>Automated payload injection and fuzzing</td></tr>
+        <tr><td>Decoder</td><td>Community & Pro</td><td>Encode/decode strings (Base64, URL, etc.)</td></tr>
+        <tr><td>Comparer</td><td>Community & Pro</td><td>Compare responses for subtle differences</td></tr>
       </tbody>
     </table>
   </div>
