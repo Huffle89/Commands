@@ -72,32 +72,32 @@
 </head>
 <body>
   <h1>Git & GitHub</h1>
-  <h2>Version Control Workflows and Commands</h2>
+  <h2>Version Control & Collaboration Workflows</h2>
 
   <div class="section">
-    <h2>🧱 Local Git Commands</h2>
+    <h2>📦 Repo Setup</h2>
     <table>
-      <thead><tr><th>Command</th><th>Type</th><th>Purpose</th></tr></thead>
+      <thead><tr><th>Command</th><th>Purpose</th></tr></thead>
       <tbody>
-        <tr><td>git init</td><td>CLI</td><td>Initialize a new local Git repository</td></tr>
-        <tr><td>git status</td><td>CLI</td><td>Show current changes and branch info</td></tr>
-        <tr><td>git add .</td><td>CLI</td><td>Stage all changes for commit</td></tr>
-        <tr><td>git commit -m "message"</td><td>CLI</td><td>Commit staged changes with a message</td></tr>
-        <tr><td>git log</td><td>CLI</td><td>View commit history</td></tr>
+        <tr><td>git init</td><td>Initialize a new local repository</td></tr>
+        <tr><td>git clone [URL]</td><td>Clone remote repository</td></tr>
+        <tr><td>git remote add origin [URL]</td><td>Link local repo to remote</td></tr>
+        <tr><td>git config --global user.name "Your Name"</td><td>Set global username</td></tr>
+        <tr><td>git config --global user.email "you@example.com"</td><td>Set global email</td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="section">
-    <h2>🌐 Remote GitHub Commands</h2>
+    <h2>📝 Commit Workflow</h2>
     <table>
-      <thead><tr><th>Command</th><th>Type</th><th>Purpose</th></tr></thead>
+      <thead><tr><th>Command</th><th>Purpose</th></tr></thead>
       <tbody>
-        <tr><td>git clone [URL]</td><td>CLI</td><td>Download a remote repository</td></tr>
-        <tr><td>git remote add origin [URL]</td><td>CLI</td><td>Link local repo to remote GitHub repo</td></tr>
-        <tr><td>git push -u origin main</td><td>CLI</td><td>Push local commits to GitHub</td></tr>
-        <tr><td>git pull</td><td>CLI</td><td>Fetch and merge changes from GitHub</td></tr>
-        <tr><td>Fork (GitHub UI)</td><td>GUI</td><td>Create a copy of someone else's repo under your account</td></tr>
+        <tr><td>git status</td><td>Check current repo state</td></tr>
+        <tr><td>git add [file]</td><td>Stage file for commit</td></tr>
+        <tr><td>git commit -m "message"</td><td>Commit staged changes</td></tr>
+        <tr><td>git log</td><td>View commit history</td></tr>
+        <tr><td>git diff</td><td>Show changes not yet staged</td></tr>
       </tbody>
     </table>
   </div>
@@ -105,25 +105,26 @@
   <div class="section">
     <h2>🌿 Branching & Merging</h2>
     <table>
-      <thead><tr><th>Command</th><th>Type</th><th>Purpose</th></tr></thead>
+      <thead><tr><th>Command</th><th>Purpose</th></tr></thead>
       <tbody>
-        <tr><td>git branch</td><td>CLI</td><td>List all branches</td></tr>
-        <tr><td>git checkout -b [name]</td><td>CLI</td><td>Create and switch to a new branch</td></tr>
-        <tr><td>git merge [branch]</td><td>CLI</td><td>Merge another branch into current</td></tr>
-        <tr><td>git switch [branch]</td><td>CLI</td><td>Switch to another branch</td></tr>
+        <tr><td>git branch</td><td>List branches</td></tr>
+        <tr><td>git branch [name]</td><td>Create new branch</td></tr>
+        <tr><td>git checkout [name]</td><td>Switch to branch</td></tr>
+        <tr><td>git merge [name]</td><td>Merge branch into current</td></tr>
+        <tr><td>git branch -d [name]</td><td>Delete branch</td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="section">
-    <h2>🤝 Collaboration & Pull Requests</h2>
+    <h2>🚀 Push & Pull</h2>
     <table>
-      <thead><tr><th>Action</th><th>Platform</th><th>Purpose</th></tr></thead>
+      <thead><tr><th>Command</th><th>Purpose</th></tr></thead>
       <tbody>
-        <tr><td>Create Pull Request</td><td>GitHub UI</td><td>Propose changes from one branch to another</td></tr>
-        <tr><td>Review & Merge</td><td>GitHub UI</td><td>Approve and merge pull requests</td></tr>
-        <tr><td>Issues</td><td>GitHub UI</td><td>Track bugs, tasks, and feature requests</td></tr>
-        <tr><td>Actions</td><td>GitHub UI</td><td>Automate workflows like testing and deployment</td></tr>
+        <tr><td>git push origin [branch]</td><td>Push commits to remote</td></tr>
+        <tr><td>git pull origin [branch]</td><td>Fetch and merge from remote</td></tr>
+        <tr><td>git fetch</td><td>Download changes without merging</td></tr>
+        <tr><td>git rebase [branch]</td><td>Reapply commits on top of another branch</td></tr>
       </tbody>
     </table>
   </div>
