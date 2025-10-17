@@ -2,165 +2,83 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>📡 Wireshark CLI Reference</title>
+  <title>🧪 Wireshark Overlay</title>
   <style>
     body {
       background-color: #0A0A0A;
       font-family: 'Segoe UI', sans-serif;
       color: #1E3A8A;
-      padding: 20px;
-    }
-    .logo-container {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      background-color: #1A1A1A;
-      padding: 8px;
-      border-radius: 8px;
-      border: 2px solid #1E3A8A;
-      z-index: 1000;
-    }
-    .logo {
-      height: 48px;
-      width: auto;
-    }
-    h1 {
-      color: #1E3A8A;
+      padding: 40px;
       text-align: center;
-      margin-bottom: 10px;
     }
-    .compatibility {
-      background-color: #1A1A1A;
-      border: 2px solid #1E3A8A;
-      border-radius: 8px;
-      padding: 15px;
-      margin-bottom: 40px;
-      font-size: 1em;
-    }
-    .compatibility strong {
+    table, th, td {
       color: #FFFFFF;
-    }
-    .section {
-      margin-bottom: 50px;
-      border: 2px solid #1E3A8A;
-      border-radius: 8px;
-      padding: 20px;
-      background-color: #1A1A1A;
-    }
-    h2 {
-      background-color: #1E3A8A;
-      color: #FFFFFF;
-      padding: 10px;
-      border-radius: 6px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-    }
-    th, td {
-      border: 1px solid #1E3A8A;
-      padding: 10px;
-      text-align: left;
-    }
-    th {
-      background-color: #1E3A8A;
-      color: #FFFFFF;
-    }
-    code {
-      background-color: #2C2C2C;
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-family: Consolas, monospace;
-      color: #FFFFFF;
-    }
-    .back-button {
-      text-align: center;
-      margin-top: 40px;
-    }
-    .back-button a {
-      background-color: #1E3A8A;
-      color: #FFFFFF;
-      padding: 12px 24px;
-      font-size: 1.1em;
-      border-radius: 8px;
-      text-decoration: none;
-      display: inline-block;
-      transition: background-color 0.3s ease;
-    }
-    .back-button a:hover {
-      background-color: #2F4EB2;
-    }
-    footer {
-      margin-top: 60px;
-      padding: 20px;
-      text-align: center;
-      font-size: 0.9em;
-      color: #888;
-    }
-    footer a {
-      color: #1E3A8A;
-      text-decoration: none;
-    }
-    footer a:hover {
-      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <div class="logo-container">
-    <img src="Logo.png" alt="Huffle’s IT Services Logo" class="logo">
-  </div>
+  <h1>🧪 Wireshark Overlay</h1>
 
-  <h1>📡 Wireshark CLI Command Reference</h1>
+  <h2>🎯 Capture Filters</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Filter</th><th>Description</th></tr>
+    <tr><td>host 192.168.1.1</td><td>Capture traffic to/from IP</td></tr>
+    <tr><td>net 192.168.1.0/24</td><td>Capture traffic for subnet</td></tr>
+    <tr><td>port 443</td><td>Capture HTTPS traffic</td></tr>
+    <tr><td>tcp</td><td>Capture TCP traffic only</td></tr>
+    <tr><td>udp</td><td>Capture UDP traffic only</td></tr>
+    <tr><td>icmp</td><td>Capture ping traffic</td></tr>
+    <tr><td>tcp port 80</td><td>Capture HTTP traffic</td></tr>
+    <tr><td>src host 10.0.0.5</td><td>Capture traffic from source IP</td></tr>
+    <tr><td>dst port 53</td><td>Capture DNS queries</td></tr>
+  </table>
 
-  <div class="compatibility">
-    <p><strong>Works on:</strong> Linux, macOS, Windows</p>
-    <p><strong>Required Tools:</strong> Wireshark CLI (tshark); optional GUI</p>
-  </div>
+  <h2>🔍 Display Filters</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Filter</th><th>Description</th></tr>
+    <tr><td>ip.addr == 192.168.1.1</td><td>Show packets to/from IP</td></tr>
+    <tr><td>tcp.port == 443</td><td>Show HTTPS packets</td></tr>
+    <tr><td>http.request</td><td>Show HTTP requests</td></tr>
+    <tr><td>dns</td><td>Show DNS traffic</td></tr>
+    <tr><td>icmp</td><td>Show ping traffic</td></tr>
+    <tr><td>tcp.flags.syn == 1</td><td>Show SYN packets</td></tr>
+    <tr><td>tcp.flags.fin == 1</td><td>Show FIN packets</td></tr>
+    <tr><td>tcp.analysis.retransmission</td><td>Show retransmissions</td></tr>
+    <tr><td>frame contains "password"</td><td>Search for keyword in packets</td></tr>
+  </table>
 
-  <div class="section">
-    <h2>🔍 Capture & Filters</h2>
-    <table>
-      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>tshark -i eth0</code></td><td>Capture interface</td><td>Replace eth0 with your NIC</td></tr>
-      <tr><td><code>tshark -f "port 80"</code></td><td>Capture filter</td><td>Before capture starts</td></tr>
-      <tr><td><code>tshark -Y "http"</code></td><td>Display filter</td><td>After capture starts</td></tr>
-      <tr><td><code>tshark -i eth0 -w file.pcap</code></td><td>Write to file</td><td>Save capture</td></tr>
-      <tr><td><code>tshark -r file.pcap</code></td><td>Read file</td><td>Analyze saved capture</td></tr>
-    </table>
+  <h2>📡 Protocol Filters</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Filter</th><th>Description</th></tr>
+    <tr><td>http</td><td>Show HTTP traffic</td></tr>
+    <tr><td>ftp</td><td>Show FTP traffic</td></tr>
+    <tr><td>smtp</td><td>Show email traffic</td></tr>
+    <tr><td>tls</td><td>Show encrypted traffic</td></tr>
+    <tr><td>dhcp</td><td>Show DHCP traffic</td></tr>
+    <tr><td>arp</td><td>Show ARP traffic</td></tr>
+    <tr><td>ntp</td><td>Show time sync traffic</td></tr>
+  </table>
 
-    <h2>🧠 Protocol Analysis</h2>
-    <table>
-      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>tshark -z io,stat,0,10</code></td><td>IO stats</td><td>10-second intervals</td></tr>
-      <tr><td><code>tshark -z conv,tcp</code></td><td>TCP conversations</td><td>Connection summary</td></tr>
-      <tr><td><code>tshark -z endpoints,ip</code></td><td>IP endpoints</td><td>Host activity</td></tr>
-      <tr><td><code>tshark -z expert</code></td><td>Expert info</td><td>Warnings & notes</td></tr>
-      <tr><td><code>tshark -z http,tree</code></td><td>HTTP breakdown</td><td>Detailed view</td></tr>
-    </table>
+  <h2>⚙️ Logical Operators</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Syntax</th><th>Description</th></tr>
+    <tr><td>and</td><td>Combine filters (both must match)</td></tr>
+    <tr><td>or</td><td>Either filter can match</td></tr>
+    <tr><td>not</td><td>Exclude matching packets</td></tr>
+    <tr><td>()</td><td>Group filters</td></tr>
+  </table>
 
-    <h2>📦 Output & Export</h2>
-    <table>
-      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>tshark -T fields -e ip.src -e ip.dst</code></td><td>Field output</td><td>Custom columns</td></tr>
-      <tr><td><code>tshark -E separator=,</code></td><td>CSV export</td><td>Comma-separated</td></tr>
-      <tr><td><code>tshark -G fields</code></td><td>List fields</td><td>Available options</td></tr>
-      <tr><td><code>tshark -V</code></td><td>Verbose output</td><td>Full packet details</td></tr>
-      <tr><td><code>tshark -q</code></td><td>Quiet mode</td><td>Suppress headers</td></tr>
-    </table>
-  </div>
+  <h2>⌨️ Shortcuts</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Shortcut</th><th>Action</th></tr>
+    <tr><td>Ctrl + E</td><td>Apply display filter</td></tr>
+    <tr><td>Ctrl + K</td><td>Clear display filter</td></tr>
+    <tr><td>Ctrl + Shift + P</td><td>Open preferences</td></tr>
+    <tr><td>Ctrl + H</td><td>Hide/show packet details</td></tr>
+    <tr><td>Ctrl + N</td><td>Start new capture</td></tr>
+    <tr><td>Ctrl + S</td><td>Save capture</td></tr>
+    <tr><td>Ctrl + F</td><td>Find in packet list</td></tr>
+  </table>
 
-  <div class="back-button">
-    <a href="Huffles-IT-Services-Code-Reference.html">🔙 Back to Code Reference</a>
-  </div>
-
-  <footer>
-    <hr style="border-color: #1E3A8A; margin-bottom: 20px;">
-    <p>© 2025 Huffle’s IT Services LLC. All rights reserved.</p>
-    <p>This command reference and all associated content—including overlays, styling, and the Huffle’s IT Services logo—are protected intellectual property. Unauthorized reproduction or redistribution is prohibited.</p>
-    <p>Sources: Wireshark documentation, PacketLife.net, and community cheat sheets.</p>
-    <p style="margin-top: 20px;">Veteran-owned. Porch-coded. A+ and Security+ certified. Every command is a conversation. Every workflow is a welcome.</p>
-  </footer>
 </body>
 </html>
