@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Huffles IT Services — Overlay Library</title>
+  <title>Huffle's IT Services Code Reference</title>
   <style>
     body {
       background-color: #0A0A0A;
@@ -18,31 +18,28 @@
       margin-bottom: 40px;
     }
 
-    .link-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
+    .button-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
       max-width: 1000px;
       margin: 0 auto;
     }
 
-    .link-grid a {
-      flex: 1 1 250px;
-      background-color: #111111;
-      border: 1px solid #0F52BA;
-      border-radius: 8px;
-      padding: 20px;
+    a {
+      display: block;
+      padding: 14px 20px;
+      background-color: #0F52BA;
+      color: #FFFFFF;
       text-decoration: none;
-      color: #0F52BA;
-      font-size: 1.2em;
+      border-radius: 6px;
       font-weight: bold;
       transition: background-color 0.3s ease;
     }
 
-    .link-grid a:hover {
-      background-color: #0F52BA;
-      color: #FFFFFF;
+    a:hover {
+      background-color: #FFFFFF;
+      color: #0F52BA;
     }
 
     footer {
@@ -50,46 +47,51 @@
       font-size: 0.9em;
       color: #FFFFFF;
     }
-
-    @media screen and (max-width: 600px) {
-      .link-grid a {
-        flex: 1 1 100%;
-      }
-    }
   </style>
 </head>
 <body>
-  <h1>Huffles IT Services — Overlay Library</h1>
+  <h1>🧠 Huffles IT Services Code Reference</h1>
 
-  <div class="link-grid">
-    <a href="Windows-Overlay.html">🪟 Windows Overlay</a>
-    <a href="Linux-Overlay.html">🐧 Linux Overlay</a>
-    <a href="MacOS-Overlay.html">🍎 macOS Overlay</a>
-    <a href="PowerShell-Overlay.html">⚡ PowerShell Overlay</a>
-    <a href="Terminal-Overlay.html">🖥️ Terminal Overlay</a>
-    <a href="Command-Prompt-Overlay.html">💻 Command Prompt Overlay</a>
-    <a href="Android-Overlay.html">📱 Android Overlay</a>
-    <a href="iOS-Overlay.html">📲 iOS Overlay</a>
-    <a href="ChromeOS-Overlay.html">🧭 ChromeOS Overlay</a>
-    <a href="RaspberryPi-Overlay.html">🍓 Raspberry Pi Overlay</a>
-    <a href="VM-Overlay.html">🧪 Virtual Machine Overlay</a>
-    <a href="Recovery-Overlay.html">🛠️ Recovery & Rescue Overlay</a>
-    <a href="Networking-Overlay.html">🌐 Networking Overlay</a>
-    <a href="Security-Overlay.html">🔐 Security Overlay</a>
-    <a href="CySA-Overlay.html">🧠 CySA+ Overlay</a>
-    <a href="Cert-Overlay.html">📜 Certification Overlay</a>
-    <a href="Cheat-Sheet-Overlay.html">📘 Cheat Sheet Overlay</a>
-    <a href="Reference-Overlay.html">📎 Reference Overlay</a>
-    <a href="Tools-Overlay.html">🧰 Tools Overlay</a>
-    <a href="Scan-Overlay.html">📷 Scan Overlay</a>
-    <a href="Mobile-Overlay.html">📶 Mobile Overlay</a>
-    <a href="Browser-Overlay.html">🌍 Browser Overlay</a>
-    <a href="Form-Overlay.html">📝 Form Overlay</a>
-    <a href="ThankYou-Overlay.html">💛 Thank You Overlay</a>
+  <div class="button-grid">
+    <a href="Windows.html">💻 Windows</a>
+    <a href="MacOS.html">🍎 MacOS</a>
+    <a href="Linux.html">🐧 Linux</a>
+    <a href="ChromeOS.html">💠 ChromeOS</a>
+    <a href="Android-MDM.html">🤖 Android MDM</a>
+    <a href="iOS-MDM.html">📱 iOS MDM</a>
+    <a href="Recovery.html">🛠️ Recovery</a>
+    <a href="Cleanup.html">🧹 Cleanup</a>
+    <a href="Tools.html">🧰 Tools</a>
+    <a href="Cisco-IOS.html">📡 Cisco IOS</a>
+    <a href="Metasploit.html">💣 Metasploit</a>
+    <a href="Nmap.html">📍 Nmap</a>
+    <a href="BurpSuite.html">🕷️ Burp Suite</a>
+    <a href="Git-GitHub.html">🐙 Git & GitHub</a>
+    <a href="PowerShell.html">⚡ PowerShell</a>
+    <a href="Terminal.html">🧮 Terminal</a>
+    <a href="Firewall.html">🔥 Firewall</a>
+    <a href="Encryption.html">🔐 Encryption</a>
+    <a href="Backup.html">💾 Backup</a>
+    <a href="Monitoring.html">📊 Monitoring</a>
+    <a href="Incident-Response.html">🚨 Incident Response</a>
+    <a href="Browser.html">🌐 Browser</a>
+    <a href="Mobile.html">📱 Mobile</a>
+    <a href="Scan.html">📷 Scan</a>
+    <a href="Reference.html">📎 Reference</a>
+    <a href="Thank-You.html">🙏 Thank You</a>
+    <a href="About-Huffles.html">🧡 About Huffle's</a>
+    <a href="Certification.html">🎓 Certification</a>
+    <a href="Networking.html">🌐 Networking</a>
+    <a href="Security.html">🛡️ Security</a>
+    <a href="OpenSSL.html">🔑 OpenSSL</a>
+    <a href="Wireshark.html">🦈 Wireshark</a>
+    <a href="Ubiquiti.html">📶 Ubiquiti</a>
+    <a href="VirtualMachine.html">📦 Virtual Machine</a>
+    <a href="RasberryPi.html">🍓 Raspberry Pi</a>
   </div>
 
   <footer>
-    <p>&copy; 2025 Huffles IT Services LLC — All rights reserved.</p>
+    <p>&copy; 2025 Huffle's IT Services LLC — All rights reserved.</p>
   </footer>
 </body>
 </html>
