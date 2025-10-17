@@ -2,69 +2,125 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>⚡ PowerShell Overlay</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PowerShell — Huffles IT Services</title>
   <style>
     body {
       background-color: #0A0A0A;
+      color: #FFFFFF;
       font-family: 'Segoe UI', sans-serif;
-      color: #1E3A8A;
-      padding: 40px;
+      padding: 40px 20px;
       text-align: center;
     }
-    table, th, td {
+
+    h1, h2 {
+      color: #0F52BA;
+      margin-bottom: 20px;
+    }
+
+    .section {
+      margin-bottom: 60px;
+    }
+
+    table {
+      margin: 0 auto;
+      max-width: 1000px;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      border: 1px solid #0F52BA;
+      padding: 12px;
+      text-align: left;
+      background-color: #111111;
+      vertical-align: top;
+    }
+
+    th {
+      background-color: #0F52BA;
       color: #FFFFFF;
+    }
+
+    td:first-child {
+      width: 250px;
+      white-space: nowrap;
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 0.9em;
+      color: #FFFFFF;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 12px 24px;
+      background-color: #0F52BA;
+      color: #FFFFFF;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    .back-button:hover {
+      background-color: #FFFFFF;
+      color: #0F52BA;
     }
   </style>
 </head>
 <body>
-  <h1>⚡ PowerShell Overlay</h1>
+  <h1>PowerShell</h1>
+  <h2>Windows CLI Workflows & Scripting</h2>
 
-  <h2>📁 Navigation & File Management</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>Get-Location</td><td>Show current directory</td></tr>
-    <tr><td>Set-Location C:\Path</td><td>Change directory</td></tr>
-    <tr><td>Get-ChildItem</td><td>List files and folders</td></tr>
-    <tr><td>New-Item -ItemType File -Name file.txt</td><td>Create new file</td></tr>
-    <tr><td>Remove-Item file.txt</td><td>Delete file</td></tr>
-    <tr><td>Copy-Item file1.txt file2.txt</td><td>Copy file</td></tr>
-    <tr><td>Move-Item file.txt C:\NewFolder</td><td>Move file</td></tr>
-    <tr><td>Rename-Item old.txt new.txt</td><td>Rename file</td></tr>
-  </table>
+  <div class="section">
+    <h2>⚙️ Core Commands</h2>
+    <table>
+      <thead><tr><th>Command</th><th>Purpose</th></tr></thead>
+      <tbody>
+        <tr><td>Get-Process</td><td>List running processes</td></tr>
+        <tr><td>Get-Service</td><td>View service status</td></tr>
+        <tr><td>Get-EventLog -LogName System</td><td>Read system event logs</td></tr>
+        <tr><td>Get-Command</td><td>List available cmdlets</td></tr>
+        <tr><td>Get-Help Get-Process</td><td>View help for a specific command</td></tr>
+      </tbody>
+    </table>
+  </div>
 
-  <h2>🌐 Networking</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>Test-Connection google.com</td><td>Ping host</td></tr>
-    <tr><td>Resolve-DnsName microsoft.com</td><td>DNS lookup</td></tr>
-    <tr><td>Get-NetIPAddress</td><td>Show IP configuration</td></tr>
-    <tr><td>Get-NetAdapter</td><td>List network adapters</td></tr>
-    <tr><td>Get-NetTCPConnection</td><td>Show active TCP connections</td></tr>
-    <tr><td>Get-NetFirewallRule</td><td>List firewall rules</td></tr>
-  </table>
+  <div class="section">
+    <h2>📁 File & System Tasks</h2>
+    <table>
+      <thead><tr><th>Command</th><th>Purpose</th></tr></thead>
+      <tbody>
+        <tr><td>Get-ChildItem</td><td>List files and folders</td></tr>
+        <tr><td>Copy-Item</td><td>Copy files or folders</td></tr>
+        <tr><td>Remove-Item</td><td>Delete files or folders</td></tr>
+        <tr><td>Set-ExecutionPolicy RemoteSigned</td><td>Allow script execution</td></tr>
+        <tr><td>Test-Connection</td><td>Ping a host (like ping)</td></tr>
+      </tbody>
+    </table>
+  </div>
 
-  <h2>🔐 Security & System</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>Get-Process</td><td>List running processes</td></tr>
-    <tr><td>Stop-Process -Name notepad</td><td>Kill process by name</td></tr>
-    <tr><td>Get-Service</td><td>List services</td></tr>
-    <tr><td>Restart-Service spooler</td><td>Restart service</td></tr>
-    <tr><td>Get-EventLog -LogName System -Newest 10</td><td>View recent system logs</td></tr>
-    <tr><td>Get-LocalUser</td><td>List local users</td></tr>
-    <tr><td>Set-LocalUser -Name "User" -Password (ConvertTo-SecureString "NewPass" -AsPlainText -Force)</td><td>Change user password</td></tr>
-  </table>
+  <div class="section">
+    <h2>🧠 Scripting Basics</h2>
+    <table>
+      <thead><tr><th>Syntax</th><th>Purpose</th></tr></thead>
+      <tbody>
+        <tr><td>$name = "Huffle"</td><td>Define a variable</td></tr>
+        <tr><td>if ($name -eq "Huffle") { }</td><td>Conditional logic</td></tr>
+        <tr><td>foreach ($item in $list) { }</td><td>Loop through items</td></tr>
+        <tr><td>Function Get-Overlay { }</td><td>Create a custom function</td></tr>
+        <tr><td>Write-Output "Hello World"</td><td>Print to console</td></tr>
+      </tbody>
+    </table>
+  </div>
 
-  <h2>🧰 Maintenance & Recovery</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>Repair-WindowsImage -Online -RestoreHealth</td><td>Repair Windows image</td></tr>
-    <tr><td>sfc /scannow</td><td>Scan and fix system files</td></tr>
-    <tr><td>Clear-RecycleBin</td><td>Empty recycle bin</td></tr>
-    <tr><td>Get-ComputerInfo</td><td>Show system info</td></tr>
-    <tr><td>Restart-Computer</td><td>Reboot system</td></tr>
-    <tr><td>Stop-Computer</td><td>Shutdown system</td></tr>
-  </table>
-
+  <footer>
+    <p>&copy; 2025 Huffle's IT Services LLC — All rights reserved.</p>
+    <p>
+      <a class="back-button" href="Huffles-IT-Services-Code-Reference.html">🖥️ Back to Porch</a>
+    </p>
+  </footer>
 </body>
 </html>
