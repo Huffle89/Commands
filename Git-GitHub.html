@@ -2,165 +2,80 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>🐙 Git & GitHub CLI Reference</title>
+  <title>🧠 Git & GitHub Overlay</title>
   <style>
     body {
       background-color: #0A0A0A;
       font-family: 'Segoe UI', sans-serif;
       color: #1E3A8A;
-      padding: 20px;
-    }
-    .logo-container {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      background-color: #1A1A1A;
-      padding: 8px;
-      border-radius: 8px;
-      border: 2px solid #1E3A8A;
-      z-index: 1000;
-    }
-    .logo {
-      height: 48px;
-      width: auto;
-    }
-    h1 {
-      color: #1E3A8A;
+      padding: 40px;
       text-align: center;
-      margin-bottom: 10px;
     }
-    .compatibility {
-      background-color: #1A1A1A;
-      border: 2px solid #1E3A8A;
-      border-radius: 8px;
-      padding: 15px;
-      margin-bottom: 40px;
-      font-size: 1em;
-    }
-    .compatibility strong {
+    table, th, td {
       color: #FFFFFF;
-    }
-    .section {
-      margin-bottom: 50px;
-      border: 2px solid #1E3A8A;
-      border-radius: 8px;
-      padding: 20px;
-      background-color: #1A1A1A;
-    }
-    h2 {
-      background-color: #1E3A8A;
-      color: #FFFFFF;
-      padding: 10px;
-      border-radius: 6px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-    }
-    th, td {
-      border: 1px solid #1E3A8A;
-      padding: 10px;
-      text-align: left;
-    }
-    th {
-      background-color: #1E3A8A;
-      color: #FFFFFF;
-    }
-    code {
-      background-color: #2C2C2C;
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-family: Consolas, monospace;
-      color: #FFFFFF;
-    }
-    .back-button {
-      text-align: center;
-      margin-top: 40px;
-    }
-    .back-button a {
-      background-color: #1E3A8A;
-      color: #FFFFFF;
-      padding: 12px 24px;
-      font-size: 1.1em;
-      border-radius: 8px;
-      text-decoration: none;
-      display: inline-block;
-      transition: background-color 0.3s ease;
-    }
-    .back-button a:hover {
-      background-color: #2F4EB2;
-    }
-    footer {
-      margin-top: 60px;
-      padding: 20px;
-      text-align: center;
-      font-size: 0.9em;
-      color: #888;
-    }
-    footer a {
-      color: #1E3A8A;
-      text-decoration: none;
-    }
-    footer a:hover {
-      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <div class="logo-container">
-    <img src="Logo.png" alt="Huffle’s IT Services Logo" class="logo">
-  </div>
+  <h1>🧠 Git & GitHub Overlay</h1>
 
-  <h1>🐙 Git & GitHub CLI Command Reference</h1>
+  <h2>📦 Repo Setup & Configuration</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Command</th><th>Description</th></tr>
+    <tr><td>git init</td><td>Initialize a new Git repository</td></tr>
+    <tr><td>git clone URL</td><td>Clone a remote repository</td></tr>
+    <tr><td>git config --global user.name "Your Name"</td><td>Set global username</td></tr>
+    <tr><td>git config --global user.email "you@example.com"</td><td>Set global email</td></tr>
+    <tr><td>git config --list</td><td>View Git configuration</td></tr>
+  </table>
 
-  <div class="compatibility">
-    <p><strong>Works on:</strong> Linux, macOS, Windows (Git Bash or WSL)</p>
-    <p><strong>Required Tools:</strong> Git installed; GitHub CLI optional</p>
-  </div>
+  <h2>📥 Staging & Committing</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Command</th><th>Description</th></tr>
+    <tr><td>git status</td><td>Show current changes and branch</td></tr>
+    <tr><td>git add .</td><td>Stage all changes</td></tr>
+    <tr><td>git add filename</td><td>Stage specific file</td></tr>
+    <tr><td>git commit -m "message"</td><td>Commit staged changes with message</td></tr>
+    <tr><td>git diff</td><td>Show unstaged changes</td></tr>
+    <tr><td>git log</td><td>View commit history</td></tr>
+  </table>
 
-  <div class="section">
-    <h2>🔧 Git Basics</h2>
-    <table>
-      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>git init</code></td><td>Initialize repo</td><td>Creates .git folder</td></tr>
-      <tr><td><code>git status</code></td><td>Check status</td><td>Untracked, staged, modified</td></tr>
-      <tr><td><code>git add .</code></td><td>Stage all changes</td><td>Use <code>git add filename</code> for specific files</td></tr>
-      <tr><td><code>git commit -m "msg"</code></td><td>Commit changes</td><td>Use clear messages</td></tr>
-      <tr><td><code>git log</code></td><td>View history</td><td>Use <code>--oneline</code> for compact view</td></tr>
-    </table>
+  <h2>🌿 Branching & Merging</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Command</th><th>Description</th></tr>
+    <tr><td>git branch</td><td>List branches</td></tr>
+    <tr><td>git branch new-branch</td><td>Create new branch</td></tr>
+    <tr><td>git checkout branch-name</td><td>Switch to branch</td></tr>
+    <tr><td>git merge branch-name</td><td>Merge branch into current</td></tr>
+    <tr><td>git cherry-pick commit-hash</td><td>Apply commit from another branch</td></tr>
+  </table>
 
-    <h2>🌐 Remote & GitHub</h2>
-    <table>
-      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>git remote add origin URL</code></td><td>Link remote</td><td>GitHub or other repo</td></tr>
-      <tr><td><code>git push -u origin main</code></td><td>Push to remote</td><td>First-time push</td></tr>
-      <tr><td><code>git pull</code></td><td>Fetch & merge</td><td>Updates local repo</td></tr>
-      <tr><td><code>gh auth login</code></td><td>GitHub CLI login</td><td>Optional tool</td></tr>
-      <tr><td><code>gh repo clone owner/name</code></td><td>Clone via GitHub CLI</td><td>Alternative to <code>git clone</code></td></tr>
-    </table>
+  <h2>🌐 Remotes & Syncing</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Command</th><th>Description</th></tr>
+    <tr><td>git remote -v</td><td>Show remote URLs</td></tr>
+    <tr><td>git remote add origin URL</td><td>Add remote repository</td></tr>
+    <tr><td>git push -u origin main</td><td>Push local repo to GitHub</td></tr>
+    <tr><td>git pull origin main</td><td>Pull latest changes</td></tr>
+    <tr><td>git fetch</td><td>Download objects and refs from remote</td></tr>
+  </table>
 
-    <h2>🧠 Branching & Merging</h2>
-    <table>
-      <tr><th>Command</th><th>Description</th><th>Notes</th></tr>
-      <tr><td><code>git branch</code></td><td>List branches</td><td>Use <code>-a</code> for all</td></tr>
-      <tr><td><code>git checkout -b new</code></td><td>Create & switch</td><td>New feature branch</td></tr>
-      <tr><td><code>git merge branch</code></td><td>Merge branch</td><td>Into current branch</td></tr>
-      <tr><td><code>git stash</code></td><td>Save work</td><td>Temporary hold</td></tr>
-      <tr><td><code>git rebase branch</code></td><td>Rebase changes</td><td>Advanced merging</td></tr>
-    </table>
-  </div>
+  <h2>🧹 Cleanup & Reset</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Command</th><th>Description</th></tr>
+    <tr><td>git reset --hard HEAD</td><td>Discard all changes and reset to last commit</td></tr>
+    <tr><td>git rm filename</td><td>Remove file from repo</td></tr>
+    <tr><td>git stash</td><td>Temporarily save changes</td></tr>
+    <tr><td>git stash pop</td><td>Restore stashed changes</td></tr>
+  </table>
 
-  <div class="back-button">
-    <a href="Huffles-IT-Services-Code-Reference.html">🔙 Back to Code Reference</a>
-  </div>
+  <h2>🏷️ Tags & Releases</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Command</th><th>Description</th></tr>
+    <tr><td>git tag</td><td>List tags</td></tr>
+    <tr><td>git tag v1.0</td><td>Create tag</td></tr>
+    <tr><td>git push origin --tags</td><td>Push tags to remote</td></tr>
+  </table>
 
-  <footer>
-    <hr style="border-color: #1E3A8A; margin-bottom: 20px;">
-    <p>© 2025 Huffle’s IT Services LLC. All rights reserved.</p>
-    <p>This command reference and all associated content—including overlays, styling, and the Huffle’s IT Services logo—are protected intellectual property. Unauthorized reproduction or redistribution is prohibited.</p>
-    <p>Sources: Git documentation, GitHub CLI reference, and community cheat sheets.</p>
-    <p style="margin-top: 20px;">Veteran-owned. Porch-coded. A+ and Security+ certified. Every command is a conversation. Every workflow is a welcome.</p>
-  </footer>
 </body>
 </html>
