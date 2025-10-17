@@ -18,18 +18,13 @@
       margin-bottom: 20px;
     }
 
-    .table-group {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      max-width: 1200px;
-      margin: 0 auto 60px;
+    .section {
+      margin-bottom: 60px;
     }
 
     table {
-      flex: 1 1 300px;
-      max-width: 400px;
+      margin: 0 auto;
+      max-width: 1000px;
       border-collapse: collapse;
       width: 100%;
     }
@@ -39,6 +34,7 @@
       padding: 12px;
       text-align: left;
       background-color: #111111;
+      vertical-align: top;
     }
 
     th {
@@ -46,44 +42,9 @@
       color: #FFFFFF;
     }
 
-    @media screen and (max-width: 600px) {
-      .table-group {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      table thead {
-        display: none;
-      }
-
-      table, table tbody, table tr, table td {
-        display: block;
-        width: 100%;
-      }
-
-      table tr {
-        margin-bottom: 20px;
-        border: 1px solid #0F52BA;
-        background-color: #111111;
-        padding: 10px;
-      }
-
-      table td {
-        text-align: right;
-        padding-left: 50%;
-        position: relative;
-      }
-
-      table td::before {
-        content: attr(data-label);
-        position: absolute;
-        left: 10px;
-        width: 45%;
-        padding-left: 10px;
-        font-weight: bold;
-        text-align: left;
-        color: #0F52BA;
-      }
+    td:first-child {
+      width: 250px;
+      white-space: nowrap;
     }
 
     footer {
@@ -111,56 +72,57 @@
 </head>
 <body>
   <h1>Cisco IOS</h1>
-  <h2>Router & Switch CLI Reference</h2>
+  <h2>Switch & Router CLI Reference</h2>
 
-  <div class="table-group">
+  <div class="section">
+    <h2>🔑 User Exec Mode</h2>
     <table>
-      <thead><tr><th>Basics</th><th>Description</th></tr></thead>
+      <thead><tr><th>Command</th><th>Purpose</th></tr></thead>
       <tbody>
-        <tr><td data-label="Command">enable</td><td data-label="Description">Enter privileged mode</td></tr>
-        <tr><td data-label="Command">configure terminal</td><td data-label="Description">Enter global config mode</td></tr>
-        <tr><td data-label="Command">hostname</td><td data-label="Description">Set device name</td></tr>
-        <tr><td data-label="Command">exit</td><td data-label="Description">Leave current mode</td></tr>
+        <tr><td>enable</td><td>Enter privileged exec mode</td></tr>
+        <tr><td>ping [IP]</td><td>Test connectivity to a remote host</td></tr>
+        <tr><td>show version</td><td>Display IOS version and hardware info</td></tr>
+        <tr><td>show interfaces</td><td>View interface status and statistics</td></tr>
       </tbody>
     </table>
+  </div>
 
+  <div class="section">
+    <h2>🔐 Privileged Exec Mode</h2>
     <table>
-      <thead><tr><th>Interface</th><th>Description</th></tr></thead>
+      <thead><tr><th>Command</th><th>Purpose</th></tr></thead>
       <tbody>
-        <tr><td data-label="Command">interface Gig0/1</td><td data-label="Description">Select interface</td></tr>
-        <tr><td data-label="Command">ip address</td><td data-label="Description">Assign IP to interface</td></tr>
-        <tr><td data-label="Command">no shutdown</td><td data-label="Description">Enable interface</td></tr>
-        <tr><td data-label="Command">description</td><td data-label="Description">Label interface</td></tr>
+        <tr><td>configure terminal</td><td>Enter global configuration mode</td></tr>
+        <tr><td>copy running-config startup-config</td><td>Save current config to NVRAM</td></tr>
+        <tr><td>reload</td><td>Reboot the device</td></tr>
+        <tr><td>show ip route</td><td>Display routing table</td></tr>
       </tbody>
     </table>
+  </div>
 
+  <div class="section">
+    <h2>⚙️ Global Configuration Mode</h2>
     <table>
-      <thead><tr><th>Routing</th><th>Description</th></tr></thead>
+      <thead><tr><th>Command</th><th>Purpose</th></tr></thead>
       <tbody>
-        <tr><td data-label="Command">ip route</td><td data-label="Description">Static route</td></tr>
-        <tr><td data-label="Command">router ospf</td><td data-label="Description">Start OSPF process</td></tr>
-        <tr><td data-label="Command">network</td><td data-label="Description">Define OSPF network</td></tr>
-        <tr><td data-label="Command">show ip route</td><td data-label="Description">View routing table</td></tr>
+        <tr><td>hostname [name]</td><td>Set device hostname</td></tr>
+        <tr><td>enable secret [password]</td><td>Set encrypted privileged exec password</td></tr>
+        <tr><td>line console 0</td><td>Enter console line configuration</td></tr>
+        <tr><td>interface [type] [number]</td><td>Enter interface configuration mode</td></tr>
       </tbody>
     </table>
+  </div>
 
+  <div class="section">
+    <h2>🌐 Interface Configuration Mode</h2>
     <table>
-      <thead><tr><th>VLAN & Switching</th><th>Description</th></tr></thead>
+      <thead><tr><th>Command</th><th>Purpose</th></tr></thead>
       <tbody>
-        <tr><td data-label="Command">vlan 10</td><td data-label="Description">Create VLAN</td></tr>
-        <tr><td data-label="Command">name VLAN10</td><td data-label="Description">Label VLAN</td></tr>
-        <tr><td data-label="Command">switchport mode access</td><td data-label="Description">Set port to access mode</td></tr>
-        <tr><td data-label="Command">switchport access vlan 10</td><td data-label="Description">Assign VLAN to port</td></tr>
-      </tbody>
-    </table>
-
-    <table>
-      <thead><tr><th>Diagnostics</th><th>Description</th></tr></thead>
-      <tbody>
-        <tr><td data-label="Command">show running-config</td><td data-label="Description">View active config</td></tr>
-        <tr><td data-label="Command">show interfaces</td><td data-label="Description">Interface status</td></tr>
-        <tr><td data-label="Command">show version</td><td data-label="Description">Device info</td></tr>
-        <tr><td data-label="Command">ping</td><td data-label="Description">Test connectivity</td></tr>
+        <tr><td>ip address [IP] [mask]</td><td>Assign IP address to interface</td></tr>
+        <tr><td>no shutdown</td><td>Enable the interface</td></tr>
+        <tr><td>description [text]</td><td>Add a label to the interface</td></tr>
+        <tr><td>switchport mode access</td><td>Set interface to access mode</td></tr>
+        <tr><td>switchport access vlan [ID]</td><td>Assign VLAN to access port</td></tr>
       </tbody>
     </table>
   </div>
