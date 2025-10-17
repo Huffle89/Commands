@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>macOS — Huffles IT Services</title>
+  <title>MacOS — Huffles IT Services</title>
   <style>
     body {
       background-color: #0A0A0A;
@@ -18,18 +18,13 @@
       margin-bottom: 20px;
     }
 
-    .table-group {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      max-width: 1200px;
-      margin: 0 auto 60px;
+    .section {
+      margin-bottom: 60px;
     }
 
     table {
-      flex: 1 1 300px;
-      max-width: 400px;
+      margin: 0 auto;
+      max-width: 1000px;
       border-collapse: collapse;
       width: 100%;
     }
@@ -39,6 +34,7 @@
       padding: 12px;
       text-align: left;
       background-color: #111111;
+      vertical-align: top;
     }
 
     th {
@@ -46,44 +42,9 @@
       color: #FFFFFF;
     }
 
-    @media screen and (max-width: 600px) {
-      .table-group {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      table thead {
-        display: none;
-      }
-
-      table, table tbody, table tr, table td {
-        display: block;
-        width: 100%;
-      }
-
-      table tr {
-        margin-bottom: 20px;
-        border: 1px solid #0F52BA;
-        background-color: #111111;
-        padding: 10px;
-      }
-
-      table td {
-        text-align: right;
-        padding-left: 50%;
-        position: relative;
-      }
-
-      table td::before {
-        content: attr(data-label);
-        position: absolute;
-        left: 10px;
-        width: 45%;
-        padding-left: 10px;
-        font-weight: bold;
-        text-align: left;
-        color: #0F52BA;
-      }
+    td:first-child {
+      width: 250px;
+      white-space: nowrap;
     }
 
     footer {
@@ -110,57 +71,58 @@
   </style>
 </head>
 <body>
-  <h1>macOS</h1>
-  <h2>Terminal Command Reference</h2>
+  <h1>MacOS</h1>
+  <h2>System Tools & CLI Workflows</h2>
 
-  <div class="table-group">
+  <div class="section">
+    <h2>🧰 System Utilities</h2>
     <table>
-      <thead><tr><th>Navigation</th><th>Description</th></tr></thead>
+      <thead><tr><th>Tool/Command</th><th>Type</th><th>Purpose</th></tr></thead>
       <tbody>
-        <tr><td data-label="Command">pwd</td><td data-label="Description">Print working directory</td></tr>
-        <tr><td data-label="Command">ls</td><td data-label="Description">List directory contents</td></tr>
-        <tr><td data-label="Command">cd</td><td data-label="Description">Change directory</td></tr>
-        <tr><td data-label="Command">open .</td><td data-label="Description">Open current folder in Finder</td></tr>
+        <tr><td>Disk Utility</td><td>GUI</td><td>Partition, format, and repair disks</td></tr>
+        <tr><td>Activity Monitor</td><td>GUI</td><td>View CPU, memory, disk, and network usage</td></tr>
+        <tr><td>System Information</td><td>GUI</td><td>Detailed hardware and software specs</td></tr>
+        <tr><td>Console</td><td>GUI</td><td>View system logs and crash reports</td></tr>
       </tbody>
     </table>
+  </div>
 
+  <div class="section">
+    <h2>🖥️ Terminal Commands</h2>
     <table>
-      <thead><tr><th>File Operations</th><th>Description</th></tr></thead>
+      <thead><tr><th>Command</th><th>Purpose</th></tr></thead>
       <tbody>
-        <tr><td data-label="Command">touch</td><td data-label="Description">Create empty file</td></tr>
-        <tr><td data-label="Command">cp</td><td data-label="Description">Copy files</td></tr>
-        <tr><td data-label="Command">mv</td><td data-label="Description">Move or rename files</td></tr>
-        <tr><td data-label="Command">rm</td><td data-label="Description">Remove files</td></tr>
+        <tr><td>top</td><td>Live system resource monitor</td></tr>
+        <tr><td>df -h</td><td>Show disk usage in human-readable format</td></tr>
+        <tr><td>sudo shutdown -r now</td><td>Restart system immediately</td></tr>
+        <tr><td>sudo dscacheutil -flushcache</td><td>Flush DNS cache</td></tr>
+        <tr><td>sudo killall -HUP mDNSResponder</td><td>Restart DNS service</td></tr>
       </tbody>
     </table>
+  </div>
 
+  <div class="section">
+    <h2>🧹 Cleanup & Optimization</h2>
     <table>
-      <thead><tr><th>Permissions</th><th>Description</th></tr></thead>
+      <thead><tr><th>Tool/Command</th><th>Type</th><th>Purpose</th></tr></thead>
       <tbody>
-        <tr><td data-label="Command">chmod</td><td data-label="Description">Change file permissions</td></tr>
-        <tr><td data-label="Command">chown</td><td data-label="Description">Change file ownership</td></tr>
-        <tr><td data-label="Command">sudo</td><td data-label="Description">Run as superuser</td></tr>
-        <tr><td data-label="Command">ls -la</td><td data-label="Description">List all with permissions</td></tr>
+        <tr><td>Finder > Go to Folder > ~/Library/Caches</td><td>GUI</td><td>Manually clear user cache files</td></tr>
+        <tr><td>AppCleaner</td><td>GUI</td><td>Remove apps and associated files cleanly</td></tr>
+        <tr><td>Terminal: `sudo rm -rf ~/Library/Caches/*`</td><td>CLI</td><td>Delete user cache via terminal</td></tr>
+        <tr><td>Terminal: `purge`</td><td>CLI</td><td>Clear inactive memory (older macOS)</td></tr>
       </tbody>
     </table>
+  </div>
 
+  <div class="section">
+    <h2>🛠️ Recovery & Troubleshooting</h2>
     <table>
-      <thead><tr><th>System Info</th><th>Description</th></tr></thead>
+      <thead><tr><th>Tool/Command</th><th>Type</th><th>Purpose</th></tr></thead>
       <tbody>
-        <tr><td data-label="Command">uname -a</td><td data-label="Description">System details</td></tr>
-        <tr><td data-label="Command">top</td><td data-label="Description">Live process monitor</td></tr>
-        <tr><td data-label="Command">df -h</td><td data-label="Description">Disk usage</td></tr>
-        <tr><td data-label="Command">ps aux</td><td data-label="Description">List all processes</td></tr>
-      </tbody>
-    </table>
-
-    <table>
-      <thead><tr><th>macOS Specific</th><th>Description</th></tr></thead>
-      <tbody>
-        <tr><td data-label="Command">defaults</td><td data-label="Description">Modify system preferences</td></tr>
-        <tr><td data-label="Command">killall Finder</td><td data-label="Description">Restart Finder</td></tr>
-        <tr><td data-label="Command">say</td><td data-label="Description">Make Mac speak text</td></tr>
-        <tr><td data-label="Command">pbcopy</td><td data-label="Description">Copy to clipboard</td></tr>
+        <tr><td>Disk Utility > First Aid</td><td>GUI</td><td>Check and repair disk errors</td></tr>
+        <tr><td>Safe Mode</td><td>Boot Option</td><td>Loads minimal drivers and runs diagnostics</td></tr>
+        <tr><td>Recovery Mode (⌘+R)</td><td>Boot Option</td><td>Access reinstall, restore, and disk tools</td></tr>
+        <tr><td>Terminal: `sudo fsck -fy`</td><td>CLI</td><td>Force file system check and repair</td></tr>
       </tbody>
     </table>
   </div>
