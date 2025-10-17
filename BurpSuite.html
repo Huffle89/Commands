@@ -2,80 +2,164 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>🕷️ Burp Suite Overlay</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Burp Suite — Huffles IT Services</title>
   <style>
     body {
       background-color: #0A0A0A;
+      color: #FFFFFF;
       font-family: 'Segoe UI', sans-serif;
-      color: #1E3A8A;
-      padding: 40px;
+      padding: 40px 20px;
       text-align: center;
     }
-    table, th, td {
+
+    h1, h2 {
+      color: #0F52BA;
+      margin-bottom: 20px;
+    }
+
+    .table-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto 60px;
+    }
+
+    table {
+      flex: 1 1 300px;
+      max-width: 400px;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      border: 1px solid #0F52BA;
+      padding: 12px;
+      text-align: left;
+      background-color: #111111;
+    }
+
+    th {
+      background-color: #0F52BA;
       color: #FFFFFF;
+    }
+
+    @media screen and (max-width: 600px) {
+      .table-group {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      table thead {
+        display: none;
+      }
+
+      table, table tbody, table tr, table td {
+        display: block;
+        width: 100%;
+      }
+
+      table tr {
+        margin-bottom: 20px;
+        border: 1px solid #0F52BA;
+        background-color: #111111;
+        padding: 10px;
+      }
+
+      table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+      }
+
+      table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: 45%;
+        padding-left: 10px;
+        font-weight: bold;
+        text-align: left;
+        color: #0F52BA;
+      }
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 0.9em;
+      color: #FFFFFF;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background-color: #0F52BA;
+      color: #FFFFFF;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    .back-button:hover {
+      background-color: #FFFFFF;
+      color: #0F52BA;
     }
   </style>
 </head>
 <body>
-  <h1>🕷️ Burp Suite Overlay</h1>
+  <h1>Burp Suite</h1>
+  <h2>Web Security Testing Reference</h2>
 
-  <h2>🌐 Proxy Tab</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Feature</th><th>Description</th></tr>
-    <tr><td>Intercept</td><td>Pause and modify HTTP/S requests</td></tr>
-    <tr><td>HTTP History</td><td>View all captured traffic</td></tr>
-    <tr><td>WebSockets</td><td>Monitor WebSocket messages</td></tr>
-    <tr><td>Match & Replace</td><td>Auto-modify requests/responses</td></tr>
-    <tr><td>Proxy Options</td><td>Configure listeners and rules</td></tr>
-  </table>
+  <div class="table-group">
+    <table>
+      <thead><tr><th>Startup</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Command">Proxy Setup</td><td data-label="Description">Configure browser to route traffic</td></tr>
+        <tr><td data-label="Command">CA Certificate</td><td data-label="Description">Install Burp’s certificate</td></tr>
+        <tr><td data-label="Command">Target Scope</td><td data-label="Description">Define domains to test</td></tr>
+        <tr><td data-label="Command">Live Capture</td><td data-label="Description">Enable intercept and logging</td></tr>
+      </tbody>
+    </table>
 
-  <h2>🔁 Repeater Tab</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Feature</th><th>Description</th></tr>
-    <tr><td>Send</td><td>Manually resend requests</td></tr>
-    <tr><td>Modify Headers</td><td>Edit request headers</td></tr>
-    <tr><td>Change Method</td><td>Switch between GET/POST/etc.</td></tr>
-    <tr><td>View Response</td><td>Analyze server reply</td></tr>
-    <tr><td>Hex/Raw/Pretty</td><td>Toggle response formats</td></tr>
-  </table>
+    <table>
+      <thead><tr><th>Proxy Tools</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Command">Intercept</td><td data-label="Description">Pause and modify requests</td></tr>
+        <tr><td data-label="Command">HTTP History</td><td data-label="Description">Review all traffic</td></tr>
+        <tr><td data-label="Command">Repeater</td><td data-label="Description">Manually resend requests</td></tr>
+        <tr><td data-label="Command">Sequencer</td><td data-label="Description">Analyze randomness</td></tr>
+      </tbody>
+    </table>
 
-  <h2>🧪 Scanner Tab</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Feature</th><th>Description</th></tr>
-    <tr><td>Active Scan</td><td>Automated vulnerability scan</td></tr>
-    <tr><td>Passive Scan</td><td>Background analysis of traffic</td></tr>
-    <tr><td>Issue Definitions</td><td>Details on detected issues</td></tr>
-    <tr><td>Severity Ratings</td><td>Risk level of findings</td></tr>
-    <tr><td>Remediation Advice</td><td>Fix suggestions</td></tr>
-  </table>
+    <table>
+      <thead><tr><th>Scanning</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Command">Active Scan</td><td data-label="Description">Automated vulnerability scan</td></tr>
+        <tr><td data-label="Command">Passive Scan</td><td data-label="Description">Background analysis</td></tr>
+        <tr><td data-label="Command">Issue Definitions</td><td data-label="Description">Review known vulnerabilities</td></tr>
+        <tr><td data-label="Command">Scan Queue</td><td data-label="Description">Manage scan tasks</td></tr>
+      </tbody>
+    </table>
 
-  <h2>🧬 Intruder Tab</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Feature</th><th>Description</th></tr>
-    <tr><td>Positions</td><td>Select payload injection points</td></tr>
-    <tr><td>Payloads</td><td>Configure attack strings</td></tr>
-    <tr><td>Attack Types</td><td>Sniper, Battering Ram, Pitchfork, Cluster Bomb</td></tr>
-    <tr><td>Results</td><td>Analyze response differences</td></tr>
-    <tr><td>Grep Match</td><td>Highlight response patterns</td></tr>
-  </table>
+    <table>
+      <thead><tr><th>Extensions</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Command">BApp Store</td><td data-label="Description">Install Burp extensions</td></tr>
+        <tr><td data-label="Command">Logger++</td><td data-label="Description">Advanced traffic logging</td></tr>
+        <tr><td data-label="Command">Autorize</td><td data-label="Description">Test authorization bypass</td></tr>
+        <tr><td data-label="Command">JS Beautifier</td><td data-label="Description">Format JavaScript responses</td></tr>
+      </tbody>
+    </table>
+  </div>
 
-  <h2>📦 Decoder & Comparer</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Tool</th><th>Description</th></tr>
-    <tr><td>Decoder</td><td>Encode/decode data (Base64, URL, etc.)</td></tr>
-    <tr><td>Comparer</td><td>Compare request/response pairs</td></tr>
-    <tr><td>Hex Diff</td><td>Byte-level comparison</td></tr>
-    <tr><td>Word Diff</td><td>Text-level comparison</td></tr>
-  </table>
-
-  <h2>⚙️ Extensions & Settings</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Feature</th><th>Description</th></tr>
-    <tr><td>BApp Store</td><td>Install Burp extensions</td></tr>
-    <tr><td>Extender API</td><td>Develop custom plugins</td></tr>
-    <tr><td>Project Options</td><td>Configure scan scope and behavior</td></tr>
-    <tr><td>User Options</td><td>Customize UI and proxy settings</td></tr>
-  </table>
-
+  <footer>
+    <p>&copy; 2025 Huffles IT Services LLC — All rights reserved.</p>
+    <p>
+      <a class="back-button" href="Huffles-IT-Services-Code-Reference.html">🖥️ Back to Porch</a>
+    </p>
+  </footer>
 </body>
 </html>
