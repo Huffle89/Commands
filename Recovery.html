@@ -2,67 +2,164 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>🛠️ Recovery Overlay</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recovery — Huffles IT Services</title>
   <style>
     body {
       background-color: #0A0A0A;
+      color: #FFFFFF;
       font-family: 'Segoe UI', sans-serif;
-      color: #1E3A8A;
-      padding: 40px;
+      padding: 40px 20px;
       text-align: center;
     }
-    table, th, td {
+
+    h1, h2 {
+      color: #0F52BA;
+      margin-bottom: 20px;
+    }
+
+    .table-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto 60px;
+    }
+
+    table {
+      flex: 1 1 300px;
+      max-width: 400px;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      border: 1px solid #0F52BA;
+      padding: 12px;
+      text-align: left;
+      background-color: #111111;
+    }
+
+    th {
+      background-color: #0F52BA;
       color: #FFFFFF;
+    }
+
+    @media screen and (max-width: 600px) {
+      .table-group {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      table thead {
+        display: none;
+      }
+
+      table, table tbody, table tr, table td {
+        display: block;
+        width: 100%;
+      }
+
+      table tr {
+        margin-bottom: 20px;
+        border: 1px solid #0F52BA;
+        background-color: #111111;
+        padding: 10px;
+      }
+
+      table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+      }
+
+      table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: 45%;
+        padding-left: 10px;
+        font-weight: bold;
+        text-align: left;
+        color: #0F52BA;
+      }
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 0.9em;
+      color: #FFFFFF;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background-color: #0F52BA;
+      color: #FFFFFF;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    .back-button:hover {
+      background-color: #FFFFFF;
+      color: #0F52BA;
     }
   </style>
 </head>
 <body>
-  <h1>🛠️ Recovery Overlay</h1>
+  <h1>Recovery</h1>
+  <h2>System Rescue Reference</h2>
 
-  <h2>🪟 Windows Recovery</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>rstrui.exe</td><td>Launch System Restore</td></tr>
-    <tr><td>sfc /scannow</td><td>Scan and repair system files</td></tr>
-    <tr><td>chkdsk C: /f /r</td><td>Check disk for errors and fix</td></tr>
-    <tr><td>bootrec /fixmbr</td><td>Repair Master Boot Record</td></tr>
-    <tr><td>bootrec /fixboot</td><td>Write new boot sector</td></tr>
-    <tr><td>bootrec /scanos</td><td>Scan for installed OSes</td></tr>
-    <tr><td>bootrec /rebuildbcd</td><td>Rebuild boot configuration data</td></tr>
-    <tr><td>DISM /Online /Cleanup-Image /RestoreHealth</td><td>Repair Windows image</td></tr>
-  </table>
+  <div class="table-group">
+    <table>
+      <thead><tr><th>Windows</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Command">WinRE</td><td data-label="Description">Windows Recovery Environment</td></tr>
+        <tr><td data-label="Command">System Restore</td><td data-label="Description">Roll back to restore point</td></tr>
+        <tr><td data-label="Command">Safe Mode</td><td data-label="Description">Boot with minimal drivers</td></tr>
+        <tr><td data-label="Command">Startup Repair</td><td data-label="Description">Fix boot issues</td></tr>
+      </tbody>
+    </table>
 
-  <h2>🐧 Linux Recovery</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>fsck /dev/sdX</td><td>Check and repair filesystem</td></tr>
-    <tr><td>mount -o remount,rw /</td><td>Remount root as read-write</td></tr>
-    <tr><td>chroot /mnt</td><td>Change root to mounted system</td></tr>
-    <tr><td>update-grub</td><td>Regenerate GRUB config</td></tr>
-    <tr><td>grub-install /dev/sdX</td><td>Reinstall GRUB bootloader</td></tr>
-    <tr><td>systemctl rescue</td><td>Enter rescue mode</td></tr>
-    <tr><td>journalctl -xb</td><td>View boot logs</td></tr>
-  </table>
+    <table>
+      <thead><tr><th>Linux</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Command">GRUB Recovery</td><td data-label="Description">Bootloader repair</td></tr>
+        <tr><td data-label="Command">Live USB</td><td data-label="Description">Boot into rescue distro</td></tr>
+        <tr><td data-label="Command">fsck</td><td data-label="Description">Check and repair filesystem</td></tr>
+        <tr><td data-label="Command">mount</td><td data-label="Description">Access partitions manually</td></tr>
+      </tbody>
+    </table>
 
-  <h2>💾 Disk Imaging & Cloning</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>dd if=/dev/sdX of=/dev/sdY bs=4M</td><td>Clone disk to disk</td></tr>
-    <tr><td>dd if=/dev/sdX of=image.img bs=4M</td><td>Create disk image</td></tr>
-    <tr><td>ddrescue /dev/sdX image.img logfile</td><td>Recover data from failing disk</td></tr>
-    <tr><td>fsarchiver savefs archive.fsa /dev/sdX1</td><td>Save partition to archive</td></tr>
-    <tr><td>fsarchiver restfs archive.fsa id=0,dest=/dev/sdX1</td><td>Restore partition from archive</td></tr>
-  </table>
+    <table>
+      <thead><tr><th>macOS</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Command">Recovery Mode</td><td data-label="Description">Command+R at boot</td></tr>
+        <tr><td data-label="Command">Disk Utility</td><td data-label="Description">Repair or erase drives</td></tr>
+        <tr><td data-label="Command">Time Machine</td><td data-label="Description">Restore from backup</td></tr>
+        <tr><td data-label="Command">Reinstall macOS</td><td data-label="Description">Fresh OS install</td></tr>
+      </tbody>
+    </table>
 
-  <h2>🧰 Live Recovery Tools</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Tool</th><th>Description</th></tr>
-    <tr><td>SystemRescue</td><td>Live Linux recovery distro with disk tools</td></tr>
-    <tr><td>Rescatux</td><td>GUI-based boot repair and password reset</td></tr>
-    <tr><td>GParted Live</td><td>Partition editor and recovery</td></tr>
-    <tr><td>Ventoy</td><td>Multi-ISO bootable USB creator</td></tr>
-    <tr><td>Clonezilla</td><td>Disk imaging and cloning</td></tr>
-  </table>
+    <table>
+      <thead><tr><th>Tools</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Command">Rufus</td><td data-label="Description">Create bootable USB</td></tr>
+        <tr><td data-label="Command">Ventoy</td><td data-label="Description">Multi-ISO boot tool</td></tr>
+        <tr><td data-label="Command">Macrium Reflect</td><td data-label="Description">Disk imaging & restore</td></tr>
+        <tr><td data-label="Command">Clonezilla</td><td data-label="Description">Partition backup & recovery</td></tr>
+      </tbody>
+    </table>
+  </div>
 
+  <footer>
+    <p>&copy; 2025 Huffles IT Services LLC — All rights reserved.</p>
+    <p>
+      <a class="back-button" href="Huffles-IT-Services-Code-Reference.html">🖥️ Back to Porch</a>
+    </p>
+  </footer>
 </body>
 </html>
