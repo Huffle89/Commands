@@ -2,68 +2,164 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>🧹 Cleanup Overlay</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cleanup — Huffles IT Services</title>
   <style>
     body {
       background-color: #0A0A0A;
+      color: #FFFFFF;
       font-family: 'Segoe UI', sans-serif;
-      color: #1E3A8A;
-      padding: 40px;
+      padding: 40px 20px;
       text-align: center;
     }
-    table, th, td {
+
+    h1, h2 {
+      color: #0F52BA;
+      margin-bottom: 20px;
+    }
+
+    .table-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto 60px;
+    }
+
+    table {
+      flex: 1 1 300px;
+      max-width: 400px;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      border: 1px solid #0F52BA;
+      padding: 12px;
+      text-align: left;
+      background-color: #111111;
+    }
+
+    th {
+      background-color: #0F52BA;
       color: #FFFFFF;
+    }
+
+    @media screen and (max-width: 600px) {
+      .table-group {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      table thead {
+        display: none;
+      }
+
+      table, table tbody, table tr, table td {
+        display: block;
+        width: 100%;
+      }
+
+      table tr {
+        margin-bottom: 20px;
+        border: 1px solid #0F52BA;
+        background-color: #111111;
+        padding: 10px;
+      }
+
+      table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+      }
+
+      table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: 45%;
+        padding-left: 10px;
+        font-weight: bold;
+        text-align: left;
+        color: #0F52BA;
+      }
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 0.9em;
+      color: #FFFFFF;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background-color: #0F52BA;
+      color: #FFFFFF;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    .back-button:hover {
+      background-color: #FFFFFF;
+      color: #0F52BA;
     }
   </style>
 </head>
 <body>
-  <h1>🧹 Cleanup Overlay</h1>
+  <h1>Cleanup</h1>
+  <h2>System Maintenance Reference</h2>
 
-  <h2>🪟 Windows Cleanup</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>cleanmgr</td><td>Launch Disk Cleanup utility</td></tr>
-    <tr><td>del /q /f /s %TEMP%\*</td><td>Delete all temp files</td></tr>
-    <tr><td>rd /s /q %TEMP%</td><td>Remove temp directory</td></tr>
-    <tr><td>ipconfig /flushdns</td><td>Clear DNS cache</td></tr>
-    <tr><td>netsh winsock reset</td><td>Reset network stack</td></tr>
-    <tr><td>DISM /Online /Cleanup-Image /ScanHealth</td><td>Scan Windows image</td></tr>
-    <tr><td>DISM /Online /Cleanup-Image /RestoreHealth</td><td>Repair Windows image</td></tr>
-    <tr><td>sfc /scannow</td><td>Scan and fix system files</td></tr>
-  </table>
+  <div class="table-group">
+    <table>
+      <thead><tr><th>Windows</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Command">cleanmgr</td><td data-label="Description">Launch Disk Cleanup</td></tr>
+        <tr><td data-label="Command">%temp%</td><td data-label="Description">Open temp folder</td></tr>
+        <tr><td data-label="Command">wsreset</td><td data-label="Description">Reset Windows Store cache</td></tr>
+        <tr><td data-label="Command">sfc /scannow</td><td data-label="Description">Scan system files</td></tr>
+      </tbody>
+    </table>
 
-  <h2>🐧 Linux Cleanup</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>sudo apt autoremove</td><td>Remove unused packages (Debian)</td></tr>
-    <tr><td>sudo apt clean</td><td>Clear package cache (Debian)</td></tr>
-    <tr><td>sudo journalctl --vacuum-time=7d</td><td>Delete logs older than 7 days</td></tr>
-    <tr><td>sudo rm -rf ~/.cache/*</td><td>Clear user cache</td></tr>
-    <tr><td>sudo du -sh /var/cache/apt</td><td>Check apt cache size</td></tr>
-    <tr><td>sudo yum clean all</td><td>Clear package cache (RHEL)</td></tr>
-    <tr><td>sudo dnf autoremove</td><td>Remove unused packages (Fedora)</td></tr>
-  </table>
+    <table>
+      <thead><tr><th>Linux</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Command">sudo apt autoremove</td><td data-label="Description">Remove unused packages</td></tr>
+        <tr><td data-label="Command">sudo apt clean</td><td data-label="Description">Clear package cache</td></tr>
+        <tr><td data-label="Command">journalctl --vacuum-time=7d</td><td data-label="Description">Trim system logs</td></tr>
+        <tr><td data-label="Command">bleachbit</td><td data-label="Description">GUI cleanup tool</td></tr>
+      </tbody>
+    </table>
 
-  <h2>🍎 macOS Cleanup</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>sudo purge</td><td>Clear inactive memory</td></tr>
-    <tr><td>rm -rf ~/Library/Caches/*</td><td>Clear user cache</td></tr>
-    <tr><td>rm -rf /Library/Caches/*</td><td>Clear system cache</td></tr>
-    <tr><td>sudo periodic daily weekly monthly</td><td>Run maintenance scripts</td></tr>
-    <tr><td>diskutil verifyVolume /</td><td>Verify disk health</td></tr>
-    <tr><td>diskutil repairVolume /</td><td>Repair disk</td></tr>
-  </table>
+    <table>
+      <thead><tr><th>macOS</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Command">rm -rf ~/Library/Caches</td><td data-label="Description">Clear user cache</td></tr>
+        <tr><td data-label="Command">purge</td><td data-label="Description">Free inactive memory</td></tr>
+        <tr><td data-label="Command">diskutil verifyVolume</td><td data-label="Description">Check disk health</td></tr>
+        <tr><td data-label="Command">OnyX</td><td data-label="Description">GUI cleanup utility</td></tr>
+      </tbody>
+    </table>
 
-  <h2>🌐 Browser Cleanup</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Action</th><th>Description</th></tr>
-    <tr><td>Clear cache</td><td>Remove stored web data</td></tr>
-    <tr><td>Clear cookies</td><td>Remove tracking and login data</td></tr>
-    <tr><td>Clear history</td><td>Remove browsing history</td></tr>
-    <tr><td>Disable extensions</td><td>Turn off unused add-ons</td></tr>
-    <tr><td>Reset browser</td><td>Restore default settings</td></tr>
-  </table>
+    <table>
+      <thead><tr><th>Cross-Platform Tools</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Command">CCleaner</td><td data-label="Description">Multi-OS cleanup tool</td></tr>
+        <tr><td data-label="Command">Glary Utilities</td><td data-label="Description">Windows optimization suite</td></tr>
+        <tr><td data-label="Command">Stacer</td><td data-label="Description">Linux system optimizer</td></tr>
+        <tr><td data-label="Command">CleanMyMac</td><td data-label="Description">macOS cleanup suite</td></tr>
+      </tbody>
+    </table>
+  </div>
 
+  <footer>
+    <p>&copy; 2025 Huffles IT Services LLC — All rights reserved.</p>
+    <p>
+      <a class="back-button" href="Huffles-IT-Services-Code-Reference.html">🖥️ Back to Porch</a>
+    </p>
+  </footer>
 </body>
 </html>
