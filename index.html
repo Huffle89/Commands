@@ -4,18 +4,29 @@
   <meta charset="UTF-8">
   <title>🏡 Welcome to the Porch</title>
   <style>
+    @keyframes shimmer {
+      0% {
+        background-position: 0 0, 0 0;
+      }
+      100% {
+        background-position: 100px 0, 0 100px;
+      }
+    }
+
     body {
       background-color: #0A0A0A;
       background-image:
         linear-gradient(90deg, rgba(15,82,186,0.15) 1px, transparent 1px),
         linear-gradient(rgba(15,82,186,0.15) 1px, transparent 1px);
       background-size: 40px 40px;
-      background-position: center;
+      background-position: 0 0;
+      animation: shimmer 20s linear infinite;
       font-family: 'Segoe UI', sans-serif;
       color: #FFFFFF;
       text-align: center;
       padding: 60px;
     }
+
     img.logo {
       position: absolute;
       top: 40px;
@@ -24,21 +35,25 @@
       z-index: 10;
       filter: drop-shadow(0 0 8px rgba(0,0,0,0.7)) brightness(1.2);
     }
+
     h1 {
       font-size: 2.8em;
       color: #FFFFFF;
       margin-bottom: 20px;
     }
+
     p {
       font-size: 1.2em;
       max-width: 700px;
       margin: 0 auto 30px;
       color: #FFFFFF;
     }
+
     a {
       color: #1E3A8A;
       text-decoration: none;
     }
+
     .button {
       display: inline-block;
       margin-top: 30px;
@@ -51,16 +66,20 @@
       border-radius: 8px;
       text-decoration: none;
     }
+
     .button:hover {
       background-color: #374FC7;
     }
+
     .qr-container {
       margin-top: 40px;
     }
+
     .qr-container img {
       width: 140px;
       margin: 10px;
     }
+
     footer {
       margin-top: 60px;
       font-size: 0.9em;
@@ -69,6 +88,8 @@
   </style>
 </head>
 <body>
+  <img src="Logo.png" alt="Huffle's IT Services logo" class="logo">
+
   <h1>Huffle's IT Services LLC</h1>
 
   <p>
