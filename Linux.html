@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>🐧 Linux CLI Overlay</title>
+  <title>🐧 Linux Overlay</title>
   <style>
     body {
       background-color: #0A0A0A;
@@ -17,97 +17,75 @@
   </style>
 </head>
 <body>
-  <h1>🐧 Linux CLI Overlay</h1>
+  <h1>🐧 Linux Overlay</h1>
 
-  <h2>📁 Navigation & File Operations</h2>
+  <h2>📁 Navigation & File Management</h2>
   <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
     <tr><th>Command</th><th>Description</th></tr>
+    <tr><td>pwd</td><td>Print working directory</td></tr>
     <tr><td>ls -la</td><td>List all files with details</td></tr>
-    <tr><td>cd /path/to/dir</td><td>Change to specified directory</td></tr>
-    <tr><td>pwd</td><td>Print current working directory</td></tr>
-    <tr><td>nano filename</td><td>Open file in terminal text editor</td></tr>
-    <tr><td>vim filename</td><td>Edit file with Vim</td></tr>
-  </table>
-
-  <h2>🔐 Permissions & Ownership</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>chmod +x script.sh</td><td>Make script executable</td></tr>
-    <tr><td>chown user:group file</td><td>Change file ownership</td></tr>
-  </table>
-
-  <h2>📊 System Monitoring</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>top</td><td>Display real-time system processes</td></tr>
-    <tr><td>htop</td><td>Interactive process viewer</td></tr>
-    <tr><td>ps aux | grep process</td><td>Search for a running process</td></tr>
-    <tr><td>kill -9 PID</td><td>Force kill a process</td></tr>
-  </table>
-
-  <h2>📦 Package Management</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>sudo apt update && sudo apt upgrade</td><td>Update packages (Debian/Ubuntu)</td></tr>
-    <tr><td>yum update</td><td>Update packages (RHEL/CentOS)</td></tr>
-    <tr><td>dnf upgrade</td><td>Upgrade packages (Fedora)</td></tr>
-    <tr><td>pacman -Syu</td><td>Sync and update packages (Arch)</td></tr>
+    <tr><td>cd /path/to/dir</td><td>Change directory</td></tr>
+    <tr><td>mkdir new_folder</td><td>Create new directory</td></tr>
+    <tr><td>rm -rf folder</td><td>Delete folder and contents</td></tr>
+    <tr><td>touch file.txt</td><td>Create empty file</td></tr>
+    <tr><td>cp file1 file2</td><td>Copy file</td></tr>
+    <tr><td>mv old new</td><td>Rename or move file</td></tr>
+    <tr><td>find / -name "file.txt"</td><td>Search for file</td></tr>
   </table>
 
   <h2>🌐 Networking</h2>
   <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
     <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>scp file user@host:/path</td><td>Securely copy file to remote host</td></tr>
-    <tr><td>rsync -avz source/ dest/</td><td>Sync files between locations</td></tr>
+    <tr><td>ip a</td><td>Show IP addresses</td></tr>
+    <tr><td>ping 8.8.8.8</td><td>Test connectivity</td></tr>
+    <tr><td>traceroute google.com</td><td>Trace route to host</td></tr>
+    <tr><td>netstat -tuln</td><td>List open ports</td></tr>
+    <tr><td>ss -tuln</td><td>Show socket stats</td></tr>
+    <tr><td>curl ifconfig.me</td><td>Get public IP</td></tr>
+    <tr><td>scp file user@host:/path</td><td>Secure copy file</td></tr>
+    <tr><td>rsync -avz src/ dest/</td><td>Sync directories</td></tr>
   </table>
 
-  <h2>💾 Disk & Storage</h2>
+  <h2>🔐 Permissions & Security</h2>
   <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
     <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>df -h</td><td>Show disk usage</td></tr>
-    <tr><td>du -sh *</td><td>Show size of each item</td></tr>
-    <tr><td>mount /dev/sdX /mnt</td><td>Mount a drive</td></tr>
-    <tr><td>umount /mnt</td><td>Unmount a drive</td></tr>
-    <tr><td>lsblk</td><td>List block devices</td></tr>
+    <tr><td>chmod 755 file</td><td>Set file permissions</td></tr>
+    <tr><td>chown user:group file</td><td>Change file ownership</td></tr>
+    <tr><td>sudo command</td><td>Run command as root</td></tr>
+    <tr><td>ufw enable</td><td>Enable firewall</td></tr>
+    <tr><td>ufw status</td><td>Check firewall status</td></tr>
+    <tr><td>iptables -L</td><td>List firewall rules</td></tr>
+    <tr><td>passwd</td><td>Change user password</td></tr>
   </table>
 
-  <h2>🗜️ Archiving & Compression</h2>
+  <h2>⚙️ System & Package Management</h2>
   <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
     <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>tar -czvf archive.tar.gz folder/</td><td>Create a compressed archive</td></tr>
-    <tr><td>gzip file</td><td>Compress a file</td></tr>
-    <tr><td>unzip file.zip</td><td>Extract a zip archive</td></tr>
+    <tr><td>top</td><td>View running processes</td></tr>
+    <tr><td>htop</td><td>Interactive process viewer</td></tr>
+    <tr><td>df -h</td><td>Disk usage</td></tr>
+    <tr><td>free -m</td><td>Memory usage</td></tr>
+    <tr><td>uname -a</td><td>System info</td></tr>
+    <tr><td>uptime</td><td>System uptime</td></tr>
+    <tr><td>ps aux</td><td>List all processes</td></tr>
+    <tr><td>kill PID</td><td>Terminate process</td></tr>
+    <tr><td>apt update</td><td>Update package list (Debian)</td></tr>
+    <tr><td>apt upgrade</td><td>Upgrade packages (Debian)</td></tr>
+    <tr><td>yum update</td><td>Update packages (RHEL)</td></tr>
+    <tr><td>dnf upgrade</td><td>Upgrade packages (Fedora)</td></tr>
   </table>
 
-  <h2>👥 User Management</h2>
+  <h2>🧪 Diagnostics & Recovery</h2>
   <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
     <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>useradd username</td><td>Create a new user</td></tr>
-    <tr><td>passwd username</td><td>Set user password</td></tr>
-    <tr><td>groups</td><td>Show current user’s groups</td></tr>
-  </table>
-
-  <h2>⏱️ Scheduling & Services</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>crontab -e</td><td>Edit scheduled tasks</td></tr>
+    <tr><td>dmesg</td><td>Kernel messages</td></tr>
+    <tr><td>journalctl -xe</td><td>Systemd logs</td></tr>
     <tr><td>systemctl status service</td><td>Check service status</td></tr>
-    <tr><td>systemctl restart service</td><td>Restart a service</td></tr>
-  </table>
-
-  <h2>🛡️ Security & Firewall</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>firewall-cmd --list-all</td><td>View firewall settings (CentOS/RHEL)</td></tr>
-    <tr><td>ufw status</td><td>View firewall status (Ubuntu)</td></tr>
-  </table>
-
-  <h2>🧾 Logs & Diagnostics</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>journalctl -xe</td><td>View system logs</td></tr>
-    <tr><td>dmesg | less</td><td>View kernel messages</td></tr>
-    <tr><td>grep "error" /var/log/syslog</td><td>Search logs for errors</td></tr>
+    <tr><td>systemctl restart service</td><td>Restart service</td></tr>
+    <tr><td>mount /dev/sdX /mnt</td><td>Mount device</td></tr>
+    <tr><td>fsck /dev/sdX</td><td>Check filesystem</td></tr>
+    <tr><td>reboot</td><td>Restart system</td></tr>
+    <tr><td>shutdown now</td><td>Power off system</td></tr>
   </table>
 
 </body>
