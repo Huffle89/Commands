@@ -18,18 +18,13 @@
       margin-bottom: 20px;
     }
 
-    .table-group {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      max-width: 1200px;
-      margin: 0 auto 60px;
+    .section {
+      margin-bottom: 60px;
     }
 
     table {
-      flex: 1 1 300px;
-      max-width: 400px;
+      margin: 0 auto;
+      max-width: 1000px;
       border-collapse: collapse;
       width: 100%;
     }
@@ -39,6 +34,7 @@
       padding: 12px;
       text-align: left;
       background-color: #111111;
+      vertical-align: top;
     }
 
     th {
@@ -46,44 +42,9 @@
       color: #FFFFFF;
     }
 
-    @media screen and (max-width: 600px) {
-      .table-group {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      table thead {
-        display: none;
-      }
-
-      table, table tbody, table tr, table td {
-        display: block;
-        width: 100%;
-      }
-
-      table tr {
-        margin-bottom: 20px;
-        border: 1px solid #0F52BA;
-        background-color: #111111;
-        padding: 10px;
-      }
-
-      table td {
-        text-align: right;
-        padding-left: 50%;
-        position: relative;
-      }
-
-      table td::before {
-        content: attr(data-label);
-        position: absolute;
-        left: 10px;
-        width: 45%;
-        padding-left: 10px;
-        font-weight: bold;
-        text-align: left;
-        color: #0F52BA;
-      }
+    td:first-child {
+      width: 250px;
+      white-space: nowrap;
     }
 
     footer {
@@ -111,56 +72,58 @@
 </head>
 <body>
   <h1>Git & GitHub</h1>
-  <h2>Version Control Reference</h2>
+  <h2>Version Control Workflows and Commands</h2>
 
-  <div class="table-group">
+  <div class="section">
+    <h2>🧱 Local Git Commands</h2>
     <table>
-      <thead><tr><th>Git Basics</th><th>Description</th></tr></thead>
+      <thead><tr><th>Command</th><th>Type</th><th>Purpose</th></tr></thead>
       <tbody>
-        <tr><td data-label="Command">git init</td><td data-label="Description">Initialize repository</td></tr>
-        <tr><td data-label="Command">git clone</td><td data-label="Description">Copy remote repo</td></tr>
-        <tr><td data-label="Command">git status</td><td data-label="Description">Check repo state</td></tr>
-        <tr><td data-label="Command">git log</td><td data-label="Description">View commit history</td></tr>
+        <tr><td>git init</td><td>CLI</td><td>Initialize a new local Git repository</td></tr>
+        <tr><td>git status</td><td>CLI</td><td>Show current changes and branch info</td></tr>
+        <tr><td>git add .</td><td>CLI</td><td>Stage all changes for commit</td></tr>
+        <tr><td>git commit -m "message"</td><td>CLI</td><td>Commit staged changes with a message</td></tr>
+        <tr><td>git log</td><td>CLI</td><td>View commit history</td></tr>
       </tbody>
     </table>
+  </div>
 
+  <div class="section">
+    <h2>🌐 Remote GitHub Commands</h2>
     <table>
-      <thead><tr><th>Staging & Committing</th><th>Description</th></tr></thead>
+      <thead><tr><th>Command</th><th>Type</th><th>Purpose</th></tr></thead>
       <tbody>
-        <tr><td data-label="Command">git add .</td><td data-label="Description">Stage all changes</td></tr>
-        <tr><td data-label="Command">git commit -m ""</td><td data-label="Description">Commit with message</td></tr>
-        <tr><td data-label="Command">git reset</td><td data-label="Description">Unstage changes</td></tr>
-        <tr><td data-label="Command">git diff</td><td data-label="Description">Show file changes</td></tr>
+        <tr><td>git clone [URL]</td><td>CLI</td><td>Download a remote repository</td></tr>
+        <tr><td>git remote add origin [URL]</td><td>CLI</td><td>Link local repo to remote GitHub repo</td></tr>
+        <tr><td>git push -u origin main</td><td>CLI</td><td>Push local commits to GitHub</td></tr>
+        <tr><td>git pull</td><td>CLI</td><td>Fetch and merge changes from GitHub</td></tr>
+        <tr><td>Fork (GitHub UI)</td><td>GUI</td><td>Create a copy of someone else's repo under your account</td></tr>
       </tbody>
     </table>
+  </div>
 
+  <div class="section">
+    <h2>🌿 Branching & Merging</h2>
     <table>
-      <thead><tr><th>Branching</th><th>Description</th></tr></thead>
+      <thead><tr><th>Command</th><th>Type</th><th>Purpose</th></tr></thead>
       <tbody>
-        <tr><td data-label="Command">git branch</td><td data-label="Description">List branches</td></tr>
-        <tr><td data-label="Command">git checkout -b</td><td data-label="Description">Create new branch</td></tr>
-        <tr><td data-label="Command">git merge</td><td data-label="Description">Merge branches</td></tr>
-        <tr><td data-label="Command">git switch</td><td data-label="Description">Switch branches</td></tr>
+        <tr><td>git branch</td><td>CLI</td><td>List all branches</td></tr>
+        <tr><td>git checkout -b [name]</td><td>CLI</td><td>Create and switch to a new branch</td></tr>
+        <tr><td>git merge [branch]</td><td>CLI</td><td>Merge another branch into current</td></tr>
+        <tr><td>git switch [branch]</td><td>CLI</td><td>Switch to another branch</td></tr>
       </tbody>
     </table>
+  </div>
 
+  <div class="section">
+    <h2>🤝 Collaboration & Pull Requests</h2>
     <table>
-      <thead><tr><th>Remote</th><th>Description</th></tr></thead>
+      <thead><tr><th>Action</th><th>Platform</th><th>Purpose</th></tr></thead>
       <tbody>
-        <tr><td data-label="Command">git remote -v</td><td data-label="Description">Show remotes</td></tr>
-        <tr><td data-label="Command">git push</td><td data-label="Description">Upload commits</td></tr>
-        <tr><td data-label="Command">git pull</td><td data-label="Description">Download updates</td></tr>
-        <tr><td data-label="Command">git fetch</td><td data-label="Description">Get remote changes</td></tr>
-      </tbody>
-    </table>
-
-    <table>
-      <thead><tr><th>GitHub Workflows</th><th>Description</th></tr></thead>
-      <tbody>
-        <tr><td data-label="Command">Fork</td><td data-label="Description">Copy repo to your account</td></tr>
-        <tr><td data-label="Command">Pull Request</td><td data-label="Description">Propose changes</td></tr>
-        <tr><td data-label="Command">Issues</td><td data-label="Description">Track bugs & tasks</td></tr>
-        <tr><td data-label="Command">Actions</td><td data-label="Description">Automate workflows</td></tr>
+        <tr><td>Create Pull Request</td><td>GitHub UI</td><td>Propose changes from one branch to another</td></tr>
+        <tr><td>Review & Merge</td><td>GitHub UI</td><td>Approve and merge pull requests</td></tr>
+        <tr><td>Issues</td><td>GitHub UI</td><td>Track bugs, tasks, and feature requests</td></tr>
+        <tr><td>Actions</td><td>GitHub UI</td><td>Automate workflows like testing and deployment</td></tr>
       </tbody>
     </table>
   </div>
