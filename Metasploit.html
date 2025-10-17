@@ -18,18 +18,13 @@
       margin-bottom: 20px;
     }
 
-    .table-group {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      max-width: 1200px;
-      margin: 0 auto 60px;
+    .section {
+      margin-bottom: 60px;
     }
 
     table {
-      flex: 1 1 300px;
-      max-width: 400px;
+      margin: 0 auto;
+      max-width: 1000px;
       border-collapse: collapse;
       width: 100%;
     }
@@ -39,6 +34,7 @@
       padding: 12px;
       text-align: left;
       background-color: #111111;
+      vertical-align: top;
     }
 
     th {
@@ -46,44 +42,9 @@
       color: #FFFFFF;
     }
 
-    @media screen and (max-width: 600px) {
-      .table-group {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      table thead {
-        display: none;
-      }
-
-      table, table tbody, table tr, table td {
-        display: block;
-        width: 100%;
-      }
-
-      table tr {
-        margin-bottom: 20px;
-        border: 1px solid #0F52BA;
-        background-color: #111111;
-        padding: 10px;
-      }
-
-      table td {
-        text-align: right;
-        padding-left: 50%;
-        position: relative;
-      }
-
-      table td::before {
-        content: attr(data-label);
-        position: absolute;
-        left: 10px;
-        width: 45%;
-        padding-left: 10px;
-        font-weight: bold;
-        text-align: left;
-        color: #0F52BA;
-      }
+    td:first-child {
+      width: 250px;
+      white-space: nowrap;
     }
 
     footer {
@@ -111,56 +72,59 @@
 </head>
 <body>
   <h1>Metasploit</h1>
-  <h2>Exploitation Framework Reference</h2>
+  <h2>Module Logic & Exploitation Workflows</h2>
 
-  <div class="table-group">
+  <div class="section">
+    <h2>🔍 Discovery & Scanning</h2>
     <table>
-      <thead><tr><th>Startup</th><th>Description</th></tr></thead>
+      <thead><tr><th>Command</th><th>Purpose</th></tr></thead>
       <tbody>
-        <tr><td data-label="Command">msfconsole</td><td data-label="Description">Launch Metasploit CLI</td></tr>
-        <tr><td data-label="Command">search</td><td data-label="Description">Find modules</td></tr>
-        <tr><td data-label="Command">use</td><td data-label="Description">Load selected module</td></tr>
-        <tr><td data-label="Command">info</td><td data-label="Description">Show module details</td></tr>
+        <tr><td>msfconsole</td><td>Launch Metasploit CLI interface</td></tr>
+        <tr><td>search [term]</td><td>Find modules by keyword</td></tr>
+        <tr><td>use auxiliary/scanner/portscan/tcp</td><td>Run TCP port scan</td></tr>
+        <tr><td>use auxiliary/scanner/http/title</td><td>Grab web page titles for discovery</td></tr>
+        <tr><td>services</td><td>List discovered services from scans</td></tr>
       </tbody>
     </table>
+  </div>
 
+  <div class="section">
+    <h2>⚙️ Module Setup</h2>
     <table>
-      <thead><tr><th>Configuration</th><th>Description</th></tr></thead>
+      <thead><tr><th>Command</th><th>Purpose</th></tr></thead>
       <tbody>
-        <tr><td data-label="Command">set RHOSTS</td><td data-label="Description">Target IP(s)</td></tr>
-        <tr><td data-label="Command">set RPORT</td><td data-label="Description">Target port</td></tr>
-        <tr><td data-label="Command">set PAYLOAD</td><td data-label="Description">Choose payload</td></tr>
-        <tr><td data-label="Command">show options</td><td data-label="Description">View required settings</td></tr>
+        <tr><td>use exploit/windows/smb/ms17_010_eternalblue</td><td>Select exploit module</td></tr>
+        <tr><td>show options</td><td>Display required settings for module</td></tr>
+        <tr><td>set RHOSTS [target]</td><td>Set target IP address</td></tr>
+        <tr><td>set LHOST [your IP]</td><td>Set local IP for reverse shell</td></tr>
+        <tr><td>set PAYLOAD [type]</td><td>Choose payload (e.g. reverse_tcp)</td></tr>
       </tbody>
     </table>
+  </div>
 
+  <div class="section">
+    <h2>🚀 Exploitation</h2>
     <table>
-      <thead><tr><th>Execution</th><th>Description</th></tr></thead>
+      <thead><tr><th>Command</th><th>Purpose</th></tr></thead>
       <tbody>
-        <tr><td data-label="Command">exploit</td><td data-label="Description">Run the module</td></tr>
-        <tr><td data-label="Command">run</td><td data-label="Description">Alias for exploit</td></tr>
-        <tr><td data-label="Command">check</td><td data-label="Description">Test vulnerability</td></tr>
-        <tr><td data-label="Command">sessions</td><td data-label="Description">List active sessions</td></tr>
+        <tr><td>exploit</td><td>Launch the exploit</td></tr>
+        <tr><td>run</td><td>Alias for exploit (used in auxiliary modules)</td></tr>
+        <tr><td>sessions</td><td>List active sessions</td></tr>
+        <tr><td>sessions -i [ID]</td><td>Interact with a specific session</td></tr>
       </tbody>
     </table>
+  </div>
 
+  <div class="section">
+    <h2>🧠 Post-Exploitation</h2>
     <table>
-      <thead><tr><th>Post-Exploitation</th><th>Description</th></tr></thead>
+      <thead><tr><th>Command</th><th>Purpose</th></tr></thead>
       <tbody>
-        <tr><td data-label="Command">background</td><td data-label="Description">Send session to background</td></tr>
-        <tr><td data-label="Command">shell</td><td data-label="Description">Open system shell</td></tr>
-        <tr><td data-label="Command">upload</td><td data-label="Description">Send file to target</td></tr>
-        <tr><td data-label="Command">download</td><td data-label="Description">Retrieve file from target</td></tr>
-      </tbody>
-    </table>
-
-    <table>
-      <thead><tr><th>Utilities</th><th>Description</th></tr></thead>
-      <tbody>
-        <tr><td data-label="Command">db_nmap</td><td data-label="Description">Scan and import targets</td></tr>
-        <tr><td data-label="Command">resource</td><td data-label="Description">Run script file</td></tr>
-        <tr><td data-label="Command">load</td><td data-label="Description">Enable plugin</td></tr>
-        <tr><td data-label="Command">help</td><td data-label="Description">List available commands</td></tr>
+        <tr><td>sysinfo</td><td>Display target system info</td></tr>
+        <tr><td>hashdump</td><td>Dump password hashes</td></tr>
+        <tr><td>keyscan_start / keyscan_dump</td><td>Start and dump keystroke logs</td></tr>
+        <tr><td>upload / download</td><td>Transfer files to/from target</td></tr>
+        <tr><td>shell</td><td>Drop into system shell</td></tr>
       </tbody>
     </table>
   </div>
