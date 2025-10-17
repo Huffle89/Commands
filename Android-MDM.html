@@ -2,81 +2,164 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>🤖 Android MDM Overlay</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Android MDM — Huffles IT Services</title>
   <style>
     body {
       background-color: #0A0A0A;
+      color: #FFFFFF;
       font-family: 'Segoe UI', sans-serif;
-      color: #1E3A8A;
-      padding: 40px;
+      padding: 40px 20px;
       text-align: center;
     }
-    table, th, td {
+
+    h1, h2 {
+      color: #0F52BA;
+      margin-bottom: 20px;
+    }
+
+    .table-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto 60px;
+    }
+
+    table {
+      flex: 1 1 300px;
+      max-width: 400px;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      border: 1px solid #0F52BA;
+      padding: 12px;
+      text-align: left;
+      background-color: #111111;
+    }
+
+    th {
+      background-color: #0F52BA;
       color: #FFFFFF;
+    }
+
+    @media screen and (max-width: 600px) {
+      .table-group {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      table thead {
+        display: none;
+      }
+
+      table, table tbody, table tr, table td {
+        display: block;
+        width: 100%;
+      }
+
+      table tr {
+        margin-bottom: 20px;
+        border: 1px solid #0F52BA;
+        background-color: #111111;
+        padding: 10px;
+      }
+
+      table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+      }
+
+      table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: 45%;
+        padding-left: 10px;
+        font-weight: bold;
+        text-align: left;
+        color: #0F52BA;
+      }
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 0.9em;
+      color: #FFFFFF;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background-color: #0F52BA;
+      color: #FFFFFF;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    .back-button:hover {
+      background-color: #FFFFFF;
+      color: #0F52BA;
     }
   </style>
 </head>
 <body>
-  <h1>🤖 Android MDM Overlay</h1>
+  <h1>Android MDM</h1>
+  <h2>Device Management Reference</h2>
 
-  <h2>📦 Device Info & Inventory</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Key</th><th>Description</th></tr>
-    <tr><td>deviceName</td><td>Device name</td></tr>
-    <tr><td>manufacturer</td><td>Device manufacturer</td></tr>
-    <tr><td>model</td><td>Device model</td></tr>
-    <tr><td>osVersion</td><td>Android OS version</td></tr>
-    <tr><td>serialNumber</td><td>Device serial number</td></tr>
-    <tr><td>imei</td><td>IMEI number</td></tr>
-    <tr><td>meid</td><td>MEID number</td></tr>
-    <tr><td>androidId</td><td>Android ID</td></tr>
-  </table>
+  <div class="table-group">
+    <table>
+      <thead><tr><th>ADB Basics</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Command">adb devices</td><td data-label="Description">List connected devices</td></tr>
+        <tr><td data-label="Command">adb reboot</td><td data-label="Description">Reboot device</td></tr>
+        <tr><td data-label="Command">adb shell</td><td data-label="Description">Open device shell</td></tr>
+        <tr><td data-label="Command">adb install</td><td data-label="Description">Install APK</td></tr>
+      </tbody>
+    </table>
 
-  <h2>🔐 Restrictions & Policies</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Key</th><th>Description</th></tr>
-    <tr><td>disableCamera</td><td>Disable camera access</td></tr>
-    <tr><td>disableScreenCapture</td><td>Prevent screenshots</td></tr>
-    <tr><td>disableBluetooth</td><td>Disable Bluetooth</td></tr>
-    <tr><td>disableWifi</td><td>Disable Wi-Fi</td></tr>
-    <tr><td>disableUsbFileTransfer</td><td>Block USB file transfer</td></tr>
-    <tr><td>disableFactoryReset</td><td>Prevent factory reset</td></tr>
-    <tr><td>disableSafeBoot</td><td>Block safe mode boot</td></tr>
-    <tr><td>disableStatusBar</td><td>Prevent status bar access</td></tr>
-  </table>
+    <table>
+      <thead><tr><th>Provisioning</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Command">adb push</td><td data-label="Description">Send file to device</td></tr>
+        <tr><td data-label="Command">adb pull</td><td data-label="Description">Retrieve file from device</td></tr>
+        <tr><td data-label="Command">adb sideload</td><td data-label="Description">Install update package</td></tr>
+        <tr><td data-label="Command">adb shell pm grant</td><td data-label="Description">Grant app permission</td></tr>
+      </tbody>
+    </table>
 
-  <h2>🌐 Network & Connectivity</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Key</th><th>Description</th></tr>
-    <tr><td>wifiConfigurations</td><td>Preconfigured Wi-Fi networks</td></tr>
-    <tr><td>vpnSettings</td><td>Configure VPN access</td></tr>
-    <tr><td>apnSettings</td><td>Set APN for cellular data</td></tr>
-    <tr><td>proxySettings</td><td>Configure proxy server</td></tr>
-    <tr><td>networkLoggingEnabled</td><td>Enable network logging</td></tr>
-  </table>
+    <table>
+      <thead><tr><th>App Control</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Command">adb shell pm list packages</td><td data-label="Description">List installed packages</td></tr>
+        <tr><td data-label="Command">adb shell pm uninstall</td><td data-label="Description">Uninstall app</td></tr>
+        <tr><td data-label="Command">adb shell am start</td><td data-label="Description">Launch app activity</td></tr>
+        <tr><td data-label="Command">adb shell am force-stop</td><td data-label="Description">Force stop app</td></tr>
+      </tbody>
+    </table>
 
-  <h2>📲 App & Profile Management</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Key</th><th>Description</th></tr>
-    <tr><td>installPackage</td><td>Install app silently</td></tr>
-    <tr><td>uninstallPackage</td><td>Remove app silently</td></tr>
-    <tr><td>blockUninstall</td><td>Prevent app removal</td></tr>
-    <tr><td>setDefaultLauncher</td><td>Set custom launcher</td></tr>
-    <tr><td>appRestrictions</td><td>Restrict app behavior</td></tr>
-    <tr><td>managedConfigurations</td><td>Push app config settings</td></tr>
-  </table>
+    <table>
+      <thead><tr><th>Security & Debug</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Command">adb logcat</td><td data-label="Description">View device logs</td></tr>
+        <tr><td data-label="Command">adb shell screencap</td><td data-label="Description">Take screenshot</td></tr>
+        <tr><td data-label="Command">adb shell dumpsys</td><td data-label="Description">System diagnostics</td></tr>
+        <tr><td data-label="Command">adb shell settings</td><td data-label="Description">Modify system settings</td></tr>
+      </tbody>
+    </table>
+  </div>
 
-  <h2>🧪 Diagnostics & Commands</h2>
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
-    <tr><th>Command</th><th>Description</th></tr>
-    <tr><td>lockNow</td><td>Immediately lock device</td></tr>
-    <tr><td>wipeData</td><td>Factory reset device</td></tr>
-    <tr><td>reboot</td><td>Reboot device</td></tr>
-    <tr><td>enableLostMode</td><td>Activate lost mode</td></tr>
-    <tr><td>disableLostMode</td><td>Deactivate lost mode</td></tr>
-    <tr><td>getLogs</td><td>Retrieve device logs</td></tr>
-    <tr><td>getSecurityLogs</td><td>Retrieve security logs</td></tr>
-  </table>
-
+  <footer>
+    <p>&copy; 2025 Huffles IT Services LLC — All rights reserved.</p>
+    <p>
+      <a class="back-button" href="Huffles-IT-Services-Code-Reference.html">🖥️ Back to Porch</a>
+    </p>
+  </footer>
 </body>
 </html>
