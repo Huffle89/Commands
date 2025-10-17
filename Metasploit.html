@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>💣 Metasploit Overlay</title>
+  <style>
+    body {
+      background-color: #0A0A0A;
+      font-family: 'Segoe UI', sans-serif;
+      color: #1E3A8A;
+      padding: 40px;
+      text-align: center;
+    }
+    table, th, td {
+      color: #FFFFFF;
+    }
+  </style>
+</head>
+<body>
+  <h1>💣 Metasploit Overlay</h1>
+
+  <h2>📦 Module Management</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Command</th><th>Description</th></tr>
+    <tr><td>search exploit_name</td><td>Search for exploit module</td></tr>
+    <tr><td>use exploit/path</td><td>Load exploit module</td></tr>
+    <tr><td>info</td><td>Show module details</td></tr>
+    <tr><td>show options</td><td>List required settings</td></tr>
+    <tr><td>set RHOSTS target_ip</td><td>Set target IP</td></tr>
+    <tr><td>set RPORT port</td><td>Set target port</td></tr>
+  </table>
+
+  <h2>🎯 Payload Configuration</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Command</th><th>Description</th></tr>
+    <tr><td>set PAYLOAD payload_name</td><td>Select payload</td></tr>
+    <tr><td>set LHOST local_ip</td><td>Set local IP</td></tr>
+    <tr><td>set LPORT local_port</td><td>Set local port</td></tr>
+    <tr><td>generate -t exe -f shell.exe</td><td>Generate payload file</td></tr>
+    <tr><td>msfvenom -p payload -f format -o file</td><td>Generate payload with msfvenom</td></tr>
+  </table>
+
+  <h2>🚀 Exploitation & Execution</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Command</th><th>Description</th></tr>
+    <tr><td>exploit</td><td>Run exploit</td></tr>
+    <tr><td>run</td><td>Alias for exploit</td></tr>
+    <tr><td>check</td><td>Test if target is vulnerable</td></tr>
+    <tr><td>back</td><td>Return to previous context</td></tr>
+    <tr><td>exit</td><td>Exit Metasploit</td></tr>
+  </table>
+
+  <h2>🧠 Session Management</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Command</th><th>Description</th></tr>
+    <tr><td>sessions</td><td>List active sessions</td></tr>
+    <tr><td>sessions -i ID</td><td>Interact with session</td></tr>
+    <tr><td>background</td><td>Send session to background</td></tr>
+    <tr><td>kill ID</td><td>Terminate session</td></tr>
+    <tr><td>sessions -K</td><td>Kill all sessions</td></tr>
+  </table>
+
+  <h2>🔍 Post-Exploitation</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Command</th><th>Description</th></tr>
+    <tr><td>hashdump</td><td>Dump password hashes</td></tr>
+    <tr><td>keyscan_start</td><td>Start keylogger</td></tr>
+    <tr><td>keyscan_dump</td><td>Dump keystrokes</td></tr>
+    <tr><td>screenshot</td><td>Capture screen</td></tr>
+    <tr><td>record_mic</td><td>Record microphone input</td></tr>
+    <tr><td>webcam_snap</td><td>Take webcam photo</td></tr>
+  </table>
+
+</body>
+</html>
