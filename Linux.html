@@ -1,4 +1,3 @@
-<!-- Full Linux CLI Overlay with white table text -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,26 +12,52 @@
       text-align: center;
     }
     table, th, td {
-      color: #FFFFFF;
+      color: #1E3A8A;
     }
   </style>
 </head>
 <body>
   <h1>🐧 Linux CLI Overlay</h1>
+
   <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A; border-collapse: collapse;">
     <tr><th>Command</th><th>Description</th></tr>
     <tr><td>ls -la</td><td>List all files with details</td></tr>
     <tr><td>cd /path/to/dir</td><td>Change to specified directory</td></tr>
     <tr><td>pwd</td><td>Print current working directory</td></tr>
-    <tr><td>sudo apt update && sudo apt upgrade</td><td>Update and upgrade packages</td></tr>
+    <tr><td>sudo apt update && sudo apt upgrade</td><td>Update and upgrade packages (Debian/Ubuntu)</td></tr>
+    <tr><td>yum update</td><td>Update packages (RHEL/CentOS)</td></tr>
+    <tr><td>dnf upgrade</td><td>Upgrade packages (Fedora)</td></tr>
+    <tr><td>pacman -Syu</td><td>Sync and update packages (Arch)</td></tr>
     <tr><td>chmod +x script.sh</td><td>Make script executable</td></tr>
+    <tr><td>chown user:group file</td><td>Change file ownership</td></tr>
     <tr><td>ps aux | grep process</td><td>Search for a running process</td></tr>
+    <tr><td>kill -9 PID</td><td>Force kill a process</td></tr>
     <tr><td>top</td><td>Display real-time system processes</td></tr>
-    <tr><td>df -h</td><td>Show disk usage</td></tr>
-    <tr><td>du -sh *</td><td>Show size of each item</td></tr>
+    <tr><td>htop</td><td>Interactive process viewer</td></tr>
+    <tr><td>df -h</td><td>Show disk usage in human-readable format</td></tr>
+    <tr><td>du -sh *</td><td>Show size of each item in current directory</td></tr>
+    <tr><td>mount /dev/sdX /mnt</td><td>Mount a drive</td></tr>
+    <tr><td>umount /mnt</td><td>Unmount a drive</td></tr>
+    <tr><td>lsblk</td><td>List block devices</td></tr>
     <tr><td>tar -czvf archive.tar.gz folder/</td><td>Create a compressed archive</td></tr>
+    <tr><td>gzip file</td><td>Compress a file</td></tr>
+    <tr><td>unzip file.zip</td><td>Extract a zip archive</td></tr>
     <tr><td>scp file user@host:/path</td><td>Securely copy file to remote host</td></tr>
+    <tr><td>rsync -avz source/ dest/</td><td>Sync files between locations</td></tr>
     <tr><td>nano filename</td><td>Open file in terminal text editor</td></tr>
+    <tr><td>vim filename</td><td>Edit file with Vim</td></tr>
+    <tr><td>journalctl -xe</td><td>View system logs</td></tr>
+    <tr><td>dmesg | less</td><td>View kernel messages</td></tr>
+    <tr><td>grep "error" /var/log/syslog</td><td>Search logs for errors</td></tr>
+    <tr><td>useradd username</td><td>Create a new user</td></tr>
+    <tr><td>passwd username</td><td>Set user password</td></tr>
+    <tr><td>groups</td><td>Show current user’s groups</td></tr>
+    <tr><td>crontab -e</td><td>Edit scheduled tasks</td></tr>
+    <tr><td>systemctl status service</td><td>Check service status</td></tr>
+    <tr><td>systemctl restart service</td><td>Restart a service</td></tr>
+    <tr><td>firewall-cmd --list-all</td><td>View firewall settings (CentOS/RHEL)</td></tr>
+    <tr><td>ufw status</td><td>View firewall status (Ubuntu)</td></tr>
   </table>
+
 </body>
 </html>
