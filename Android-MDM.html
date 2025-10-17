@@ -19,47 +19,33 @@
 <body>
   <h1>🤖 Android MDM Overlay</h1>
 
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A; border-collapse: collapse;">
-    <tr>
-      <th>Action</th>
-      <th>Command / Setting</th>
-    </tr>
-    <tr>
-      <td>Enroll Device</td>
-      <td>Use QR code, NFC, or afw#setup for Android Enterprise enrollment</td>
-    </tr>
-    <tr>
-      <td>Provision Work Profile</td>
-      <td>Enable BYOD mode with separate work container</td>
-    </tr>
-    <tr>
-      <td>Push App</td>
-      <td>Deploy via managed Google Play store</td>
-    </tr>
-    <tr>
-      <td>Apply Restrictions</td>
-      <td>Use DPC policies to restrict settings (e.g., camera, screen capture)</td>
-    </tr>
-    <tr>
-      <td>Remove MDM</td>
-      <td>Factory reset or remove device from MDM console</td>
-    </tr>
-    <tr>
-      <td>Lock Device</td>
-      <td>Send remote lock command via MDM</td>
-    </tr>
-    <tr>
-      <td>Wipe Device</td>
-      <td>Send remote wipe command (work profile or full device)</td>
-    </tr>
-    <tr>
-      <td>Install Certificate</td>
-      <td>Push trusted root certificate via MDM</td>
-    </tr>
-    <tr>
-      <td>Custom JSON Payloads</td>
-      <td>Define advanced settings using OEMConfig or custom schema</td>
-    </tr>
+  <h2>📦 Enrollment & Provisioning</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Action</th><th>Description</th></tr>
+    <tr><td>Enroll Device</td><td>Use QR code, NFC, or afw#setup for Android Enterprise enrollment</td></tr>
+    <tr><td>Provision Work Profile</td><td>Enable BYOD mode with separate work container</td></tr>
+  </table>
+
+  <h2>📱 App & Profile Management</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Action</th><th>Description</th></tr>
+    <tr><td>Push App</td><td>Deploy apps via managed Google Play store</td></tr>
+    <tr><td>Install Certificate</td><td>Push trusted root certificate via MDM</td></tr>
+    <tr><td>Custom JSON Payloads</td><td>Define advanced settings using OEMConfig or custom schema</td></tr>
+  </table>
+
+  <h2>🔒 Restrictions & Controls</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Action</th><th>Description</th></tr>
+    <tr><td>Apply Restrictions</td><td>Use DPC policies to restrict settings (e.g., camera, screen capture)</td></tr>
+    <tr><td>Lock Device</td><td>Send remote lock command via MDM</td></tr>
+  </table>
+
+  <h2>🧹 Removal & Wipe</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Action</th><th>Description</th></tr>
+    <tr><td>Remove MDM</td><td>Factory reset or remove device from MDM console</td></tr>
+    <tr><td>Wipe Device</td><td>Send remote wipe command (work profile or full device)</td></tr>
   </table>
 
 </body>
