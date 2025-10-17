@@ -18,18 +18,13 @@
       margin-bottom: 20px;
     }
 
-    .table-group {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      max-width: 1200px;
-      margin: 0 auto 60px;
+    .section {
+      margin-bottom: 60px;
     }
 
     table {
-      flex: 1 1 300px;
-      max-width: 400px;
+      margin: 0 auto;
+      max-width: 1000px;
       border-collapse: collapse;
       width: 100%;
     }
@@ -39,6 +34,7 @@
       padding: 12px;
       text-align: left;
       background-color: #111111;
+      vertical-align: top;
     }
 
     th {
@@ -46,44 +42,9 @@
       color: #FFFFFF;
     }
 
-    @media screen and (max-width: 600px) {
-      .table-group {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      table thead {
-        display: none;
-      }
-
-      table, table tbody, table tr, table td {
-        display: block;
-        width: 100%;
-      }
-
-      table tr {
-        margin-bottom: 20px;
-        border: 1px solid #0F52BA;
-        background-color: #111111;
-        padding: 10px;
-      }
-
-      table td {
-        text-align: right;
-        padding-left: 50%;
-        position: relative;
-      }
-
-      table td::before {
-        content: attr(data-label);
-        position: absolute;
-        left: 10px;
-        width: 45%;
-        padding-left: 10px;
-        font-weight: bold;
-        text-align: left;
-        color: #0F52BA;
-      }
+    td:first-child {
+      width: 250px;
+      white-space: nowrap;
     }
 
     footer {
@@ -111,56 +72,56 @@
 </head>
 <body>
   <h1>Nmap</h1>
-  <h2>Network Scanning Reference</h2>
+  <h2>Scan Types & CLI Syntax</h2>
 
-  <div class="table-group">
+  <div class="section">
+    <h2>🔍 Basic Scans</h2>
     <table>
-      <thead><tr><th>Basic Scans</th><th>Description</th></tr></thead>
+      <thead><tr><th>Command</th><th>Purpose</th></tr></thead>
       <tbody>
-        <tr><td data-label="Command">nmap 192.168.1.1</td><td data-label="Description">Scan single host</td></tr>
-        <tr><td data-label="Command">nmap 192.168.1.0/24</td><td data-label="Description">Scan subnet</td></tr>
-        <tr><td data-label="Command">nmap -v</td><td data-label="Description">Verbose output</td></tr>
-        <tr><td data-label="Command">nmap -sn</td><td data-label="Description">Ping scan (host discovery)</td></tr>
+        <tr><td>nmap [target]</td><td>Default scan (TCP SYN)</td></tr>
+        <tr><td>nmap -sP [range]</td><td>Ping sweep to find live hosts</td></tr>
+        <tr><td>nmap -sn [range]</td><td>Host discovery without port scan</td></tr>
+        <tr><td>nmap -v [target]</td><td>Verbose output</td></tr>
       </tbody>
     </table>
+  </div>
 
+  <div class="section">
+    <h2>🕵️ Stealth & Evasion</h2>
     <table>
-      <thead><tr><th>Port Scanning</th><th>Description</th></tr></thead>
+      <thead><tr><th>Command</th><th>Purpose</th></tr></thead>
       <tbody>
-        <tr><td data-label="Command">nmap -p 80</td><td data-label="Description">Scan specific port</td></tr>
-        <tr><td data-label="Command">nmap -p-</td><td data-label="Description">Scan all ports</td></tr>
-        <tr><td data-label="Command">nmap -F</td><td data-label="Description">Fast scan (top 100 ports)</td></tr>
-        <tr><td data-label="Command">nmap -Pn</td><td data-label="Description">Skip host discovery</td></tr>
+        <tr><td>nmap -sS [target]</td><td>Stealth SYN scan</td></tr>
+        <tr><td>nmap -D RND:10 [target]</td><td>Decoy scan to mask source</td></tr>
+        <tr><td>nmap -f [target]</td><td>Fragment packets to bypass filters</td></tr>
+        <tr><td>nmap --data-length 50 [target]</td><td>Obfuscate scan with random payload</td></tr>
       </tbody>
     </table>
+  </div>
 
+  <div class="section">
+    <h2>🔧 Service & Version Detection</h2>
     <table>
-      <thead><tr><th>Service & OS Detection</th><th>Description</th></tr></thead>
+      <thead><tr><th>Command</th><th>Purpose</th></tr></thead>
       <tbody>
-        <tr><td data-label="Command">nmap -sV</td><td data-label="Description">Detect service versions</td></tr>
-        <tr><td data-label="Command">nmap -O</td><td data-label="Description">Detect operating system</td></tr>
-        <tr><td data-label="Command">nmap -A</td><td data-label="Description">Aggressive scan (OS + services)</td></tr>
-        <tr><td data-label="Command">nmap --osscan-guess</td><td data-label="Description">Guess OS if uncertain</td></tr>
+        <tr><td>nmap -sV [target]</td><td>Detect service versions</td></tr>
+        <tr><td>nmap -p 80,443 [target]</td><td>Scan specific ports</td></tr>
+        <tr><td>nmap -A [target]</td><td>Aggressive scan: OS, version, script, traceroute</td></tr>
+        <tr><td>nmap -O [target]</td><td>Detect operating system</td></tr>
       </tbody>
     </table>
+  </div>
 
+  <div class="section">
+    <h2>📁 Output & Reporting</h2>
     <table>
-      <thead><tr><th>Scripting</th><th>Description</th></tr></thead>
+      <thead><tr><th>Command</th><th>Purpose</th></tr></thead>
       <tbody>
-        <tr><td data-label="Command">nmap --script vuln</td><td data-label="Description">Run vulnerability scripts</td></tr>
-        <tr><td data-label="Command">nmap --script default</td><td data-label="Description">Run default scripts</td></tr>
-        <tr><td data-label="Command">nmap --script http-enum</td><td data-label="Description">Enumerate web services</td></tr>
-        <tr><td data-label="Command">nmap --script smb-os-discovery</td><td data-label="Description">Discover SMB OS info</td></tr>
-      </tbody>
-    </table>
-
-    <table>
-      <thead><tr><th>Output & Logging</th><th>Description</th></tr></thead>
-      <tbody>
-        <tr><td data-label="Command">nmap -oN scan.txt</td><td data-label="Description">Normal output to file</td></tr>
-        <tr><td data-label="Command">nmap -oX scan.xml</td><td data-label="Description">XML output</td></tr>
-        <tr><td data-label="Command">nmap -oG scan.gnmap</td><td data-label="Description">Grepable output</td></tr>
-        <tr><td data-label="Command">nmap -vv</td><td data-label="Description">Extra verbose output</td></tr>
+        <tr><td>nmap -oN output.txt [target]</td><td>Save results in normal format</td></tr>
+        <tr><td>nmap -oX output.xml [target]</td><td>Save results in XML format</td></tr>
+        <tr><td>nmap -oG output.gnmap [target]</td><td>Save results in grepable format</td></tr>
+        <tr><td>nmap -oA allformats [target]</td><td>Save results in all formats</td></tr>
       </tbody>
     </table>
   </div>
