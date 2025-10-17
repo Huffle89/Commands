@@ -19,47 +19,33 @@
 <body>
   <h1>📱 iOS MDM Overlay</h1>
 
-  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A; border-collapse: collapse;">
-    <tr>
-      <th>Action</th>
-      <th>Command / Setting</th>
-    </tr>
-    <tr>
-      <td>Enroll Device</td>
-      <td>Install MDM profile via Apple Configurator or Automated Device Enrollment (DEP)</td>
-    </tr>
-    <tr>
-      <td>Supervise Device</td>
-      <td>Use Apple Configurator to enable supervision mode</td>
-    </tr>
-    <tr>
-      <td>Push App</td>
-      <td>Deploy apps via MDM console (e.g., Jamf, Kandji)</td>
-    </tr>
-    <tr>
-      <td>Apply Restrictions</td>
-      <td>Use configuration profiles to disable features (e.g., camera, App Store)</td>
-    </tr>
-    <tr>
-      <td>Remove MDM</td>
-      <td>Erase device or remove profile (if allowed by admin settings)</td>
-    </tr>
-    <tr>
-      <td>Lost Mode</td>
-      <td>Remotely lock and track device via MDM</td>
-    </tr>
-    <tr>
-      <td>Wipe Device</td>
-      <td>Send remote wipe command from MDM console</td>
-    </tr>
-    <tr>
-      <td>Install Certificate</td>
-      <td>Push trusted root certificate via profile</td>
-    </tr>
-    <tr>
-      <td>Custom Payloads</td>
-      <td>Use plist or JSON to define advanced settings</td>
-    </tr>
+  <h2>📦 Enrollment & Supervision</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Action</th><th>Description</th></tr>
+    <tr><td>Enroll Device</td><td>Install MDM profile via Apple Configurator or Automated Device Enrollment (DEP)</td></tr>
+    <tr><td>Supervise Device</td><td>Enable supervision mode using Apple Configurator</td></tr>
+  </table>
+
+  <h2>📱 App & Profile Management</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Action</th><th>Description</th></tr>
+    <tr><td>Push App</td><td>Deploy apps via MDM console (Jamf, Kandji, etc.)</td></tr>
+    <tr><td>Install Certificate</td><td>Push trusted root certificate via configuration profile</td></tr>
+    <tr><td>Custom Payloads</td><td>Use plist or JSON to define advanced settings</td></tr>
+  </table>
+
+  <h2>🔒 Restrictions & Controls</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Action</th><th>Description</th></tr>
+    <tr><td>Apply Restrictions</td><td>Disable features like camera, App Store, or screen capture via profile</td></tr>
+    <tr><td>Lost Mode</td><td>Remotely lock and track device location</td></tr>
+  </table>
+
+  <h2>🧹 Removal & Wipe</h2>
+  <table border="1" cellpadding="10" cellspacing="0" style="margin: 0 auto; background-color: #1A1A1A;">
+    <tr><th>Action</th><th>Description</th></tr>
+    <tr><td>Remove MDM</td><td>Erase device or remove profile (if allowed by admin settings)</td></tr>
+    <tr><td>Wipe Device</td><td>Send remote wipe command from MDM console</td></tr>
   </table>
 
 </body>
