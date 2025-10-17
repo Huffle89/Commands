@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Huffles IT Services — Overlay Command Reference</title>
+  <title>Huffles IT Services — Overlay Library</title>
   <style>
     body {
       background-color: #0A0A0A;
@@ -18,55 +18,31 @@
       margin-bottom: 40px;
     }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: auto;
+    .link-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
       max-width: 1000px;
+      margin: 0 auto;
     }
 
-    th, td {
-      border: 1px solid #0F52BA;
-      padding: 12px;
-      text-align: left;
+    .link-grid a {
+      flex: 1 1 250px;
       background-color: #111111;
+      border: 1px solid #0F52BA;
+      border-radius: 8px;
+      padding: 20px;
+      text-decoration: none;
+      color: #0F52BA;
+      font-size: 1.2em;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
     }
 
-    th {
+    .link-grid a:hover {
       background-color: #0F52BA;
       color: #FFFFFF;
-    }
-
-    @media screen and (max-width: 600px) {
-      table, thead, tbody, th, td, tr {
-        display: block;
-        width: 100%;
-      }
-
-      tr {
-        margin-bottom: 20px;
-      }
-
-      td {
-        text-align: right;
-        padding-left: 50%;
-        position: relative;
-      }
-
-      td::before {
-        content: attr(data-label);
-        position: absolute;
-        left: 10px;
-        width: 45%;
-        padding-left: 10px;
-        font-weight: bold;
-        text-align: left;
-        color: #0F52BA;
-      }
-
-      thead {
-        display: none;
-      }
     }
 
     footer {
@@ -74,32 +50,25 @@
       font-size: 0.9em;
       color: #FFFFFF;
     }
+
+    @media screen and (max-width: 600px) {
+      .link-grid a {
+        flex: 1 1 100%;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>Huffles IT Services — Overlay Command Reference</h1>
+  <h1>Huffles IT Services — Overlay Library</h1>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Windows</th>
-        <th>Linux</th>
-        <th>PowerShell</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td data-label="Windows">ipconfig — Displays IP configuration</td>
-        <td data-label="Linux">ls — Lists directory contents</td>
-        <td data-label="PowerShell">Get-Process — Lists running processes</td>
-      </tr>
-      <tr>
-        <td data-label="Windows">ping — Tests network connectivity</td>
-        <td data-label="Linux">grep — Searches text using patterns</td>
-        <td data-label="PowerShell">Set-ExecutionPolicy — Changes script execution rules</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="link-grid">
+    <a href="Windows-Overlay.html">🪟 Windows Overlay</a>
+    <a href="Linux-Overlay.html">🐧 Linux Overlay</a>
+    <a href="MacOS-Overlay.html">🍎 macOS Overlay</a>
+    <a href="PowerShell-Overlay.html">⚡ PowerShell Overlay</a>
+    <a href="Terminal-Overlay.html">🖥️ Terminal Overlay</a>
+    <a href="Command-Prompt-Overlay.html">💻 Command Prompt Overlay</a>
+  </div>
 
   <footer>
     <p>&copy; 2023 Huffles IT Services LLC — All rights reserved.</p>
